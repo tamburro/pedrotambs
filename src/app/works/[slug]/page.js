@@ -51,9 +51,9 @@ const SingleProjectPage = ({ params }) => {
 
                 {/* Conteúdo sobre o parallax */}
                 <div className="project-parallax-content container">
-                    <div className="row justify-content-center">
-                        <div className="col-lg-10">
-                            <div className="parallax-title-box mb-4 text-center">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="parallax-title-box mb-4">
                                 <p className="project-sub-title">{project.category} - {project.client || 'Cliente Indefinido'}</p>
                                 <h1 className="project-main-title">{project.title}</h1>
                             </div>
