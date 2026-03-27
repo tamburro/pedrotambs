@@ -17,7 +17,7 @@ const ProfileSection = () => {
                             <div className="about-image-part about-image-part--stretch">
                                 <img src={"/images/about/profile3.png"} alt="About Me" />
                                 <h2>Pedro Tamburro</h2>
-                                <p>UX/UI Designer & Visual Designer based in Rio de Janeiro</p>
+                                <p>Product Designer · Design Engineer · based in Rio de Janeiro</p>
                                 <div className="about-social">
                                     <ul>
                                         <li><Link href="https://www.behance.net/pedrotamburro" target="_blank" rel="noopener noreferrer"><RiBehanceFill size={20} /></Link></li>
@@ -33,7 +33,7 @@ const ProfileSection = () => {
                         <SlideUp>
                             <div className="about-content-part">
                                 <h2>
-                                    UX/UI Designer<br/>& Visual Designer
+                                    UX/UI Designer<br />& Visual Designer
                                 </h2>
                                 <p style={{ fontSize: '15px', lineHeight: 1.7, color: 'rgba(240,240,250,0.65)', marginBottom: '20px' }}>
                                     {t.profile.bio}
@@ -46,9 +46,9 @@ const ProfileSection = () => {
                                     </ul>
                                 </div>
                                 <div className="hero-btns">
-                                    <Link href="/contact" className="theme-btn">
+                                    <a href="/files/Pedro_Tamburro_Portfolio.pdf" download="Pedro_Tamburro_CV.pdf" className="theme-btn">
                                         {t.profile.downloadCV} <i><RiDownloadLine size={16} /></i>
-                                    </Link>
+                                    </a>
                                 </div>
                             </div>
                         </SlideUp>
