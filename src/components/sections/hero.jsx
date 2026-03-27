@@ -74,7 +74,7 @@ const Hero = () => {
                             color: 'rgba(240, 240, 250, 0.55)',
                             marginBottom: '16px',
                         }}>
-                            UX/UI Designer · Visual Designer · Rio de Janeiro
+                            UX/UI Designer · Visual Designer · Developer
                         </p>
 
                         <h1 style={{
@@ -97,8 +97,7 @@ const Hero = () => {
                             marginBottom: '36px',
                             maxWidth: '480px',
                         }}>
-                            Transformando ideias complexas em experiências digitais
-                            intuitivas — do UX Research ao produto final.
+                            Transforming complex ideas into intuitive digital experiences. From UX research to the final product.
                         </p>
 
                         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', pointerEvents: 'auto' }}>
@@ -116,14 +115,14 @@ const Hero = () => {
                                 textDecoration: 'none',
                                 transition: 'all .3s',
                             }}
-                            onMouseEnter={e => {
-                                e.currentTarget.style.background = '#8200DB';
-                                e.currentTarget.style.borderColor = '#8200DB';
-                            }}
-                            onMouseLeave={e => {
-                                e.currentTarget.style.background = 'rgba(130, 0, 219, 0.18)';
-                                e.currentTarget.style.borderColor = '#322D36';
-                            }}>
+                                onMouseEnter={e => {
+                                    e.currentTarget.style.background = '#8200DB';
+                                    e.currentTarget.style.borderColor = '#8200DB';
+                                }}
+                                onMouseLeave={e => {
+                                    e.currentTarget.style.background = 'rgba(130, 0, 219, 0.18)';
+                                    e.currentTarget.style.borderColor = '#322D36';
+                                }}>
                                 Ver Projetos
                             </Link>
 
@@ -141,14 +140,14 @@ const Hero = () => {
                                 textDecoration: 'none',
                                 transition: 'all .3s',
                             }}
-                            onMouseEnter={e => {
-                                e.currentTarget.style.borderColor = 'rgba(240, 240, 250, 0.4)';
-                                e.currentTarget.style.color = '#F0F0FA';
-                            }}
-                            onMouseLeave={e => {
-                                e.currentTarget.style.borderColor = 'rgba(240, 240, 250, 0.15)';
-                                e.currentTarget.style.color = 'rgba(240, 240, 250, 0.75)';
-                            }}>
+                                onMouseEnter={e => {
+                                    e.currentTarget.style.borderColor = 'rgba(240, 240, 250, 0.4)';
+                                    e.currentTarget.style.color = '#F0F0FA';
+                                }}
+                                onMouseLeave={e => {
+                                    e.currentTarget.style.borderColor = 'rgba(240, 240, 250, 0.15)';
+                                    e.currentTarget.style.color = 'rgba(240, 240, 250, 0.75)';
+                                }}>
                                 Hire Me
                             </Link>
                         </div>

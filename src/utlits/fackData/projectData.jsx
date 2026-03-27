@@ -4,7 +4,7 @@ export const projectsData = [
     {
         id: 1,
         slug: "sustenta-plus-app-ux-design",
-        src: "/images/projects/sustentamais_full.jpg", // Imagem do card
+        src: "/images/projects/sustentamais_full2.jpg", // Imagem do card
         category: "UX/UI Design",
         title: "Sustenta+",
         description: "Este projeto envolveu o design de um aplicativo móvel com base em inteligência artificial para o gerenciamento de compras de alimentos. O objetivo principal é ajudar o usuário a registrar itens comprados, gerar listas de compras e controlar o desperdício de alimentos. Através da análise de dados do usuário, o app prevê a quantidade necessária de alimentos, sugere o que comprar (considerando safra, valor, dieta e restrições alimentares) e pode até se conectar a outros aparelhos IoT. A iniciativa visa não só evitar o desperdício de comida e facilitar o planejamento de compras, mas também promover uma dieta mais saudável e alinhada ao estilo de vida do usuário.",
@@ -91,7 +91,7 @@ export const projectsData = [
         tools: ["Figma", "Whimsical", "User Feedback"],
         prototypeLink: "https://www.figma.com/proto/IEQMzJVFMRJ5gMPQ7lAsX2/Prot%C3%B3tipo?node-id=62-1369&starting-point-node-id=62%3A1369&t=N0QqFqUBLfg7T0Y9-1",
     },
-    
+
     {
         id: 4,
         slug: "mobile-application-design-2",
