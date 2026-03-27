@@ -2,7 +2,7 @@
 import React from 'react'
 import { motion } from "framer-motion"
 
-const SlideUp = ({ children, delay = 1 }) => {
+const SlideUp = ({ children, delay = 1, style, className }) => {
     const slideLeftVariants = {
         offscreen: {
             y: 40,
@@ -25,6 +25,8 @@ const SlideUp = ({ children, delay = 1 }) => {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0 }}
+            style={style}
+            className={className}
         >
             {children}
         </motion.div>

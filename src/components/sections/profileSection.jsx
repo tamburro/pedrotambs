@@ -11,7 +11,7 @@ const ProfileSection = () => {
             <div className="container">
                 <div className="row about-row-stretch">
                     <div className="col-lg-4 d-flex flex-column">
-                        <SlideUp>
+                        <SlideUp style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                             <div className="about-image-part about-image-part--stretch">
                                 <img src={"/images/about/profile3.png"} alt="About Me" />
                                 <h2>Pedro Tamburro</h2>
