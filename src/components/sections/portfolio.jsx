@@ -6,6 +6,7 @@ import { RiArrowRightUpLine } from '@remixicon/react'
 import SlideUp from '@/utlits/animations/slideUp';
 import { projectsData } from '@/utlits/fackData/projectData';
 import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
 
 const animations = ['slideIn', 'fadeIn', 'scaleUp'];
 
@@ -17,6 +18,7 @@ const getRandomAnimation = () => {
 const Portfolio = ({ className }) => {
     const [category, setCategory] = useState('All');
     const [animationClass, setAnimationClass] = useState('');
+    const { t } = useLanguage();
 
     const handleCategoryClick = (item) => {
         setCategory(item)
@@ -44,9 +46,8 @@ const Portfolio = ({ className }) => {
                         <div className="col-xl-12 col-lg-12">
                             <SlideUp>
                                 <div className="section-title text-center">
-                                    <h2>Works & Projects</h2>
-                                    <p>Check out some of my design projects, meticulously crafted with love and dedication,
-                                        each one reflecting the passion and soul I poured into every detail.</p>
+                                    <h2>{t.portfolio.title}</h2>
+                                    <p>{t.portfolio.sub}</p>
                                 </div>
                             </SlideUp>
                         </div>

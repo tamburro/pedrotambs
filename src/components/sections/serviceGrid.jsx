@@ -1,8 +1,11 @@
+'use client'
 import React from 'react'
 import { RiGlobalFill, RiPantoneFill, RiQuillPenLine } from '@remixicon/react'
 import SlideUp from '@/utlits/animations/slideUp'
+import { useLanguage } from '@/context/LanguageContext'
 
 const ServiceGrid = () => {
+    const { t } = useLanguage();
     return (
         <section id="services" className="services-area innerpage-single-area">
             <div className="container">
@@ -11,16 +14,16 @@ const ServiceGrid = () => {
                         <div className="col-xl-12 col-lg-12">
                             <SlideUp>
                                 <div className="section-title text-center">
-                                    <p>Services</p>
-                                    <h2>Quality Services</h2>
+                                    <p>{t.services.label}</p>
+                                    <h2>{t.services.title}</h2>
                                 </div>
                             </SlideUp>
                         </div>
                     </div>
                     <div className="row">
-                        <Card id={1} icon={<RiGlobalFill size={60} />} title={"Brand Identity Design"} description={"Bentos gives you the blocks & kits you need to create a true website within minutes."} />
-                        <Card id={2} icon={<RiQuillPenLine size={60} />} title={"Website Design"} description={"Bentos gives you the blocks & kits you need to create a true website within minutes."} />
-                        <Card id={3} icon={<RiPantoneFill size={60} />} title={"Application Design"} description={"Bentos gives you the blocks & kits you need to create a true website within minutes."} />
+                        <Card id={1} icon={<RiGlobalFill size={60} />} title={"Brand Identity Design"} description={"Visual identity systems that communicate your brand's essence across every touchpoint."} />
+                        <Card id={2} icon={<RiQuillPenLine size={60} />} title={"UX/UI Design"} description={"User-centred interfaces crafted from research and validated through testing."} />
+                        <Card id={3} icon={<RiPantoneFill size={60} />} title={"Design Engineering"} description={"Bridging design and development — from Figma to fully functional applications."} />
                     </div>
                 </div>
             </div>

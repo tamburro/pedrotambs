@@ -461,6 +461,80 @@ html {
     transition: .3s
 }
 
+/* ── Language Toggle ─────────────────────────────────────── */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-right: 14px;
+}
+
+.lang-toggle button {
+    background: none;
+    border: none;
+    padding: 5px 7px;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgba(240, 240, 250, 0.4);
+    transition: color 0.2s;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.lang-toggle button.active {
+    color: var(--aurora);
+}
+
+.lang-toggle button:hover {
+    color: var(--moonlight);
+}
+
+.lang-toggle span {
+    color: rgba(240, 240, 250, 0.2);
+    font-size: 11px;
+    font-family: 'Space Mono', monospace;
+}
+
+/* Mobile toggle (inside hamburger menu) */
+.lang-toggle-mobile {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 0 4px;
+    border-top: 1px solid var(--stardust);
+    margin-top: 6px;
+}
+
+.lang-toggle-mobile button {
+    background: none;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: rgba(240, 240, 250, 0.4);
+    transition: color 0.2s;
+    text-transform: uppercase;
+}
+
+.lang-toggle-mobile button.active {
+    color: var(--aurora);
+}
+
+.lang-toggle-mobile button:hover {
+    color: var(--moonlight);
+}
+
+.lang-toggle-mobile span {
+    color: rgba(240, 240, 250, 0.2);
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+}
+/* ── End Language Toggle ─────────────────────────────────── */
+
 .menu-btns a.theme-btn {
     background: transparent;
     border-color: var(--button-border);

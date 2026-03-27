@@ -2,11 +2,13 @@
 
 import React, { useEffect, useRef, Suspense, lazy } from 'react';
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Spline = lazy(() => import('@splinetool/react-spline'));
 
 const Hero = () => {
     const heroContentRef = useRef(null);
+    const { t } = useLanguage();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -74,7 +76,7 @@ const Hero = () => {
                             color: 'rgba(240, 240, 250, 0.55)',
                             marginBottom: '16px',
                         }}>
-                            UX/UI Designer · Visual Designer · Developer
+                            {t.hero.tagline}
                         </p>
 
                         <h1 style={{
@@ -86,7 +88,7 @@ const Hero = () => {
                             color: '#F0F0FA',
                             marginBottom: '24px',
                         }}>
-                            Design that speaks<br />before words do.
+                            {t.hero.headline[0]}<br />{t.hero.headline[1]}
                         </h1>
 
                         <p style={{
@@ -97,7 +99,7 @@ const Hero = () => {
                             marginBottom: '36px',
                             maxWidth: '480px',
                         }}>
-                            Transforming complex ideas into intuitive digital experiences. From UX research to the final product.
+                            {t.hero.sub}
                         </p>
 
                         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', pointerEvents: 'auto' }}>
@@ -123,7 +125,7 @@ const Hero = () => {
                                     e.currentTarget.style.background = 'rgba(130, 0, 219, 0.18)';
                                     e.currentTarget.style.borderColor = '#322D36';
                                 }}>
-                                Ver Projetos
+                                {t.hero.cta1}
                             </Link>
 
                             <Link href="/contact" style={{
@@ -148,7 +150,7 @@ const Hero = () => {
                                     e.currentTarget.style.borderColor = 'rgba(240, 240, 250, 0.15)';
                                     e.currentTarget.style.color = 'rgba(240, 240, 250, 0.75)';
                                 }}>
-                                Hire Me
+                                {t.hero.cta2}
                             </Link>
                         </div>
                     </div>

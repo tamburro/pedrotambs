@@ -4,8 +4,10 @@ import Link from 'next/link';
 import { RiBehanceFill, RiLinkedinFill, RiGithubLine, RiCircleFill, RiDownloadLine } from '@remixicon/react'
 import PartnersMarquee from './partnersMarquee';
 import SlideUp from '@/utlits/animations/slideUp';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ProfileSection = () => {
+    const { t } = useLanguage();
     return (
         <section id="about" className="about-area">
             <div className="container">
@@ -34,18 +36,18 @@ const ProfileSection = () => {
                                     UX/UI Designer<br/>& Visual Designer
                                 </h2>
                                 <p style={{ fontSize: '15px', lineHeight: 1.7, color: 'rgba(240,240,250,0.65)', marginBottom: '20px' }}>
-                                    Visual Designer at Editora Globo. Passionate about design, technology and innovation — turning complex ideas into intuitive digital experiences.
+                                    {t.profile.bio}
                                 </p>
                                 <div className="adress-field">
                                     <ul>
                                         <li className='d-flex align-items-center'>
-                                            <i><RiCircleFill size={14} /></i> Available for Freelancing
+                                            <i><RiCircleFill size={14} /></i> {t.profile.available}
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="hero-btns">
                                     <Link href="/contact" className="theme-btn">
-                                        Download CV <i><RiDownloadLine size={16} /></i>
+                                        {t.profile.downloadCV} <i><RiDownloadLine size={16} /></i>
                                     </Link>
                                 </div>
                             </div>
