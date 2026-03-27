@@ -1,7 +1,8 @@
 'use client'
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 
-const translations = {
+// ─── Translations ──────────────────────────────────────────────────────────────
+export const translations = {
   en: {
     nav: { home: 'Home', about: 'About', services: 'Services', works: 'Works', contact: 'Contact' },
     hireMe: 'Hire Me',
@@ -13,27 +14,24 @@ const translations = {
       cta2: 'Hire Me',
     },
     profile: {
-      bio: 'UX/UI Designer & Design Engineer bridging the gap between great design and working product. I don\'t just design screens — I ship them.',
+      bio: "UX/UI Designer & Design Engineer bridging the gap between great design and working product. I don't just design screens — I ship them.",
       available: 'Open to Freelance & Full-time',
       downloadCV: 'Download CV',
     },
     partners: 'Companies I Worked With',
-    resume: {
-      experience: 'Experience',
-      education: 'Education',
-    },
+    resume: { experience: 'Experience', education: 'Education' },
     portfolio: {
       title: 'Works & Projects',
       sub: 'A selection of apps, interfaces and digital products — fully functional, built end-to-end with UX research, UI design and front-end development.',
     },
     cta: {
-      title: 'Got a product idea? Let\'s design and build it together.',
+      title: "Got a product idea? Let's design and build it together.",
       sub: "I work with companies and founders to turn ideas into real, functional products. From wireframe to deployed app — I handle the full journey.",
       btn: "Let's Talk",
     },
     contact: {
       label: 'contact',
-      title: 'Let\'s build something great.',
+      title: "Let's build something great.",
       locationLabel: 'Location:',
       locationValue: 'Rio de Janeiro, Brazil',
       locationNote: 'Available for remote work and freelance',
@@ -51,13 +49,10 @@ const translations = {
       title: "I'm Pedro Tamburro — UX/UI Designer & Design Engineer.",
       p1: "I design and build complete digital products. My work spans the full stack of product design: user research, information architecture, UI design, prototyping, usability testing — and then I take it further by implementing in code.",
       p2: "Currently a Visual Designer at Editora Globo. I hold a degree in Graphic Design from Senac RJ, an MBA in UX Design from Instituto Infnet, and I'm currently pursuing an MBA in AI-Driven Innovation & UX.",
-      p3: "I believe the best designer today is one who can also build. That\'s the standard I hold myself to.",
+      p3: "I believe the best designer today is one who can also build. That's the standard I hold myself to.",
       btn: 'Get In Touch',
     },
-    services: {
-      label: 'What I do',
-      title: 'Design. Build. Ship.',
-    },
+    services: { label: 'What I do', title: 'Design. Build. Ship.' },
     testimonials: { label: 'Testimonials', title: 'What clients say!' },
     footer: 'All Rights Reserved.',
   },
@@ -77,10 +72,7 @@ const translations = {
       downloadCV: 'Baixar CV',
     },
     partners: 'Empresas que Trabalhei',
-    resume: {
-      experience: 'Experiência',
-      education: 'Formação',
-    },
+    resume: { experience: 'Experiência', education: 'Formação' },
     portfolio: {
       title: 'Trabalhos & Projetos',
       sub: 'Uma seleção de apps, interfaces e produtos digitais — completamente funcionais, construídos do início ao fim com pesquisa UX, design de UI e desenvolvimento front-end.',
@@ -113,35 +105,47 @@ const translations = {
       p3: 'Acredito que o melhor designer hoje é aquele que também sabe construir. É esse o padrão que busco.',
       btn: 'Entre em Contato',
     },
-    services: {
-      label: 'O que eu faço',
-      title: 'Design. Código. Entrega.',
-    },
+    services: { label: 'O que eu faço', title: 'Design. Código. Entrega.' },
     testimonials: { label: 'Depoimentos', title: 'O que os clientes dizem!' },
     footer: 'Todos os Direitos Reservados.',
   },
 }
 
-const LanguageContext = createContext()
+// ─── Context ───────────────────────────────────────────────────────────────────
+const LanguageContext = createContext({
+  lang: 'en',
+  toggle: () => {},
+  t: translations['en'],
+})
 
+// ─── Provider ─────────────────────────────────────────────────────────────────
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState('en')
+  // Start with null to avoid hydration mismatch — resolved after mount
+  const [lang, setLang] = useState(null)
 
   useEffect(() => {
     const saved = localStorage.getItem('portfolio-lang')
-    if (saved === 'en' || saved === 'pt') setLang(saved)
+    setLang(saved === 'pt' ? 'pt' : 'en')
   }, [])
 
-  const toggle = (newLang) => {
+  const toggle = useCallback((newLang) => {
     setLang(newLang)
     localStorage.setItem('portfolio-lang', newLang)
-  }
+  }, [])
+
+  // Use 'en' while not yet mounted (avoids SSR/hydration mismatch)
+  const activeLang = lang ?? 'en'
 
   return (
-    <LanguageContext.Provider value={{ lang, toggle, t: translations[lang] }}>
+    <LanguageContext.Provider value={{ lang: activeLang, toggle, t: translations[activeLang] }}>
       {children}
     </LanguageContext.Provider>
   )
 }
 
-export const useLanguage = () => useContext(LanguageContext)
+// ─── Hook ─────────────────────────────────────────────────────────────────────
+export function useLanguage() {
+  const ctx = useContext(LanguageContext)
+  if (!ctx) throw new Error('useLanguage must be used within a LanguageProvider')
+  return ctx
+}
