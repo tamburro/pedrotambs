@@ -976,7 +976,7 @@ html {
 }
 
 .innerpage-single-area {
-    padding-top: 115px !important;
+    padding-top: 160px !important;
 }
 
 /*
@@ -1599,7 +1599,7 @@ html {
 */
 .services-area {
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 60px;
 
 }
 
@@ -1795,7 +1795,7 @@ ul.extra-skills li i {
 */
 .projects-area {
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 60px;
 }
 
 .single-project-page-right,
@@ -2448,7 +2448,7 @@ ul.extra-skills li i {
 
 .contact-area {
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 60px;
 }
 
 .contact-form-area .form-group {
