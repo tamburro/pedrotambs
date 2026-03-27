@@ -34,26 +34,31 @@ Version      : 1.0
 * ----------------------------------------------------------------------------------------
 */
 :root {
-    /* New palette */
+    /* Palette */
     --void:         #050505;
     --abyss:        #0C0809;
     --dark-blood:   #1A0A0B;
     --dried-blood:  #3B0F12;
     --crimson:      #7A1A1F;
     --ash:          #1C1A18;
-    --sand:         #C8B89A;
+    --parchment:    #C8B89A;
 
     /* Semantic tokens */
-    --main-color:       #C8B89A;
-    --heading-color:    #C8B89A;
-    --primary-color:    #7A1A1F;
-    --lighter-color:    rgba(200, 184, 154, .6);
-    --subtitle-color:   rgba(200, 184, 154, .6);
-    --black-color:      #050505;
-    --border-color:     rgba(200, 184, 154, .12);
-    --button-border:    rgba(200, 184, 154, .2);
-    --body-background:  #050505;
-    --grey-bg:          #1C1A18;
+    --main-color:       var(--parchment);
+    --heading-color:    var(--parchment);
+    --primary-color:    var(--parchment);   /* default accent = parchment */
+    --lighter-color:    rgba(200, 184, 154, .55);
+    --subtitle-color:   rgba(200, 184, 154, .55);
+    --black-color:      var(--void);
+    --border-color:     rgba(200, 184, 154, .1);
+    --button-border:    rgba(200, 184, 154, .18);
+    --body-background:  var(--void);
+    --grey-bg:          var(--ash);
+
+    /* Fonts */
+    --font-body:    "Poppins", sans-serif;
+    --font-mono:    "Space Mono", monospace;
+    --font-serif:   "Playfair Display", serif;
 }
 
 * {
@@ -425,29 +430,33 @@ html {
 }
 
 .theme-btn {
-    background: var(--primary-color);
-    color: var(--sand);
+    background: var(--dried-blood);
+    color: var(--parchment);
     cursor: pointer;
     display: inline-block;
-    border: 1px solid var(--button-border);
-    font-size: 14px;
-    font-weight: 500;
+    border: 1px solid var(--crimson);
+    font-size: 13px;
+    font-weight: 400;
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
     line-height: 20px;
     overflow: visible;
     border-radius: 15px;
     padding: 12px 24px;
     text-align: center;
-    text-transform: none;
+    text-transform: uppercase;
     -webkit-transition: .3s;
     transition: .3s
 }
 
 .menu-btns a.theme-btn {
     background: transparent;
+    border-color: var(--button-border);
 }
 
 .menu-btns a.theme-btn:hover {
-    background: var(--primary-color);
+    background: var(--crimson);
+    border-color: var(--crimson);
 }
 
 .theme-btn:focus {
@@ -461,12 +470,12 @@ html {
 }
 
 .theme-btn:hover {
-    border: 1px solid var(--button-border);
+    background: var(--crimson);
+    border: 1px solid var(--crimson);
     text-decoration: none;
-    color: var(--sand);
+    color: var(--parchment);
     -webkit-transition: .3s;
     transition: .3s;
-    background: transparent;
 }
 
 .theme-btn:active {
@@ -686,7 +695,7 @@ html {
 .arrow {
     width: 40px;
     height: 40px;
-    color: var(--sand);
+    color: var(--parchment);
     -webkit-transition: 0.5s;
     transition: 0.5s;
     line-height: 40px;
@@ -697,7 +706,7 @@ html {
 
 .arrow:focus,
 .arrow:hover {
-    color: var(--sand);
+    color: var(--parchment);
     background: transparent;
     border-color: var(--primary-color);
 }
@@ -962,7 +971,7 @@ html {
 
 
 .fixed-header .main-menu .navbar-collapse li a:hover {
-    color: var(--primary-color);
+    color: var(--crimson);
 }
 
 
@@ -1027,11 +1036,13 @@ html {
     opacity: 1;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     display: block;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
     position: relative;
-    text-transform: capitalize;
-    color: rgb(206 206 206);
+    text-transform: uppercase;
+    color: var(--lighter-color);
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
 }
@@ -1039,7 +1050,7 @@ html {
 
 
 .main-menu .navbar-collapse li a:hover {
-    color: var(--primary-color);
+    color: var(--crimson);
     text-decoration: none;
 }
 
@@ -1353,7 +1364,7 @@ html {
 
 .about-btn {
     display: inline-flex;
-    color: var(--sand);
+    color: var(--parchment);
     border: 1px solid rgb(237, 237, 238);
     padding: 15px 20px 10px 20px;
     border-radius: 30px;
@@ -1675,6 +1686,23 @@ ul.extra-skills li i {
     padding-top: 0;
 }
 
+.project-main-title {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-style: italic;
+    color: var(--parchment);
+    font-size: clamp(2.4rem, 6vw, 5rem);
+}
+
+.project-sub-title {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--subtitle-color);
+    margin-bottom: 12px;
+}
+
 /* Parallax Hero */
 .project-parallax-hero {
     position: relative;
@@ -1741,7 +1769,7 @@ ul.extra-skills li i {
 
 .parallax-info-box h3 {
     font-size: 16px;
-    color: var(--sand);
+    color: var(--parchment);
     font-weight: 600;
     margin: 0;
 }
@@ -1792,7 +1820,7 @@ ul.extra-skills li i {
 
 .project-content h2 {
     margin-bottom: 30px;
-    color: var(--sand);
+    color: var(--parchment);
 }
 
 
@@ -1840,7 +1868,7 @@ ul.extra-skills li i {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     font-size: 20px;
-    color: var(--sand);
+    color: var(--parchment);
     width: 65px;
     height: 65px;
     background: var(--primary-color);
@@ -2633,7 +2661,7 @@ body.loaded {
 }
 
 .progress-wrap svg.progress-circle path {
-    stroke: var(--sand);
+    stroke: var(--parchment);
     stroke-width: 4;
     box-sizing: border-box;
     -webkit-transition: all 400ms linear;
@@ -2709,14 +2737,14 @@ body.loaded {
 
 .single-blog-post a.read-more {
     background: var(--crimson);
-    color: var(--sand);
+    color: var(--parchment);
     padding: 6px 20px;
     border: 1px solid var(--dried-blood);
 }
 
 .single-blog-post a.read-more:hover {
     background: transparent;
-    color: var(--sand);
+    color: var(--parchment);
     border: 1px solid var(--crimson);
 }
 
@@ -2733,7 +2761,7 @@ body.loaded {
 
 .post-date span i {
     margin-right: 5px;
-    color: var(--sand);
+    color: var(--parchment);
 }
 
 .single-blog-post p {
@@ -2776,7 +2804,7 @@ ul.blog_pagination li a {
 
 .black-icon {
     background: #333 none repeat scroll 0 0 !important;
-    color: var(--sand) !important;
+    color: var(--parchment) !important;
 }
 
 .black-icon:hover {
@@ -2788,7 +2816,7 @@ ul.blog_pagination li a {
 }
 
 ul.blog_pagination li a:hover {
-    color: var(--sand);
+    color: var(--parchment);
     background: #333;
     border: 1px solid #333;
 }
@@ -2826,7 +2854,7 @@ ul.blog_pagination li a:hover {
 .single-side-bar button {
     background: #333 none repeat scroll 0 0;
     border: 1px solid #333;
-    color: var(--sand);
+    color: var(--parchment);
     height: 42px;
     padding: 0 32px;
     -webkit-transition: .3s;
@@ -2835,7 +2863,7 @@ ul.blog_pagination li a:hover {
 
 .single-side-bar button:hover {
     background: transparent;
-    color: var(--sand);
+    color: var(--parchment);
     border: 1px solid #333;
     -webkit-transition: .3s;
     transition: .3s;
@@ -2848,7 +2876,7 @@ ul.blog_pagination li a:hover {
 }
 
 .single-side-bar ul li a {
-    color: var(--sand);
+    color: var(--parchment);
     display: block;
     font-size: 16px;
     padding: 5px 0;
@@ -2860,7 +2888,7 @@ ul.blog_pagination li a:hover {
 }
 
 .single-side-bar ul li a:hover {
-    color: var(--sand);
+    color: var(--parchment);
     opacity: 1;
 }
 
@@ -2918,7 +2946,7 @@ ul.blog_pagination li a:hover {
 }
 
 .tag a {
-    color: var(--sand);
+    color: var(--parchment);
     float: left;
     font-size: 14px;
     font-weight: 300;
@@ -2988,7 +3016,7 @@ ul.blog_pagination li a:hover {
 .single-comment p {}
 
 .single-comment a {
-    color: var(--sand);
+    color: var(--parchment);
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
 }
@@ -3000,7 +3028,7 @@ ul.blog_pagination li a:hover {
 .single-comment a i {
     font-size: 10px;
     background: #767676 none repeat scroll 0 0;
-    color: var(--sand);
+    color: var(--parchment);
     padding: 5px;
     margin-right: 5px;
     border-radius: 30px;
@@ -3011,7 +3039,7 @@ ul.blog_pagination li a:hover {
 .single-comment a:hover i {
     background: #333 none repeat scroll 0 0;
     border-radius: 30px;
-    color: var(--sand);
+    color: var(--parchment);
     font-size: 10px;
     padding: 5px;
 }
@@ -3024,7 +3052,7 @@ ul.blog_pagination li a:hover {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     border: 1px solid #e3e8f0;
     box-shadow: none;
-    color: var(--sand);
+    color: var(--parchment);
     height: 50px;
     border-radius: 0;
     padding-left: 10px;
@@ -3058,7 +3086,7 @@ ul.blog_pagination li a:hover {
 .comment-form-area button {
     background: var(--void) none repeat scroll 0 0;
     border: 1px solid #333;
-    color: var(--sand);
+    color: var(--parchment);
     font-size: 16px;
     padding: 7px 10px;
     display: inline-block;
