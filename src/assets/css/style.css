@@ -1306,7 +1306,7 @@ html {
 }
 
 .about-image-part {
-    text-align: center;
+    text-align: left;
     padding: 40px;
     border: 1px solid var(--stardust);
     border-radius: 20px;
@@ -1344,6 +1344,8 @@ html {
 
 .about-image-part img {
     width: 300px;
+    display: block;
+    margin: 0 auto 20px;
 }
 
 .about-image-part h2 {

@@ -16,7 +16,7 @@ const ProfileSection = () => {
                                 <img src={"/images/about/profile3.png"} alt="About Me" />
                                 <h2>Pedro Tamburro</h2>
                                 <p>UX/UI Designer & Visual Designer based in Rio de Janeiro</p>
-                                <div className="about-social text-center">
+                                <div className="about-social">
                                     <ul>
                                         <li><Link href=""><RiFacebookCircleFill size={20} /></Link></li>
                                         <li><Link href=""><RiLinkedinFill size={20} /></Link></li>
