@@ -7,6 +7,15 @@ Version      : 1.0
 */
 
 
+/* Desktop: flex for menu-btns */
+@media only screen and (min-width: 992px) {
+    .menu-btns {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+}
+
 /* Medium Layout: 1280px. */
 
 @media only screen and (min-width: 992px) and (max-width: 1280px) {

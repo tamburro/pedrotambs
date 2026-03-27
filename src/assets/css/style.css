@@ -534,12 +534,6 @@ html {
 }
 /* ── End Language Toggle ─────────────────────────────────── */
 
-.menu-btns {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
 .menu-btns a.theme-btn {
     background: transparent;
     border-color: var(--button-border);
