@@ -51,18 +51,12 @@ const SingleProjectPage = ({ params }) => {
 
                 {/* Conteúdo sobre o parallax */}
                 <div className="project-parallax-content container">
-                    <div className="row">
-                        <div className="col-lg-12 text-center mb-5">
-                            <div className="parallax-title-box">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-10">
+                            <div className="parallax-title-box mb-4 text-center">
                                 <p className="project-sub-title">{project.category} - {project.client || 'Cliente Indefinido'}</p>
                                 <h1 className="project-main-title">{project.title}</h1>
                             </div>
-                        </div>
-                    </div>
-
-                    {/* Info boxes sobrepostos */}
-                    <div className="row justify-content-center">
-                        <div className="col-lg-10">
                             <div className="project-parallax-info-row">
                                 {project.year && (
                                     <div className="parallax-info-box">

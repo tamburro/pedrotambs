@@ -1701,7 +1701,8 @@ ul.extra-skills li i {
 }
 
 .parallax-title-box {
-    display: inline-block;
+    display: block;
+    width: 100%;
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(8px);
