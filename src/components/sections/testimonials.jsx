@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-
+import { useLanguage } from '@/context/LanguageContext'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -14,6 +14,7 @@ import Image from 'next/image';
 
 
 const Testimonials = () => {
+    const { t } = useLanguage();
     return (
         <section className="testimonials-area">
             <div className="container">
@@ -22,8 +23,8 @@ const Testimonials = () => {
                         <div className="col-xl-12 col-lg-12">
                             <SlideUp>
                                 <div className="section-title text-center">
-                                    <p>Testinomials</p>
-                                    <h2>What clients say!</h2>
+                                    <p>{t.testimonials.label}</p>
+                                    <h2>{t.testimonials.title}</h2>
                                 </div>
                             </SlideUp>
                         </div>

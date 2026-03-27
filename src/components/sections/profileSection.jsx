@@ -17,7 +17,7 @@ const ProfileSection = () => {
                             <div className="about-image-part about-image-part--stretch">
                                 <img src={"/images/about/profile3.png"} alt="About Me" />
                                 <h2>Pedro Tamburro</h2>
-                                <p>Product Designer · Design Engineer · based in Rio de Janeiro</p>
+                                <p>{t.profile.subtitle}</p>
                                 <div className="about-social">
                                     <ul>
                                         <li><Link href="https://www.behance.net/pedrotamburro" target="_blank" rel="noopener noreferrer"><RiBehanceFill size={20} /></Link></li>
@@ -32,8 +32,8 @@ const ProfileSection = () => {
                     <div className="col-lg-8 d-flex flex-column">
                         <SlideUp>
                             <div className="about-content-part">
-                                <h2>
-                                    UX/UI Designer<br />& Visual Designer
+                                <h2 style={{ whiteSpace: 'pre-line' }}>
+                                    {t.profile.heading}
                                 </h2>
                                 <p style={{ fontSize: '15px', lineHeight: 1.7, color: 'rgba(240,240,250,0.65)', marginBottom: '20px' }}>
                                     {t.profile.bio}

@@ -21,9 +21,9 @@ const ServiceGrid = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <Card id={1} icon={<RiGlobalFill size={60} />} title={"Brand Identity Design"} description={"Visual identity systems that communicate your brand's essence across every touchpoint."} />
-                        <Card id={2} icon={<RiQuillPenLine size={60} />} title={"UX/UI Design"} description={"User-centred interfaces crafted from research and validated through testing."} />
-                        <Card id={3} icon={<RiPantoneFill size={60} />} title={"Design Engineering"} description={"Bridging design and development — from Figma to fully functional applications."} />
+                        <Card id={1} icon={<RiGlobalFill size={60} />} title={t.services.items[0].title} description={t.services.items[0].description} />
+                        <Card id={2} icon={<RiQuillPenLine size={60} />} title={t.services.items[1].title} description={t.services.items[1].description} />
+                        <Card id={3} icon={<RiPantoneFill size={60} />} title={t.services.items[2].title} description={t.services.items[2].description} />
                     </div>
                 </div>
             </div>

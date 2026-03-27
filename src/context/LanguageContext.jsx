@@ -7,19 +7,31 @@ export const translations = {
     nav: { home: 'Home', about: 'About', services: 'Services', works: 'Works', contact: 'Contact' },
     hireMe: 'Hire Me',
     hero: {
-      tagline: 'UX/UI Designer · Design Engineer · Developer',
-      headline: ['Design that speaks', 'before words do.'],
+      tagline: 'UX/UI Designer · Design Engineer',
+      headline: ['Design that speaks', 'before words.'],
       sub: 'I design and build complete digital products — from user research and interface design to fully functional applications.',
       cta1: 'View Projects',
       cta2: 'Hire Me',
     },
     profile: {
+      subtitle: 'UX/UI Designer · Design Engineer · based in Rio de Janeiro',
+      heading: 'UX/UI Designer\n& Design Engineer',
       bio: "UX/UI Designer & Design Engineer bridging the gap between great design and working product. I don't just design screens — I ship them.",
       available: 'Open to Freelance & Full-time',
       downloadCV: 'Download CV',
     },
     partners: 'Companies I Worked With',
-    resume: { experience: 'Experience', education: 'Education' },
+    resume: {
+      experience: 'Experience',
+      education: 'Education',
+      exp1: 'Visual solutions for marketing campaigns, UI design, video editing, landing pages and email marketing for the company\'s brands.',
+      exp2: 'UI design and visual identity for Estácio EAD courses. Infographic illustration and Front End development.',
+      exp3: 'Interface design, infographic redesign and Front End programming for distance learning courses.',
+      exp4: 'Photo and video editing at an independent audiovisual production company.',
+      edu1: 'Postgraduate degree in Innovation focused on Artificial Intelligence and User Experience.',
+      edu2: 'UX Design, Information Architecture and Usability.',
+      edu3: "Bachelor's degree in Graphic Design.",
+    },
     portfolio: {
       title: 'Works & Projects',
       sub: 'A selection of apps, interfaces and digital products — fully functional, built end-to-end with UX research, UI design and front-end development.',
@@ -52,27 +64,48 @@ export const translations = {
       p3: "I believe the best designer today is one who can also build. That's the standard I hold myself to.",
       btn: 'Get In Touch',
     },
-    services: { label: 'What I do', title: 'Design. Build. Ship.' },
+    services: {
+      label: 'What I do',
+      title: 'Design. Build. Ship.',
+      items: [
+        { title: 'Brand Identity Design', description: 'Visual identity systems that communicate your brand\'s essence across every touchpoint.' },
+        { title: 'UX/UI Design', description: 'User-centred interfaces crafted from research and validated through testing.' },
+        { title: 'Design Engineering', description: 'Bridging design and development — from Figma to fully functional applications.' },
+      ],
+    },
     testimonials: { label: 'Testimonials', title: 'What clients say!' },
     footer: 'All Rights Reserved.',
+    footerCrafted: 'Crafted with ❤️ in Rio de Janeiro',
   },
   pt: {
     nav: { home: 'Início', about: 'Sobre', services: 'Serviços', works: 'Trabalhos', contact: 'Contato' },
     hireMe: 'Me Contrate',
     hero: {
-      tagline: 'Designer UX/UI · Design Engineer · Desenvolvedor',
+      tagline: 'Designer UX/UI · Design Engineer',
       headline: ['Design que fala', 'antes das palavras.'],
       sub: 'Projeto e construo produtos digitais completos — da pesquisa com usuários e design de interface até aplicações totalmente funcionais.',
       cta1: 'Ver Projetos',
       cta2: 'Me Contrate',
     },
     profile: {
+      subtitle: 'Designer UX/UI · Design Engineer · baseado no Rio de Janeiro',
+      heading: 'Designer UX/UI\n& Design Engineer',
       bio: 'Designer UX/UI & Design Engineer que une design de qualidade com código funcional. Não apenas projeto telas — eu as entrego funcionando.',
       available: 'Aberto a Freelance & CLT',
       downloadCV: 'Baixar CV',
     },
     partners: 'Empresas que Trabalhei',
-    resume: { experience: 'Experiência', education: 'Formação' },
+    resume: {
+      experience: 'Experiência',
+      education: 'Formação',
+      exp1: 'Soluções visuais para campanhas de marketing, design de UI, edição de vídeo, landing pages e email marketing para as marcas da empresa.',
+      exp2: 'Design de UI e identidade visual para cursos EAD da Estácio. Ilustração de infográficos e desenvolvimento Front End.',
+      exp3: 'Design de interfaces, redesign de infográficos e programação Front End para cursos de ensino a distância.',
+      exp4: 'Edição de foto e vídeo em produtora audiovisual independente.',
+      edu1: 'Pós-graduação em Inovação com foco em Inteligência Artificial e Experiência do Usuário.',
+      edu2: 'UX Design, Arquitetura da Informação e Usabilidade.',
+      edu3: 'Bacharelado em Design Gráfico.',
+    },
     portfolio: {
       title: 'Trabalhos & Projetos',
       sub: 'Uma seleção de apps, interfaces e produtos digitais — completamente funcionais, construídos do início ao fim com pesquisa UX, design de UI e desenvolvimento front-end.',
@@ -105,16 +138,25 @@ export const translations = {
       p3: 'Acredito que o melhor designer hoje é aquele que também sabe construir. É esse o padrão que busco.',
       btn: 'Entre em Contato',
     },
-    services: { label: 'O que eu faço', title: 'Design. Código. Entrega.' },
+    services: {
+      label: 'O que eu faço',
+      title: 'Design. Código. Entrega.',
+      items: [
+        { title: 'Design de Identidade Visual', description: 'Sistemas de identidade visual que comunicam a essência da sua marca em todos os pontos de contato.' },
+        { title: 'Design UX/UI', description: 'Interfaces centradas no usuário, criadas a partir de pesquisa e validadas por testes.' },
+        { title: 'Design Engineering', description: 'A ponte entre design e desenvolvimento — do Figma a aplicações totalmente funcionais.' },
+      ],
+    },
     testimonials: { label: 'Depoimentos', title: 'O que os clientes dizem!' },
     footer: 'Todos os Direitos Reservados.',
+    footerCrafted: 'Feito com ❤️ no Rio de Janeiro',
   },
 }
 
 // ─── Context ───────────────────────────────────────────────────────────────────
 const LanguageContext = createContext({
   lang: 'en',
-  toggle: () => {},
+  toggle: () => { },
   t: translations['en'],
 })
 
@@ -124,13 +166,11 @@ export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(null)
 
   useEffect(() => {
-    const saved = localStorage.getItem('portfolio-lang')
-    setLang(saved === 'pt' ? 'pt' : 'en')
+    setLang('en')
   }, [])
 
   const toggle = useCallback((newLang) => {
     setLang(newLang)
-    localStorage.setItem('portfolio-lang', newLang)
   }, [])
 
   // Use 'en' while not yet mounted (avoids SSR/hydration mismatch)

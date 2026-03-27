@@ -18,7 +18,7 @@ const Footer = () => {
                         </div>
                         <div className="col-lg-6">
                             <div className="copyright-text extra-copyright">
-                                <p>Crafted with ❤️ in Rio de Janeiro</p>
+                                <p>{t.footerCrafted}</p>
                             </div>
                         </div>
                     </div>
