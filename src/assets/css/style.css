@@ -35,25 +35,33 @@ Version      : 1.0
 */
 :root {
     /* Palette */
-    --void:         #050505;
-    --abyss:        #0C0809;
-    --dark-blood:   #1A0A0B;
-    --dried-blood:  #3B0F12;
-    --crimson:      #7A1A1F;
-    --ash:          #1C1A18;
-    --parchment:    #C8B89A;
+    --deep-space:   #040608;
+    --dark-nebula:  #080C14;
+    --cold-iron:    #111820;
+    --cosmic-dust:  #1E2A38;
+    --neutron:      #3A5068;
+    --white-dwarf:  #7AAEC4;
+    --ice-core:     #D8E8F0;
 
     /* Semantic tokens */
-    --main-color:       var(--parchment);
-    --heading-color:    var(--parchment);
-    --primary-color:    var(--parchment);   /* default accent = parchment */
-    --lighter-color:    rgba(200, 184, 154, .55);
-    --subtitle-color:   rgba(200, 184, 154, .55);
-    --black-color:      var(--void);
-    --border-color:     rgba(200, 184, 154, .1);
-    --button-border:    rgba(200, 184, 154, .18);
-    --body-background:  var(--void);
-    --grey-bg:          var(--ash);
+    --main-color:       var(--ice-core);
+    --heading-color:    var(--ice-core);
+    --primary-color:    var(--white-dwarf);   /* accent = white dwarf */
+    --lighter-color:    rgba(216, 232, 240, .55);
+    --subtitle-color:   rgba(216, 232, 240, .55);
+    --black-color:      var(--deep-space);
+    --border-color:     rgba(122, 174, 196, .12);
+    --button-border:    rgba(122, 174, 196, .2);
+    --body-background:  var(--deep-space);
+    --grey-bg:          var(--cold-iron);
+
+    /* Kept for backwards compat with any remaining references */
+    --void:         #040608;
+    --abyss:        #080C14;
+    --ash:          #1E2A38;
+    --parchment:    #D8E8F0;
+    --crimson:      #7AAEC4;
+    --dried-blood:  #1E2A38;
 
     /* Fonts */
     --font-body:    "Poppins", sans-serif;
@@ -1273,7 +1281,7 @@ html {
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
-    background-color: #121214;
+    background-color: var(--cold-iron);
 }
 
 .about-content-part {}
@@ -1284,7 +1292,7 @@ html {
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
-    background-color: #121214;
+    background-color: var(--cold-iron);
 }
 
 .about-content-part,
@@ -1293,7 +1301,7 @@ html {
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
-    background-color: #121214;
+    background-color: var(--cold-iron);
 }
 
 .about-content-part-bottom {
@@ -1602,7 +1610,7 @@ ul.extra-skills li i {
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
-    background-color: #121214;
+    background-color: var(--cold-iron);
 }
 
 .experience-list {
@@ -1679,7 +1687,7 @@ ul.extra-skills li i {
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
-    background-color: #121214;
+    background-color: var(--cold-iron);
 }
 
 .single-project-page-design {
@@ -1722,7 +1730,7 @@ ul.extra-skills li i {
 .project-parallax-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(5,5,5,0.5) 0%, rgba(26,10,11,0.78) 100%);
+    background: linear-gradient(to bottom, rgba(4,6,8,0.5) 0%, rgba(8,12,20,0.82) 100%);
     z-index: 1;
 }
 
@@ -1742,16 +1750,16 @@ ul.extra-skills li i {
 .parallax-title-box {
     display: block;
     width: 100%;
-    background: rgba(26, 10, 11, 0.6);
-    border: 1px solid rgba(200, 184, 154, 0.12);
+    background: rgba(17, 24, 32, 0.6);
+    border: 1px solid rgba(122, 174, 196, 0.12);
     backdrop-filter: blur(8px);
     border-radius: 16px;
     padding: 24px 40px;
 }
 
 .parallax-info-box {
-    background: rgba(26, 10, 11, 0.6);
-    border: 1px solid rgba(200, 184, 154, 0.12);
+    background: rgba(17, 24, 32, 0.6);
+    border: 1px solid rgba(122, 174, 196, 0.12);
     backdrop-filter: blur(8px);
     border-radius: 12px;
     padding: 20px 24px;
@@ -2447,7 +2455,7 @@ ul.extra-skills li i {
 
 .contact-page-form .form-group .nice-select,
 .contact-page-form .form-group .form-control {
-    background: rgba(26, 10, 11, 0.6);
+    background: rgba(17, 24, 32, 0.6);
 }
 
 .our-location iframe {
@@ -2480,7 +2488,7 @@ ul.extra-skills li i {
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
-    background-color: #121214;
+    background-color: var(--cold-iron);
 }
 
 .call-to-action-area {
