@@ -80,17 +80,19 @@ export default Portfolio
 
 
 // Componente Card ajustado para receber e usar o 'slug'
-const Card = ({ category, title, src, animationClass, id, slug }) => { // <--- RECEBENDO SLUG AQUI
+const Card = ({ category, title, src, animationClass, id, slug }) => {
     return (
         <div className={`col-lg-4 col-md-6 item branding game ${animationClass}`}>
             <SlideUp delay={id}>
-                <div className="project-item style-two">
+                <div className="project-item style-two" style={{ position: 'relative' }}>
+                    {/* Overlay link covers entire card */}
+                    <Link href={`/works/${slug}`} className="project-card-link" aria-label={title} />
+
                     <div className="project-image">
                         <Image width={383} height={249} sizes='100vw' style={{width:"100%", height:"auto"}} src={src} alt="Project" />
-                        {/* AQUI ESTÁ A CORREÇÃO: Usando o 'slug' no href */}
-                        <Link href={`/works/${slug}`} className="details-btn">
-                            <RiArrowRightUpLine />
-                        </Link>
+                        <span className="details-btn" aria-hidden="true">
+                            <RiArrowRightUpLine size={20} />
+                        </span>
                     </div>
                     <div className="project-content">
                         <span className="sub-title">{category}</span>

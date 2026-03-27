@@ -497,21 +497,25 @@ html {
 
 
 .details-btn {
-    width: 50px;
-    height: 50px;
-    background: var(--abyss);
-    line-height: 50px;
+    width: 56px;
+    height: 56px;
+    background: rgba(13, 13, 24, 0.7);
     border-radius: 50%;
     text-align: center;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    border: 1px solid var(--border-color);
+    border: 1px solid #322D36;
+    color: #F0F0FA;
+    backdrop-filter: blur(8px);
 }
 
 .details-btn:hover {
-    color: var(--black-color);
-    background: var(--primary-color);
+    background: var(--plasma);
+    border-color: var(--plasma);
+    color: #F0F0FA;
 }
 
 .read-more {
@@ -1933,19 +1937,30 @@ ul.extra-skills li i {
 }
 
 .project-item.style-two {
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--stardust);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: border-color .3s;
+}
+
+.project-item.style-two:hover {
+    border-color: var(--plasma);
+}
+
+/* Full-card clickable overlay */
+.project-card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
     border-radius: 16px;
 }
 
-
 .project-item.style-two:hover .project-image:before {
     opacity: .65;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
 }
 
 .project-item.style-two:hover .project-image .details-btn {
     opacity: 1;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
 
