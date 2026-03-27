@@ -1959,6 +1959,8 @@ ul.extra-skills li i {
     margin-bottom: 18px;
     z-index: 1;
     position: relative;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
 }
 
 .project-item.style-two .project-image:before {
@@ -1990,13 +1992,17 @@ ul.extra-skills li i {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     font-size: 20px;
-    color: var(--parchment);
+    color: #F0F0FA;
     width: 65px;
     height: 65px;
-    background: var(--primary-color);
+    background: rgba(13, 13, 24, 0.85);
     line-height: 65px;
     border-radius: 50%;
     text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(240, 240, 250, 0.2);
 }
 
 .project-item.style-two .project-content {
@@ -2014,6 +2020,7 @@ ul.extra-skills li i {
 .project-item.style-two {
     border: 1px solid var(--stardust);
     border-radius: 16px;
+    overflow: hidden;
     cursor: pointer;
     transition: border-color .3s;
 }

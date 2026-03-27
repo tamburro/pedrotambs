@@ -8,7 +8,11 @@ import Providers from "@/components/ui/Providers";
 
 export const metadata = {
   title: "Pedro Tamburro",
-  description: "UX/UI Designer & Visual Designer",
+  description: "UX/UI Designer & Design Engineer",
+  icons: {
+    icon: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
