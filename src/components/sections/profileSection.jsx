@@ -48,9 +48,7 @@ const ProfileSection = () => {
                             </div>
                         </SlideUp>
                         <SlideUp>
-                            <div className="about-content-part-bottom about-marquee-stretch">
-                                <PartnersMarquee />
-                            </div>
+                            <PartnersMarquee />
                         </SlideUp>
                     </div>
                 </div>
