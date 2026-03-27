@@ -466,7 +466,6 @@ html {
     display: flex;
     align-items: center;
     gap: 2px;
-    margin-right: 14px;
 }
 
 .lang-toggle button {
@@ -534,6 +533,12 @@ html {
     font-size: 12px;
 }
 /* ── End Language Toggle ─────────────────────────────────── */
+
+.menu-btns {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
 
 .menu-btns a.theme-btn {
     background: transparent;
