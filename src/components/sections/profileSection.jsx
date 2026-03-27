@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Link from 'next/link';
-import { RiFacebookCircleFill, RiLinkedinFill, RiGithubLine, RiCircleFill, RiDownloadLine } from '@remixicon/react'
+import { RiBehanceFill, RiLinkedinFill, RiGithubLine, RiCircleFill, RiDownloadLine } from '@remixicon/react'
 import PartnersMarquee from './partnersMarquee';
 import SlideUp from '@/utlits/animations/slideUp';
 
@@ -18,9 +18,9 @@ const ProfileSection = () => {
                                 <p>UX/UI Designer & Visual Designer based in Rio de Janeiro</p>
                                 <div className="about-social">
                                     <ul>
-                                        <li><Link href=""><RiFacebookCircleFill size={20} /></Link></li>
-                                        <li><Link href=""><RiLinkedinFill size={20} /></Link></li>
-                                        <li><Link href=""><RiGithubLine size={20} /></Link></li>
+                                        <li><Link href="https://www.behance.net/pedrotamburro" target="_blank" rel="noopener noreferrer"><RiBehanceFill size={20} /></Link></li>
+                                        <li><Link href="https://www.linkedin.com/in/pedrotamburro/" target="_blank" rel="noopener noreferrer"><RiLinkedinFill size={20} /></Link></li>
+                                        <li><Link href="https://github.com/tamburro" target="_blank" rel="noopener noreferrer"><RiGithubLine size={20} /></Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -33,6 +33,9 @@ const ProfileSection = () => {
                                 <h2>
                                     UX/UI Designer<br/>& Visual Designer
                                 </h2>
+                                <p style={{ fontSize: '15px', lineHeight: 1.7, color: 'rgba(240,240,250,0.65)', marginBottom: '20px' }}>
+                                    Visual Designer at Editora Globo. Passionate about design, technology and innovation — turning complex ideas into intuitive digital experiences.
+                                </p>
                                 <div className="adress-field">
                                     <ul>
                                         <li className='d-flex align-items-center'>
