@@ -10,8 +10,8 @@ const Contact = () => {
           <div className="row">
             <div className="col-xl-12 col-lg-12">
               <div className="section-title text-center wow fadeInUp delay-0-2s">
-                <p>contact</p>
-                <h2>Get in Touch with Me!</h2>
+                <p>contato</p>
+                <h2>Vamos trabalhar juntos?</h2>
               </div>
             </div>
           </div>

@@ -12,8 +12,11 @@ const ContactOption = () => {
                             <div className="contact-icon">
                                 <i> <RiMapPinLine size={20} /></i>
                             </div>
-                            <h2>our office:</h2>
-                            <p>Jurain,Dhaka Bangladesh</p>
+                            <h2>Localização:</h2>
+                            <p>Rio de Janeiro, Brasil</p>
+                            <span style={{ fontSize: '13px', color: 'rgba(240,240,250,0.45)' }}>
+                                Disponível para trabalho remoto e freelance
+                            </span>
                         </div>
                     </SlideUp>
                     <SlideUp delay={3}>
@@ -21,8 +24,8 @@ const ContactOption = () => {
                             <div className="contact-icon">
                                 <i> <RiPhoneLine size={20} /></i>
                             </div>
-                            <h2>contact number:</h2>
-                            <p>+1234321321</p>
+                            <h2>Telefone:</h2>
+                            <p>+55 21 96901-8110</p>
                         </div>
                     </SlideUp>
                     <SlideUp delay={4}>
@@ -30,8 +33,8 @@ const ContactOption = () => {
                             <div className="contact-icon">
                                 <i> <RiMailLine size={20} /></i>
                             </div>
-                            <h2>Email us:</h2>
-                            <p>websitename@mail.com</p>
+                            <h2>E-mail:</h2>
+                            <p>pedropaulotjr@gmail.com</p>
                         </div>
                     </SlideUp>
                 </div>
