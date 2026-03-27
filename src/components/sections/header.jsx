@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 
 const LangToggle = ({ lang, toggle, mobile }) => (
-  <div className={mobile ? 'lang-toggle-mobile' : 'lang-toggle'}>
+  <div className={mobile ? 'lang-toggle-mobile d-lg-none' : 'lang-toggle d-none d-lg-flex'}>
     <button onClick={() => toggle('en')} className={lang === 'en' ? 'active' : ''}>EN</button>
     <span>/</span>
     <button onClick={() => toggle('pt')} className={lang === 'pt' ? 'active' : ''}>PT</button>
