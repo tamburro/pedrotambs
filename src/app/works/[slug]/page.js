@@ -182,10 +182,14 @@ const SingleProjectPage = ({ params }) => {
                 </div>
 
                 {/* Galeria de imagens */}
+                {project.sections?.some(s => s.images?.length > 0) && (
+                    <div className="pt-20">
+                        <h4 className="cs-gallery-title">Imagens do Projeto</h4>
+                    </div>
+                )}
                 {[...(project.sections || [])].sort((a, b) => (b.imageLayout === 'screens') - (a.imageLayout === 'screens')).map((section, i) =>
                     section.images?.length > 0 ? (
-                        <div key={i} className="project-gallery-section pt-20">
-                            <h4 className="cs-gallery-title">{section.title}</h4>
+                        <div key={i} className="project-gallery-section pt-12">
                             <div className="row">
                                 {section.imageLayout === 'screens' ? (
                                     <div className="col-12">
