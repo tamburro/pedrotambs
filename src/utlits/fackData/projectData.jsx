@@ -306,6 +306,32 @@ export const projectsData = [
                 imageLayout: "screens"
             },
             {
+                title: "Design Visual & Protótipo",
+                type: "text",
+                content: "O design visual adotou uma identidade limpa com foco em conteúdo: cards de destino com imagens de alta qualidade, hierarquia tipográfica clara e uma paleta que não compete com as fotos das viagens. O fluxo de criação de roteiro foi comprimido em duas telas — seleção de preferências e detalhes da viagem — reduzindo a fricção de entrada para o primeiro uso.",
+                images: [
+                    {
+                        src: "/images/projects/rotera/hifi-home.png",
+                        caption: "Home — seus roteiros e destinos populares",
+                        width: 393,
+                        height: 852
+                    },
+                    {
+                        src: "/images/projects/rotera/hifi-preferencias.png",
+                        caption: "Novo roteiro — seleção de preferências",
+                        width: 393,
+                        height: 852
+                    },
+                    {
+                        src: "/images/projects/rotera/hifi-detalhes.png",
+                        caption: "Detalhes da viagem — destinos e datas",
+                        width: 393,
+                        height: 852
+                    }
+                ],
+                imageLayout: "screens"
+            },
+            {
                 title: "Resultados & Aprendizados",
                 type: "outcomes",
                 metrics: [
