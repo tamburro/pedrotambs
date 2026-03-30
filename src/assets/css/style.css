@@ -461,6 +461,17 @@ html {
     transition: .3s
 }
 
+.theme-btn--outline {
+    background: transparent;
+    border-color: rgba(240,240,250,0.2);
+    color: var(--parchment);
+}
+
+.theme-btn--outline:hover {
+    background: rgba(240,240,250,0.06);
+    border-color: rgba(240,240,250,0.4);
+}
+
 /* ── Language Toggle ─────────────────────────────────────── */
 .lang-toggle {
     display: flex;

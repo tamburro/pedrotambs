@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Link from 'next/link';
-import { RiBehanceFill, RiLinkedinFill, RiGithubLine, RiCircleFill, RiDownloadLine } from '@remixicon/react'
+import { RiBehanceFill, RiLinkedinFill, RiGithubLine, RiCircleFill, RiDownloadLine, RiArrowDownLine } from '@remixicon/react'
 import PartnersMarquee from './partnersMarquee';
 import SlideUp from '@/utlits/animations/slideUp';
 import { useLanguage } from '@/context/LanguageContext';
@@ -49,6 +49,9 @@ const ProfileSection = () => {
                                     <a href="/files/Pedro_Tamburro_Portfolio.pdf" download="Pedro_Tamburro_CV.pdf" className="theme-btn">
                                         {t.profile.downloadCV} <i><RiDownloadLine size={16} /></i>
                                     </a>
+                                    <Link href="#portfolio" className="theme-btn theme-btn--outline">
+                                        {t.profile.viewProjects} <i><RiArrowDownLine size={16} /></i>
+                                    </Link>
                                 </div>
                             </div>
                         </SlideUp>

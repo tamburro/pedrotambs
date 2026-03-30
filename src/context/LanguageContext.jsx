@@ -14,11 +14,12 @@ export const translations = {
       cta2: 'Hire Me',
     },
     profile: {
-      subtitle: 'Product Designer · Design Engineer · based in Rio de Janeiro',
+      subtitle: 'based in Rio de Janeiro',
       heading: 'Product Designer\n& Design Engineer',
       bio: "Product Designer & Design Engineer bridging the gap between great design and working product. I don't just design screens — I ship them.",
       available: 'Open to Freelance & Full-time',
       downloadCV: 'Download CV',
+      viewProjects: 'View Projects',
     },
     partners: 'Companies I Worked With',
     resume: {
@@ -93,6 +94,7 @@ export const translations = {
       bio: 'Designer de Produto & Design Engineer que une design de qualidade com código funcional. Não apenas projeto telas — eu as entrego funcionando.',
       available: 'Aberto a Freelance & CLT',
       downloadCV: 'Baixar CV',
+      viewProjects: 'Ver Projetos',
     },
     partners: 'Empresas que Trabalhei',
     resume: {
