@@ -117,7 +117,7 @@ const SingleProjectPage = ({ params }) => {
             {/* Conteúdo principal */}
             <div className="container pt-30">
                 <div className="row justify-content-center">
-                    <div className="col-lg-8">
+                    <div className="col-12">
                         <div className="single-project-page-right wow fadeInUp delay-0-2s">
 
                             {project.description && (
@@ -184,8 +184,8 @@ const SingleProjectPage = ({ params }) => {
 
                 {/* Galeria de imagens */}
                 {project.sections?.some(s => s.images?.length > 0) && (
-                    <div className="pt-20">
-                        <h4 className="cs-gallery-title">Imagens do Projeto</h4>
+                    <div className="project-section">
+                        <h3>Artefatos Visuais</h3>
                     </div>
                 )}
                 {[...(project.sections || [])].sort((a, b) => (b.imageLayout === 'screens') - (a.imageLayout === 'screens')).map((section, i) =>
