@@ -1386,7 +1386,7 @@ html {
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
-    background: rgba(13, 13, 24, 0.85); border-color: var(--stardust);
+    background: rgba(13, 13, 24, 0.85); border-color: rgba(130, 0, 219, 0.4);
 }
 
 .about-content-part {}
@@ -1750,7 +1750,7 @@ ul.extra-skills li i {
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
-    background: rgba(13, 13, 24, 0.85); border-color: var(--stardust);
+    background: rgba(13, 13, 24, 0.85); border-color: rgba(130, 0, 219, 0.4);
 }
 
 .experience-list {
@@ -2078,7 +2078,7 @@ ul.extra-skills li i {
 }
 
 .project-item.style-two {
-    border: 1px solid var(--stardust);
+    border: 1px solid rgba(130, 0, 219, 0.4);
     border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
