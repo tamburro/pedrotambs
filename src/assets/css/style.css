@@ -1239,6 +1239,11 @@ html {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-wrap: wrap;
+}
+
+.text-center .hero-btns {
+    justify-content: center;
 }
 
 .hero-content .hero-btns .read-more {
