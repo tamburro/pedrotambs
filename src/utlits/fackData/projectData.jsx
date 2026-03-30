@@ -11,9 +11,9 @@ export const projectsData = [
         year: "2023",
         role: "UX Designer & Researcher",
         timeline: "3 meses",
-        team: "4 integrantes",
+        team: "7 integrantes",
         client: "Projeto Acadêmico · Pós-graduação Infnet",
-        tools: ["Figma", "Miro", "Google Forms"],
+        tools: ["Figma", "Miro"],
         prototypeLink: "https://www.figma.com/proto/IEQMzJVFMRJ5gMPQ7lAsX2/Prot%C3%B3tipo?node-id=62-1369&starting-point-node-id=62%3A1369&t=N0QqFqUBLfg7T0Y9-1",
         sections: [
             {
@@ -24,24 +24,58 @@ export const projectsData = [
             {
                 title: "Pesquisa & Descoberta",
                 type: "research",
-                methods: ["Entrevistas com usuários", "Benchmark competitivo", "Análise de mercado", "Questionários"],
-                content: "Realizamos pesquisa qualitativa com usuários de diferentes perfis para entender os padrões de compra e consumo de alimentos. O benchmark mapeou apps como Too Good To Go, AnyList e Fridgely, identificando lacunas no mercado brasileiro.",
+                methods: ["Entrevistas com usuários", "Benchmark competitivo", "Mapa de empatia", "Proto-persona"],
+                content: "Realizamos pesquisa qualitativa com usuários de diferentes perfis para entender os padrões de compra e consumo de alimentos. O benchmark mapeou apps como Kitchee It, No Waste, Mealime e Nosh, identificando lacunas no mercado brasileiro. A partir das entrevistas, construímos uma proto-persona (Ana, dona de casa, 40 anos, São Paulo) e um mapa de empatia que revelou o gap entre intenção e comportamento real na cozinha.",
                 highlights: [
                     "Usuários não sabem o que têm na geladeira ao fazer a lista de compras",
                     "Datas de validade são ignoradas até o alimento estragar",
                     "Dietas fracassam por falta de planejamento prático, não de vontade",
                     "A barreira de entrada (registrar compras) precisa ser mínima para o app ser adotado"
+                ],
+                images: [
+                    {
+                        src: "/images/projects/sustenta/benchmark.png",
+                        caption: "Benchmark competitivo — Kitchee It, No Waste, Mealime e Nosh",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 800
+                    }
                 ]
             },
             {
                 title: "Processo de Design",
                 type: "text",
-                content: "Partimos das descobertas de pesquisa para construir personas e um mapa de empatia que guiou todas as decisões de design. O fluxo principal foi definido priorizando o menor atrito possível no registro de itens — usando câmera para ler código de barras, listas pré-populadas e sugestões inteligentes. Wireframes foram revisados em duas rodadas antes do protótipo navegável."
+                content: "Partimos das descobertas de pesquisa para construir a proto-persona e o mapa de empatia que guiaram todas as decisões de design. O mapa revelou que Ana precisa de organização, não de motivação — ela já quer evitar desperdício, só falta uma ferramenta que reduza o atrito do planejamento. O fluxo principal foi definido priorizando o menor atrito no registro de itens: câmera para ler nota fiscal, listas pré-populadas e sugestões inteligentes.",
+                images: [
+                    {
+                        src: "/images/projects/sustenta/persona.png",
+                        caption: "Proto-persona — Ana, Dona de Casa, 40 anos",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 800
+                    },
+                    {
+                        src: "/images/projects/sustenta/mapa-empatia.png",
+                        caption: "Mapa de empatia — dores, ganhos, comportamentos e necessidades",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 900
+                    }
+                ]
             },
             {
                 title: "Solução",
                 type: "text",
-                content: "O Sustenta+ atua como um assistente de alimentação que aprende com o usuário ao longo do tempo. O app permite registrar compras por código de barras ou voz, monitora o estoque em casa, alerta sobre vencimentos, sugere receitas com o que já tem disponível e gera listas de compra personalizadas baseadas no histórico e na dieta do usuário. A integração com apps de delivery e dispositivos IoT foi planejada como expansão futura."
+                content: "O Sustenta+ atua como um assistente de alimentação que aprende com o usuário ao longo do tempo. O app permite registrar compras por leitura de nota fiscal, monitora o estoque em casa, alerta sobre vencimentos, sugere receitas com o que já está disponível e gera listas de compra personalizadas baseadas no histórico e na dieta do usuário.",
+                images: [
+                    {
+                        src: "/images/projects/sustenta/telas-dark.png",
+                        caption: "Telas do protótipo — lista de alimentos, adição por nota fiscal e detalhes de item",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 800
+                    }
+                ]
             },
             {
                 title: "Resultados & Aprendizados",
