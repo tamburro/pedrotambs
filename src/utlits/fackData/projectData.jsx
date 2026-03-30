@@ -3,6 +3,117 @@
 export const projectsData = [
     {
         id: 1,
+        slug: "listaai-gerador-de-descricoes",
+        src: "/images/projects/work1.jpg",
+        category: "Product & AI Engineering",
+        title: "ListaAI",
+        description: "Gerador de títulos e descrições otimizadas para Mercado Livre e Shopee, movido por IA. Vendedores colam o nome do produto e as especificações técnicas — o app entrega título com palavras-chave de alto volume e descrição completa pronta para publicar, em segundos.",
+        year: "2025",
+        role: "Product Designer & AI Engineer",
+        timeline: "2 meses",
+        team: "Solo",
+        client: "Produto próprio",
+        tools: ["Claude API", "Next.js", "Prisma", "Vercel"],
+        liveDemoLink: "https://listaai.vercel.app/",
+        sections: [
+            {
+                title: "O Problema",
+                type: "text",
+                content: "O Brasil tem mais de 12 milhões de vendedores ativos em marketplaces — a maioria microempreendedores e pequenos lojistas que publicam produtos manualmente. Escrever um título e uma descrição eficaz para marketplace não é trivial: envolve conhecer os algoritmos de busca de cada plataforma, usar as palavras-chave certas e estruturar a informação em um formato que converta. A realidade da maioria dos vendedores: descrições genéricas copiadas do fornecedor, títulos mal otimizados e horas perdidas por semana em conteúdo de produto. O custo de uma descrição ruim é direto — menos visibilidade, menos conversão, menos vendas."
+            },
+            {
+                title: "Pesquisa de Mercado",
+                type: "research",
+                methods: ["Análise de comportamento em fóruns de vendedores", "Benchmark de ferramentas existentes", "Mapeamento de dores via comunidades (Facebook, Reddit, WhatsApp)"],
+                content: "A demanda por ferramentas de copywriting para marketplace no Brasil é alta e subatendida. Ferramentas genéricas como ChatGPT exigem que o vendedor monte prompts, interprete saídas e adapte o tom — uma barreira para quem não tem familiaridade com IA. Soluções específicas para Mercado Livre são escassas e, quando existem, focam em precificação ou gestão de estoque, não em conteúdo. O ponto de entrada ideal identificado: um fluxo de 3 campos (nome, especificações, plataforma) → resultado em <10 segundos.",
+                highlights: [
+                    "Vendedores perdem de 30 a 60 minutos por dia só escrevendo descrições de produtos",
+                    "Títulos mal escritos são a principal causa de baixo ranqueamento orgânico em marketplaces",
+                    "A maioria dos vendedores não sabe quais palavras-chave usar — e não tem tempo para pesquisar",
+                    "ChatGPT já é usado por parte dos vendedores, mas o atrito do prompt livre é uma barreira real",
+                    "Mercado Livre e Shopee têm regras e formatos distintos — uma ferramenta que entende isso tem vantagem clara"
+                ],
+                images: [
+                    {
+                        src: "/images/projects/single-project.jpg",
+                        caption: "Fluxo de geração — nome do produto, especificações, plataforma e tom de voz",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 800
+                    }
+                ]
+            },
+            {
+                title: "Solução & Produto",
+                type: "text",
+                content: "O ListaAI foi construído com um fluxo de uso minimalista: o vendedor informa nome do produto, especificações técnicas, plataforma alvo (Mercado Livre ou Shopee) e tom de voz preferido. A IA gera título otimizado com palavras-chave de alto volume e uma descrição completa formatada para a plataforma escolhida. O resultado pode ser regenerado com um clique, copiado diretamente e fica salvo no histórico. Cada detalhe do produto foi pensado para reduzir o atrito ao máximo — o vendedor não precisa entender de IA para usar.",
+                images: [
+                    {
+                        src: "/images/projects/single-project1.jpg",
+                        caption: "Landing page — proposta de valor e funcionalidades principais",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 800
+                    },
+                    {
+                        src: "/images/projects/single-project2.jpg",
+                        caption: "Dashboard — status do plano, descrições geradas e histórico recente",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 800
+                    }
+                ]
+            },
+            {
+                title: "Funcionalidades",
+                type: "research",
+                methods: ["Geração por plataforma", "Seleção de tom de voz", "SEO embutido", "Regeneração inteligente", "Histórico completo"],
+                content: "Cada funcionalidade foi priorizada com base em uma pergunta: isso reduz o tempo do vendedor ou aumenta a qualidade do resultado? Geração separada por plataforma garante que o output respeite as regras e formatos do Mercado Livre e da Shopee. Tom de voz ajusta a descrição de formal a descontraído. SEO embutido — sem configuração extra — analisa as especificações e escolhe termos com melhor potencial de ranqueamento. Regeneração inteligente permite variar o resultado sem redigitar os dados. O histórico completo devolve ao vendedor o controle sobre o que foi gerado.",
+                highlights: [
+                    "Geração por plataforma — output adaptado às regras de cada marketplace",
+                    "Tom de voz configurável — formal, técnico, descontraído ou persuasivo",
+                    "SEO embutido — palavras-chave de alto volume inseridas automaticamente no título",
+                    "Regeneração inteligente — novo resultado com um clique, sem reescrever os dados",
+                    "Histórico completo — todas as descrições salvas e acessíveis no dashboard"
+                ],
+                images: [
+                    {
+                        src: "/images/projects/single-project3.jpg",
+                        caption: "Nova descrição — formulário com seleção de plataforma e tom de voz",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 800
+                    }
+                ]
+            },
+            {
+                title: "Arquitetura & Tecnologia",
+                type: "text",
+                content: "O produto foi inteiramente construído com AI coding — Claude como pair programmer em todas as etapas, do scaffolding ao deploy. Stack: Next.js 14 (App Router) no frontend, API Routes para o backend, Prisma + PostgreSQL para persistência de dados e histórico, Claude API (claude-sonnet) para geração de conteúdo, e Vercel para deploy contínuo. O prompt de geração foi o artefato mais iterado: cada versão foi testada com produtos reais de diferentes categorias — eletrônicos, moda, casa — até atingir consistência na qualidade do output.",
+                images: [
+                    {
+                        src: "/images/projects/single-project4.jpg",
+                        caption: "Stack tecnológico — Next.js, Claude API, Prisma e Vercel",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 800
+                    }
+                ]
+            },
+            {
+                title: "Resultados & Aprendizados",
+                type: "outcomes",
+                metrics: [
+                    { value: "2", label: "meses do zero ao deploy" },
+                    { value: "3", label: "plataformas suportadas (ML, Shopee, genérico)" },
+                    { value: "R$0", label: "plano gratuito com 5 descrições/mês" }
+                ],
+                content: "O principal aprendizado foi sobre a relação entre simplicidade de interface e qualidade de prompt. Quanto mais simples o formulário para o usuário, mais trabalho o prompt precisa fazer para compensar a falta de contexto. A solução foi um sistema de instruções em camadas: o prompt base define o comportamento geral da IA, e variáveis dinâmicas (plataforma, tom, especificações) injetam o contexto específico de cada geração. O modelo freemium (R$0 free / R$39 PRO) foi escolhido para maximizar adoção — o produto se vende pelo primeiro uso."
+            }
+        ]
+    },
+    {
+        id: 2,
         slug: "sustenta-plus-app-ux-design",
         src: "/images/projects/sustentamais_full2.jpg",
         category: "UX/UI Design",
@@ -90,7 +201,7 @@ export const projectsData = [
         ]
     },
     {
-        id: 2,
+        id: 3,
         slug: "website-makeup-design",
         src: "/images/projects/estiloia_full.jpg",
         category: "UX/UI Design",
@@ -185,7 +296,7 @@ export const projectsData = [
         ]
     },
     {
-        id: 3,
+        id: 4,
         slug: "roteiro-de-viagens-colaborativo",
         src: "/images/projects/roteiro_viagens_full.jpg",
         category: "UX/UI Design",
@@ -344,7 +455,7 @@ export const projectsData = [
         ]
     },
     {
-        id: 4,
+        id: 5,
         slug: "mobile-application-design-2",
         src: "/images/projects/work4.jpg",
         category: "Marketing",
@@ -357,7 +468,7 @@ export const projectsData = [
         tools: ["Figma", "Adobe XD"],
     },
     {
-        id: 5,
+        id: 6,
         slug: "brand-identity-and-motion-design-2",
         src: "/images/projects/work3.jpg",
         category: "Design",
@@ -370,7 +481,7 @@ export const projectsData = [
         tools: ["After Effects", "Illustrator"],
     },
     {
-        id: 6,
+        id: 7,
         slug: "brand-identity-and-motion-design-3",
         src: "/images/projects/work4.jpg",
         category: "Marketing",

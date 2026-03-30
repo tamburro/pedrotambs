@@ -15,7 +15,7 @@ const getRandomAnimation = () => {
     return animations[randomIndex];
 };
 
-const PROJECTS = projectsData.filter(p => p.id <= 3);
+const PROJECTS = projectsData.filter(p => p.id <= 4);
 
 const Portfolio = ({ className }) => {
     const { t } = useLanguage();
@@ -34,7 +34,7 @@ const Portfolio = ({ className }) => {
                             </SlideUp>
                         </div>
                     </div>
-                    <div className="row project-masonry-active overflow-hidden">
+                    <div className="row project-masonry-active">
                         {PROJECTS.map(({ category, id, src, title, slug }) => (
                             <Card
                                 key={id}
