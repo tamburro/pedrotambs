@@ -4,7 +4,7 @@ export const projectsData = [
     {
         id: 1,
         slug: "listaai-gerador-de-descricoes",
-        src: "/images/projects/listaai/landing-hero.png",
+        src: "/images/projects/listaai/listaai_full.jpg",
         category: "Product & AI Engineering",
         title: "ListaAI",
         description: "Gerador de títulos e descrições otimizadas para Mercado Livre e Shopee, movido por IA. Vendedores colam o nome do produto e as especificações técnicas — o app entrega título com palavras-chave de alto volume e descrição completa pronta para publicar, em segundos.",
@@ -139,7 +139,7 @@ export const projectsData = [
     {
         id: 2,
         slug: "sigil-design-system-builder",
-        src: "/images/projects/sigil/landing-hero.png",
+        src: "/images/projects/sigil/sigil_full.jpg",
         category: "Product & AI Engineering",
         title: "Sigil",
         description: "Gerador de sistemas visuais para founders, devs e criadores independentes. Cole uma cor seed — o Sigil gera paleta, tokens de design, guia de estilo e exporta tudo para Tailwind, CSS vars ou Figma Variables. Identidade visual coerente sem abrir o Figma.",
