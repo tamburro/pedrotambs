@@ -1405,7 +1405,7 @@ html {
 .about-image-part {
     text-align: left;
     padding: 40px;
-    border: 1px solid var(--crimson);
+    border: 1px solid #B06EE8;
     border-radius: 20px;
     background: rgba(13, 13, 24, 0.85);
     backdrop-filter: blur(12px);
@@ -1421,7 +1421,7 @@ html {
 .about-content-part,
 .about-content-part-bottom {
     padding: 40px;
-    border: 1px solid var(--crimson);
+    border: 1px solid #B06EE8;
     border-radius: 20px;
     background: rgba(13, 13, 24, 0.85);
     backdrop-filter: blur(12px);
