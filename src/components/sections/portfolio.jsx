@@ -1,6 +1,6 @@
 // src/components/sections/portfolio.jsx
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link';
 import { RiArrowRightUpLine } from '@remixicon/react'
 import SlideUp from '@/utlits/animations/slideUp';
@@ -15,28 +15,10 @@ const getRandomAnimation = () => {
     return animations[randomIndex];
 };
 
+const PROJECTS = projectsData.filter(p => p.id <= 3);
+
 const Portfolio = ({ className }) => {
-    const [category, setCategory] = useState('All');
-    const [animationClass, setAnimationClass] = useState('');
     const { t } = useLanguage();
-
-    const handleCategoryClick = (item) => {
-        setCategory(item)
-        const randomAnimation = getRandomAnimation();
-        setAnimationClass(randomAnimation);
-    }
-
-    // ------ filter unique category
-    const filteredCategory = ["All"]
-    projectsData.forEach(({ category }) => {
-        if (!filteredCategory.includes(category)) {
-            filteredCategory.push(category)
-        }
-    })
-    // ------ filter unique category
-
-    const filteredProjects = category === 'All' ? projectsData : projectsData.filter(image => image.category === category);
-
 
     return (
         <section id="portfolio" className={`projects-area ${className}`}>
@@ -52,22 +34,15 @@ const Portfolio = ({ className }) => {
                             </SlideUp>
                         </div>
                     </div>
-                    <SlideUp>
-                        <ul className="project-filter filter-btns-one justify-content-left pb-15">
-                            {filteredCategory.map((item, id) => <li key={id} onClick={() => handleCategoryClick(item)} className={item === category ? "current" : ""}>{item}</li>)}
-                        </ul>
-                    </SlideUp>
                     <div className="row project-masonry-active overflow-hidden">
-                        {/* AQUI ESTÁ A CORREÇÃO: Passando o 'slug' para o Card */}
-                        {filteredProjects.map(({ category, id, src, title, slug }) => (
+                        {PROJECTS.map(({ category, id, src, title, slug }) => (
                             <Card
                                 key={id}
                                 id={id}
                                 category={category}
                                 src={src}
                                 title={title}
-                                slug={slug} // <--- CAMPO SLUG PASSADO PARA O COMPONENTE CARD
-                                animationClass={animationClass}
+                                slug={slug}
                             />
                         ))}
                     </div>
@@ -81,9 +56,9 @@ export default Portfolio
 
 
 // Componente Card ajustado para receber e usar o 'slug'
-const Card = ({ category, title, src, animationClass, id, slug }) => {
+const Card = ({ category, title, src, id, slug }) => {
     return (
-        <div className={`col-lg-4 col-md-6 item branding game ${animationClass}`}>
+        <div className="col-lg-4 col-md-6 item branding game">
             <SlideUp delay={id}>
                 <div className="project-item style-two" style={{ position: 'relative' }}>
                     {/* Overlay link covers entire card */}
