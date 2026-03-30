@@ -122,6 +122,7 @@ const SingleProjectPage = ({ params }) => {
 
                             {project.description && (
                                 <div className="project-description-text">
+                                    <h4>Visão Geral</h4>
                                     <p>{project.description}</p>
                                 </div>
                             )}
