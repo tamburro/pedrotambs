@@ -10,7 +10,7 @@ export const projectsData = [
         description: "Gerador de títulos e descrições otimizadas para Mercado Livre e Shopee, movido por IA. Vendedores colam o nome do produto e as especificações técnicas — o app entrega título com palavras-chave de alto volume e descrição completa pronta para publicar, em segundos.",
         year: "2025",
         role: "Product Designer & AI Engineer",
-        timeline: "2 meses",
+        timeline: "2 dias",
         team: "Solo",
         client: "Produto próprio",
         tools: ["Claude API", "Next.js", "Prisma", "Vercel"],
