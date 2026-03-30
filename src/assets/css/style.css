@@ -2114,7 +2114,15 @@ ul.extra-skills li i {
 .project-item.style-two .project-content h3 {
     color: var(--subtitle-color);
     font-size: 20px;
+    margin-bottom: 6px;
     display: block;
+}
+
+.project-tagline {
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(240, 240, 250, 0.4);
+    margin: 0;
 }
 
 .project-item.style-two {

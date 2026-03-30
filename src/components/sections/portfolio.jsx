@@ -18,7 +18,7 @@ const getRandomAnimation = () => {
 const PROJECTS = projectsData.filter(p => p.id <= 5);
 
 const Portfolio = ({ className }) => {
-    const { t } = useLanguage();
+    const { t, lang } = useLanguage();
 
     return (
         <section id="portfolio" className={`projects-area ${className}`}>
@@ -35,7 +35,7 @@ const Portfolio = ({ className }) => {
                         </div>
                     </div>
                     <div className="row project-masonry-active">
-                        {PROJECTS.map(({ category, id, src, title, slug }) => (
+                        {PROJECTS.map(({ category, id, src, title, slug, tagline, tagline_en }) => (
                             <Card
                                 key={id}
                                 id={id}
@@ -43,6 +43,7 @@ const Portfolio = ({ className }) => {
                                 src={src}
                                 title={title}
                                 slug={slug}
+                                tagline={lang === 'en' && tagline_en ? tagline_en : tagline}
                             />
                         ))}
                     </div>
@@ -56,7 +57,7 @@ export default Portfolio
 
 
 // Componente Card ajustado para receber e usar o 'slug'
-const Card = ({ category, title, src, id, slug }) => {
+const Card = ({ category, title, src, id, slug, tagline }) => {
     return (
         <div className="col-lg-4 col-md-6 item branding game">
             <SlideUp delay={id}>
@@ -73,6 +74,7 @@ const Card = ({ category, title, src, id, slug }) => {
                     <div className="project-content">
                         <span className="sub-title">{category}</span>
                         <h3>{title}</h3>
+                        {tagline && <p className="project-tagline">{tagline}</p>}
                     </div>
                 </div>
             </SlideUp>
