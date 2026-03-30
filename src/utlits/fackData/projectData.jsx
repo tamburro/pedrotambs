@@ -94,6 +94,12 @@ export const projectsData = [
                         caption: "Histórico — todas as descrições geradas com badges de plataforma",
                         width: 486,
                         height: 856
+                    },
+                    {
+                        src: "/images/projects/listaai/perfil.png",
+                        caption: "Perfil — informações da conta e plano atual",
+                        width: 494,
+                        height: 839
                     }
                 ],
                 imageLayout: "screens"
