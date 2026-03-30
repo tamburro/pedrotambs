@@ -3428,8 +3428,44 @@ ul.blog_pagination li a:hover {
 }
 
 .cs-screen-figure img {
-    border-radius: 12px;
-    border: 1px solid var(--stardust);
+    border-radius: 0;
+    border: none;
+    display: block;
+}
+
+/* Phone frame wrapper */
+.cs-phone-frame {
+    border-radius: 36px;
+    border: 2px solid rgba(255,255,255,0.12);
+    background: #111;
+    padding: 10px 6px 8px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.cs-phone-notch {
+    width: 60px;
+    height: 5px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.cs-phone-screen {
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.cs-phone-bar {
+    width: 40px;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+    flex-shrink: 0;
 }
 
 .cs-screen-figure figcaption,

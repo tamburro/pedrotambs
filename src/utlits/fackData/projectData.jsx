@@ -4,7 +4,7 @@ export const projectsData = [
     {
         id: 1,
         slug: "listaai-gerador-de-descricoes",
-        src: "/images/projects/work1.jpg",
+        src: "/images/projects/listaai/landing-hero.png",
         category: "Product & AI Engineering",
         title: "ListaAI",
         description: "Gerador de títulos e descrições otimizadas para Mercado Livre e Shopee, movido por IA. Vendedores colam o nome do produto e as especificações técnicas — o app entrega título com palavras-chave de alto volume e descrição completa pronta para publicar, em segundos.",
@@ -35,11 +35,11 @@ export const projectsData = [
                 ],
                 images: [
                     {
-                        src: "/images/projects/single-project.jpg",
-                        caption: "Fluxo de geração — nome do produto, especificações, plataforma e tom de voz",
+                        src: "/images/projects/listaai/landing-hero.png",
+                        caption: "Landing page — proposta de valor para vendedores brasileiros",
                         fullWidth: true,
-                        width: 1400,
-                        height: 800
+                        width: 1350,
+                        height: 734
                     }
                 ]
             },
@@ -49,18 +49,18 @@ export const projectsData = [
                 content: "O ListaAI foi construído com um fluxo de uso minimalista: o vendedor informa nome do produto, especificações técnicas, plataforma alvo (Mercado Livre ou Shopee) e tom de voz preferido. A IA gera título otimizado com palavras-chave de alto volume e uma descrição completa formatada para a plataforma escolhida. O resultado pode ser regenerado com um clique, copiado diretamente e fica salvo no histórico. Cada detalhe do produto foi pensado para reduzir o atrito ao máximo — o vendedor não precisa entender de IA para usar.",
                 images: [
                     {
-                        src: "/images/projects/single-project1.jpg",
-                        caption: "Landing page — proposta de valor e funcionalidades principais",
+                        src: "/images/projects/listaai/features.png",
+                        caption: "Funcionalidades — geração por plataforma, tom de voz, SEO embutido e mais",
                         fullWidth: true,
-                        width: 1400,
-                        height: 800
+                        width: 1343,
+                        height: 704
                     },
                     {
-                        src: "/images/projects/single-project2.jpg",
-                        caption: "Dashboard — status do plano, descrições geradas e histórico recente",
+                        src: "/images/projects/listaai/como-funciona.png",
+                        caption: "Como funciona — 3 passos: specs, plataforma/tom, copiar e publicar",
                         fullWidth: true,
-                        width: 1400,
-                        height: 800
+                        width: 1338,
+                        height: 441
                     }
                 ]
             },
@@ -78,13 +78,25 @@ export const projectsData = [
                 ],
                 images: [
                     {
-                        src: "/images/projects/single-project3.jpg",
-                        caption: "Nova descrição — formulário com seleção de plataforma e tom de voz",
-                        fullWidth: true,
-                        width: 1400,
-                        height: 800
+                        src: "/images/projects/listaai/dashboard.png",
+                        caption: "Dashboard — plano, descrições do mês e histórico recente",
+                        width: 489,
+                        height: 846
+                    },
+                    {
+                        src: "/images/projects/listaai/nova-descricao.png",
+                        caption: "Nova descrição — nome, specs, plataforma e tom de voz",
+                        width: 484,
+                        height: 864
+                    },
+                    {
+                        src: "/images/projects/listaai/historico.png",
+                        caption: "Histórico — todas as descrições geradas com badges de plataforma",
+                        width: 486,
+                        height: 856
                     }
-                ]
+                ],
+                imageLayout: "screens"
             },
             {
                 title: "Arquitetura & Tecnologia",
@@ -92,11 +104,17 @@ export const projectsData = [
                 content: "O produto foi inteiramente construído com AI coding — Claude como pair programmer em todas as etapas, do scaffolding ao deploy. Stack: Next.js 14 (App Router) no frontend, API Routes para o backend, Prisma + PostgreSQL para persistência de dados e histórico, Claude API (claude-sonnet) para geração de conteúdo, e Vercel para deploy contínuo. O prompt de geração foi o artefato mais iterado: cada versão foi testada com produtos reais de diferentes categorias — eletrônicos, moda, casa — até atingir consistência na qualidade do output.",
                 images: [
                     {
-                        src: "/images/projects/single-project4.jpg",
-                        caption: "Stack tecnológico — Next.js, Claude API, Prisma e Vercel",
+                        src: "/images/projects/listaai/pricing.png",
+                        caption: "Modelo freemium — Free R$0 com 5 descrições/mês · PRO R$39/mês ilimitado",
                         fullWidth: true,
-                        width: 1400,
-                        height: 800
+                        width: 1340,
+                        height: 559
+                    },
+                    {
+                        src: "/images/projects/listaai/assinatura.png",
+                        caption: "Tela de assinatura no app — upgrade para PRO direto pelo dashboard",
+                        width: 495,
+                        height: 849
                     }
                 ]
             },

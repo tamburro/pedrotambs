@@ -205,14 +205,20 @@ const SingleProjectPage = ({ params }) => {
                                     <div className="cs-screens-row">
                                         {section.images.map((img, j) => (
                                             <figure key={j} className="cs-screen-figure">
-                                                <Image
-                                                    src={img.src}
-                                                    alt={img.caption || section.title}
-                                                    width={img.width || 390}
-                                                    height={img.height || 700}
-                                                    sizes="(max-width: 768px) 50vw, 14vw"
-                                                    style={{ width: '100%', height: 'auto' }}
-                                                />
+                                                <div className="cs-phone-frame">
+                                                    <div className="cs-phone-notch" />
+                                                    <div className="cs-phone-screen">
+                                                        <Image
+                                                            src={img.src}
+                                                            alt={img.caption || section.title}
+                                                            width={img.width || 390}
+                                                            height={img.height || 700}
+                                                            sizes="(max-width: 768px) 50vw, 14vw"
+                                                            style={{ width: '100%', height: 'auto', display: 'block' }}
+                                                        />
+                                                    </div>
+                                                    <div className="cs-phone-bar" />
+                                                </div>
                                                 {img.caption && <figcaption>{img.caption}</figcaption>}
                                             </figure>
                                         ))}
