@@ -1895,8 +1895,8 @@ ul.extra-skills li i {
 }
 
 .parallax-info-box {
-    background: rgba(45, 37, 64, 0.65);
-    border: 1px solid rgba(130, 0, 219, 0.25);
+    background: rgba(240, 240, 250, 0.12);
+    border: 1px solid rgba(240, 240, 250, 0.2);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-radius: 12px;
@@ -1906,8 +1906,8 @@ ul.extra-skills li i {
 }
 
 .parallax-info-box--cta {
-    background: rgba(130, 0, 219, 0.18);
-    border-color: rgba(130, 0, 219, 0.5);
+    background: rgba(130, 0, 219, 0.25);
+    border-color: rgba(130, 0, 219, 0.6);
 }
 
 .parallax-cta-links {
