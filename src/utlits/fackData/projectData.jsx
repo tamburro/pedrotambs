@@ -99,19 +99,44 @@ export const projectsData = [
                 title: "Teste A/B com Usuários Reais",
                 type: "research",
                 methods: ["Testes moderados gravados", "5 participantes por modelo", "Análise qualitativa pós-teste"],
-                content: "Desenvolvemos dois protótipos navegáveis. Modelo A: moodboard interativo — o usuário arrastar peças que vão sendo sugeridas de acordo com suas escolhas. Modelo B: escolha binária estilo Tinder — curtir ou descartar looks, com novos modelos sendo sugeridos adaptativamente. 10 usuários testaram os protótipos, 5 por modelo.",
+                content: "Desenvolvemos dois protótipos navegáveis. Modelo A: moodboard interativo — o usuário arrasta peças que vão sendo sugeridas de acordo com suas escolhas. Modelo B: escolha binária estilo Tinder — curtir ou descartar looks, com novos modelos sendo sugeridos adaptativamente. 10 usuários testaram os protótipos, 5 por modelo.",
                 highlights: [
                     "Modelo B foi mais intuitivo — o mecanismo de swipe já é um padrão mental estabelecido",
                     "Imagens grandes (Modelo B) foram mais valorizadas do que peças em miniatura (Modelo A)",
                     "A variedade de categorias — paletas, estampas, objetos, não só roupas — deu segurança ao usuário de que seu estilo seria compreendido",
                     "Ver um resumo de todas as escolhas ao final foi valorizado em ambos os modelos",
                     "Usuários do Modelo A relataram dificuldade em entender o funcionamento — a curva de aprendizado foi um obstáculo"
+                ],
+                images: [
+                    {
+                        src: "/images/projects/estiloia/comparacao-ab.png",
+                        caption: "Modelo A (moodboard) × Modelo B (escolha binária) — comparativo dos protótipos testados",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 900
+                    }
                 ]
             },
             {
                 title: "Fluxo Recomendado",
                 type: "text",
-                content: "O fluxo validado combina o melhor dos dois modelos: onboarding com perguntas de intenção (buscar referências, autoconhecimento, me sentir mais confiante, destaque profissional), seguido de escolha binária visual para estilo (paleta de cores, estampas, peças específicas, objetos associados ao estilo) e coleta progressiva de medidas corporais. A jornada transforma coleta de dados em autodescoberta — o usuário não responde perguntas, constrói seu perfil de estilo."
+                content: "O fluxo validado combina o melhor dos dois modelos: onboarding com perguntas de intenção (buscar referências, autoconhecimento, me sentir mais confiante, destaque profissional), seguido de escolha binária visual para estilo (paleta de cores, estampas, peças específicas, objetos associados ao estilo) e coleta progressiva de medidas corporais. A jornada transforma coleta de dados em autodescoberta — o usuário não responde perguntas, constrói seu perfil de estilo.",
+                images: [
+                    {
+                        src: "/images/projects/estiloia/fluxo-tinder.png",
+                        caption: "Fluxo recomendado — splash, intenção, objetivo, paleta de cor, estampa",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 900
+                    },
+                    {
+                        src: "/images/projects/estiloia/fluxo-medidas.png",
+                        caption: "Continuação do fluxo — seleção de peças, moodboard final e coleta de medidas",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 900
+                    }
+                ]
             },
             {
                 title: "Resultados & Aprendizados",
