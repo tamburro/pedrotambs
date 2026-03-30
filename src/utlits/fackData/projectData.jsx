@@ -138,6 +138,101 @@ export const projectsData = [
     },
     {
         id: 2,
+        slug: "sigil-design-system-builder",
+        src: "/images/projects/sigil/landing-hero.png",
+        category: "Product & AI Engineering",
+        title: "Sigil",
+        description: "Gerador de sistemas visuais para founders, devs e criadores independentes. Cole uma cor seed — o Sigil gera paleta, tokens de design, guia de estilo e exporta tudo para Tailwind, CSS vars ou Figma Variables. Identidade visual coerente sem abrir o Figma.",
+        year: "2025",
+        role: "Product Designer & AI Engineer",
+        timeline: "2 dias",
+        team: "Solo",
+        client: "Produto próprio",
+        tools: ["Claude API", "Next.js", "Prisma", "Vercel"],
+        liveDemoLink: "https://sigil-eight.vercel.app/",
+        sections: [
+            {
+                title: "O Problema",
+                type: "text",
+                content: "Founders, desenvolvedores e criadores independentes constroem produtos sem designer — e sentem isso a cada tela inconsistente, botão fora do padrão ou paleta improvisada. Ferramentas como Figma, Tokens Studio e Brand.ai foram criadas para designers. Quem constrói sozinho não tem tempo para aprender esses fluxos, nem budget para terceirizar. O resultado prático: projetos com identidade visual fragmentada, ausência de design tokens e incapacidade de escalar o sistema sem retrabalho. O mercado de ferramentas de design system é grande — mas todas assumem um designer no loop."
+            },
+            {
+                title: "Pesquisa de Mercado",
+                type: "research",
+                methods: ["Análise de comunidades indie hackers e devs solos", "Benchmark de ferramentas (Tokens Studio, Style Dictionary, Coolors, Realtime Colors)", "Mapeamento de dores em fóruns (Reddit, Product Hunt, Twitter/X)"],
+                content: "O crescimento de ferramentas no-code e do movimento indie hacker criou uma demanda clara: construtores solo que precisam de coerência visual mas rejeitam fluxos complexos. Tokens Studio e Style Dictionary são poderosos, mas têm curva de aprendizado íngreme e assumem familiaridade com design systems. Coolors e Realtime Colors resolvem paleta, mas não conectam com código. Nenhuma ferramenta fecha o ciclo completo — da cor seed ao arquivo de configuração pronto para uso no projeto.",
+                highlights: [
+                    "Devs solos gastam horas consistindo cores manualmente entre CSS, Tailwind e componentes",
+                    "A maioria dos indie hackers usa 'achismo' visual — escolhem cores sem sistema de tokens",
+                    "Design tokens são conhecidos mas raramente implementados por quem não tem designer",
+                    "A barreira não é conceitual — é operacional: ninguém quer aprender mais uma ferramenta complexa",
+                    "Product Hunt e Reddit mostram demanda alta por 'Tailwind palette generator' e 'brand kit for devs'"
+                ],
+                images: [
+                    {
+                        src: "/images/projects/sigil/landing-hero.png",
+                        caption: "Landing page — proposta de valor para quem constrói sozinho",
+                        fullWidth: true,
+                        width: 1898,
+                        height: 712
+                    }
+                ]
+            },
+            {
+                title: "Solução & Produto",
+                type: "text",
+                content: "O Sigil fecha o ciclo em um fluxo de três passos: escolha uma cor primária, nomeie sua marca, exporte. Internamente, o app gera paleta harmônica com modos claro/escuro, cria um Brand Brief com logo, cores, tipografia e tom de voz, e disponibiliza todos os tokens no Export Hub em múltiplos formatos. O Component Preview exibe os tokens aplicados em botões, cards e inputs reais — para o usuário ver o sistema funcionando antes de escrever uma linha de código.",
+                images: [
+                    {
+                        src: "/images/projects/sigil/features.png",
+                        caption: "Features — Token Studio, Palette Generator, Brand Brief, Component Preview e Export Hub",
+                        fullWidth: true,
+                        width: 1895,
+                        height: 702
+                    }
+                ]
+            },
+            {
+                title: "Funcionalidades",
+                type: "research",
+                methods: ["Token Studio", "Palette Generator", "Brand Brief", "Component Preview", "Export Hub"],
+                content: "Cada feature foi desenhada para eliminar uma etapa manual do fluxo de criação de identidade visual. Token Studio cria e exporta design tokens em JSON, CSS e Tailwind config. Palette Generator gera paletas harmônicas a partir de uma cor seed com modo claro/escuro automático. Brand Brief é um documento vivo com logo, cores, fontes e tom de voz. Component Preview aplica os tokens em componentes reais antes de codar. Export Hub centraliza todos os formatos de exportação — Tailwind, CSS vars, Figma Variables JSON — ou gera uma página pública compartilhável da marca.",
+                highlights: [
+                    "Token Studio — exporta JSON, CSS vars e Tailwind config prontos para usar",
+                    "Palette Generator — paleta harmônica com escala de tons light/dark a partir de uma cor seed",
+                    "Brand Brief — documento vivo: logo, cores, tipografia, tom de voz e exemplos de uso",
+                    "Component Preview — botões, cards e inputs renderizados com os tokens da marca em tempo real",
+                    "Export Hub — Tailwind config, CSS vars, Figma Variables JSON ou página pública da marca"
+                ]
+            },
+            {
+                title: "Modelo de Negócio & Arquitetura",
+                type: "text",
+                content: "Construído inteiramente com AI coding — Claude como pair programmer do scaffolding ao deploy. Stack: Next.js 14 (App Router), Prisma + PostgreSQL para persistência de BrandSystems, Palettes, ExportLogs e SharedPages, Claude API para geração de sugestões de tokens e Brand Brief, Vercel para deploy contínuo. O modelo freemium limita o Free a 1 brand system e 3 paletas sem export — suficiente para experimentar, insuficiente para escalar. O PRO (R$39/mês) libera tudo: brand systems ilimitados, Export Hub completo e SharedPages públicas.",
+                images: [
+                    {
+                        src: "/images/projects/sigil/pricing.png",
+                        caption: "Modelo de preços — Free R$0 com limites · PRO R$39/mês com trial de 14 dias",
+                        fullWidth: true,
+                        width: 1135,
+                        height: 595
+                    }
+                ]
+            },
+            {
+                title: "Resultados & Aprendizados",
+                type: "outcomes",
+                metrics: [
+                    { value: "2", label: "dias do zero ao deploy" },
+                    { value: "5", label: "features no lançamento" },
+                    { value: "R$0", label: "plano gratuito com brand system completo" }
+                ],
+                content: "O principal aprendizado foi sobre o valor de fechar o ciclo. Ferramentas de paleta existem aos montes — o diferencial do Sigil é conectar cor seed → tokens → exportação em código em um fluxo único. A decisão de incluir Component Preview foi a mais importante: ver os tokens funcionando em componentes reais, antes de exportar, reduziu drasticamente a fricção de adoção. O modelo de 14 dias de trial ilimitado foi escolhido para garantir que o usuário chegue ao 'aha moment' — que só acontece quando ele exporta e vê o Tailwind config funcionando no projeto dele."
+            }
+        ]
+    },
+    {
+        id: 3,
         slug: "sustenta-plus-app-ux-design",
         src: "/images/projects/sustentamais_full2.jpg",
         category: "UX/UI Design",
@@ -225,7 +320,7 @@ export const projectsData = [
         ]
     },
     {
-        id: 3,
+        id: 4,
         slug: "website-makeup-design",
         src: "/images/projects/estiloia_full.jpg",
         category: "UX/UI Design",
@@ -320,7 +415,7 @@ export const projectsData = [
         ]
     },
     {
-        id: 4,
+        id: 5,
         slug: "roteiro-de-viagens-colaborativo",
         src: "/images/projects/roteiro_viagens_full.jpg",
         category: "UX/UI Design",
@@ -479,7 +574,7 @@ export const projectsData = [
         ]
     },
     {
-        id: 5,
+        id: 6,
         slug: "mobile-application-design-2",
         src: "/images/projects/work4.jpg",
         category: "Marketing",
@@ -492,7 +587,7 @@ export const projectsData = [
         tools: ["Figma", "Adobe XD"],
     },
     {
-        id: 6,
+        id: 7,
         slug: "brand-identity-and-motion-design-2",
         src: "/images/projects/work3.jpg",
         category: "Design",
@@ -505,7 +600,7 @@ export const projectsData = [
         tools: ["After Effects", "Illustrator"],
     },
     {
-        id: 7,
+        id: 8,
         slug: "brand-identity-and-motion-design-3",
         src: "/images/projects/work4.jpg",
         category: "Marketing",

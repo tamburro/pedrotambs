@@ -15,7 +15,7 @@ const getRandomAnimation = () => {
     return animations[randomIndex];
 };
 
-const PROJECTS = projectsData.filter(p => p.id <= 4);
+const PROJECTS = projectsData.filter(p => p.id <= 5);
 
 const Portfolio = ({ className }) => {
     const { t } = useLanguage();
