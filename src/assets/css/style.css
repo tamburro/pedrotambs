@@ -1895,8 +1895,8 @@ ul.extra-skills li i {
 }
 
 .parallax-info-box {
-    background: rgba(235, 228, 255, 0.55);
-    border: 1px solid rgba(200, 185, 255, 0.5);
+    background: rgba(225, 215, 255, 0.84);
+    border: 1px solid rgba(200, 180, 255, 0.9);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-radius: 12px;
