@@ -15,7 +15,8 @@ const SingleProjectPage = ({ params }) => {
     const parallaxRef = useRef(null);
     const [offsetY, setOffsetY] = useState(0);
     const [galleryOpen, setGalleryOpen] = useState(false);
-    const { t } = useLanguage();
+    const { t, lang } = useLanguage();
+    const pick = (pt, en) => lang === 'en' && en ? en : pt;
 
     useEffect(() => {
         const handleScroll = () => setOffsetY(window.scrollY);
@@ -124,37 +125,41 @@ const SingleProjectPage = ({ params }) => {
                     <div className="col-12">
 
                         {project.description && (
-                            <div className="project-description-text">
-                                <h4>{t.project.overview}</h4>
-                                <p>{project.description}</p>
+                            <div className="project-section project-section--first">
+                                <h3>{t.project.overview}</h3>
+                                <p>{pick(project.description, project.description_en)}</p>
                             </div>
                         )}
 
-                        {project.sections?.map((section, i) => (
+                        {project.sections?.map((section, i) => {
+                            const methods = pick(section.methods, section.methods_en);
+                            const highlights = pick(section.highlights, section.highlights_en);
+                            const metrics = pick(section.metrics, section.metrics_en);
+                            return (
                             <div key={i} className="project-section">
-                                <h3>{section.title}</h3>
+                                <h3>{pick(section.title, section.title_en)}</h3>
 
-                                {section.type === 'research' && section.methods?.length > 0 && (
+                                {section.type === 'research' && methods?.length > 0 && (
                                     <div className="cs-methods">
-                                        {section.methods.map((m, j) => (
+                                        {methods.map((m, j) => (
                                             <span key={j} className="cs-method-chip">{m}</span>
                                         ))}
                                     </div>
                                 )}
 
-                                {section.content && <p>{section.content}</p>}
+                                {section.content && <p>{pick(section.content, section.content_en)}</p>}
 
-                                {section.highlights?.length > 0 && (
+                                {highlights?.length > 0 && (
                                     <ul className="cs-highlights">
-                                        {section.highlights.map((h, j) => (
+                                        {highlights.map((h, j) => (
                                             <li key={j}>{h}</li>
                                         ))}
                                     </ul>
                                 )}
 
-                                {section.type === 'outcomes' && section.metrics?.length > 0 && (
+                                {section.type === 'outcomes' && metrics?.length > 0 && (
                                     <div className="cs-metrics">
-                                        {section.metrics.map((m, j) => (
+                                        {metrics.map((m, j) => (
                                             <div key={j} className="cs-metric">
                                                 <span className="cs-metric-value">{m.value}</span>
                                                 <span className="cs-metric-label">{m.label}</span>
@@ -163,7 +168,8 @@ const SingleProjectPage = ({ params }) => {
                                     </div>
                                 )}
                             </div>
-                        ))}
+                            );
+                        })}
 
                         {!project.sections && (
                             <>
@@ -259,7 +265,7 @@ const SingleProjectPage = ({ params }) => {
                 )}
 
                 {/* Botão Voltar */}
-                <div className="mt-12 text-center pb-12">
+                <div className="project-back-btn">
                     <Link href="/works" className="theme-btn theme-btn--outline">
                         <i><RiArrowLeftLine size={16} /></i> {t.project.backToProjects}
                     </Link>

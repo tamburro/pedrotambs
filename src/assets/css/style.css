@@ -3594,6 +3594,12 @@ ul.blog_pagination li a:hover {
     border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
+.project-section--first {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
 .project-section h3 {
     font-size: 20px;
     font-weight: 700;
@@ -3717,4 +3723,10 @@ ul.blog_pagination li a:hover {
 
 .project-gallery-section {
     padding-top: 8px;
+}
+
+.project-back-btn {
+    margin-top: 40px;
+    padding-bottom: 60px;
+    text-align: center;
 }
