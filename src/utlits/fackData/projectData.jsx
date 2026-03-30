@@ -128,7 +128,7 @@ export const projectsData = [
                 title: "Resultados & Aprendizados",
                 type: "outcomes",
                 metrics: [
-                    { value: "2", label: "meses do zero ao deploy" },
+                    { value: "2", label: "dias do zero ao deploy" },
                     { value: "3", label: "plataformas suportadas (ML, Shopee, genérico)" },
                     { value: "R$0", label: "plano gratuito com 5 descrições/mês" }
                 ],
