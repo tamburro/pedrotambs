@@ -189,7 +189,7 @@ export const projectsData = [
         slug: "roteiro-de-viagens-colaborativo",
         src: "/images/projects/roteiro_viagens_full.jpg",
         category: "UX/UI Design",
-        title: "Roteiro de Viagens Colaborativo",
+        title: "Rotera",
         description: "Aplicativo mobile para planejamento colaborativo de viagens em grupo. O projeto explorou como tornar a co-criação de roteiros algo fluido e social — desde a ideação em sketches até o protótipo navegável, passando por arquitetura da informação, wireframes e testes.",
         year: "2024",
         role: "UX Designer & Researcher",
@@ -197,7 +197,6 @@ export const projectsData = [
         team: "Solo",
         client: "Projeto Acadêmico · Pós-graduação Infnet",
         tools: ["Figma", "Whimsical"],
-        prototypeLink: "https://www.figma.com/proto/IEQMzJVFMRJ5gMPQ7lAsX2/Prot%C3%B3tipo?node-id=62-1369&starting-point-node-id=62%3A1369&t=N0QqFqUBLfg7T0Y9-1",
         sections: [
             {
                 title: "O Problema",
