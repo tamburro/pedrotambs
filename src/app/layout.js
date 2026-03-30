@@ -8,7 +8,7 @@ import Providers from "@/components/ui/Providers";
 
 export const metadata = {
   title: "Pedro Tamburro",
-  description: "UX/UI Designer & Design Engineer",
+  description: "Product Designer & Design Engineer",
   icons: {
     icon: "/images/favicon.png",
     apple: "/images/favicon.png",
