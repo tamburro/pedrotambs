@@ -7,7 +7,7 @@ import Footer from "@/components/sections/footer";
 import Providers from "@/components/ui/Providers";
 
 export const metadata = {
-  title: "Pedro Tamburro",
+  title: "Pedro Tambs",
   description: "Product Designer & Design Engineer",
   icons: {
     icon: "/images/favicon.png",
