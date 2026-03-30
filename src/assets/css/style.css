@@ -563,6 +563,9 @@ html {
 
 .theme-btn i {
     margin-left: 4px;
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
 }
 
 .theme-btn:hover {
