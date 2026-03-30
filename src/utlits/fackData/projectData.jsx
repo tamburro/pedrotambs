@@ -4,28 +4,56 @@ export const projectsData = [
     {
         id: 1,
         slug: "sustenta-plus-app-ux-design",
-        src: "/images/projects/sustentamais_full2.jpg", // Imagem do card
+        src: "/images/projects/sustentamais_full2.jpg",
         category: "UX/UI Design",
         title: "Sustenta+",
-        description: "Este projeto envolveu o design de um aplicativo móvel com base em inteligência artificial para o gerenciamento de compras de alimentos. O objetivo principal é ajudar o usuário a registrar itens comprados, gerar listas de compras e controlar o desperdício de alimentos. Através da análise de dados do usuário, o app prevê a quantidade necessária de alimentos, sugere o que comprar (considerando safra, valor, dieta e restrições alimentares) e pode até se conectar a outros aparelhos IoT. A iniciativa visa não só evitar o desperdício de comida e facilitar o planejamento de compras, mas também promover uma dieta mais saudável e alinhada ao estilo de vida do usuário.",
-        challenge: "O principal desafio abordado foi a falta de praticidade no preparo de refeições e o desperdício de alimentos e dinheiro, resultantes da desorganização e falta de planejamento. Além disso, foram identificados problemas como esquecimento de alimentos na geladeira, falta de informações sobre prazos de validade, dificuldade em manter uma dieta equilibrada e a falta de tempo para gerenciar a alimentação em rotinas corridas.",
-        solution: "A solução proposta é um aplicativo inteligente que atua como um assistente completo para o controle de compras e consumo de alimentos. Ele permite o registro detalhado do que é comprado e usado, identifica o que foi desperdiçado e, com base nesses dados, oferece previsões e sugestões personalizadas de compra. O app também inclui funcionalidades como dicas de preservação de alimentos, sugestões de receitas para aproveitar partes menos utilizadas, integração com outros apps de compra e avisos sobre datas de vencimento, otimizando o planejamento e a alimentação do usuário.",
-        results: "O projeto buscou oferecer uma ferramenta que atendesse às necessidades de usuários preocupados com economia, que desejam planejar e preparar alimentos com facilidade e precisão, evitar desperdícios e economizar tempo na cozinha. O resultado esperado é um sistema que ajude o usuário a manter uma alimentação saudável e equilibrada através de compras mais eficientes e conscientes.",
-        fullImages: [ // Imagens para a galeria na página do projeto
-            "/images/projects/single-project1.jpg",
-            "/images/projects/single-project2.jpg",
-            "/images/projects/single-project3.jpg",
-            "/images/projects/single-project4.jpg"
-        ],
+        description: "Aplicativo mobile com IA para gerenciamento inteligente de compras e consumo de alimentos. O app prevê necessidades, reduz o desperdício e promove uma alimentação mais saudável e econômica — conectando tecnologia ao dia a dia da cozinha.",
         year: "2023",
-        client: "Projeto Acadêmico (Pós-graduação)",
-        services: "UX Research, UI Design, Prototipagem, Arquitetura da Informação, Testes de Usabilidade",
-        projectType: "Produto Digital",
-        tools: ["Figma", "Miro", "Ferramentas de Pesquisa de Usuário"],
+        role: "UX Designer & Researcher",
+        timeline: "3 meses",
+        team: "4 integrantes",
+        client: "Projeto Acadêmico · Pós-graduação Infnet",
+        tools: ["Figma", "Miro", "Google Forms"],
         prototypeLink: "https://www.figma.com/proto/IEQMzJVFMRJ5gMPQ7lAsX2/Prot%C3%B3tipo?node-id=62-1369&starting-point-node-id=62%3A1369&t=N0QqFqUBLfg7T0Y9-1",
-        // liveDemoLink: "LINK_PARA_DEMO_AO_VIVO_SE_HOUVER",
-        // behanceLink: "LINK_PARA_BEHANCE_SE_HOUVER",
-        // dribbbleLink: "LINK_PARA_DRIBBBLE_SE_HOUVER",
+        sections: [
+            {
+                title: "O Problema",
+                type: "text",
+                content: "O Brasil está entre os 10 países que mais desperdiçam alimentos no mundo. No dia a dia, o problema é ainda mais concreto: geladeiras cheias de itens esquecidos, compras impulsivas sem planejamento e dificuldade em manter uma dieta equilibrada em rotinas corridas. A falta de uma ferramenta que centralizasse o controle do que se compra, consome e descarta tornava o gerenciamento da alimentação algo invisível — e caro."
+            },
+            {
+                title: "Pesquisa & Descoberta",
+                type: "research",
+                methods: ["Entrevistas com usuários", "Benchmark competitivo", "Análise de mercado", "Questionários"],
+                content: "Realizamos pesquisa qualitativa com usuários de diferentes perfis para entender os padrões de compra e consumo de alimentos. O benchmark mapeou apps como Too Good To Go, AnyList e Fridgely, identificando lacunas no mercado brasileiro.",
+                highlights: [
+                    "Usuários não sabem o que têm na geladeira ao fazer a lista de compras",
+                    "Datas de validade são ignoradas até o alimento estragar",
+                    "Dietas fracassam por falta de planejamento prático, não de vontade",
+                    "A barreira de entrada (registrar compras) precisa ser mínima para o app ser adotado"
+                ]
+            },
+            {
+                title: "Processo de Design",
+                type: "text",
+                content: "Partimos das descobertas de pesquisa para construir personas e um mapa de empatia que guiou todas as decisões de design. O fluxo principal foi definido priorizando o menor atrito possível no registro de itens — usando câmera para ler código de barras, listas pré-populadas e sugestões inteligentes. Wireframes foram revisados em duas rodadas antes do protótipo navegável."
+            },
+            {
+                title: "Solução",
+                type: "text",
+                content: "O Sustenta+ atua como um assistente de alimentação que aprende com o usuário ao longo do tempo. O app permite registrar compras por código de barras ou voz, monitora o estoque em casa, alerta sobre vencimentos, sugere receitas com o que já tem disponível e gera listas de compra personalizadas baseadas no histórico e na dieta do usuário. A integração com apps de delivery e dispositivos IoT foi planejada como expansão futura."
+            },
+            {
+                title: "Resultados & Aprendizados",
+                type: "outcomes",
+                metrics: [
+                    { value: "4", label: "integrantes na equipe" },
+                    { value: "2", label: "rodadas de refinamento" },
+                    { value: "1", label: "protótipo navegável validado" }
+                ],
+                content: "O protótipo foi validado com usuários e apresentado para banca avaliadora. O principal aprendizado foi sobre o trade-off entre riqueza de dados e facilidade de onboarding: quanto mais o app sabe sobre o usuário, mais inteligente ele fica — mas exige um esforço inicial de cadastro. A solução foi dividir o onboarding em etapas progressivas, com valor entregue desde o primeiro acesso."
+            }
+        ]
     },
     {
         id: 2,
@@ -33,122 +61,245 @@ export const projectsData = [
         src: "/images/projects/estiloia_full.jpg",
         category: "UX/UI Design",
         title: "Estilo.ia",
-        description:
-            "Estilo.ia é um app de consultoria de moda guiado por inteligência artificial. Criado para ajudar pessoas a descobrirem e aprimorarem seu estilo pessoal, o projeto foca em uma experiência visual, personalizada e intuitiva para coletar dados e sugerir looks com base em intenção, medidas e preferências.",
-        challenge:
-            "Nosso principal desafio foi criar uma experiência simples e envolvente para capturar o estilo pessoal dos usuários sem usar formulários tradicionais. Precisávamos de uma interface leve, visualmente atraente e que facilitasse a coleta de dados para alimentar a IA com informações relevantes sobre preferências, medidas e objetivos pessoais.",
-        solution:
-            "Desenvolvemos dois modelos de questionário interativo para testes A/B: um baseado em moodboards e outro em escolha binária estilo Tinder. Os testes mostraram que imagens maiores e a possibilidade de ver todas as escolhas anteriores aumentaram a confiança dos usuários. O protótipo validado oferece uma jornada que alia praticidade, personalização e design centrado no usuário.",
-        results:
-            "O Modelo B (estilo Tinder) foi mais intuitivo e teve melhor aceitação. Os usuários valorizaram a abordagem visual, a variedade de categorias e a fluidez na interação. O projeto provou que é possível captar o estilo pessoal com precisão e empatia usando boas práticas de UX combinadas com IA.",
-        fullImages: [
-            "/images/projects/single-project1.jpg",
-            "/images/projects/single-project2.jpg",
-            "/images/projects/single-project3.jpg",
-            "/images/projects/single-project4.jpg"
-        ],
+        description: "App de consultoria de moda personalizada guiada por inteligência artificial. O projeto explorou como capturar o estilo pessoal de forma envolvente e não-intrusiva — testando dois modelos de questionário visual em formato A/B com usuários reais.",
         year: "2023",
-        client: "Projeto Acadêmico (Pós-graduação Infnet)",
-        services: "UX Research, UI Design, Teste A/B, Prototipagem, Design Visual",
-        projectType: "Aplicativo de Moda com IA",
-        tools: ["Figma", "Miro", "Google Forms", "User Testing"],
+        role: "UX Designer & Researcher",
+        timeline: "3 meses",
+        team: "6 integrantes",
+        client: "Projeto Acadêmico · Pós-graduação Infnet",
+        tools: ["Figma", "Miro"],
         prototypeLinks: [
             {
-                label: "Modelo A",
+                label: "Modelo A — Moodboard",
                 url: "https://www.figma.com/proto/ovtO7x2ujV4hFpAWhESfRi/estiloIA?page-id=0%3A1&type=design&node-id=244-2467"
             },
             {
-                label: " Modelo B",
+                label: "Modelo B — Escolha Binária",
                 url: "https://www.figma.com/proto/ovtO7x2ujV4hFpAWhESfRi/estiloIA?page-id=52%3A2&type=design&node-id=244-3324"
+            }
+        ],
+        sections: [
+            {
+                title: "O Problema",
+                type: "text",
+                content: "Muitas pessoas têm dificuldade com seu estilo pessoal e gostariam de orientação para se vestir melhor — mas consultoria de moda profissional é cara e inacessível. Em pesquisa com potenciais usuários: 69% gostariam de ajuda para se vestir, 69% valorizariam uma avaliação personalizada e 61% veem consultoria como boa ideia. O desafio de design era outro: como uma IA aprende o estilo de alguém de forma natural, visual e sem fricção?"
+            },
+            {
+                title: "Escopo & Hipóteses",
+                type: "research",
+                methods: ["Benchmarking (Pinterest, Stitch Fix, Zalando)", "Análise de padrões de onboarding com IA"],
+                content: "A jornada completa do app envolve: questionário → cadastro de roupas → sugestões de looks → provador virtual → compra externa. Nosso foco foi exclusivamente o questionário inicial — a etapa que alimenta toda a personalização da IA. Para coletar dados de qualidade (intenção, estilo pessoal, medidas), precisávamos que o usuário não percebesse isso como coleta de dados, mas como autodescoberta de estilo.",
+                highlights: [
+                    "Imagens funcionam melhor que texto para transmitir a ideia de um estilo",
+                    "Respostas não binárias (grau de compatibilidade) dão mais segurança ao usuário",
+                    "Entender a intenção de uso (trabalho, festa, autoconhecimento) é tão importante quanto as preferências estéticas"
+                ]
+            },
+            {
+                title: "Teste A/B com Usuários Reais",
+                type: "research",
+                methods: ["Testes moderados gravados", "5 participantes por modelo", "Análise qualitativa pós-teste"],
+                content: "Desenvolvemos dois protótipos navegáveis. Modelo A: moodboard interativo — o usuário arrastar peças que vão sendo sugeridas de acordo com suas escolhas. Modelo B: escolha binária estilo Tinder — curtir ou descartar looks, com novos modelos sendo sugeridos adaptativamente. 10 usuários testaram os protótipos, 5 por modelo.",
+                highlights: [
+                    "Modelo B foi mais intuitivo — o mecanismo de swipe já é um padrão mental estabelecido",
+                    "Imagens grandes (Modelo B) foram mais valorizadas do que peças em miniatura (Modelo A)",
+                    "A variedade de categorias — paletas, estampas, objetos, não só roupas — deu segurança ao usuário de que seu estilo seria compreendido",
+                    "Ver um resumo de todas as escolhas ao final foi valorizado em ambos os modelos",
+                    "Usuários do Modelo A relataram dificuldade em entender o funcionamento — a curva de aprendizado foi um obstáculo"
+                ]
+            },
+            {
+                title: "Fluxo Recomendado",
+                type: "text",
+                content: "O fluxo validado combina o melhor dos dois modelos: onboarding com perguntas de intenção (buscar referências, autoconhecimento, me sentir mais confiante, destaque profissional), seguido de escolha binária visual para estilo (paleta de cores, estampas, peças específicas, objetos associados ao estilo) e coleta progressiva de medidas corporais. A jornada transforma coleta de dados em autodescoberta — o usuário não responde perguntas, constrói seu perfil de estilo."
+            },
+            {
+                title: "Resultados & Aprendizados",
+                type: "outcomes",
+                metrics: [
+                    { value: "10", label: "usuários testados" },
+                    { value: "2", label: "modelos A/B comparados" },
+                    { value: "69%", label: "dos usuários querem ajuda com estilo" }
+                ],
+                content: "O projeto demonstrou que o design do processo de coleta de dados é, ele mesmo, um produto. A principal recomendação resultante: usar imagens em vez de palavras para entender preferências; possibilitar ao usuário ver todas as suas escolhas juntas; usar grande variedade de categorias além de roupas; questionar sobre intenção antes de estilo; e permitir ao usuário colocar suas medidas para sugestões mais precisas."
             }
         ]
     },
-
     {
         id: 3,
         slug: "roteiro-de-viagens-colaborativo",
-        src: "/images/projects/roteiro_viagens_full.jpg", // Altere para o path da thumbnail do projeto
+        src: "/images/projects/roteiro_viagens_full.jpg",
         category: "UX/UI Design",
         title: "Roteiro de Viagens Colaborativo",
-        description:
-            "Aplicativo mobile para planejamento colaborativo de viagens, que permite aos usuários criar roteiros personalizados, convidar amigos, definir permissões de colaboração e compartilhar experiências. O foco do projeto foi transformar o processo de planejar viagens em algo mais social, integrado e intuitivo.",
-        challenge:
-            "Identificamos que, apesar da abundância de apps de viagem, poucos oferecem uma experiência fluida para colaboração em grupo. O desafio era criar uma interface que centralizasse planejamento, personalização e compartilhamento, com controle de permissões e visualização intuitiva do roteiro.",
-        solution:
-            "Projetamos uma jornada completa com foco em co-criação: seleção de atividades, criação de roteiros personalizados, convites a amigos, controle de permissões de acesso, visualização em mapa interativo e compartilhamento nas redes sociais. Aplicamos padrões de design e feedback de usuários em sketches, sitegrama, wireframes e protótipo navegável.",
-        results:
-            "A experiência resultou em uma solução coesa e centrada no usuário, com navegação fluida e interação social relevante. As funcionalidades de compartilhamento e visualização em tempo real aumentam o engajamento entre viajantes e facilitam o planejamento em grupo.",
-        fullImages: [
-            "/images/projects/single-project1.jpg",
-            "/images/projects/single-project2.jpg",
-            "/images/projects/single-project3.jpg",
-            "/images/projects/single-project4.jpg"
-        ],
+        description: "Aplicativo mobile para planejamento colaborativo de viagens em grupo. O projeto explorou como tornar a co-criação de roteiros algo fluido e social — desde a ideação em sketches até o protótipo navegável, passando por arquitetura da informação, wireframes e testes.",
         year: "2024",
-        client: "Projeto Acadêmico (Pós-graduação Infnet)",
-        services: "Arquitetura da Informação, UX Research, UI Design, Wireframes, Prototipagem",
-        projectType: "Aplicativo Mobile",
-        tools: ["Figma", "Whimsical", "User Feedback"],
+        role: "UX Designer & Researcher",
+        timeline: "4 meses",
+        team: "Solo",
+        client: "Projeto Acadêmico · Pós-graduação Infnet",
+        tools: ["Figma", "Whimsical"],
         prototypeLink: "https://www.figma.com/proto/IEQMzJVFMRJ5gMPQ7lAsX2/Prot%C3%B3tipo?node-id=62-1369&starting-point-node-id=62%3A1369&t=N0QqFqUBLfg7T0Y9-1",
+        sections: [
+            {
+                title: "O Problema",
+                type: "text",
+                content: "Planejar uma viagem em grupo é caótico. As decisões se perdem em grupos de WhatsApp, planilhas compartilhadas e threads interminávies de mensagens. Aplicativos de viagem existentes foram projetados para usuários individuais — nenhum resolve bem o desafio da colaboração real: múltiplas pessoas contribuindo, com permissões diferentes, visualizando e editando o mesmo roteiro em tempo real."
+            },
+            {
+                title: "Pesquisa & Descoberta",
+                type: "research",
+                methods: ["Mapa conceitual de domínio", "Benchmarking de apps", "Tabela Problema-Solução", "Análise de padrões de design"],
+                content: "Mapeei o domínio completo do problema — desde o planejamento pré-viagem até o compartilhamento pós-viagem. O benchmark incluiu TripAdvisor, Google Trips, Roadtrippers e Wanderlog, identificando que nenhum resolve colaboração com controle de permissões.",
+                highlights: [
+                    "Usuários usam WhatsApp + planilha + app de mapas simultaneamente para planejar",
+                    "O 'dono' do roteiro vira gargalo: qualquer mudança passa por ele",
+                    "Visualização em mapa é essencial para entender a sequência do itinerário",
+                    "Pós-viagem é completamente ignorado pelos apps — memórias e fotos se perdem"
+                ]
+            },
+            {
+                title: "Arquitetura da Informação",
+                type: "text",
+                content: "Construí o sitegrama partindo dos fluxos críticos: criação do roteiro, colaboração em tempo real e pós-viagem. A home centraliza acesso ao roteiro atual e a viagens passadas — decisão diferente da maioria dos apps que abrem no perfil do usuário. O controle de permissões (editor, visualizador) foi desenhado como funcionalidade de primeira classe, não um menu escondido.",
+                images: [
+                    {
+                        src: "/images/projects/roteiro/sitegrama.png",
+                        caption: "Arquitetura da informação — sitegrama com fluxos principais",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 1000
+                    }
+                ]
+            },
+            {
+                title: "Jornada & Ideação",
+                type: "text",
+                content: "A jornada do usuário revelou os momentos de maior fricção no planejamento colaborativo — especialmente na transição entre 'decidir o destino' e 'montar o itinerário detalhado'. Os sketches exploraram diferentes abordagens para o cadastro do roteiro e para a tela de convite de colaboradores.",
+                images: [
+                    {
+                        src: "/images/projects/roteiro/jornada.png",
+                        caption: "Jornada do usuário",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 500
+                    },
+                    {
+                        src: "/images/projects/roteiro/sketches-1.png",
+                        caption: "Primeiros sketches — telas de home e seleção de atividades",
+                        width: 800,
+                        height: 500
+                    },
+                    {
+                        src: "/images/projects/roteiro/sketches-2.png",
+                        caption: "Sketches — criação de roteiro e categorias",
+                        width: 800,
+                        height: 500
+                    }
+                ]
+            },
+            {
+                title: "Wireframes",
+                type: "text",
+                content: "Os wireframes foram desenvolvidos com foco nas telas de maior complexidade: home com múltiplos itinerários, fluxo de criação de roteiro em etapas, gerenciamento de colaboradores com níveis de permissão e visualização do itinerário por dia. Cada tela passou por revisão com base nos feedbacks da arquitetura.",
+                images: [
+                    {
+                        src: "/images/projects/roteiro/tela-01.png",
+                        caption: "Home — itinerários e descoberta",
+                        width: 390,
+                        height: 700
+                    },
+                    {
+                        src: "/images/projects/roteiro/tela-02.png",
+                        caption: "Seleção de atividades",
+                        width: 390,
+                        height: 700
+                    },
+                    {
+                        src: "/images/projects/roteiro/tela-03.png",
+                        caption: "Criação do roteiro",
+                        width: 390,
+                        height: 700
+                    },
+                    {
+                        src: "/images/projects/roteiro/tela-04.png",
+                        caption: "Convidar colaboradores",
+                        width: 390,
+                        height: 700
+                    },
+                    {
+                        src: "/images/projects/roteiro/tela-05.png",
+                        caption: "Permissões de acesso",
+                        width: 390,
+                        height: 700
+                    },
+                    {
+                        src: "/images/projects/roteiro/tela-06.png",
+                        caption: "Detalhes da viagem",
+                        width: 390,
+                        height: 700
+                    },
+                    {
+                        src: "/images/projects/roteiro/tela-07.png",
+                        caption: "Itinerário em tempo real",
+                        width: 390,
+                        height: 700
+                    }
+                ],
+                imageLayout: "screens"
+            },
+            {
+                title: "Resultados & Aprendizados",
+                type: "outcomes",
+                metrics: [
+                    { value: "4", label: "meses de projeto" },
+                    { value: "7", label: "wireframes detalhados" },
+                    { value: "3", label: "rodadas de revisão" }
+                ],
+                content: "O projeto resultou em uma solução coesa com navegação fluida e colaboração como feature central — não como adição. O principal aprendizado foi sobre nomenclatura e arquitetura: o uso dos termos 'itinerário' e 'roteiro' de forma intercambiável causava confusão no fluxo. A decisão de simplificar para apenas 'roteiro' e 'viagem' clarificou toda a hierarquia de informação do app."
+            }
+        ]
     },
-
     {
         id: 4,
         slug: "mobile-application-design-2",
         src: "/images/projects/work4.jpg",
-        category: "Marketing", // Um segundo projeto de app, focado em marketing
-        title: "Mobile Application Design (Marketing App)",
-        description: "Projeto de um aplicativo móvel focado em campanhas de marketing digital. A interface foi desenhada para ser altamente interativa e permitir que usuários gerenciem suas campanhas de forma eficiente, com dashboards intuitivos e ferramentas de análise de dados. A experiência do usuário foi otimizada para facilitar a criação e o monitoramento de estratégias de marketing em tempo real.",
-        fullImages: [
-            "/images/projects/single-project1.jpg",
-            "/images/projects/single-project2.jpg",
-            "/images/projects/single-project3.jpg",
-            "/images/projects/single-project4.jpg"
-        ],
+        category: "Marketing",
+        title: "Mobile Application Design",
+        description: "Projeto de um aplicativo móvel focado em campanhas de marketing digital, com dashboards intuitivos e ferramentas de análise de dados.",
+        challenge: "Criar uma interface que permitisse gerenciar campanhas de marketing de forma eficiente em dispositivos móveis.",
+        solution: "Dashboard com visualização de métricas em tempo real e fluxo simplificado para criação e monitoramento de campanhas.",
         year: "2024",
         client: "Marketing Pro Ltda.",
-        services: "UX Research, UI Design, Dashboard Design",
-        projectType: "Ferramenta de Marketing",
+        tools: ["Figma", "Adobe XD"],
     },
     {
         id: 5,
         slug: "brand-identity-and-motion-design-2",
-        src: "/images/projects/work3.jpg", // Reutilizando a imagem do card, talvez queira mudar
+        src: "/images/projects/work3.jpg",
         category: "Design",
-        title: "Brand Identity and Motion Design (Agency)",
-        description: "Trabalho de branding e motion design para uma agência criativa, visando renovar sua presença online. Desenvolvemos um novo conjunto de elementos gráficos e animações para uso em apresentações, website e mídias sociais. A ideia era transmitir dinamismo e criatividade, refletindo a essência da agência.",
-        fullImages: [
-            "/images/projects/single-project1.jpg",
-            "/images/projects/single-project2.jpg",
-            "/images/projects/single-project3.jpg",
-            "/images/projects/single-project4.jpg"
-        ],
+        title: "Brand Identity & Motion Design",
+        description: "Trabalho de branding e motion design para uma agência criativa, renovando sua presença online com novos elementos gráficos e animações.",
+        challenge: "Transmitir dinamismo e criatividade em todos os pontos de contato da marca.",
+        solution: "Novo conjunto de elementos gráficos e animações para apresentações, website e mídias sociais.",
         year: "2023",
         client: "Creative Hub Agency",
-        services: "Branding, Animação de Logotipo, Design Editorial",
-        projectType: "Marketing Digital",
+        tools: ["After Effects", "Illustrator"],
     },
     {
         id: 6,
         slug: "brand-identity-and-motion-design-3",
-        src: "/images/projects/work4.jpg", // Reutilizando a imagem do card, talvez queira mudar
+        src: "/images/projects/work4.jpg",
         category: "Marketing",
-        title: "Brand Identity and Motion Design (Event)",
-        description: "Criação de identidade visual e peças de motion design para um grande evento anual. Isso incluiu a concepção de um tema visual, elementos gráficos para divulgação online e offline, e vídeos animados para teasers e aberturas do evento. O objetivo principal era atrair o público e criar uma atmosfera vibrante para o evento.",
-        fullImages: [
-            "/images/projects/single-project1.jpg",
-            "/images/projects/single-project2.jpg",
-            "/images/projects/single-project3.jpg",
-            "/images/projects/single-project4.jpg"
-        ],
+        title: "Brand Identity & Motion Design (Evento)",
+        description: "Identidade visual e motion design para um grande evento anual, com tema visual, elementos para divulgação e vídeos animados.",
+        challenge: "Criar uma identidade que funcionasse tanto online quanto offline, atraindo o público e criando uma atmosfera vibrante.",
+        solution: "Sistema visual completo com teasers animados, peças para redes sociais e material impresso.",
         year: "2024",
         client: "Eventos & Cia.",
-        services: "Design de Eventos, Motion Graphics, Publicidade",
-        projectType: "Evento",
+        tools: ["After Effects", "Figma"],
     },
 ];
 
-// Função auxiliar para encontrar um projeto pelo slug
 export const getProjectBySlug = (slug) => {
     return projectsData.find(project => project.slug === slug);
 };
