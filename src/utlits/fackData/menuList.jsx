@@ -11,13 +11,13 @@ export const menuList = [
     },
     {
         id: 3,
-        path: "/services",
-        label: "Services"
+        path: "/works",
+        label: "Works"
     },
     {
         id: 4,
-        path: "/works",
-        label: "Works"
+        path: "/services",
+        label: "Services"
     },
     {
         id: 5,

@@ -34,7 +34,7 @@ const Header = () => {
     setisSticky(window.scrollY > 85)
   }
 
-  const navLabels = [t.nav.home, t.nav.about, t.nav.services, t.nav.works, t.nav.contact]
+  const navLabels = [t.nav.home, t.nav.about, t.nav.works, t.nav.services, t.nav.contact]
 
   return (
     <header className={`main-header ${isSticky ? "fixed-header" : ""}`}>
@@ -56,11 +56,18 @@ const Header = () => {
                       <Image width={75} height={25} sizes='100vw' src={"/images/logo.png"} alt="Logo" title="Logo" />
                     </Link>
                   </div>
-                  <button type="button" className="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                  </button>
+                  <div className="mobile-header-actions">
+                    <div className="lang-toggle-header">
+                      <button onClick={() => toggle('en')} className={lang === 'en' ? 'active' : ''}>EN</button>
+                      <span>/</span>
+                      <button onClick={() => toggle('pt')} className={lang === 'pt' ? 'active' : ''}>PT</button>
+                    </div>
+                    <button type="button" className="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                      <span className="icon-bar"></span>
+                      <span className="icon-bar"></span>
+                      <span className="icon-bar"></span>
+                    </button>
+                  </div>
                 </div>
                 <div className="navbar-collapse collapse">
                   <ul className="navigation onepage clearfix">
@@ -68,8 +75,6 @@ const Header = () => {
                       <li key={id}><Link href={path} className="nav-link-click">{navLabels[i]}</Link></li>
                     ))}
                   </ul>
-                  {/* Language toggle — mobile only (inside hamburger) */}
-                  <LangToggle lang={lang} toggle={toggle} mobile />
                 </div>
               </nav>
             </div>
