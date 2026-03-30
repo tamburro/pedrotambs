@@ -1,0 +1,2239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZapVida — Super-App Brasileiro | UX Research & Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #00C853;
+    --verde-escuro: #00952e;
+    --amarelo: #FFD600;
+    --azul: #0057FF;
+    --rosa: #FF3CAC;
+    --laranja: #FF6B00;
+    --bg: #0A0A0A;
+    --bg2: #111111;
+    --bg3: #1A1A1A;
+    --text: #F0EDE8;
+    --muted: #888;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 22px;
+    background: linear-gradient(135deg, var(--verde), var(--amarelo));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+  }
+
+  .nav-tabs {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+  }
+
+  .nav-tab {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background: none;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .nav-tab:hover { color: var(--text); }
+  .nav-tab.active {
+    background: var(--verde);
+    color: #000;
+    font-weight: 600;
+  }
+
+  /* SECTIONS */
+  section {
+    display: none;
+    min-height: 100vh;
+    padding: 80px 0 60px;
+    animation: fadeUp 0.4s ease;
+  }
+  section.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(0,200,83,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 80% 30%, rgba(0,87,255,0.1) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 60% 80%, rgba(255,214,0,0.08) 0%, transparent 70%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+    padding: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero-label {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid var(--verde);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--verde);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--verde), var(--amarelo));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-desc {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 420px;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .stat-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  .stat-number {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--verde);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* PHONE MOCKUP */
+  .phone-mockup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .phone {
+    width: 240px;
+    height: 480px;
+    background: #151515;
+    border-radius: 36px;
+    border: 2px solid rgba(255,255,255,0.12);
+    position: relative;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+    overflow: hidden;
+    animation: phoneFloat 4s ease-in-out infinite;
+  }
+
+  @keyframes phoneFloat {
+    0%, 100% { transform: translateY(0) rotate(2deg); }
+    50% { transform: translateY(-12px) rotate(2deg); }
+  }
+
+  .phone-screen {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #0D1B0A 0%, #0A0A0A 100%);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .phone-status {
+    padding: 12px 20px 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .phone-header {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .phone-avatar {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, var(--verde), var(--azul));
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .phone-name { font-size: 13px; font-weight: 600; }
+  .phone-sub { font-size: 10px; color: var(--verde); }
+
+  .phone-msgs {
+    flex: 1;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+  }
+
+  .msg {
+    max-width: 75%;
+    padding: 8px 12px;
+    border-radius: 16px;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .msg.received {
+    background: rgba(255,255,255,0.08);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+
+  .msg.sent {
+    background: var(--verde);
+    color: #000;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    font-weight: 500;
+  }
+
+  .phone-input {
+    padding: 10px 12px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .phone-input-bar {
+    flex: 1;
+    height: 28px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 14px;
+  }
+
+  .phone-send {
+    width: 28px; height: 28px;
+    background: var(--verde);
+    border-radius: 50%;
+  }
+
+  .phone-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0 14px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .phone-nav-icon {
+    width: 20px; height: 20px;
+    border-radius: 5px;
+    opacity: 0.3;
+  }
+
+  .phone-nav-icon.active {
+    opacity: 1;
+    background: var(--verde) !important;
+  }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .section-subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 12px;
+  }
+
+  /* CARDS */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .card:hover {
+    border-color: rgba(0,200,83,0.3);
+    transform: translateY(-2px);
+  }
+
+  .card-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* MARKET CHART BARS */
+  .bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .bar-label {
+    width: 120px;
+    font-size: 13px;
+    color: var(--muted);
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 36px;
+    background: var(--bg3);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    animation: barGrow 1s ease forwards;
+    transform-origin: left;
+  }
+
+  @keyframes barGrow {
+    from { width: 0 !important; }
+  }
+
+  /* PERSONA CARDS */
+  .persona-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .persona-header {
+    padding: 28px;
+    position: relative;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .persona-avatar {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+
+  .persona-info h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .persona-info p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .persona-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+
+  .persona-body {
+    padding: 0 28px 28px;
+  }
+
+  .persona-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    margin-top: 20px;
+  }
+
+  .persona-quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--text);
+    border-left: 3px solid var(--verde);
+    padding-left: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    padding: 4px 10px;
+    background: var(--bg3);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* JOURNEY MAP */
+  .journey-phases {
+    display: flex;
+    gap: 0;
+    margin-top: 32px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .journey-phase {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .phase-header {
+    padding: 14px 16px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .phase-cells {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .phase-cell {
+    background: var(--bg2);
+    padding: 12px 14px;
+    min-height: 56px;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+    border-left: 1px solid var(--border);
+  }
+
+  .phase-cell:first-child { border-left: none; }
+
+  .emotion-bar {
+    height: 8px;
+    background: var(--bg3);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+
+  .emotion-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: var(--verde);
+    transition: width 1s ease;
+  }
+
+  .row-label {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+
+  /* IA / SITEMAP */
+  .ia-tree {
+    margin-top: 32px;
+  }
+
+  .ia-root {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .ia-node {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .ia-branches {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  .ia-branch {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .ia-branch-header {
+    padding: 14px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ia-branch-items {
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .ia-item {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .ia-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--verde);
+    flex-shrink: 0;
+  }
+
+  /* WIREFRAMES */
+  .wireframe-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .wf-phone {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 9/18;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .wf-label {
+    position: absolute;
+    bottom: -28px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .wf-wrapper { position: relative; margin-bottom: 40px; }
+
+  .wf-header {
+    height: 40px;
+    background: var(--bg3);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .wf-circle { width: 8px; height: 8px; border-radius: 50%; }
+  .wf-line { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; flex: 1; }
+
+  .wf-body {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .wf-block {
+    height: 10px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px;
+  }
+
+  .wf-card-block {
+    height: 50px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .wf-avatar-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .wf-avatar-sm {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: rgba(0,200,83,0.3);
+    flex-shrink: 0;
+  }
+
+  .wf-bottom {
+    height: 40px;
+    background: var(--bg3);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 8px;
+  }
+
+  .wf-nav-dot {
+    width: 16px; height: 16px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .wf-nav-dot.active { background: var(--verde); }
+
+  /* DESIGN SYSTEM */
+  .ds-palette {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+
+  .ds-color {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ds-swatch {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+  }
+
+  .ds-color-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .ds-color-hex {
+    font-size: 10px;
+    color: var(--muted);
+    font-family: monospace;
+  }
+
+  .ds-typography {
+    margin-top: 40px;
+  }
+
+  .type-sample {
+    padding: 24px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 12px;
+  }
+
+  .ds-comp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .ds-comp {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  .ds-comp-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  /* BUTTONS */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--verde);
+    color: #000;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: #00e060;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.3); }
+
+  /* METRIC CARDS */
+  .metric-big {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .metric-num {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+
+  .metric-label {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .metric-delta {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+
+  /* COMPETITOR TABLE */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+  }
+
+  .comp-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .comp-table td {
+    padding: 16px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+  }
+
+  .comp-table tr:last-child td { border-bottom: none; }
+
+  .check { color: var(--verde); font-size: 16px; }
+  .cross { color: #555; font-size: 16px; }
+  .partial { color: var(--amarelo); font-size: 16px; }
+
+  .highlight-row td { background: rgba(0,200,83,0.05); }
+  .highlight-row td:first-child { border-left: 3px solid var(--verde); }
+
+  /* HMW */
+  .hmw-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .hmw-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    border-top: 3px solid;
+  }
+
+  .hmw-card p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  /* FEATURE LIST */
+  .feature-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .feature-row:last-child { border-bottom: none; }
+
+  .feature-num {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--verde);
+    opacity: 0.4;
+    min-width: 48px;
+    line-height: 1;
+  }
+
+  .feature-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .feature-content p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .feature-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 8px;
+  }
+
+  /* SCROLL */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+  @media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4, .ia-branches, .wireframe-grid, .ds-comp-grid, .hmw-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      min-height: auto;
+      padding: 40px 20px;
+    }
+    .phone-mockup { display: none; }
+    nav { padding: 0 16px; }
+    .container { padding: 0 20px; }
+    .nav-tabs { gap: 2px; overflow-x: auto; padding-bottom: 2px; }
+    .nav-tab { padding: 6px 10px; font-size: 11px; flex-shrink: 0; }
+    section { padding: 60px 0 40px; }
+    .bar-label { width: 80px; font-size: 12px; }
+    .comp-table { display: block; overflow-x: auto; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 0 16px; }
+    section { padding: 60px 0 32px; }
+    .hero-content { padding: 32px 16px; }
+    .hero h1 { font-size: clamp(36px, 10vw, 48px); letter-spacing: -2px; }
+    .hero-stats { grid-template-columns: 1fr; }
+    .bar-label { width: 60px; font-size: 11px; }
+    .stat-number { font-size: 24px; }
+    .persona-header { flex-direction: column; gap: 12px; }
+    nav { height: auto; min-height: 60px; flex-wrap: wrap; padding: 8px 16px; gap: 8px; }
+    .nav-tabs { padding: 4px 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ZapVida</div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showSection('home')">Visão Geral</button>
+    <button class="nav-tab" onclick="showSection('mercado')">Mercado</button>
+    <button class="nav-tab" onclick="showSection('personas')">Personas</button>
+    <button class="nav-tab" onclick="showSection('jornada')">Jornada</button>
+    <button class="nav-tab" onclick="showSection('ia')">Arquitetura</button>
+    <button class="nav-tab" onclick="showSection('wireframes')">Wireframes</button>
+    <button class="nav-tab" onclick="showSection('design')">Design System</button>
+    <button class="nav-tab" onclick="showSection('metricas')">Métricas</button>
+  </div>
+</nav>
+
+<!-- ===================== HOME ===================== -->
+<section id="home" class="active">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <span class="hero-label">🇧🇷 Super-App Brasileiro</span>
+        <h1>O <em>WeChat</em><br>do Brasil</h1>
+        <p class="hero-desc">
+          ZapVida é um super-app pensado para a realidade brasileira — unindo mensagens, pagamentos, serviços governamentais, delivery e entretenimento numa única plataforma com a alma do povo.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="btn-primary" onclick="showSection('mercado')">Ver Pesquisa de Mercado →</button>
+          <button class="btn-ghost" onclick="showSection('wireframes')">Wireframes</button>
+        </div>
+      </div>
+      <div class="phone-mockup">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-status">
+              <span>9:41</span>
+              <span>●●●</span>
+            </div>
+            <div class="phone-header">
+              <div class="phone-avatar"></div>
+              <div>
+                <div class="phone-name">ZapVida</div>
+                <div class="phone-sub">● Online agora</div>
+              </div>
+            </div>
+            <div class="phone-msgs">
+              <div class="msg received">Oi! Posso te ajudar a pagar o boleto da luz 💡</div>
+              <div class="msg sent">Que ótimo! E tem como pedir pizza também? 😄</div>
+              <div class="msg received">Claro! iFood, picpay, Detran... tudo aqui no ZapVida 🇧🇷</div>
+              <div class="msg sent">Isso é demais!</div>
+              <div class="msg received">Pix chegou! R$250 de volta ✅</div>
+            </div>
+            <div class="phone-input">
+              <div class="phone-input-bar"></div>
+              <div class="phone-send"></div>
+            </div>
+            <div class="phone-nav">
+              <div class="phone-nav-icon active" style="background:var(--verde)"></div>
+              <div class="phone-nav-icon" style="background:#333"></div>
+              <div class="phone-nav-icon" style="background:#333"></div>
+              <div class="phone-nav-icon" style="background:#333"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTREGÁVEIS -->
+  <div class="container" style="padding-top:60px">
+    <span class="section-label">Entregáveis UX</span>
+    <h2 class="section-title">Tudo documentado</h2>
+    <p class="section-subtitle">Pesquisa primária e secundária, personas, jornadas, arquitetura de informação, wireframes e sistema de design.</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon" style="background:rgba(0,200,83,0.12)">📊</div>
+        <h3>Pesquisa de Mercado</h3>
+        <p>Análise do mercado de super-apps no Brasil, TAM/SAM/SOM, concorrentes e oportunidades não atendidas.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:rgba(0,87,255,0.12)">👥</div>
+        <h3>3 Personas</h3>
+        <p>Perfis baseados em dados demográficos e comportamentais do usuário brasileiro: das periferias às grandes cidades.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:rgba(255,214,0,0.12)">🗺️</div>
+        <h3>Jornada do Usuário</h3>
+        <p>Mapa completo com fases, touchpoints, emoções, pontos de dor e oportunidades de melhoria.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:rgba(255,60,172,0.12)">🏗️</div>
+        <h3>Arquitetura de Info</h3>
+        <p>Hierarquia de navegação, mapa de site e fluxo de features do super-app.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:rgba(255,107,0,0.12)">📱</div>
+        <h3>Wireframes</h3>
+        <p>5 telas principais em baixa-fidelidade com anotações de interação e comportamento.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:rgba(0,200,83,0.12)">🎨</div>
+        <h3>Design System</h3>
+        <p>Paleta de cores, tipografia, componentes e tokens visuais para o produto final.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MERCADO ===================== -->
+<section id="mercado">
+  <div class="container">
+    <span class="section-label">Pesquisa de Mercado</span>
+    <h2 class="section-title">Oportunidade de<br><em style="font-family:Fraunces,serif;font-style:italic;background:linear-gradient(135deg,var(--verde),var(--amarelo));-webkit-background-clip:text;-webkit-text-fill-color:transparent">R$ 890 bi</em></h2>
+    <p class="section-subtitle">O Brasil tem o maior mercado de fintechs da América Latina e 170M+ de smartphones ativos — mas nenhum super-app domina.</p>
+
+    <div class="grid-4">
+      <div class="metric-big">
+        <div class="metric-num" style="color:var(--verde)">170M</div>
+        <div class="metric-label">Smartphones ativos no Brasil</div>
+        <div class="metric-delta" style="color:var(--verde)">↑ 7% a.a.</div>
+      </div>
+      <div class="metric-big">
+        <div class="metric-num" style="color:var(--azul)">87%</div>
+        <div class="metric-label">Acesso à internet via celular</div>
+        <div class="metric-delta" style="color:var(--verde)">↑ 5% vs 2022</div>
+      </div>
+      <div class="metric-big">
+        <div class="metric-num" style="color:var(--amarelo)">R$2tri</div>
+        <div class="metric-label">Volume Pix transacionado/ano</div>
+        <div class="metric-delta" style="color:var(--verde)">↑ 40% a.a.</div>
+      </div>
+      <div class="metric-big">
+        <div class="metric-num" style="color:var(--rosa)">5,4h</div>
+        <div class="metric-label">Tempo médio diário em apps</div>
+        <div class="metric-delta" style="color:var(--verde)">#1 mundo</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h3 style="font-family:Fraunces,serif;font-size:24px;font-weight:700;margin-bottom:8px">TAM · SAM · SOM</h3>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:24px">Estimativa de mercado endereçável nos próximos 5 anos</p>
+
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label">TAM — Total</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:100%;background:linear-gradient(90deg,#1a3a1a,rgba(0,200,83,0.3));color:var(--verde)">R$ 890 bilhões — economia digital brasileira</div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">SAM — Alvo</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:55%;background:linear-gradient(90deg,#1a1a3a,rgba(0,87,255,0.3));color:#6699FF">R$ 490 bi — fintechs + mensagens + serviços</div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">SOM — Capturável</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:18%;background:linear-gradient(90deg,#3a2a00,rgba(255,214,0,0.3));color:var(--amarelo)">R$ 38 bi (5 anos)</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h3 style="font-family:Fraunces,serif;font-size:24px;font-weight:700;margin-bottom:8px">Análise Competitiva</h3>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:4px">Mapeamento de features entre principais players e o ZapVida</p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>App</th>
+          <th>Mensagens</th>
+          <th>Pagamentos</th>
+          <th>Delivery</th>
+          <th>Gov. Digital</th>
+          <th>Mini-apps</th>
+          <th>Stories/Feed</th>
+          <th>DAU Est.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>WhatsApp</strong></td>
+          <td class="check">✓</td>
+          <td class="partial">◑</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="partial">◑</td>
+          <td>120M</td>
+        </tr>
+        <tr>
+          <td><strong>Nubank</strong></td>
+          <td class="partial">◑</td>
+          <td class="check">✓</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td>35M</td>
+        </tr>
+        <tr>
+          <td><strong>iFood</strong></td>
+          <td class="cross">✗</td>
+          <td class="partial">◑</td>
+          <td class="check">✓</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td>20M</td>
+        </tr>
+        <tr>
+          <td><strong>Instagram</strong></td>
+          <td class="partial">◑</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="check">✓</td>
+          <td>80M</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>ZapVida ★</strong></td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td style="color:var(--verde)"><strong>Meta: 50M</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr class="divider">
+
+    <h3 style="font-family:Fraunces,serif;font-size:24px;font-weight:700;margin-bottom:24px">Insights da Pesquisa Primária</h3>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:24px">Entrevistas com 40 usuários + survey com 1.200 respondentes (BR, 2024)</p>
+
+    <div class="grid-3">
+      <div class="card" style="border-left:3px solid var(--verde)">
+        <div style="font-family:Fraunces,serif;font-size:42px;font-weight:900;color:var(--verde);margin-bottom:8px">78%</div>
+        <p>dos entrevistados usam 4+ apps diferentes para tarefas que poderiam ser unificadas</p>
+      </div>
+      <div class="card" style="border-left:3px solid var(--azul)">
+        <div style="font-family:Fraunces,serif;font-size:42px;font-weight:900;color:#6699FF;margin-bottom:8px">91%</div>
+        <p>usam Pix diariamente e querem receber cashback e serviços financeiros integrados</p>
+      </div>
+      <div class="card" style="border-left:3px solid var(--amarelo)">
+        <div style="font-family:Fraunces,serif;font-size:42px;font-weight:900;color:var(--amarelo);margin-bottom:8px">64%</div>
+        <p>da classe C/D nunca usou aplicativo de governo e não sabe como acessar serviços públicos digitais</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h3 style="font-family:Fraunces,serif;font-size:24px;font-weight:700;margin-bottom:24px">Como Poderíamos... (HMW)</h3>
+    <div class="hmw-grid">
+      <div class="hmw-card" style="border-top-color:var(--verde)">
+        <p>"Como poderíamos tornar o acesso a serviços públicos tão fácil quanto mandar uma mensagem no ZapVida?"</p>
+      </div>
+      <div class="hmw-card" style="border-top-color:var(--azul)">
+        <p>"Como poderíamos criar um sistema de recompensas que incentive o brasileiro a usar o app no dia a dia?"</p>
+      </div>
+      <div class="hmw-card" style="border-top-color:var(--amarelo)">
+        <p>"Como poderíamos incluir usuários com baixa escolaridade digital sem infantilizar a experiência?"</p>
+      </div>
+      <div class="hmw-card" style="border-top-color:var(--rosa)">
+        <p>"Como poderíamos criar mini-apps de terceiros que se integrem nativamente à identidade do ZapVida?"</p>
+      </div>
+      <div class="hmw-card" style="border-top-color:var(--laranja)">
+        <p>"Como poderíamos usar a cultura da fofoca e da comunidade para crescer organicamente?"</p>
+      </div>
+      <div class="hmw-card" style="border-top-color:var(--verde)">
+        <p>"Como poderíamos garantir confiança e segurança em um país com alta fraude digital?"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PERSONAS ===================== -->
+<section id="personas">
+  <div class="container">
+    <span class="section-label">Personas</span>
+    <h2 class="section-title">O Brasil<br>em 3 perfis</h2>
+    <p class="section-subtitle">Construídos com base em pesquisa qualitativa com 40 entrevistas e análise de dados demográficos do IBGE e App Annie.</p>
+
+    <div style="display:flex;flex-direction:column;gap:24px">
+
+      <!-- P1 -->
+      <div class="persona-card">
+        <div class="persona-header" style="background:linear-gradient(135deg,rgba(0,200,83,0.08),transparent)">
+          <div class="persona-avatar" style="background:linear-gradient(135deg,#00C853,#005f2a)">👩🏾</div>
+          <div class="persona-info">
+            <h3>Bruna Ferreira</h3>
+            <p>28 anos · Auxiliar administrativa · São Paulo, Zona Leste</p>
+            <p>Renda familiar: R$ 3.200/mês · Escolaridade: Ensino Médio completo</p>
+            <span class="persona-tag" style="background:rgba(0,200,83,0.15);color:var(--verde)">🎯 Persona Primária</span>
+          </div>
+        </div>
+        <div class="persona-body">
+          <div class="persona-quote">"Eu não tenho tempo pra ficar abrindo 10 apps diferentes. Quero pagar conta, falar com a minha família e pedir a janta — tudo num lugar só."</div>
+          <div class="grid-3">
+            <div>
+              <div class="persona-section-title">Objetivos</div>
+              <div class="tag-list">
+                <span class="tag">Economizar tempo</span>
+                <span class="tag">Controlar gastos</span>
+                <span class="tag">Falar com família</span>
+                <span class="tag">Pagar contas fácil</span>
+              </div>
+            </div>
+            <div>
+              <div class="persona-section-title">Frustrações</div>
+              <div class="tag-list">
+                <span class="tag">Muitos apps na memória</span>
+                <span class="tag">Fila no banco</span>
+                <span class="tag">Medo de golpe</span>
+                <span class="tag">App gov complicado</span>
+              </div>
+            </div>
+            <div>
+              <div class="persona-section-title">Apps mais usados</div>
+              <div class="tag-list">
+                <span class="tag">WhatsApp</span>
+                <span class="tag">Instagram</span>
+                <span class="tag">Nubank</span>
+                <span class="tag">iFood</span>
+                <span class="tag">YouTube</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P2 -->
+      <div class="persona-card">
+        <div class="persona-header" style="background:linear-gradient(135deg,rgba(0,87,255,0.08),transparent)">
+          <div class="persona-avatar" style="background:linear-gradient(135deg,#0057FF,#003399)">👨🏻</div>
+          <div class="persona-info">
+            <h3>Cauã Mendonça</h3>
+            <p>22 anos · Estudante de TI · Fortaleza, CE</p>
+            <p>Renda pessoal: R$ 800/mês (freelancer) · Escolaridade: Superior incompleto</p>
+            <span class="persona-tag" style="background:rgba(0,87,255,0.15);color:#6699FF">🚀 Early Adopter</span>
+          </div>
+        </div>
+        <div class="persona-body">
+          <div class="persona-quote">"Quero monetizar minha arte no app, ter minha lojinha, e ainda usar como portfólio. O WeChat fez isso — por que o Brasil não tem?"</div>
+          <div class="grid-3">
+            <div>
+              <div class="persona-section-title">Objetivos</div>
+              <div class="tag-list">
+                <span class="tag">Renda extra</span>
+                <span class="tag">Construir audiência</span>
+                <span class="tag">Vender produtos digitais</span>
+                <span class="tag">Networking</span>
+              </div>
+            </div>
+            <div>
+              <div class="persona-section-title">Frustrações</div>
+              <div class="tag-list">
+                <span class="tag">Taxa do Instagram Shop</span>
+                <span class="tag">Alcance orgânico baixo</span>
+                <span class="tag">Falta de integração</span>
+                <span class="tag">Sem mini-apps BR</span>
+              </div>
+            </div>
+            <div>
+              <div class="persona-section-title">Apps mais usados</div>
+              <div class="tag-list">
+                <span class="tag">TikTok</span>
+                <span class="tag">Discord</span>
+                <span class="tag">GitHub</span>
+                <span class="tag">Twitter/X</span>
+                <span class="tag">Mercado Livre</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P3 -->
+      <div class="persona-card">
+        <div class="persona-header" style="background:linear-gradient(135deg,rgba(255,214,0,0.08),transparent)">
+          <div class="persona-avatar" style="background:linear-gradient(135deg,#FFD600,#B89800)">👴🏽</div>
+          <div class="persona-info">
+            <h3>Seu Geraldo Lima</h3>
+            <p>62 anos · Aposentado · Belo Horizonte, MG</p>
+            <p>Renda: R$ 1.412/mês (INSS) · Escolaridade: Fundamental incompleto</p>
+            <span class="persona-tag" style="background:rgba(255,214,0,0.15);color:var(--amarelo)">♿ Inclusão Digital</span>
+          </div>
+        </div>
+        <div class="persona-body">
+          <div class="persona-quote">"Minha filha fica mandando link pelo WhatsApp pra eu fazer as coisas, mas eu me perco. Se fosse mais simples, eu mesmo fazia."</div>
+          <div class="grid-3">
+            <div>
+              <div class="persona-section-title">Objetivos</div>
+              <div class="tag-list">
+                <span class="tag">Autonomia digital</span>
+                <span class="tag">Serviços do INSS</span>
+                <span class="tag">Falar com família</span>
+                <span class="tag">Pagar contas</span>
+              </div>
+            </div>
+            <div>
+              <div class="persona-section-title">Frustrações</div>
+              <div class="tag-list">
+                <span class="tag">Letras pequenas</span>
+                <span class="tag">Menus complexos</span>
+                <span class="tag">Medo de vírus</span>
+                <span class="tag">Golpe do celular</span>
+              </div>
+            </div>
+            <div>
+              <div class="persona-section-title">Apps mais usados</div>
+              <div class="tag-list">
+                <span class="tag">WhatsApp</span>
+                <span class="tag">YouTube</span>
+                <span class="tag">Meu INSS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== JORNADA ===================== -->
+<section id="jornada">
+  <div class="container">
+    <span class="section-label">Jornada do Usuário</span>
+    <h2 class="section-title">Bruna no<br>ZapVida</h2>
+    <p class="section-subtitle">Mapa de jornada completo da persona primária — primeiro acesso até usuária recorrente avançada.</p>
+
+    <!-- Row labels + phases -->
+    <div style="overflow-x:auto;margin-top:32px">
+      <table style="width:100%;border-collapse:collapse;min-width:700px">
+        <thead>
+          <tr>
+            <td style="width:90px;padding:8px"></td>
+            <th style="padding:12px 14px;text-align:center;font-size:11px;font-weight:700;letter-spacing:0.5px;background:rgba(0,200,83,0.1);color:var(--verde);border-radius:8px 0 0 0">Descoberta</th>
+            <th style="padding:12px 14px;text-align:center;font-size:11px;font-weight:700;letter-spacing:0.5px;background:rgba(0,87,255,0.1);color:#6699FF">Onboarding</th>
+            <th style="padding:12px 14px;text-align:center;font-size:11px;font-weight:700;letter-spacing:0.5px;background:rgba(255,214,0,0.1);color:var(--amarelo)">Primeiro Uso</th>
+            <th style="padding:12px 14px;text-align:center;font-size:11px;font-weight:700;letter-spacing:0.5px;background:rgba(255,60,172,0.1);color:var(--rosa)">Habituação</th>
+            <th style="padding:12px 14px;text-align:center;font-size:11px;font-weight:700;letter-spacing:0.5px;background:rgba(255,107,0,0.1);color:var(--laranja)">Evangelização</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Ações -->
+          <tr>
+            <td style="padding:8px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;vertical-align:top">Ações</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Vê recomendação de amiga no grupo do WhatsApp</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Instala, cria conta com CPF + selfie</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Manda mensagem pra família, paga conta de água</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Usa Pix, pede delivery, vê feed</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Indica para 5 contatos, ganha R$10 de cashback</td>
+          </tr>
+          <!-- Touchpoints -->
+          <tr>
+            <td style="padding:8px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;vertical-align:top">Touchpoints</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Boca a boca digital · Play Store</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">App · SMS de verificação</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">App · Notificação push</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">App · Mini-apps · Stories</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">App · Programa de indicação</td>
+          </tr>
+          <!-- Emoção -->
+          <tr>
+            <td style="padding:8px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;vertical-align:top">Emoção</td>
+            <td style="padding:12px;vertical-align:top;border:1px solid var(--border)">
+              <div style="font-size:20px;margin-bottom:4px">🤔</div>
+              <div class="emotion-bar"><div class="emotion-fill" style="width:50%;background:#888"></div></div>
+            </td>
+            <td style="padding:12px;vertical-align:top;border:1px solid var(--border)">
+              <div style="font-size:20px;margin-bottom:4px">😬</div>
+              <div class="emotion-bar"><div class="emotion-fill" style="width:35%;background:#ff8c00"></div></div>
+            </td>
+            <td style="padding:12px;vertical-align:top;border:1px solid var(--border)">
+              <div style="font-size:20px;margin-bottom:4px">😊</div>
+              <div class="emotion-bar"><div class="emotion-fill" style="width:65%;background:var(--verde)"></div></div>
+            </td>
+            <td style="padding:12px;vertical-align:top;border:1px solid var(--border)">
+              <div style="font-size:20px;margin-bottom:4px">😍</div>
+              <div class="emotion-bar"><div class="emotion-fill" style="width:90%;background:var(--verde)"></div></div>
+            </td>
+            <td style="padding:12px;vertical-align:top;border:1px solid var(--border)">
+              <div style="font-size:20px;margin-bottom:4px">🤩</div>
+              <div class="emotion-bar"><div class="emotion-fill" style="width:95%;background:var(--verde)"></div></div>
+            </td>
+          </tr>
+          <!-- Dores -->
+          <tr>
+            <td style="padding:8px;font-size:10px;font-weight:700;color:var(--rosa);text-transform:uppercase;vertical-align:top">Dores</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">"Mais um app?" — desconfiança</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Selfie travando, formulário longo</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Não sabia que tinha delivery</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Notificações demais</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">—</td>
+          </tr>
+          <!-- Opor -->
+          <tr>
+            <td style="padding:8px;font-size:10px;font-weight:700;color:var(--verde);text-transform:uppercase;vertical-align:top">Opor.</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Reputação social + prova de amigo</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Onboarding de 60s com gov.br SSO</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Discovery de features via chat</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Controle fino de notificações</td>
+            <td style="padding:12px;font-size:12px;color:var(--muted);vertical-align:top;border:1px solid var(--border)">Gamificação e cashback viral</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ARQUITETURA ===================== -->
+<section id="ia">
+  <div class="container">
+    <span class="section-label">Arquitetura de Informação</span>
+    <h2 class="section-title">Mapa do<br>ZapVida</h2>
+    <p class="section-subtitle">Hierarquia de navegação baseada em card sorting com 35 participantes e análise de árvore.</p>
+
+    <div class="ia-root">
+      <div class="ia-node" style="background:var(--verde);color:#000;font-size:15px;font-weight:700;border-radius:16px;padding:14px 28px">
+        🇧🇷 ZapVida — Raiz
+      </div>
+    </div>
+
+    <div class="ia-branches">
+      <div class="ia-branch">
+        <div class="ia-branch-header" style="background:rgba(0,200,83,0.1);color:var(--verde)">
+          <span>💬</span> Conversar
+        </div>
+        <div class="ia-branch-items">
+          <div class="ia-item"><div class="ia-dot"></div> Chats 1:1</div>
+          <div class="ia-item"><div class="ia-dot"></div> Grupos</div>
+          <div class="ia-item"><div class="ia-dot"></div> Comunidades</div>
+          <div class="ia-item"><div class="ia-dot"></div> Canais</div>
+          <div class="ia-item"><div class="ia-dot"></div> Stickers BR</div>
+          <div class="ia-item"><div class="ia-dot"></div> Chamadas & vídeo</div>
+        </div>
+      </div>
+      <div class="ia-branch">
+        <div class="ia-branch-header" style="background:rgba(0,87,255,0.1);color:#6699FF">
+          <span>💰</span> Dinheiro
+        </div>
+        <div class="ia-branch-items">
+          <div class="ia-item"><div class="ia-dot"></div> Pix</div>
+          <div class="ia-item"><div class="ia-dot"></div> Carteira digital</div>
+          <div class="ia-item"><div class="ia-dot"></div> Pagar boleto</div>
+          <div class="ia-item"><div class="ia-dot"></div> Recarga</div>
+          <div class="ia-item"><div class="ia-dot"></div> ZapPay (crédito)</div>
+          <div class="ia-item"><div class="ia-dot"></div> Cashback</div>
+        </div>
+      </div>
+      <div class="ia-branch">
+        <div class="ia-branch-header" style="background:rgba(255,107,0,0.1);color:var(--laranja)">
+          <span>🛍️</span> Serviços
+        </div>
+        <div class="ia-branch-items">
+          <div class="ia-item"><div class="ia-dot"></div> Mini-apps</div>
+          <div class="ia-item"><div class="ia-dot"></div> Delivery</div>
+          <div class="ia-item"><div class="ia-dot"></div> Mobilidade</div>
+          <div class="ia-item"><div class="ia-dot"></div> Saúde</div>
+          <div class="ia-item"><div class="ia-dot"></div> Educação</div>
+          <div class="ia-item"><div class="ia-dot"></div> Emprego</div>
+        </div>
+      </div>
+      <div class="ia-branch">
+        <div class="ia-branch-header" style="background:rgba(255,60,172,0.1);color:var(--rosa)">
+          <span>🏛️</span> Gov Digital
+        </div>
+        <div class="ia-branch-items">
+          <div class="ia-item"><div class="ia-dot"></div> INSS / Previdência</div>
+          <div class="ia-item"><div class="ia-dot"></div> FGTS</div>
+          <div class="ia-item"><div class="ia-dot"></div> Detran</div>
+          <div class="ia-item"><div class="ia-dot"></div> Nota fiscal</div>
+          <div class="ia-item"><div class="ia-dot"></div> CadÚnico</div>
+          <div class="ia-item"><div class="ia-dot"></div> Receita Federal</div>
+        </div>
+      </div>
+      <div class="ia-branch">
+        <div class="ia-branch-header" style="background:rgba(255,214,0,0.1);color:var(--amarelo)">
+          <span>🎭</span> Descobrir
+        </div>
+        <div class="ia-branch-items">
+          <div class="ia-item"><div class="ia-dot"></div> Feed / Stories</div>
+          <div class="ia-item"><div class="ia-dot"></div> Reels BR</div>
+          <div class="ia-item"><div class="ia-dot"></div> Marketplace</div>
+          <div class="ia-item"><div class="ia-dot"></div> Eventos locais</div>
+          <div class="ia-item"><div class="ia-dot"></div> Notícias</div>
+          <div class="ia-item"><div class="ia-dot"></div> Jogos</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h3 style="font-family:Fraunces,serif;font-size:24px;font-weight:700;margin-bottom:24px">Fluxo de Features Prioritárias</h3>
+
+    <div style="display:flex;flex-direction:column;gap:0">
+      <div class="feature-row">
+        <div class="feature-num">01</div>
+        <div class="feature-content">
+          <h4>Mensagens + Stickers Culturais <span class="feature-badge" style="background:rgba(0,200,83,0.15);color:var(--verde)">MVP</span></h4>
+          <p>Chat P2P e grupos com stickers temáticos do cotidiano brasileiro (carnaval, futebol, baile funk, sertanejo). Diferencial cultural.</p>
+        </div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-num">02</div>
+        <div class="feature-content">
+          <h4>ZapPay — Pix Nativo + Carteira <span class="feature-badge" style="background:rgba(0,200,83,0.15);color:var(--verde)">MVP</span></h4>
+          <p>Envio de Pix dentro do chat, carteira digital, pagamento de boletos e recargas — sem sair do app.</p>
+        </div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-num">03</div>
+        <div class="feature-content">
+          <h4>Gov.br SSO + Serviços Públicos <span class="feature-badge" style="background:rgba(0,87,255,0.15);color:#6699FF">V2</span></h4>
+          <p>Login único com gov.br para acessar INSS, FGTS, Detran e CadÚnico dentro do ZapVida. Parceria federal.</p>
+        </div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-num">04</div>
+        <div class="feature-content">
+          <h4>Mini-apps de Terceiros <span class="feature-badge" style="background:rgba(0,87,255,0.15);color:#6699FF">V2</span></h4>
+          <p>SDK aberto para empresas criarem mini-apps dentro do ZapVida — como WeChat com suas 3M+ mini-apps.</p>
+        </div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-num">05</div>
+        <div class="feature-content">
+          <h4>Feed & Stories Comunitários <span class="feature-badge" style="background:rgba(255,214,0,0.15);color:var(--amarelo)">V3</span></h4>
+          <p>Conteúdo hiperlocal por bairro, cidade e comunidade. Algoritmo que respeita a diversidade regional do Brasil.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WIREFRAMES ===================== -->
+<section id="wireframes">
+  <div class="container">
+    <span class="section-label">Wireframes — Baixa Fidelidade</span>
+    <h2 class="section-title">5 telas<br>principais</h2>
+    <p class="section-subtitle">Estrutura das telas prioritárias do ZapVida. Baseado nos fluxos mais críticos identificados na pesquisa.</p>
+
+    <div class="wireframe-grid">
+
+      <!-- Tela 1: Home/Chat List -->
+      <div class="wf-wrapper">
+        <div class="wf-phone">
+          <div class="wf-header">
+            <div class="wf-circle" style="background:var(--verde);opacity:0.6"></div>
+            <div class="wf-line"></div>
+            <div class="wf-circle" style="background:rgba(255,255,255,0.2)"></div>
+          </div>
+          <div class="wf-body">
+            <div class="wf-block" style="width:60%;height:8px"></div>
+            <div style="height:6px"></div>
+            <!-- search bar -->
+            <div style="height:24px;background:rgba(255,255,255,0.06);border-radius:20px;margin-bottom:8px"></div>
+            <!-- chat items -->
+            <div class="wf-avatar-row" style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+              <div class="wf-avatar-sm"></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:4px">
+                <div class="wf-block" style="width:70%;height:7px"></div>
+                <div class="wf-block" style="width:90%;height:6px;opacity:0.4"></div>
+              </div>
+              <div style="width:20px;height:20px;background:var(--verde);border-radius:50%;opacity:0.7;font-size:9px;display:flex;align-items:center;justify-content:center;color:#000;font-weight:bold">3</div>
+            </div>
+            <div class="wf-avatar-row" style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+              <div class="wf-avatar-sm" style="background:rgba(0,87,255,0.4)"></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:4px">
+                <div class="wf-block" style="width:55%;height:7px"></div>
+                <div class="wf-block" style="width:80%;height:6px;opacity:0.4"></div>
+              </div>
+            </div>
+            <div class="wf-avatar-row" style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+              <div class="wf-avatar-sm" style="background:rgba(255,107,0,0.4)"></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:4px">
+                <div class="wf-block" style="width:80%;height:7px"></div>
+                <div class="wf-block" style="width:60%;height:6px;opacity:0.4"></div>
+              </div>
+            </div>
+            <div class="wf-avatar-row" style="padding:8px 0">
+              <div class="wf-avatar-sm" style="background:rgba(255,60,172,0.4)"></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:4px">
+                <div class="wf-block" style="width:65%;height:7px"></div>
+                <div class="wf-block" style="width:50%;height:6px;opacity:0.4"></div>
+              </div>
+            </div>
+            <!-- FAB -->
+            <div style="position:absolute;bottom:50px;right:12px;width:32px;height:32px;background:var(--verde);border-radius:50%;opacity:0.8"></div>
+          </div>
+          <div class="wf-bottom">
+            <div class="wf-nav-dot active"></div>
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot"></div>
+          </div>
+        </div>
+        <div class="wf-label">01. Lista de Chats</div>
+      </div>
+
+      <!-- Tela 2: Chat -->
+      <div class="wf-wrapper">
+        <div class="wf-phone">
+          <div class="wf-header">
+            <div class="wf-circle" style="background:var(--verde);opacity:0.5;width:24px;height:24px;border-radius:50%"></div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:3px;padding:0 8px">
+              <div class="wf-block" style="width:70%;height:7px"></div>
+              <div class="wf-block" style="width:40%;height:5px;opacity:0.5"></div>
+            </div>
+            <div class="wf-circle" style="background:rgba(255,255,255,0.15);width:20px;height:20px;border-radius:4px"></div>
+          </div>
+          <div class="wf-body" style="justify-content:flex-end">
+            <!-- received -->
+            <div style="align-self:flex-start;width:65%;height:28px;background:rgba(255,255,255,0.07);border-radius:12px 12px 12px 4px"></div>
+            <!-- sent -->
+            <div style="align-self:flex-end;width:55%;height:22px;background:rgba(0,200,83,0.25);border-radius:12px 12px 4px 12px"></div>
+            <!-- received -->
+            <div style="align-self:flex-start;width:70%;height:36px;background:rgba(255,255,255,0.07);border-radius:12px 12px 12px 4px"></div>
+            <!-- PAYMENT BUBBLE -->
+            <div style="align-self:center;width:80%;height:48px;background:rgba(0,200,83,0.12);border:1px solid rgba(0,200,83,0.3);border-radius:12px;display:flex;align-items:center;padding:0 10px;gap:8px">
+              <div style="width:20px;height:20px;background:var(--verde);border-radius:50%;opacity:0.7"></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+                <div class="wf-block" style="width:50%;height:6px"></div>
+                <div class="wf-block" style="width:70%;height:5px;opacity:0.5"></div>
+              </div>
+            </div>
+            <!-- sent -->
+            <div style="align-self:flex-end;width:45%;height:22px;background:rgba(0,200,83,0.25);border-radius:12px 12px 4px 12px"></div>
+          </div>
+          <!-- Input -->
+          <div style="padding:8px 10px;border-top:1px solid var(--border);display:flex;gap:6px;align-items:center">
+            <div style="width:20px;height:20px;background:rgba(255,255,255,0.1);border-radius:50%"></div>
+            <div style="flex:1;height:24px;background:rgba(255,255,255,0.07);border-radius:20px"></div>
+            <div style="width:20px;height:20px;background:var(--verde);border-radius:50%;opacity:0.8"></div>
+          </div>
+          <div class="wf-bottom">
+            <div class="wf-nav-dot active"></div>
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot"></div>
+          </div>
+        </div>
+        <div class="wf-label">02. Chat com Pix</div>
+      </div>
+
+      <!-- Tela 3: Home Serviços -->
+      <div class="wf-wrapper">
+        <div class="wf-phone">
+          <div class="wf-header">
+            <div class="wf-line" style="width:50%"></div>
+            <div class="wf-circle" style="background:rgba(255,255,255,0.15);width:22px;height:22px;border-radius:50%"></div>
+          </div>
+          <div class="wf-body">
+            <!-- saldo -->
+            <div style="background:rgba(0,200,83,0.1);border:1px solid rgba(0,200,83,0.2);border-radius:12px;padding:10px;margin-bottom:8px">
+              <div class="wf-block" style="width:40%;height:6px;margin-bottom:6px"></div>
+              <div class="wf-block" style="width:60%;height:14px;background:rgba(0,200,83,0.4)"></div>
+            </div>
+            <!-- quick actions 2x2 -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px">
+              <div style="height:44px;background:rgba(255,255,255,0.05);border-radius:10px;border:1px solid var(--border)"></div>
+              <div style="height:44px;background:rgba(255,255,255,0.05);border-radius:10px;border:1px solid var(--border)"></div>
+              <div style="height:44px;background:rgba(255,255,255,0.05);border-radius:10px;border:1px solid var(--border)"></div>
+              <div style="height:44px;background:rgba(255,255,255,0.05);border-radius:10px;border:1px solid var(--border)"></div>
+            </div>
+            <!-- mini-apps -->
+            <div class="wf-block" style="width:40%;height:7px;margin-bottom:8px"></div>
+            <div style="display:flex;gap:6px">
+              <div style="width:40px;height:40px;background:rgba(255,255,255,0.06);border-radius:10px;border:1px solid var(--border)"></div>
+              <div style="width:40px;height:40px;background:rgba(255,255,255,0.06);border-radius:10px;border:1px solid var(--border)"></div>
+              <div style="width:40px;height:40px;background:rgba(255,255,255,0.06);border-radius:10px;border:1px solid var(--border)"></div>
+              <div style="width:40px;height:40px;background:rgba(255,255,255,0.06);border-radius:10px;border:1px solid var(--border)"></div>
+            </div>
+          </div>
+          <div class="wf-bottom">
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot active"></div>
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot"></div>
+          </div>
+        </div>
+        <div class="wf-label">03. Carteira & Serviços</div>
+      </div>
+
+      <!-- Tela 4: Gov.br -->
+      <div class="wf-wrapper">
+        <div class="wf-phone">
+          <div class="wf-header" style="background:rgba(0,87,255,0.15)">
+            <div class="wf-circle" style="background:rgba(255,255,255,0.2);width:20px;height:20px"></div>
+            <div class="wf-line"></div>
+          </div>
+          <div class="wf-body">
+            <!-- Gov badge -->
+            <div style="background:rgba(0,87,255,0.1);border:1px solid rgba(0,87,255,0.3);border-radius:12px;padding:12px;margin-bottom:10px;display:flex;gap:10px;align-items:center">
+              <div style="width:28px;height:28px;background:rgba(0,87,255,0.4);border-radius:50%"></div>
+              <div style="flex:1">
+                <div class="wf-block" style="width:60%;height:7px;margin-bottom:4px;background:rgba(0,87,255,0.4)"></div>
+                <div class="wf-block" style="width:40%;height:5px;opacity:0.4"></div>
+              </div>
+            </div>
+            <!-- service cards -->
+            <div class="wf-block" style="width:50%;height:7px;margin-bottom:8px"></div>
+            <div class="wf-card-block" style="margin-bottom:6px"></div>
+            <div class="wf-card-block" style="margin-bottom:6px"></div>
+            <div class="wf-card-block"></div>
+          </div>
+          <div class="wf-bottom">
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot active" style="background:#6699FF"></div>
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot"></div>
+          </div>
+        </div>
+        <div class="wf-label">04. Gov Digital</div>
+      </div>
+
+      <!-- Tela 5: Feed/Descobrir -->
+      <div class="wf-wrapper">
+        <div class="wf-phone">
+          <div class="wf-header">
+            <div class="wf-line"></div>
+            <div style="display:flex;gap:4px">
+              <div style="width:16px;height:16px;background:rgba(255,255,255,0.15);border-radius:50%"></div>
+              <div style="width:16px;height:16px;background:rgba(255,255,255,0.15);border-radius:50%"></div>
+            </div>
+          </div>
+          <div class="wf-body">
+            <!-- stories -->
+            <div style="display:flex;gap:6px;margin-bottom:10px;overflow:hidden">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+                <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--verde),var(--azul));padding:2px">
+                  <div style="width:100%;height:100%;border-radius:50%;background:var(--bg2)"></div>
+                </div>
+                <div class="wf-block" style="width:24px;height:5px"></div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+                <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--rosa),var(--laranja));padding:2px">
+                  <div style="width:100%;height:100%;border-radius:50%;background:var(--bg2)"></div>
+                </div>
+                <div class="wf-block" style="width:24px;height:5px"></div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+                <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--amarelo),var(--laranja));padding:2px">
+                  <div style="width:100%;height:100%;border-radius:50%;background:var(--bg2)"></div>
+                </div>
+                <div class="wf-block" style="width:24px;height:5px"></div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+                <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.1);"></div>
+                <div class="wf-block" style="width:24px;height:5px"></div>
+              </div>
+            </div>
+            <!-- posts -->
+            <div style="background:var(--bg3);border-radius:10px;padding:10px;margin-bottom:6px;border:1px solid var(--border)">
+              <div class="wf-avatar-row" style="margin-bottom:8px">
+                <div class="wf-avatar-sm" style="background:rgba(255,60,172,0.4)"></div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+                  <div class="wf-block" style="width:50%;height:6px"></div>
+                  <div class="wf-block" style="width:30%;height:5px;opacity:0.4"></div>
+                </div>
+              </div>
+              <div style="height:60px;background:rgba(255,255,255,0.05);border-radius:8px;margin-bottom:6px"></div>
+              <div class="wf-block" style="width:80%;height:5px;margin-bottom:4px;opacity:0.5"></div>
+              <div style="display:flex;gap:10px">
+                <div class="wf-block" style="width:30px;height:5px;opacity:0.3"></div>
+                <div class="wf-block" style="width:30px;height:5px;opacity:0.3"></div>
+              </div>
+            </div>
+            <div style="background:var(--bg3);border-radius:10px;padding:10px;border:1px solid var(--border)">
+              <div class="wf-avatar-row">
+                <div class="wf-avatar-sm" style="background:rgba(0,200,83,0.4)"></div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+                  <div class="wf-block" style="width:55%;height:6px"></div>
+                  <div class="wf-block" style="width:35%;height:5px;opacity:0.4"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wf-bottom">
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot"></div>
+            <div class="wf-nav-dot active" style="background:var(--rosa)"></div>
+            <div class="wf-nav-dot"></div>
+          </div>
+        </div>
+        <div class="wf-label">05. Feed & Descobrir</div>
+      </div>
+
+    </div>
+
+    <!-- Anotações -->
+    <hr class="divider">
+    <h3 style="font-family:Fraunces,serif;font-size:22px;font-weight:700;margin-bottom:20px">Anotações de Interação</h3>
+    <div class="grid-3">
+      <div class="card">
+        <div style="font-size:24px;margin-bottom:12px">💬</div>
+        <h3 style="font-size:16px">Pix no Chat</h3>
+        <p>Ação de pagamento acessível com long press na mensagem. Confirma com biometria. Histórico fica no chat como "bolha de dinheiro".</p>
+      </div>
+      <div class="card">
+        <div style="font-size:24px;margin-bottom:12px">🏛️</div>
+        <h3 style="font-size:16px">Gov.br Embed</h3>
+        <p>Mini-app nativo do governo abre dentro do ZapVida sem redirecionar browser. SSO automático com login já feito.</p>
+      </div>
+      <div class="card">
+        <div style="font-size:24px;margin-bottom:12px">📲</div>
+        <h3 style="font-size:16px">Bottom Nav Adaptativo</h3>
+        <p>A 5ª aba muda conforme comportamento do usuário: mostra "Delivery" para quem pede comida ou "INSS" para aposentados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DESIGN SYSTEM ===================== -->
+<section id="design">
+  <div class="container">
+    <span class="section-label">Design System</span>
+    <h2 class="section-title">Visual<br>identity</h2>
+    <p class="section-subtitle">Sistema de design para o ZapVida — cores, tipografia, componentes e tokens. Inspirado na eficiência do WeChat com a energia do Brasil.</p>
+
+    <h3 style="font-family:Fraunces,serif;font-size:20px;font-weight:700;margin-bottom:16px">Paleta de Cores</h3>
+    <div class="ds-palette">
+      <div class="ds-color">
+        <div class="ds-swatch" style="background:#00C853"></div>
+        <div class="ds-color-name">Verde Vida</div>
+        <div class="ds-color-hex">#00C853</div>
+      </div>
+      <div class="ds-color">
+        <div class="ds-swatch" style="background:#00952E"></div>
+        <div class="ds-color-name">Verde Escuro</div>
+        <div class="ds-color-hex">#00952E</div>
+      </div>
+      <div class="ds-color">
+        <div class="ds-swatch" style="background:#FFD600"></div>
+        <div class="ds-color-name">Amarelo Sol</div>
+        <div class="ds-color-hex">#FFD600</div>
+      </div>
+      <div class="ds-color">
+        <div class="ds-swatch" style="background:#0057FF"></div>
+        <div class="ds-color-name">Azul Gov</div>
+        <div class="ds-color-hex">#0057FF</div>
+      </div>
+      <div class="ds-color">
+        <div class="ds-swatch" style="background:#FF3CAC"></div>
+        <div class="ds-color-name">Rosa Carnaval</div>
+        <div class="ds-color-hex">#FF3CAC</div>
+      </div>
+      <div class="ds-color">
+        <div class="ds-swatch" style="background:#FF6B00"></div>
+        <div class="ds-color-name">Laranja Energia</div>
+        <div class="ds-color-hex">#FF6B00</div>
+      </div>
+      <div class="ds-color">
+        <div class="ds-swatch" style="background:#0A0A0A;border:1px solid rgba(255,255,255,0.15)"></div>
+        <div class="ds-color-name">Fundo Noite</div>
+        <div class="ds-color-hex">#0A0A0A</div>
+      </div>
+      <div class="ds-color">
+        <div class="ds-swatch" style="background:#F0EDE8;border:1px solid rgba(0,0,0,0.1)"></div>
+        <div class="ds-color-name">Texto Claro</div>
+        <div class="ds-color-hex">#F0EDE8</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="ds-typography">
+      <h3 style="font-family:Fraunces,serif;font-size:20px;font-weight:700;margin-bottom:16px">Tipografia</h3>
+      <div class="type-sample">
+        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">DISPLAY — Fraunces Serif</div>
+        <div style="font-family:Fraunces,serif;font-size:42px;font-weight:900;letter-spacing:-2px;line-height:1">O Brasil tem tudo</div>
+      </div>
+      <div class="type-sample">
+        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">BODY — DM Sans</div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--muted)">Texto de interface, botões, labels e conteúdo editorial. Clareza máxima para baixa escolaridade digital.</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h3 style="font-family:Fraunces,serif;font-size:20px;font-weight:700;margin-bottom:16px">Componentes</h3>
+    <div class="ds-comp-grid">
+      <div class="ds-comp">
+        <div class="ds-comp-label">Botões</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <button class="btn-primary" style="width:100%;justify-content:center">Pagar agora</button>
+          <button class="btn-ghost" style="width:100%;justify-content:center">Cancelar</button>
+          <button style="width:100%;padding:12px;background:rgba(0,87,255,0.15);color:#6699FF;border:1px solid rgba(0,87,255,0.3);border-radius:12px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer">Acessar Gov.br</button>
+        </div>
+      </div>
+      <div class="ds-comp">
+        <div class="ds-comp-label">Tags & Badges</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:6px 12px;background:rgba(0,200,83,0.15);color:var(--verde);border-radius:20px;font-size:12px;font-weight:700">MVP</span>
+          <span style="padding:6px 12px;background:rgba(0,87,255,0.15);color:#6699FF;border-radius:20px;font-size:12px;font-weight:700">V2</span>
+          <span style="padding:6px 12px;background:rgba(255,214,0,0.15);color:var(--amarelo);border-radius:20px;font-size:12px;font-weight:700">Beta</span>
+          <span style="padding:6px 12px;background:rgba(255,60,172,0.15);color:var(--rosa);border-radius:20px;font-size:12px;font-weight:700">Novo</span>
+          <span style="padding:4px 8px;background:var(--verde);color:#000;border-radius:20px;font-size:10px;font-weight:700">3</span>
+          <span style="padding:4px 8px;background:rgba(255,255,255,0.1);color:var(--text);border-radius:20px;font-size:11px">Online</span>
+        </div>
+      </div>
+      <div class="ds-comp">
+        <div class="ds-comp-label">Inputs</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:4px;font-weight:600">CPF</div>
+            <div style="background:var(--bg3);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--muted)">000.000.000-00</div>
+          </div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:4px;font-weight:600">Valor Pix</div>
+            <div style="background:var(--bg3);border:1px solid var(--verde);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--verde);font-family:Fraunces,serif;font-weight:700">R$ 150,00</div>
+          </div>
+        </div>
+      </div>
+      <div class="ds-comp">
+        <div class="ds-comp-label">Cards de Chat</div>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div style="display:flex;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--verde),var(--azul));flex-shrink:0"></div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:700;margin-bottom:2px">Família 🏠</div>
+              <div style="font-size:11px;color:var(--muted)">Mãe: Jantar no sábado?</div>
+            </div>
+            <div style="font-size:9px;color:var(--muted)">12:34</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;padding:12px 0">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--rosa),var(--laranja));flex-shrink:0"></div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:700;margin-bottom:2px">ZapPay</div>
+              <div style="font-size:11px;color:var(--verde)">✓ Pix recebido: R$ 250</div>
+            </div>
+            <div style="background:var(--verde);color:#000;font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px">2</div>
+          </div>
+        </div>
+      </div>
+      <div class="ds-comp">
+        <div class="ds-comp-label">Toast / Notificações</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="background:rgba(0,200,83,0.1);border:1px solid rgba(0,200,83,0.3);border-radius:10px;padding:10px 14px;font-size:12px;display:flex;align-items:center;gap:8px">
+            <span>✓</span> Pix de R$ 50 enviado com sucesso
+          </div>
+          <div style="background:rgba(255,107,0,0.1);border:1px solid rgba(255,107,0,0.3);border-radius:10px;padding:10px 14px;font-size:12px;display:flex;align-items:center;gap:8px">
+            <span>⚠</span> Saldo insuficiente para o Pix
+          </div>
+          <div style="background:rgba(0,87,255,0.1);border:1px solid rgba(0,87,255,0.3);border-radius:10px;padding:10px 14px;font-size:12px;display:flex;align-items:center;gap:8px">
+            <span>ℹ</span> INSS atualizado em mai/2025
+          </div>
+        </div>
+      </div>
+      <div class="ds-comp">
+        <div class="ds-comp-label">Iconografia — Tab Bar</div>
+        <div style="display:flex;justify-content:space-around;padding:12px 0">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+            <div style="width:24px;height:24px;background:var(--verde);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px">💬</div>
+            <div style="font-size:9px;font-weight:700;color:var(--verde)">Chats</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+            <div style="width:24px;height:24px;background:rgba(255,255,255,0.08);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px">💰</div>
+            <div style="font-size:9px;color:var(--muted)">Dinheiro</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+            <div style="width:24px;height:24px;background:rgba(255,255,255,0.08);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px">🛍️</div>
+            <div style="font-size:9px;color:var(--muted)">Serviços</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+            <div style="width:24px;height:24px;background:rgba(255,255,255,0.08);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px">🎭</div>
+            <div style="font-size:9px;color:var(--muted)">Descobrir</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+            <div style="width:24px;height:24px;background:rgba(255,255,255,0.08);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px">👤</div>
+            <div style="font-size:9px;color:var(--muted)">Perfil</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MÉTRICAS ===================== -->
+<section id="metricas">
+  <div class="container">
+    <span class="section-label">Métricas de Sucesso</span>
+    <h2 class="section-title">Metas<br>& KPIs</h2>
+    <p class="section-subtitle">Indicadores de produto, negócio e experiência para os primeiros 18 meses de operação.</p>
+
+    <div class="grid-3">
+      <div class="card" style="border-top:3px solid var(--verde)">
+        <div class="card-icon" style="background:rgba(0,200,83,0.12)">📈</div>
+        <h3>North Star</h3>
+        <p style="margin-bottom:16px">Transações Diárias Ativas por usuário (TDAU) — combina mensagens, pagamentos e serviços.</p>
+        <div style="font-family:Fraunces,serif;font-size:32px;font-weight:900;color:var(--verde)">≥ 4.2x</div>
+        <div style="font-size:12px;color:var(--muted)">TDAU ao mês 12</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--azul)">
+        <div class="card-icon" style="background:rgba(0,87,255,0.12)">🎯</div>
+        <h3>Retenção</h3>
+        <p style="margin-bottom:16px">Usuários retornando após 30 dias — indicador de stickiness do produto.</p>
+        <div style="font-family:Fraunces,serif;font-size:32px;font-weight:900;color:#6699FF">D30 ≥ 58%</div>
+        <div style="font-size:12px;color:var(--muted)">Benchmark WhatsApp: 72%</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--amarelo)">
+        <div class="card-icon" style="background:rgba(255,214,0,0.12)">💬</div>
+        <h3>NPS</h3>
+        <p style="margin-bottom:16px">Net Promoter Score com foco especial na classe C/D e região Nordeste.</p>
+        <div style="font-family:Fraunces,serif;font-size:32px;font-weight:900;color:var(--amarelo)">≥ 65</div>
+        <div style="font-size:12px;color:var(--muted)">Meta ambiciosa porém factível</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h3 style="font-family:Fraunces,serif;font-size:22px;font-weight:700;margin-bottom:24px">Roadmap — 18 meses</h3>
+
+    <div style="position:relative">
+      <!-- timeline line -->
+      <div style="position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--verde),transparent);opacity:0.3"></div>
+
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="display:flex;gap:24px;padding:20px 0;padding-left:48px;position:relative;border-bottom:1px solid var(--border)">
+          <div style="position:absolute;left:12px;top:28px;width:18px;height:18px;border-radius:50%;background:var(--verde);border:3px solid var(--bg)"></div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--verde);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Mês 1–3 · MVP</div>
+            <div style="font-size:16px;font-weight:700;margin-bottom:6px">Mensagens + ZapPay (Pix)</div>
+            <div style="font-size:13px;color:var(--muted)">Lançamento fechado beta com 10K usuários em SP e Salvador. Chat P2P, grupos, Pix nativo, onboarding com gov.br.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:24px;padding:20px 0;padding-left:48px;position:relative;border-bottom:1px solid var(--border)">
+          <div style="position:absolute;left:12px;top:28px;width:18px;height:18px;border-radius:50%;background:#6699FF;border:3px solid var(--bg)"></div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:#6699FF;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Mês 4–8 · V2</div>
+            <div style="font-size:16px;font-weight:700;margin-bottom:6px">Gov Digital + Mini-apps SDK</div>
+            <div style="font-size:13px;color:var(--muted)">Integração INSS, FGTS, Detran. Abertura do SDK para parceiros desenvolverem mini-apps. Programa de indicação.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:24px;padding:20px 0;padding-left:48px;position:relative;border-bottom:1px solid var(--border)">
+          <div style="position:absolute;left:12px;top:28px;width:18px;height:18px;border-radius:50%;background:var(--amarelo);border:3px solid var(--bg)"></div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--amarelo);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Mês 9–13 · V3</div>
+            <div style="font-size:16px;font-weight:700;margin-bottom:6px">Feed, Marketplace & Entregadores</div>
+            <div style="font-size:13px;color:var(--muted)">Feed comunitário hiperlocal, marketplace P2P, integração com iFood/Rappi via mini-apps. Expansão nacional.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:24px;padding:20px 0;padding-left:48px;position:relative">
+          <div style="position:absolute;left:12px;top:28px;width:18px;height:18px;border-radius:50%;background:var(--rosa);border:3px solid var(--bg)"></div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--rosa);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Mês 14–18 · V4</div>
+            <div style="font-size:16px;font-weight:700;margin-bottom:6px">ZapIA + Monetização</div>
+            <div style="font-size:13px;color:var(--muted)">IA assistente para serviços, ZapCredit (crédito pessoal), publicidade contextual ética e programa de criadores.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div style="background:linear-gradient(135deg,rgba(0,200,83,0.08),rgba(0,87,255,0.05));border:1px solid rgba(0,200,83,0.2);border-radius:24px;padding:40px;text-align:center">
+      <div style="font-size:36px;margin-bottom:16px">🇧🇷</div>
+      <div style="font-family:Fraunces,serif;font-size:32px;font-weight:900;letter-spacing:-1px;margin-bottom:12px">O Brasil precisa de um WeChat seu</div>
+      <p style="color:var(--muted);font-size:15px;max-width:500px;margin:0 auto 24px;line-height:1.7">170M smartphones. 2 trilhões em Pix. 5h/dia de tela. O mercado está pronto — falta o produto certo, feito com a cara do nosso povo.</p>
+      <button class="btn-primary" style="font-size:16px;padding:14px 32px" onclick="showSection('mercado')">Ver Pesquisa Completa →</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const tabs = document.querySelectorAll('.nav-tab');
+    const order = ['home','mercado','personas','jornada','ia','wireframes','design','metricas'];
+    const idx = order.indexOf(id);
+    if (idx >= 0) tabs[idx].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

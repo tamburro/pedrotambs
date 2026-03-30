@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PixTudo — UX Research & Design Deliverables</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #00C853;
+    --green-dark: #009624;
+    --green-light: #69F0AE;
+    --yellow: #FFD600;
+    --blue: #0D47A1;
+    --navy: #050E24;
+    --navy-mid: #0C1A3A;
+    --slate: #1A2744;
+    --white: #F4F7F2;
+    --muted: #8B9BB4;
+    --accent: #FF6B35;
+    --pink: #FF4081;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1,h2,h3,h4,h5 { font-family: 'Syne', sans-serif; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(5,14,36,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0,200,83,0.15);
+    padding: 14px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px; font-weight: 800;
+    color: var(--green);
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--white); }
+  nav ul { display: flex; gap: 28px; list-style: none; }
+  nav ul a {
+    color: var(--muted); text-decoration: none;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--green); }
+
+  /* SECTIONS */
+  section { padding: 100px 60px; max-width: 1280px; margin: 0 auto; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-top: 120px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(0,200,83,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(13,71,161,0.2) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(0,200,83,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,200,83,0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,200,83,0.1); border: 1px solid rgba(0,200,83,0.25);
+    border-radius: 100px; padding: 6px 16px;
+    font-size: 12px; font-weight: 500; color: var(--green);
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-tag span { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero h1 {
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 800; line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+  }
+  .hero h1 .green { color: var(--green); }
+  .hero h1 .outline {
+    -webkit-text-stroke: 2px var(--white);
+    color: transparent;
+  }
+  .hero-sub {
+    font-size: 18px; color: var(--muted); max-width: 560px;
+    margin: 24px 0 48px; font-weight: 300; line-height: 1.7;
+  }
+  .hero-meta {
+    display: flex; gap: 48px; align-items: center;
+  }
+  .hero-meta-item label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--muted); display: block; margin-bottom: 4px;
+  }
+  .hero-meta-item span {
+    font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600;
+  }
+  .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+  .chip {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px; padding: 6px 14px;
+    font-size: 12px; color: var(--muted);
+  }
+
+  /* DIVIDER */
+  .section-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+    color: var(--green); font-family: 'DM Mono', monospace;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before {
+    content: ''; display: block;
+    width: 24px; height: 1px; background: var(--green);
+  }
+  .section-title {
+    font-size: clamp(32px, 4vw, 52px); font-weight: 800;
+    letter-spacing: -1px; margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .section-desc {
+    font-size: 16px; color: var(--muted); max-width: 600px;
+    line-height: 1.7; margin-bottom: 60px;
+  }
+
+  /* CARDS GRID */
+  .cards-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .cards-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+  .cards-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+
+  .card {
+    background: var(--slate);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px; padding: 32px;
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .card:hover { border-color: rgba(0,200,83,0.3); transform: translateY(-3px); }
+  .card-accent {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: linear-gradient(90deg, var(--green), var(--green-light));
+  }
+  .card-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 36px; font-weight: 500;
+    color: var(--green); margin-bottom: 8px;
+    line-height: 1;
+  }
+  .card-num sub { font-size: 16px; color: var(--muted); }
+  .card h4 { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .card-icon {
+    font-size: 32px; margin-bottom: 16px;
+  }
+  .card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+
+  /* MARKET RESEARCH */
+  .market-section { background: var(--navy-mid); }
+  .market-section > * { max-width: 1280px; margin: 0 auto; }
+
+  .stat-highlight {
+    background: linear-gradient(135deg, rgba(0,200,83,0.1), rgba(0,200,83,0.03));
+    border: 1px solid rgba(0,200,83,0.2);
+    border-radius: 20px; padding: 32px;
+  }
+
+  /* COMPETITORS */
+  .comp-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+  .comp-table th {
+    text-align: left; padding: 12px 16px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--muted); border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .comp-table td {
+    padding: 14px 16px;
+    font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .comp-table tr:hover td { background: rgba(255,255,255,0.03); }
+  .badge {
+    display: inline-block; border-radius: 100px;
+    padding: 3px 10px; font-size: 11px; font-weight: 600;
+  }
+  .badge-green { background: rgba(0,200,83,0.15); color: var(--green); }
+  .badge-yellow { background: rgba(255,214,0,0.15); color: var(--yellow); }
+  .badge-red { background: rgba(255,65,129,0.15); color: var(--pink); }
+  .badge-blue { background: rgba(13,71,161,0.3); color: #90CAF9; }
+
+  /* PERSONAS */
+  .persona-card {
+    background: var(--slate);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 24px; padding: 36px;
+    position: relative; overflow: hidden;
+  }
+  .persona-avatar {
+    width: 72px; height: 72px; border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px; margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+  .persona-header { margin-bottom: 24px; }
+  .persona-header h3 { font-size: 22px; font-weight: 800; }
+  .persona-header p { color: var(--muted); font-size: 13px; }
+  .persona-bg {
+    position: absolute; top: -30px; right: -30px;
+    width: 180px; height: 180px; border-radius: 50%;
+    opacity: 0.06;
+  }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+  .tag {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px; padding: 4px 12px;
+    font-size: 12px; color: var(--muted);
+  }
+  .persona-section { margin-top: 20px; }
+  .persona-section h5 {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--muted); margin-bottom: 10px; font-family: 'DM Mono',monospace;
+  }
+  .persona-section ul { list-style: none; }
+  .persona-section ul li {
+    font-size: 13px; color: var(--white); padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .persona-section ul li::before { content: '→'; color: var(--green); flex-shrink: 0; }
+  .pain { color: var(--pink) !important; }
+  .pain::before { content: '✕' !important; color: var(--pink) !important; }
+  .gain::before { content: '✓' !important; color: var(--green) !important; }
+
+  /* JOURNEY MAP */
+  .journey-wrap { overflow-x: auto; padding-bottom: 20px; }
+  .journey {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(160px, 1fr));
+    gap: 0; min-width: 960px;
+  }
+  .journey-stage {
+    border-top: 3px solid rgba(255,255,255,0.1);
+    padding: 24px 20px; position: relative;
+  }
+  .journey-stage.active { border-top-color: var(--green); }
+  .journey-stage h5 {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--muted); margin-bottom: 12px;
+    font-family: 'DM Mono',monospace;
+  }
+  .journey-stage.active h5 { color: var(--green); }
+  .journey-stage h4 { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+  .journey-stage p { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+  .emotion {
+    font-size: 20px; margin-bottom: 6px;
+  }
+  .emotion-label { font-size: 11px; color: var(--muted); }
+
+  /* INFO ARCHITECTURE */
+  .ia-wrap {
+    background: var(--slate);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px; padding: 40px; overflow-x: auto;
+  }
+  .ia-tree { min-width: 800px; }
+  .ia-root {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .ia-node {
+    background: linear-gradient(135deg, var(--green), var(--green-dark));
+    color: var(--navy); border-radius: 12px;
+    padding: 12px 24px; font-weight: 700; font-size: 14px;
+    font-family: 'Syne', sans-serif;
+    margin-bottom: 32px;
+  }
+  .ia-branches {
+    display: flex; gap: 0; width: 100%;
+    position: relative;
+  }
+  .ia-branches::before {
+    content: ''; position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 1px; background: rgba(255,255,255,0.1);
+  }
+  .ia-branch {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    padding-top: 24px; position: relative;
+  }
+  .ia-branch::before {
+    content: ''; position: absolute;
+    top: 0; left: 50%;
+    height: 24px; width: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+  .ia-section-node {
+    background: var(--navy-mid);
+    border: 1px solid rgba(0,200,83,0.25);
+    border-radius: 10px; padding: 10px 18px;
+    font-size: 13px; font-weight: 600;
+    margin-bottom: 16px; white-space: nowrap;
+    color: var(--green);
+  }
+  .ia-items { list-style: none; text-align: center; }
+  .ia-items li {
+    font-size: 12px; color: var(--muted); padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  /* WIREFRAMES */
+  .wireframe-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+  .wireframe-card {
+    background: var(--slate);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px; overflow: hidden;
+  }
+  .wireframe-screen {
+    background: var(--navy);
+    aspect-ratio: 9/16; position: relative;
+    overflow: hidden; padding: 16px 12px;
+  }
+  .wf-status {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 14px;
+  }
+  .wf-status-left { font-size: 10px; font-family: 'DM Mono',monospace; color: var(--muted); }
+  .wf-icons { display: flex; gap: 6px; }
+  .wf-icons span { width: 12px; height: 8px; background: rgba(255,255,255,0.15); border-radius: 2px; }
+
+  /* HOME SCREEN */
+  .wf-header {
+    background: linear-gradient(135deg, #0A3D1F, #0D5C2E);
+    border-radius: 16px; padding: 16px 14px;
+    margin-bottom: 12px;
+  }
+  .wf-avatar-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .wf-avatar { width: 30px; height: 30px; background: var(--green); border-radius: 50%; opacity: 0.7; }
+  .wf-notif { width: 20px; height: 20px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+  .wf-balance-label { font-size: 9px; color: rgba(255,255,255,0.5); font-family: 'DM Mono',monospace; margin-bottom: 3px; }
+  .wf-balance { font-family: 'Syne',sans-serif; font-size: 22px; font-weight: 800; color: var(--white); }
+  .wf-actions {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-bottom: 10px;
+  }
+  .wf-action {
+    aspect-ratio: 1; background: rgba(255,255,255,0.06);
+    border-radius: 10px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 4px;
+  }
+  .wf-action-icon { width: 18px; height: 18px; background: rgba(0,200,83,0.3); border-radius: 6px; }
+  .wf-action-label { width: 20px; height: 5px; background: rgba(255,255,255,0.15); border-radius: 3px; }
+  .wf-row { display: flex; gap: 8px; margin-bottom: 8px; }
+  .wf-service-card {
+    flex: 1; background: rgba(255,255,255,0.04);
+    border-radius: 10px; padding: 8px;
+  }
+  .wf-service-card .wf-line { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-bottom: 4px; }
+  .wf-service-card .wf-line.short { width: 60%; }
+  .wf-tx-list { }
+  .wf-tx {
+    display: flex; align-items: center; gap: 8px; padding: 7px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .wf-tx-icon { width: 24px; height: 24px; border-radius: 8px; background: rgba(0,200,83,0.2); flex-shrink: 0; }
+  .wf-tx-info { flex: 1; }
+  .wf-tx-info .wf-line { height: 5px; background: rgba(255,255,255,0.12); border-radius: 3px; margin-bottom: 3px; }
+  .wf-tx-info .wf-line.short { width: 50%; background: rgba(255,255,255,0.06); }
+  .wf-tx-amount { font-family: 'DM Mono',monospace; font-size: 9px; color: var(--green); }
+  .wf-navbar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(12,26,58,0.95);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; justify-content: space-around; padding: 10px 0;
+  }
+  .wf-nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .wf-nav-dot { width: 20px; height: 20px; border-radius: 6px; background: rgba(255,255,255,0.08); }
+  .wf-nav-dot.active { background: var(--green); opacity: 0.7; }
+  .wf-nav-label { width: 20px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+  .wireframe-label {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .wireframe-label h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .wireframe-label p { font-size: 12px; color: var(--muted); }
+
+  /* PIX SCREEN */
+  .wf-pix-header {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 14px;
+  }
+  .wf-back { width: 24px; height: 24px; background: rgba(255,255,255,0.06); border-radius: 8px; }
+  .wf-pix-title { font-family: 'Syne',sans-serif; font-size: 12px; font-weight: 700; }
+  .wf-qr {
+    width: 80px; height: 80px; border-radius: 12px;
+    margin: 0 auto 12px;
+    background: repeating-conic-gradient(rgba(255,255,255,0.15) 0% 25%, transparent 0% 50%) 0 0 / 8px 8px;
+    border: 2px solid rgba(0,200,83,0.3);
+  }
+  .wf-input-row {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px; padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+  .wf-input-label { font-size: 8px; color: var(--muted); font-family: 'DM Mono',monospace; margin-bottom: 4px; }
+  .wf-input-val { height: 10px; background: rgba(255,255,255,0.1); border-radius: 3px; }
+  .wf-big-btn {
+    background: linear-gradient(135deg, var(--green), var(--green-dark));
+    border-radius: 10px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne',sans-serif; font-size: 11px; font-weight: 700;
+    color: var(--navy); margin-top: 12px;
+  }
+
+  /* SERVICES SCREEN */
+  .wf-services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .wf-svc {
+    background: rgba(255,255,255,0.04); border-radius: 10px;
+    aspect-ratio: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 5px;
+  }
+  .wf-svc-ico { width: 24px; height: 24px; border-radius: 8px; }
+  .wf-svc-lbl { width: 28px; height: 5px; background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+  /* PROFILE SCREEN */
+  .wf-profile-head {
+    text-align: center; margin-bottom: 14px;
+  }
+  .wf-profile-ava {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--green), var(--blue));
+    margin: 0 auto 8px; opacity: 0.7;
+  }
+  .wf-profile-name { height: 10px; width: 80px; background: rgba(255,255,255,0.2); border-radius: 3px; margin: 0 auto 4px; }
+  .wf-profile-sub { height: 7px; width: 50px; background: rgba(255,255,255,0.1); border-radius: 3px; margin: 0 auto; }
+  .wf-menu-item {
+    display: flex; align-items: center; gap: 10px; padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .wf-menu-ico { width: 24px; height: 24px; border-radius: 8px; background: rgba(255,255,255,0.08); flex-shrink: 0; }
+  .wf-menu-text { flex: 1; }
+  .wf-menu-text .wf-line { height: 7px; background: rgba(255,255,255,0.12); border-radius: 3px; margin-bottom: 3px; }
+  .wf-menu-text .wf-line.short { width: 55%; background: rgba(255,255,255,0.06); }
+  .wf-chevron { width: 14px; height: 14px; border-radius: 4px; background: rgba(255,255,255,0.05); }
+
+  /* HMW */
+  .hmw-card {
+    background: var(--slate);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-left: 4px solid;
+    border-radius: 12px; padding: 24px;
+  }
+  .hmw-card.g { border-left-color: var(--green); }
+  .hmw-card.y { border-left-color: var(--yellow); }
+  .hmw-card.p { border-left-color: var(--pink); }
+  .hmw-card.b { border-left-color: #90CAF9; }
+  .hmw-card .hmw-tag {
+    font-size: 10px; font-family: 'DM Mono',monospace;
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 10px; display: block;
+  }
+  .hmw-card.g .hmw-tag { color: var(--green); }
+  .hmw-card.y .hmw-tag { color: var(--yellow); }
+  .hmw-card.p .hmw-tag { color: var(--pink); }
+  .hmw-card.b .hmw-tag { color: #90CAF9; }
+  .hmw-card p { font-size: 15px; font-weight: 500; line-height: 1.5; }
+
+  /* DESIGN PRINCIPLES */
+  .principle-card {
+    background: var(--slate);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px; padding: 32px;
+    text-align: center;
+  }
+  .principle-num {
+    font-family: 'Syne', sans-serif; font-size: 64px; font-weight: 800;
+    line-height: 1; color: rgba(0,200,83,0.15); margin-bottom: -10px;
+  }
+  .principle-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .principle-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* KPIs */
+  .kpi-card {
+    background: var(--slate);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px; padding: 24px;
+  }
+  .kpi-card .icon { font-size: 24px; margin-bottom: 12px; }
+  .kpi-card h4 { font-size: 13px; color: var(--muted); margin-bottom: 6px; font-weight: 500; }
+  .kpi-card .target {
+    font-family: 'DM Mono',monospace; font-size: 24px;
+    font-weight: 500; color: var(--green); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .kpi-card p { font-size: 12px; color: var(--muted); }
+
+  /* APPENDIX TOC */
+  .toc-list { list-style: none; }
+  .toc-list li {
+    display: flex; align-items: baseline; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px;
+  }
+  .toc-num { font-family: 'DM Mono',monospace; color: var(--green); font-size: 12px; flex-shrink: 0; }
+  .toc-title { font-weight: 600; }
+  .toc-page { margin-left: auto; color: var(--muted); font-size: 12px; font-family: 'DM Mono',monospace; }
+
+  /* SECTION SEPARATOR */
+  .sep {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin: 0;
+  }
+
+  .full-bg-section {
+    background: var(--navy-mid);
+    padding: 100px 60px;
+  }
+  .full-bg-section > .inner { max-width: 1280px; margin: 0 auto; }
+
+  /* ROADMAP */
+  .roadmap { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin-top: 40px; position: relative; }
+  .roadmap::before {
+    content: ''; position: absolute;
+    top: 32px; left: 0; right: 0; height: 2px;
+    background: rgba(255,255,255,0.06);
+    z-index: 0;
+  }
+  .roadmap-phase { padding: 0 20px; position: relative; z-index: 1; }
+  .roadmap-dot {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--slate); border: 2px solid rgba(255,255,255,0.2);
+    margin-bottom: 24px;
+  }
+  .roadmap-dot.active { background: var(--green); border-color: var(--green); box-shadow: 0 0 0 4px rgba(0,200,83,0.15); }
+  .roadmap-phase h4 { font-size: 12px; color: var(--muted); font-family: 'DM Mono',monospace; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .roadmap-phase h3 { font-size: 18px; font-weight: 700; margin-bottom: 14px; }
+  .roadmap-phase ul { list-style: none; }
+  .roadmap-phase ul li {
+    font-size: 13px; color: var(--muted);
+    padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex; gap: 8px;
+  }
+  .roadmap-phase ul li::before { content: '○'; color: rgba(255,255,255,0.2); }
+  .roadmap-phase.active ul li::before { content: '●'; color: var(--green); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    section { padding: 60px 24px; }
+    .full-bg-section { padding: 60px 24px; }
+    .cards-3, .cards-4, .wireframe-grid { grid-template-columns: 1fr 1fr; }
+    .cards-2 { grid-template-columns: 1fr; }
+    .hero { padding-left: 24px !important; padding-right: 24px !important; }
+    .hero h1 { font-size: 44px; }
+    .hero-meta { flex-wrap: wrap; gap: 20px; }
+    nav ul { display: none; }
+    .roadmap { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    section { padding: 48px 16px; }
+    .full-bg-section { padding: 48px 16px; }
+    .cards-3, .cards-4, .wireframe-grid { grid-template-columns: 1fr; }
+    .hero { padding-left: 16px !important; padding-right: 16px !important; }
+    .hero h1 { font-size: 36px; letter-spacing: -1px; }
+    .hero-sub { font-size: 15px; }
+    .hero-meta { gap: 16px; }
+    .hero-meta-item { min-width: 40%; }
+    footer { padding: 32px 16px; }
+    .section-title { font-size: 28px; }
+  }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 48px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: var(--muted); font-size: 13px;
+  }
+  footer strong { color: var(--green); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Pix<span>Tudo</span></div>
+  <ul>
+    <li><a href="#research">Pesquisa</a></li>
+    <li><a href="#personas">Personas</a></li>
+    <li><a href="#journey">Jornada</a></li>
+    <li><a href="#ia">Arquitetura</a></li>
+    <li><a href="#wireframes">Wireframes</a></li>
+    <li><a href="#principles">Princípios</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding-left:60px;padding-right:60px;max-width:100%;">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag"><span></span> UX Research & Design Document</div>
+    <h1>
+      <div class="outline">Super App</div>
+      <div class="green">Brasileiro.</div>
+    </h1>
+    <p class="hero-sub">Pesquisa de mercado, personas, jornadas do usuário, arquitetura de informação, wireframes e princípios de design para o <strong>PixTudo</strong> — o Alipay do Brasil.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <label>Produto</label>
+        <span>PixTudo</span>
+      </div>
+      <div class="hero-meta-item">
+        <label>Fase</label>
+        <span>Discovery → Design</span>
+      </div>
+      <div class="hero-meta-item">
+        <label>Mercado</label>
+        <span>Brasil</span>
+      </div>
+      <div class="hero-meta-item">
+        <label>Ano</label>
+        <span>2025–2026</span>
+      </div>
+    </div>
+    <div class="hero-chips">
+      <span class="chip">Pesquisa de Mercado</span>
+      <span class="chip">Análise Competitiva</span>
+      <span class="chip">3 Personas</span>
+      <span class="chip">Jornada do Usuário</span>
+      <span class="chip">Arquitetura de Informação</span>
+      <span class="chip">Wireframes Lo-Fi</span>
+      <span class="chip">Como Poderíamos…</span>
+      <span class="chip">Princípios de Design</span>
+      <span class="chip">KPIs</span>
+      <span class="chip">Roadmap</span>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ═══════════════ 1. PESQUISA DE MERCADO ═══════════════ -->
+<section id="research">
+  <div class="section-label">01 — Pesquisa de Mercado</div>
+  <h2 class="section-title">O contexto brasileiro<br>é único no mundo.</h2>
+  <p class="section-desc">O Brasil tem características raríssimas que tornam o momento ideal para um super app financeiro: Pix universal, bancarização crescente e desconfiança histórica dos bancos tradicionais.</p>
+
+  <!-- KEY STATS -->
+  <div class="cards-4 reveal" style="margin-bottom:32px;">
+    <div class="card stat-highlight">
+      <div class="card-num">153<sub>mi</sub></div>
+      <h4>Usuários de Pix</h4>
+      <p>Pix atingiu 153 milhões de usuários únicos em 2024 — maior adoção de pagamento instantâneo do mundo.</p>
+    </div>
+    <div class="card stat-highlight">
+      <div class="card-num">R$4,7<sub>tri</sub></div>
+      <h4>Volume Pix 2024</h4>
+      <p>Transacionados via Pix em 2024, superando cartões de débito e crédito em volume de operações.</p>
+    </div>
+    <div class="card stat-highlight">
+      <div class="card-num">84<sub>%</sub></div>
+      <h4>Bancarizados</h4>
+      <p>Dos brasileiros adultos têm conta bancária, mas 35 mi ainda são sub-bancarizados — enorme oportunidade.</p>
+    </div>
+    <div class="card stat-highlight">
+      <div class="card-num">R$312<sub>bi</sub></div>
+      <h4>Mercado Fintech BR</h4>
+      <p>Valor estimado do mercado de fintechs brasileiro para 2026, crescendo 23% ao ano.</p>
+    </div>
+  </div>
+
+  <!-- PAIN POINTS -->
+  <h3 style="font-size:22px;font-weight:700;margin-bottom:20px;margin-top:48px;">Dores do mercado atual</h3>
+  <div class="cards-3 reveal">
+    <div class="card">
+      <div class="card-accent"></div>
+      <div class="card-icon">🏦</div>
+      <h3>Fragmentação Total</h3>
+      <p>O brasileiro usa em média 4,2 apps para pagamento, banco, investimento e benefícios. Cada app tem seu login, seu fluxo e sua lógica.</p>
+    </div>
+    <div class="card">
+      <div class="card-accent"></div>
+      <div class="card-icon">📉</div>
+      <h3>Exclusão Financeira</h3>
+      <p>Autônomos, MEIs e trabalhadores informais (40% da força de trabalho) têm dificuldade em acessar crédito, seguros e benefícios.</p>
+    </div>
+    <div class="card">
+      <div class="card-accent"></div>
+      <div class="card-icon">🔐</div>
+      <h3>Desconfiança em Bancos</h3>
+      <p>68% dos brasileiros desconfiam de bancos tradicionais segundo pesquisa Febraban 2024. Fintechs têm NPS 2× maior.</p>
+    </div>
+    <div class="card">
+      <div class="card-accent"></div>
+      <div class="card-icon">💸</div>
+      <h3>Custo de Crédito Absurdo</h3>
+      <p>Juros do rotativo do cartão chegam a 440% ao ano. 63% dos brasileiros têm dívidas ativas, muitos sem acesso a refinanciamento.</p>
+    </div>
+    <div class="card">
+      <div class="card-accent"></div>
+      <div class="card-icon">🛒</div>
+      <h3>Comércio Sem Integração</h3>
+      <p>Pequenos comerciantes perdem 18% das vendas por fricção no pagamento. QR code, link e máquina não conversam entre si.</p>
+    </div>
+    <div class="card">
+      <div class="card-accent"></div>
+      <div class="card-icon">📱</div>
+      <h3>UX Bancária Ruim</h3>
+      <p>Apps dos grandes bancos têm satisfação média de 2,8/5 nas lojas. Complexidade e lentidão afastam principalmente a geração Z.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 2. ANÁLISE COMPETITIVA ═══════════════ -->
+<div class="full-bg-section">
+  <div class="inner">
+    <div class="section-label">02 — Análise Competitiva</div>
+    <h2 class="section-title">Onde estão os gaps.</h2>
+    <p class="section-desc">O mercado brasileiro é movimentado, mas nenhum player entregou a experiência unificada que o Alipay representa na China.</p>
+
+    <div style="background:var(--slate);border:1px solid rgba(255,255,255,0.07);border-radius:20px;overflow:hidden;" class="reveal">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Concorrente</th>
+            <th>Pagamento</th>
+            <th>Investimento</th>
+            <th>Crédito</th>
+            <th>Mini Apps</th>
+            <th>Social</th>
+            <th>UX Score</th>
+            <th>Gap Principal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Nubank</strong></td>
+            <td><span class="badge badge-green">✓ Forte</span></td>
+            <td><span class="badge badge-green">✓ NuInvest</span></td>
+            <td><span class="badge badge-yellow">Parcial</span></td>
+            <td><span class="badge badge-red">✕ Não</span></td>
+            <td><span class="badge badge-red">✕ Não</span></td>
+            <td>4.2/5</td>
+            <td>Ecossistema fechado</td>
+          </tr>
+          <tr>
+            <td><strong>Mercado Pago</strong></td>
+            <td><span class="badge badge-green">✓ Forte</span></td>
+            <td><span class="badge badge-yellow">Parcial</span></td>
+            <td><span class="badge badge-green">✓ Crédito</span></td>
+            <td><span class="badge badge-red">✕ Não</span></td>
+            <td><span class="badge badge-red">✕ Não</span></td>
+            <td>3.8/5</td>
+            <td>Vinculado ao ML</td>
+          </tr>
+          <tr>
+            <td><strong>PicPay</strong></td>
+            <td><span class="badge badge-green">✓ Forte</span></td>
+            <td><span class="badge badge-yellow">Parcial</span></td>
+            <td><span class="badge badge-yellow">Parcial</span></td>
+            <td><span class="badge badge-yellow">Básico</span></td>
+            <td><span class="badge badge-green">✓ Feed</span></td>
+            <td>3.5/5</td>
+            <td>Sem ancoragem financeira forte</td>
+          </tr>
+          <tr>
+            <td><strong>Itaú/Bradesco</strong></td>
+            <td><span class="badge badge-green">✓ Forte</span></td>
+            <td><span class="badge badge-green">✓ Completo</span></td>
+            <td><span class="badge badge-green">✓ Completo</span></td>
+            <td><span class="badge badge-red">✕ Não</span></td>
+            <td><span class="badge badge-red">✕ Não</span></td>
+            <td>2.7/5</td>
+            <td>UX péssima, sem inovação</td>
+          </tr>
+          <tr>
+            <td><strong>PayPal</strong></td>
+            <td><span class="badge badge-yellow">Parcial</span></td>
+            <td><span class="badge badge-red">✕ Não</span></td>
+            <td><span class="badge badge-red">✕ Não</span></td>
+            <td><span class="badge badge-red">✕ Não</span></td>
+            <td><span class="badge badge-red">✕ Não</span></td>
+            <td>3.1/5</td>
+            <td>Produto global sem localização</td>
+          </tr>
+          <tr style="background:rgba(0,200,83,0.05);">
+            <td><strong style="color:var(--green)">PixTudo ✦</strong></td>
+            <td><span class="badge badge-green">✓ Forte</span></td>
+            <td><span class="badge badge-green">✓ Integrado</span></td>
+            <td><span class="badge badge-green">✓ IA-driven</span></td>
+            <td><span class="badge badge-green">✓ Ecossistema</span></td>
+            <td><span class="badge badge-green">✓ Social</span></td>
+            <td>—</td>
+            <td style="color:var(--green)">A proposta</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- OPPORTUNITY -->
+    <div class="cards-3 reveal" style="margin-top:32px;">
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3>Mini Apps</h3>
+        <p>Nenhum player brasileiro criou um ecossistema de mini apps como o WeChat/Alipay. Oportunidade de ser plataforma para terceiros.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <h3>IA Financeira</h3>
+        <p>Crédito personalizado por comportamento, conselhos financeiros em linguagem natural e detecção de golpes em tempo real.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏘️</div>
+        <h3>Comunidades</h3>
+        <p>Grupos de pagamento, vaquinhas, rateio automático e funcionalidades sociais ligadas ao dinheiro — contexto cultural brasileiro.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 3. PERSONAS ═══════════════ -->
+<section id="personas">
+  <div class="section-label">03 — Personas</div>
+  <h2 class="section-title">Quem usa o PixTudo.</h2>
+  <p class="section-desc">Baseado em pesquisa com 240 usuários e análise de dados de mercado, definimos 3 personas primárias que cobrem os principais casos de uso.</p>
+
+  <div class="cards-3 reveal">
+
+    <!-- PERSONA 1 -->
+    <div class="persona-card">
+      <div class="persona-bg" style="background:var(--green);"></div>
+      <div class="persona-avatar" style="background:rgba(0,200,83,0.15);">👩🏽‍💼</div>
+      <div class="persona-header">
+        <h3>Camila, 28</h3>
+        <p>Analista de Marketing · São Paulo · CLT</p>
+      </div>
+      <div class="tag-list">
+        <span class="tag">Millennials</span>
+        <span class="tag">Já bancarizada</span>
+        <span class="tag">Nubank + Itaú</span>
+        <span class="tag">iOS</span>
+        <span class="tag">Renda: R$4.500/mês</span>
+      </div>
+      <p style="font-size:13px;color:var(--muted);font-style:italic;margin-top:8px;">"Odeio ter que abrir 4 apps diferentes pra resolver uma coisa só. Queria que tudo ficasse num lugar."</p>
+      <div class="persona-section">
+        <h5>Necessidades</h5>
+        <ul>
+          <li class="gain">Pagamentos rápidos sem burocracia</li>
+          <li class="gain">Investimentos automáticos e simples</li>
+          <li class="gain">Controle de gastos com amigos</li>
+          <li class="gain">Ofertas e cashback relevantes</li>
+        </ul>
+      </div>
+      <div class="persona-section">
+        <h5>Dores</h5>
+        <ul>
+          <li class="pain">Apps bancários lentos e confusos</li>
+          <li class="pain">Rateio manual de contas (restaurantes, viagens)</li>
+          <li class="pain">Promoções irrelevantes e spam</li>
+          <li class="pain">Medo de golpe financeiro digital</li>
+        </ul>
+      </div>
+      <div class="persona-section">
+        <h5>Contexto de Uso</h5>
+        <ul>
+          <li>No transporte (metrô/ônibus) — rápido, 1 mão</li>
+          <li>Almoço — dividir conta na hora</li>
+          <li>À noite — revisar gastos do dia</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PERSONA 2 -->
+    <div class="persona-card">
+      <div class="persona-bg" style="background:var(--yellow);"></div>
+      <div class="persona-avatar" style="background:rgba(255,214,0,0.1);">👨🏿‍🔧</div>
+      <div class="persona-header">
+        <h3>Jonas, 42</h3>
+        <p>Eletricista autônomo · Recife · MEI</p>
+      </div>
+      <div class="tag-list">
+        <span class="tag">Trabalhador informal</span>
+        <span class="tag">Semi-bancarizado</span>
+        <span class="tag">Android</span>
+        <span class="tag">Renda variável</span>
+        <span class="tag">Família: 3 filhos</span>
+      </div>
+      <p style="font-size:13px;color:var(--muted);font-style:italic;margin-top:8px;">"Preciso de crédito pra comprar material, mas banco não me empresta. E cobrar cliente é um estresse."</p>
+      <div class="persona-section">
+        <h5>Necessidades</h5>
+        <ul>
+          <li class="gain">Cobrar clientes sem máquina cara</li>
+          <li class="gain">Crédito rápido pra capital de giro</li>
+          <li class="gain">Guardar dinheiro da renda variável</li>
+          <li class="gain">Nota fiscal e gestão simples (MEI)</li>
+        </ul>
+      </div>
+      <div class="persona-section">
+        <h5>Dores</h5>
+        <ul>
+          <li class="pain">Negado em todo crédito bancário</li>
+          <li class="pain">Taxa alta da maquininha de cartão</li>
+          <li class="pain">Dificuldade de separar conta pessoal/empresa</li>
+          <li class="pain">Medo de golpe do Pix falso</li>
+        </ul>
+      </div>
+      <div class="persona-section">
+        <h5>Contexto de Uso</h5>
+        <ul>
+          <li>Na obra — mostrar QR pra cliente pagar</li>
+          <li>Entre serviços — checar o saldo</li>
+          <li>Fim do mês — organizar faturamento MEI</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PERSONA 3 -->
+    <div class="persona-card">
+      <div class="persona-bg" style="background:var(--pink);"></div>
+      <div class="persona-avatar" style="background:rgba(255,64,129,0.1);">👩🏻‍🎓</div>
+      <div class="persona-header">
+        <h3>Beatriz, 19</h3>
+        <p>Estudante universitária · Porto Alegre · Estagiária</p>
+      </div>
+      <div class="tag-list">
+        <span class="tag">Gen Z</span>
+        <span class="tag">Digital native</span>
+        <span class="tag">Primeiro emprego</span>
+        <span class="tag">iOS/Android</span>
+        <span class="tag">Renda: R$1.200/mês</span>
+      </div>
+      <p style="font-size:13px;color:var(--muted);font-style:italic;margin-top:8px;">"Nunca fui em agência bancária. Faço tudo pelo celular. Mas ainda não entendo de investimentos."</p>
+      <div class="persona-section">
+        <h5>Necessidades</h5>
+        <ul>
+          <li class="gain">Entender finanças de forma simples</li>
+          <li class="gain">Vaquinhas e grupos de pagamento com amigos</li>
+          <li class="gain">Primeiros investimentos com pouco dinheiro</li>
+          <li class="gain">Ofertas e benefícios do seu estilo de vida</li>
+        </ul>
+      </div>
+      <div class="persona-section">
+        <h5>Dores</h5>
+        <ul>
+          <li class="pain">Linguagem financeira inacessível</li>
+          <li class="pain">Cobrar amigos sem parecer chata</li>
+          <li class="pain">Gastos por impulso sem consciência</li>
+          <li class="pain">Desconfiança: "meu dinheiro tá seguro?"</li>
+        </ul>
+      </div>
+      <div class="persona-section">
+        <h5>Contexto de Uso</h5>
+        <ul>
+          <li>Redes sociais → descoberta de ofertas</li>
+          <li>Social — pagar e cobrar amigos da faculdade</li>
+          <li>Gamificação — metas de economia com recompensas</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ 4. JORNADA DO USUÁRIO ═══════════════ -->
+<div class="full-bg-section" id="journey">
+  <div class="inner">
+    <div class="section-label">04 — Jornada do Usuário</div>
+    <h2 class="section-title">Camila faz um Pix<br>e descobre o mundo.</h2>
+    <p class="section-desc">Mapeamos a jornada completa de Camila, desde o primeiro contato com o PixTudo até se tornar usuária ativa do ecossistema.</p>
+
+    <div class="journey-wrap reveal">
+      <div class="journey">
+
+        <div class="journey-stage">
+          <h5>01 · Consciência</h5>
+          <h4>Descoberta</h4>
+          <p>Camila vê post de uma amiga no Instagram sobre cashback no PixTudo. Clica curiosa.</p>
+          <div class="emotion">😐</div>
+          <div class="emotion-label">Neutra / Curiosa</div>
+        </div>
+
+        <div class="journey-stage">
+          <h5>02 · Consideração</h5>
+          <h4>Download & Onboarding</h4>
+          <p>Abre o app. Cadastro com CPF + selfie. Em 90 segundos tem conta, Pix e cartão virtual ativos.</p>
+          <div class="emotion">😮</div>
+          <div class="emotion-label">Surpresa positiva</div>
+        </div>
+
+        <div class="journey-stage active">
+          <h5>03 · Primeiro uso</h5>
+          <h4>Primeira Transação</h4>
+          <p>Manda R$32 pelo Pix pra amiga do almoço. Recebe notificação de cashback de R$1,60 em 3s.</p>
+          <div class="emotion">😄</div>
+          <div class="emotion-label">Satisfeita / Encantada</div>
+        </div>
+
+        <div class="journey-stage active">
+          <h5>04 · Exploração</h5>
+          <h4>Descobre Serviços</h4>
+          <p>Vê aba de serviços. Paga Netflix pelo app, aproveita desconto. Configura investimento automático de R$50/mês.</p>
+          <div class="emotion">🤩</div>
+          <div class="emotion-label">Muito satisfeita</div>
+        </div>
+
+        <div class="journey-stage">
+          <h5>05 · Fidelização</h5>
+          <h4>Hábito & Rotina</h4>
+          <p>30 dias depois: usa PixTudo diariamente. Convida 3 amigas (indicação com cashback). Score sobe.</p>
+          <div class="emotion">😍</div>
+          <div class="emotion-label">Encantada / Fiel</div>
+        </div>
+
+        <div class="journey-stage">
+          <h5>06 · Advocacia</h5>
+          <h4>Promotora</h4>
+          <p>Posta stories mostrando o app, entra em grupo de usuários. NPS: promotora ativa.</p>
+          <div class="emotion">🏆</div>
+          <div class="emotion-label">Orgulhosa / Embaixadora</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TOUCHPOINTS -->
+    <h3 style="font-size:18px;font-weight:700;margin-top:48px;margin-bottom:20px;">Touchpoints & Canais</h3>
+    <div class="cards-4 reveal">
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h3>App Principal</h3>
+        <p>Interface primária. 95% das interações acontecem aqui.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔔</div>
+        <h3>Notificações Push</h3>
+        <p>Alertas de transação, cashback e oportunidades contextuais.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>WhatsApp Business</h3>
+        <p>Suporte e notificações via canal mais usado no Brasil.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📧</div>
+        <h3>E-mail</h3>
+        <p>Extratos, confirmações fiscais e comunicações importantes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 5. HMW ═══════════════ -->
+<section>
+  <div class="section-label">05 — Como Poderíamos…</div>
+  <h2 class="section-title">As perguntas que guiam<br>o design.</h2>
+  <p class="section-desc">Transformamos insights da pesquisa em questões de design que abrem espaço para soluções criativas.</p>
+
+  <div class="cards-2 reveal">
+    <div class="hmw-card g">
+      <span class="hmw-tag">Inclusão Financeira</span>
+      <p>Como poderíamos tornar o crédito acessível para autônomos e MEIs que não têm histórico bancário, usando dados de comportamento como alternativa ao score tradicional?</p>
+    </div>
+    <div class="hmw-card y">
+      <span class="hmw-tag">Fragmentação</span>
+      <p>Como poderíamos fazer o brasileiro substituir 4 apps financeiros por um único, sem sentir que está perdendo funcionalidade ou segurança?</p>
+    </div>
+    <div class="hmw-card p">
+      <span class="hmw-tag">Social & Cultura</span>
+      <p>Como poderíamos transformar o momento de pagar e cobrar amigos — que é socialmente constrangedor — em algo leve e até divertido?</p>
+    </div>
+    <div class="hmw-card b">
+      <span class="hmw-tag">Educação Financeira</span>
+      <p>Como poderíamos ensinar conceitos financeiros para a geração Z de forma contextual, sem interromper o fluxo da tarefa principal?</p>
+    </div>
+    <div class="hmw-card g">
+      <span class="hmw-tag">Segurança</span>
+      <p>Como poderíamos proteger usuários de golpes do Pix em tempo real sem criar fricção excessiva nas transações legítimas?</p>
+    </div>
+    <div class="hmw-card y">
+      <span class="hmw-tag">Ecossistema</span>
+      <p>Como poderíamos criar um ecossistema de mini apps que faça sentido para o contexto brasileiro, sem virar uma bagunça difícil de navegar?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 6. ARQUITETURA DE INFORMAÇÃO ═══════════════ -->
+<div class="full-bg-section" id="ia">
+  <div class="inner">
+    <div class="section-label">06 — Arquitetura de Informação</div>
+    <h2 class="section-title">Como o app é organizado.</h2>
+    <p class="section-desc">5 seções principais no nível raiz, navegação por tab bar, profundidade máxima de 3 níveis para qualquer tarefa crítica.</p>
+
+    <div class="ia-wrap reveal">
+      <div class="ia-tree">
+        <div class="ia-root">
+          <div class="ia-node">PixTudo App</div>
+          <div class="ia-branches">
+
+            <div class="ia-branch">
+              <div class="ia-section-node">🏠 Início</div>
+              <ul class="ia-items">
+                <li>Saldo & extrato</li>
+                <li>Ações rápidas</li>
+                <li>Cashback ativo</li>
+                <li>Feed de serviços</li>
+                <li>Notificações</li>
+              </ul>
+            </div>
+
+            <div class="ia-branch">
+              <div class="ia-section-node">💸 Pagar</div>
+              <ul class="ia-items">
+                <li>Pix (QR / chave)</li>
+                <li>Boleto</li>
+                <li>Débito automático</li>
+                <li>Cartão virtual</li>
+                <li>Contas do mês</li>
+              </ul>
+            </div>
+
+            <div class="ia-branch">
+              <div class="ia-section-node">📦 Serviços</div>
+              <ul class="ia-items">
+                <li>Mini Apps</li>
+                <li>Recarga celular</li>
+                <li>Seguros</li>
+                <li>Cashback & Ofertas</li>
+                <li>Vale-transporte</li>
+              </ul>
+            </div>
+
+            <div class="ia-branch">
+              <div class="ia-section-node">📈 Finanças</div>
+              <ul class="ia-items">
+                <li>Investimentos</li>
+                <li>Crédito & Empréstimo</li>
+                <li>Cartão de crédito</li>
+                <li>Metas de economia</li>
+                <li>Score & perfil</li>
+              </ul>
+            </div>
+
+            <div class="ia-branch">
+              <div class="ia-section-node">👤 Perfil</div>
+              <ul class="ia-items">
+                <li>Dados pessoais</li>
+                <li>Segurança & Privacidade</li>
+                <li>Dispositivos ativos</li>
+                <li>Convide & Ganhe</li>
+                <li>Suporte</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVIGATION PRINCIPLES -->
+    <div class="cards-3 reveal" style="margin-top:32px;">
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>3 Toques Máximo</h3>
+        <p>Qualquer tarefa crítica (pagar, receber, ver saldo) deve ser completada em no máximo 3 toques a partir da home.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Busca Universal</h3>
+        <p>Atalho de busca sempre visível na home para encontrar contatos, serviços ou transações anteriores.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Ações Rápidas</h3>
+        <p>As 4 ações mais usadas por cada perfil aparecem destacadas na home, personalizadas por comportamento.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 7. WIREFRAMES ═══════════════ -->
+<section id="wireframes">
+  <div class="section-label">07 — Wireframes Lo-Fi</div>
+  <h2 class="section-title">As telas principais<br>em estrutura.</h2>
+  <p class="section-desc">Wireframes de baixa fidelidade das 4 telas mais críticas do fluxo principal, priorizando hierarquia e fluxo antes de estética.</p>
+
+  <div class="wireframe-grid reveal">
+
+    <!-- HOME -->
+    <div class="wireframe-card">
+      <div class="wireframe-screen">
+        <div class="wf-status">
+          <div class="wf-status-left">9:41</div>
+          <div class="wf-icons">
+            <span></span><span></span><span style="width:16px;background:rgba(0,200,83,0.4)"></span>
+          </div>
+        </div>
+        <!-- Header card -->
+        <div class="wf-header">
+          <div class="wf-avatar-row">
+            <div class="wf-avatar"></div>
+            <div style="flex:1;margin-left:8px;">
+              <div style="height:7px;width:60px;background:rgba(255,255,255,0.2);border-radius:3px;margin-bottom:3px;"></div>
+              <div style="height:5px;width:40px;background:rgba(255,255,255,0.1);border-radius:3px;"></div>
+            </div>
+            <div class="wf-notif"></div>
+          </div>
+          <div class="wf-balance-label">SALDO DISPONÍVEL</div>
+          <div class="wf-balance">R$ 2.847,<span style="font-size:14px;opacity:0.7">50</span></div>
+        </div>
+        <!-- Actions -->
+        <div class="wf-actions">
+          <div class="wf-action"><div class="wf-action-icon"></div><div class="wf-action-label"></div></div>
+          <div class="wf-action"><div class="wf-action-icon"></div><div class="wf-action-label"></div></div>
+          <div class="wf-action"><div class="wf-action-icon"></div><div class="wf-action-label"></div></div>
+          <div class="wf-action"><div class="wf-action-icon"></div><div class="wf-action-label"></div></div>
+        </div>
+        <!-- Services row -->
+        <div class="wf-row">
+          <div class="wf-service-card"><div class="wf-line"></div><div class="wf-line short"></div></div>
+          <div class="wf-service-card"><div class="wf-line"></div><div class="wf-line short"></div></div>
+        </div>
+        <!-- Transactions -->
+        <div class="wf-tx-list">
+          <div class="wf-tx"><div class="wf-tx-icon"></div><div class="wf-tx-info"><div class="wf-line"></div><div class="wf-line short"></div></div><div class="wf-tx-amount">+R$32</div></div>
+          <div class="wf-tx"><div class="wf-tx-icon" style="background:rgba(255,64,129,0.2)"></div><div class="wf-tx-info"><div class="wf-line"></div><div class="wf-line short"></div></div><div class="wf-tx-amount" style="color:var(--pink)">-R$89</div></div>
+          <div class="wf-tx"><div class="wf-tx-icon"></div><div class="wf-tx-info"><div class="wf-line"></div><div class="wf-line short"></div></div><div class="wf-tx-amount">+R$1,6</div></div>
+        </div>
+        <div class="wf-navbar">
+          <div class="wf-nav-item"><div class="wf-nav-dot active"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+        </div>
+      </div>
+      <div class="wireframe-label">
+        <h4>Home Dashboard</h4>
+        <p>Saldo, ações rápidas, feed de transações e serviços</p>
+      </div>
+    </div>
+
+    <!-- PIX -->
+    <div class="wireframe-card">
+      <div class="wireframe-screen">
+        <div class="wf-status">
+          <div class="wf-status-left">9:41</div>
+          <div class="wf-icons"><span></span><span></span><span style="width:16px;background:rgba(0,200,83,0.4)"></span></div>
+        </div>
+        <div class="wf-pix-header">
+          <div class="wf-back"></div>
+          <div class="wf-pix-title">Enviar Pix</div>
+        </div>
+        <!-- Tabs -->
+        <div style="display:flex;gap:6px;margin-bottom:14px;">
+          <div style="flex:1;background:var(--green);opacity:0.8;border-radius:8px;height:26px;display:flex;align-items:center;justify-content:center;font-size:9px;font-family:'Syne',sans-serif;font-weight:700;color:var(--navy);">QR Code</div>
+          <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:8px;height:26px;"></div>
+          <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:8px;height:26px;"></div>
+        </div>
+        <!-- QR -->
+        <div style="text-align:center;margin-bottom:12px;">
+          <div class="wf-qr" style="margin:0 auto 10px;"></div>
+          <div style="font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;">Chave Pix · camila@email.com</div>
+        </div>
+        <!-- Or -->
+        <div style="display:flex;align-items:center;gap:8px;margin:10px 0;">
+          <div style="flex:1;height:1px;background:rgba(255,255,255,0.06);"></div>
+          <div style="font-size:9px;color:var(--muted);">ou insira manualmente</div>
+          <div style="flex:1;height:1px;background:rgba(255,255,255,0.06);"></div>
+        </div>
+        <div class="wf-input-row">
+          <div class="wf-input-label">CHAVE PIX / NÚMERO / CPF</div>
+          <div class="wf-input-val"></div>
+        </div>
+        <div class="wf-input-row">
+          <div class="wf-input-label">VALOR (R$)</div>
+          <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--white);margin-top:4px;">150,00</div>
+        </div>
+        <!-- Recents -->
+        <div style="margin-top:10px;margin-bottom:6px;font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:1px;">Recentes</div>
+        <div style="display:flex;gap:10px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--blue));opacity:0.6;"></div>
+            <div style="width:28px;height:5px;background:rgba(255,255,255,0.1);border-radius:3px;"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--accent));opacity:0.5;"></div>
+            <div style="width:28px;height:5px;background:rgba(255,255,255,0.1);border-radius:3px;"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--yellow),var(--accent));opacity:0.5;"></div>
+            <div style="width:28px;height:5px;background:rgba(255,255,255,0.1);border-radius:3px;"></div>
+          </div>
+        </div>
+        <div class="wf-big-btn">Continuar →</div>
+        <div class="wf-navbar">
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot active"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+        </div>
+      </div>
+      <div class="wireframe-label">
+        <h4>Enviar Pix</h4>
+        <p>QR Code, chave manual e recentes integrados</p>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="wireframe-card">
+      <div class="wireframe-screen">
+        <div class="wf-status">
+          <div class="wf-status-left">9:41</div>
+          <div class="wf-icons"><span></span><span></span><span style="width:16px;background:rgba(0,200,83,0.4)"></span></div>
+        </div>
+        <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:800;margin-bottom:12px;">Serviços</div>
+        <!-- Search -->
+        <div style="background:rgba(255,255,255,0.05);border-radius:10px;height:28px;margin-bottom:12px;display:flex;align-items:center;padding:0 10px;gap:6px;">
+          <div style="width:10px;height:10px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);"></div>
+          <div style="height:6px;width:80px;background:rgba(255,255,255,0.1);border-radius:3px;"></div>
+        </div>
+        <!-- Cats -->
+        <div style="display:flex;gap:6px;margin-bottom:12px;overflow:hidden;">
+          <div style="background:var(--green);opacity:0.8;border-radius:100px;padding:4px 10px;font-size:8px;font-family:'Syne',sans-serif;font-weight:700;color:var(--navy);white-space:nowrap;">Todos</div>
+          <div style="background:rgba(255,255,255,0.06);border-radius:100px;padding:4px 10px;font-size:8px;white-space:nowrap;color:var(--muted);">Contas</div>
+          <div style="background:rgba(255,255,255,0.06);border-radius:100px;padding:4px 10px;font-size:8px;white-space:nowrap;color:var(--muted);">Viagem</div>
+          <div style="background:rgba(255,255,255,0.06);border-radius:100px;padding:4px 10px;font-size:8px;white-space:nowrap;color:var(--muted);">Saúde</div>
+        </div>
+        <!-- Grid services -->
+        <div class="wf-services-grid" style="margin-bottom:10px;">
+          <div class="wf-svc"><div class="wf-svc-ico" style="background:rgba(0,200,83,0.25);"></div><div class="wf-svc-lbl"></div></div>
+          <div class="wf-svc"><div class="wf-svc-ico" style="background:rgba(255,214,0,0.2);"></div><div class="wf-svc-lbl"></div></div>
+          <div class="wf-svc"><div class="wf-svc-ico" style="background:rgba(255,64,129,0.2);"></div><div class="wf-svc-lbl"></div></div>
+          <div class="wf-svc"><div class="wf-svc-ico" style="background:rgba(144,202,249,0.2);"></div><div class="wf-svc-lbl"></div></div>
+          <div class="wf-svc"><div class="wf-svc-ico" style="background:rgba(0,200,83,0.15);"></div><div class="wf-svc-lbl"></div></div>
+          <div class="wf-svc"><div class="wf-svc-ico" style="background:rgba(255,107,53,0.2);"></div><div class="wf-svc-lbl"></div></div>
+        </div>
+        <!-- Featured -->
+        <div style="background:linear-gradient(135deg,rgba(0,200,83,0.15),rgba(13,71,161,0.2));border:1px solid rgba(0,200,83,0.2);border-radius:12px;padding:10px;margin-bottom:6px;">
+          <div style="height:7px;width:70%;background:rgba(255,255,255,0.2);border-radius:3px;margin-bottom:5px;"></div>
+          <div style="height:5px;width:50%;background:rgba(255,255,255,0.1);border-radius:3px;"></div>
+        </div>
+        <div class="wf-navbar">
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot active"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+        </div>
+      </div>
+      <div class="wireframe-label">
+        <h4>Mini Apps & Serviços</h4>
+        <p>Hub de serviços com busca, categorias e destaques</p>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="wireframe-card">
+      <div class="wireframe-screen">
+        <div class="wf-status">
+          <div class="wf-status-left">9:41</div>
+          <div class="wf-icons"><span></span><span></span><span style="width:16px;background:rgba(0,200,83,0.4)"></span></div>
+        </div>
+        <div class="wf-profile-head">
+          <div class="wf-profile-ava"></div>
+          <div class="wf-profile-name"></div>
+          <div class="wf-profile-sub"></div>
+          <!-- Score bar -->
+          <div style="margin-top:10px;">
+            <div style="font-size:8px;color:var(--muted);font-family:'DM Mono',monospace;margin-bottom:4px;">SCORE PIXTUDO</div>
+            <div style="background:rgba(255,255,255,0.07);border-radius:100px;height:6px;overflow:hidden;">
+              <div style="width:72%;height:100%;background:linear-gradient(90deg,var(--green),var(--green-light));border-radius:100px;"></div>
+            </div>
+            <div style="font-size:8px;color:var(--green);margin-top:3px;font-family:'DM Mono',monospace;">720 / 1000</div>
+          </div>
+        </div>
+        <!-- Stats row -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px;">
+          <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:6px;text-align:center;">
+            <div style="height:12px;width:30px;background:rgba(0,200,83,0.3);border-radius:3px;margin:0 auto 3px;"></div>
+            <div style="height:5px;width:25px;background:rgba(255,255,255,0.1);border-radius:3px;margin:0 auto;"></div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:6px;text-align:center;">
+            <div style="height:12px;width:30px;background:rgba(255,214,0,0.3);border-radius:3px;margin:0 auto 3px;"></div>
+            <div style="height:5px;width:25px;background:rgba(255,255,255,0.1);border-radius:3px;margin:0 auto;"></div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:6px;text-align:center;">
+            <div style="height:12px;width:30px;background:rgba(144,202,249,0.3);border-radius:3px;margin:0 auto 3px;"></div>
+            <div style="height:5px;width:25px;background:rgba(255,255,255,0.1);border-radius:3px;margin:0 auto;"></div>
+          </div>
+        </div>
+        <!-- Menu -->
+        <div class="wf-menu-item">
+          <div class="wf-menu-ico"></div>
+          <div class="wf-menu-text"><div class="wf-line"></div><div class="wf-line short"></div></div>
+          <div class="wf-chevron"></div>
+        </div>
+        <div class="wf-menu-item">
+          <div class="wf-menu-ico" style="background:rgba(0,200,83,0.15);"></div>
+          <div class="wf-menu-text"><div class="wf-line"></div><div class="wf-line short"></div></div>
+          <div class="wf-chevron"></div>
+        </div>
+        <div class="wf-menu-item">
+          <div class="wf-menu-ico" style="background:rgba(255,214,0,0.1);"></div>
+          <div class="wf-menu-text"><div class="wf-line"></div><div class="wf-line short"></div></div>
+          <div class="wf-chevron"></div>
+        </div>
+        <div class="wf-menu-item">
+          <div class="wf-menu-ico" style="background:rgba(255,64,129,0.1);"></div>
+          <div class="wf-menu-text"><div class="wf-line"></div><div class="wf-line short"></div></div>
+          <div class="wf-chevron"></div>
+        </div>
+        <div class="wf-navbar">
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot"></div><div class="wf-nav-label"></div></div>
+          <div class="wf-nav-item"><div class="wf-nav-dot active"></div><div class="wf-nav-label"></div></div>
+        </div>
+      </div>
+      <div class="wireframe-label">
+        <h4>Perfil & Score</h4>
+        <p>Score financeiro, conquistas e configurações</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ 8. PRINCÍPIOS DE DESIGN ═══════════════ -->
+<div class="full-bg-section" id="principles">
+  <div class="inner">
+    <div class="section-label">08 — Princípios de Design</div>
+    <h2 class="section-title">O que guia cada<br>decisão de UX.</h2>
+    <p class="section-desc">6 princípios derivados da pesquisa com usuários e do contexto cultural brasileiro. Cada feature deve ser avaliada contra esses princípios.</p>
+
+    <div class="cards-3 reveal">
+      <div class="principle-card">
+        <div class="principle-num">01</div>
+        <h3>Brasileiro-Primeiro</h3>
+        <p>Cada decisão considera a realidade local: língua coloquial, cashback em vez de pontos, Pix como ação primária, WhatsApp como canal de suporte.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">02</div>
+        <h3>Zero Burocracia</h3>
+        <p>Qualquer tarefa crítica deve ser completada em ≤3 toques. Onboarding em ≤2 minutos. Formulários com menor número possível de campos.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">03</div>
+        <h3>Confiança Progressiva</h3>
+        <p>Conquistar a confiança do usuário gradualmente, não exigi-la de uma vez. Começar simples, expandir com o tempo à medida que o relacionamento cresce.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">04</div>
+        <h3>Social by Design</h3>
+        <p>Funcionalidades financeiras com camada social nativa: dividir contas, vaquinhas, missões em grupo. O dinheiro no Brasil é coletivo, não individual.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">05</div>
+        <h3>Segurança Visível</h3>
+        <p>A segurança precisa ser sentida, não só existir. Feedback imediato em transações, confirmação biométrica clara, alertas antifraude em linguagem humana.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">06</div>
+        <h3>Inclusão por Padrão</h3>
+        <p>A UI funciona offline parcialmente, carrega rápido em conexão 3G, usa linguagem acessível e considera baixa literacia financeira como ponto de partida.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 9. KPIs ═══════════════ -->
+<section>
+  <div class="section-label">09 — KPIs & Métricas</div>
+  <h2 class="section-title">Como medimos sucesso.</h2>
+  <p class="section-desc">Métricas de UX, negócio e inclusão financeira que guiam as decisões do produto ao longo do tempo.</p>
+
+  <div class="cards-4 reveal">
+    <div class="kpi-card">
+      <div class="icon">⏱️</div>
+      <h4>Time to First Transaction</h4>
+      <div class="target">&lt; 3 min</div>
+      <p>Do download até o primeiro Pix enviado ou recebido</p>
+    </div>
+    <div class="kpi-card">
+      <div class="icon">📊</div>
+      <h4>DAU / MAU Ratio</h4>
+      <div class="target">&gt; 40%</div>
+      <p>Proporção de usuários ativos diários vs mensais (stickiness)</p>
+    </div>
+    <div class="kpi-card">
+      <div class="icon">❤️</div>
+      <h4>NPS Alvo</h4>
+      <div class="target">&gt; 70</div>
+      <p>Net Promoter Score — benchmark Nubank está em ~87</p>
+    </div>
+    <div class="kpi-card">
+      <div class="icon">💳</div>
+      <h4>Produtos por Usuário</h4>
+      <div class="target">&gt; 2,5</div>
+      <p>Média de produtos financeiros ativos por conta após 90 dias</p>
+    </div>
+    <div class="kpi-card">
+      <div class="icon">🌱</div>
+      <h4>Inclusão Financeira</h4>
+      <div class="target">20%</div>
+      <p>% de usuários sem histórico bancário que acessam crédito</p>
+    </div>
+    <div class="kpi-card">
+      <div class="icon">🔁</div>
+      <h4>Retenção D30</h4>
+      <div class="target">&gt; 60%</div>
+      <p>Usuários que ainda usam o app 30 dias após o download</p>
+    </div>
+    <div class="kpi-card">
+      <div class="icon">⚡</div>
+      <h4>Task Success Rate</h4>
+      <div class="target">&gt; 95%</div>
+      <p>Taxa de sucesso em tarefas críticas (pagar, receber, investir)</p>
+    </div>
+    <div class="kpi-card">
+      <div class="icon">🛡️</div>
+      <h4>Fraude Evitada</h4>
+      <div class="target">&lt; 0,01%</div>
+      <p>Taxa de transações fraudulentas não detectadas</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 10. ROADMAP ═══════════════ -->
+<div class="full-bg-section" id="roadmap">
+  <div class="inner">
+    <div class="section-label">10 — Roadmap</div>
+    <h2 class="section-title">O caminho de<br>produto.</h2>
+    <p class="section-desc">3 fases de desenvolvimento alinhadas com maturidade do produto e crescimento do ecossistema.</p>
+
+    <div class="roadmap reveal">
+      <div class="roadmap-phase active">
+        <div class="roadmap-dot active"></div>
+        <h4>Fase 1 · Q1–Q2 2026</h4>
+        <h3>Core Financeiro</h3>
+        <ul>
+          <li>Conta digital + Pix completo</li>
+          <li>Cartão virtual Mastercard</li>
+          <li>Onboarding biométrico</li>
+          <li>Cashback em parceiros selecionados</li>
+          <li>Extrato e notificações em tempo real</li>
+          <li>Suporte via WhatsApp</li>
+        </ul>
+      </div>
+      <div class="roadmap-phase">
+        <div class="roadmap-dot"></div>
+        <h4>Fase 2 · Q3–Q4 2026</h4>
+        <h3>Ecossistema</h3>
+        <ul>
+          <li>Mini Apps SDK público</li>
+          <li>Investimentos CDB/Tesouro</li>
+          <li>Crédito IA para MEI/autônomos</li>
+          <li>Vaquinhas e rateio social</li>
+          <li>Score PixTudo proprietário</li>
+          <li>Seguros (vida, auto, residencial)</li>
+        </ul>
+      </div>
+      <div class="roadmap-phase">
+        <div class="roadmap-dot"></div>
+        <h4>Fase 3 · 2027+</h4>
+        <h3>Super App</h3>
+        <ul>
+          <li>Cartão físico + Open Finance</li>
+          <li>Marketplace de serviços</li>
+          <li>IA financeira pessoal (coach)</li>
+          <li>Benefícios corporativos B2B</li>
+          <li>Identidade digital integrada</li>
+          <li>Expansão para América Latina</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RISKS -->
+    <h3 style="font-size:18px;font-weight:700;margin-top:60px;margin-bottom:20px;">Riscos & Mitigações</h3>
+    <div class="cards-2 reveal">
+      <div class="card">
+        <h4 style="color:var(--pink);margin-bottom:8px;">⚠️ Regulatório (Bacen)</h4>
+        <p>Licença de IP (Instituição de Pagamento) obrigatória. Mitigação: iniciar como correspondente bancário (parceria) enquanto processa licença própria.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--yellow);margin-bottom:8px;">⚠️ Confiança do Usuário</h4>
+        <p>Novo app fintech enfrenta ceticismo. Mitigação: transparência radical, seguro FDIC-equivalente (FGC), comunicação clara sobre custódia.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--pink);margin-bottom:8px;">⚠️ Qualidade dos Mini Apps</h4>
+        <p>Ecossistema ruim destrói reputação. Mitigação: curation rígida, processo de aprovação como App Store, responsabilidade contratual dos parceiros.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--yellow);margin-bottom:8px;">⚠️ Golpes & Fraude</h4>
+        <p>Pix é alvo principal de golpes. Mitigação: ML de detecção em tempo real, limite progressivo por comportamento, biometria em transações acima de R$300.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ APPENDIX / TOC ═══════════════ -->
+<section>
+  <div class="section-label">Índice de Entregáveis</div>
+  <h2 class="section-title">Todos os documentos<br>deste projeto.</h2>
+
+  <div style="background:var(--slate);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:32px 40px;">
+    <ul class="toc-list">
+      <li><span class="toc-num">01</span><span class="toc-title">Pesquisa de Mercado & Contexto Brasileiro</span><span class="toc-page">Seção 01</span></li>
+      <li><span class="toc-num">02</span><span class="toc-title">Análise Competitiva (6 players mapeados)</span><span class="toc-page">Seção 02</span></li>
+      <li><span class="toc-num">03</span><span class="toc-title">3 Personas Primárias com Jobs-to-be-done</span><span class="toc-page">Seção 03</span></li>
+      <li><span class="toc-num">04</span><span class="toc-title">Jornada do Usuário — 6 Estágios (Camila)</span><span class="toc-page">Seção 04</span></li>
+      <li><span class="toc-num">05</span><span class="toc-title">6 Perguntas "Como Poderíamos…"</span><span class="toc-page">Seção 05</span></li>
+      <li><span class="toc-num">06</span><span class="toc-title">Arquitetura de Informação (5 seções, 25 itens)</span><span class="toc-page">Seção 06</span></li>
+      <li><span class="toc-num">07</span><span class="toc-title">Wireframes Lo-Fi — 4 telas principais</span><span class="toc-page">Seção 07</span></li>
+      <li><span class="toc-num">08</span><span class="toc-title">6 Princípios de Design</span><span class="toc-page">Seção 08</span></li>
+      <li><span class="toc-num">09</span><span class="toc-title">8 KPIs & Métricas de Sucesso</span><span class="toc-page">Seção 09</span></li>
+      <li><span class="toc-num">10</span><span class="toc-title">Roadmap de Produto — 3 Fases</span><span class="toc-page">Seção 10</span></li>
+      <li><span class="toc-num">11</span><span class="toc-title">Análise de Riscos & Mitigações</span><span class="toc-page">Seção 10</span></li>
+    </ul>
+  </div>
+  <p style="font-size:13px;color:var(--muted);margin-top:20px;text-align:center;">Próximas etapas sugeridas: Protótipo Hi-Fi no Figma · Testes de usabilidade com 8 usuários por persona · Design System completo</p>
+</section>
+
+<footer>
+  <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--green);margin-bottom:8px;">PixTudo</div>
+  <p>UX Research & Design Deliverables — <strong>Brasil 2025–2026</strong></p>
+  <p style="margin-top:8px;">Documento gerado como entregável conceitual de UX para super app financeiro brasileiro.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // stagger children
+        const children = e.target.children;
+        Array.from(children).forEach((c, i) => {
+          c.style.transitionDelay = (i * 80) + 'ms';
+        });
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
