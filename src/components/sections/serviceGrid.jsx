@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { RiGlobalFill, RiPantoneFill, RiQuillPenLine } from '@remixicon/react'
+import { RiPaletteLine, RiSmartphoneLine, RiCodeSSlashLine } from '@remixicon/react'
 import SlideUp from '@/utlits/animations/slideUp'
 import { useLanguage } from '@/context/LanguageContext'
 
@@ -21,9 +21,9 @@ const ServiceGrid = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <Card id={1} icon={<RiGlobalFill size={60} />} title={t.services.items[0].title} description={t.services.items[0].description} />
-                        <Card id={2} icon={<RiQuillPenLine size={60} />} title={t.services.items[1].title} description={t.services.items[1].description} />
-                        <Card id={3} icon={<RiPantoneFill size={60} />} title={t.services.items[2].title} description={t.services.items[2].description} />
+                        <Card id={1} icon={<RiSmartphoneLine size={60} />} title={t.services.items[0].title} description={t.services.items[0].description} />
+                        <Card id={2} icon={<RiPaletteLine size={60} />} title={t.services.items[1].title} description={t.services.items[1].description} />
+                        <Card id={3} icon={<RiCodeSSlashLine size={60} />} title={t.services.items[2].title} description={t.services.items[2].description} />
                     </div>
                 </div>
             </div>

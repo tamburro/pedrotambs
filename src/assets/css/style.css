@@ -1871,7 +1871,7 @@ ul.extra-skills li i {
 .project-parallax-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(4,6,8,0.5) 0%, rgba(8,12,20,0.82) 100%);
+    background: linear-gradient(to bottom, rgba(4,6,8,0.75) 0%, rgba(4,6,10,0.96) 100%);
     z-index: 1;
 }
 
@@ -1895,14 +1895,41 @@ ul.extra-skills li i {
 }
 
 .parallax-info-box {
-    background: rgba(13, 13, 24, 0.55);
-    border: 1px solid #322D36;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
     padding: 20px 24px;
     flex: 1 1 160px;
     min-width: 140px;
+}
+
+.parallax-info-box--cta {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.parallax-cta-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 2px;
+}
+
+.parallax-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--parchment);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.parallax-cta-link:hover {
+    opacity: 0.7;
 }
 
 .parallax-info-box p {
@@ -3490,6 +3517,17 @@ ul.blog_pagination li a:hover {
     background: rgba(255,255,255,0.2);
     border-radius: 2px;
     flex-shrink: 0;
+}
+
+.cs-gallery-title {
+    font-size: 13px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--subtitle-color);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .cs-screen-figure figcaption,

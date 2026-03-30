@@ -6,7 +6,7 @@ import { getProjectBySlug } from '@/utlits/fackData/projectData';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { RiExternalLinkLine } from '@remixicon/react';
+import { RiExternalLinkLine, RiArrowLeftLine } from '@remixicon/react';
 
 const SingleProjectPage = ({ params }) => {
     const { slug } = params;
@@ -23,6 +23,8 @@ const SingleProjectPage = ({ params }) => {
     if (!project) {
         notFound();
     }
+
+    const hasLinks = project.prototypeLink || project.prototypeLinks?.length > 0 || project.liveDemoLink;
 
     return (
         <div className="single-project-page-design">
@@ -49,7 +51,7 @@ const SingleProjectPage = ({ params }) => {
                     <div className="row">
                         <div className="col-12">
                             <div className="parallax-title-box mb-4">
-                                <p className="project-sub-title">{project.category} - {project.client || 'Projeto Pessoal'}</p>
+                                <p className="project-sub-title">{project.category} — {project.client || 'Projeto Pessoal'}</p>
                                 <h1 className="project-main-title">{project.title}</h1>
                             </div>
                             <div className="project-parallax-info-row">
@@ -77,10 +79,33 @@ const SingleProjectPage = ({ params }) => {
                                         <h3>{project.team}</h3>
                                     </div>
                                 )}
-                                {(project.services || project.tools?.length > 0) && (
+                                {project.tools?.length > 0 && (
                                     <div className="parallax-info-box">
                                         <p>Ferramentas</p>
-                                        <h3>{project.tools?.join(' · ') || project.services}</h3>
+                                        <h3>{project.tools.join(' · ')}</h3>
+                                    </div>
+                                )}
+                                {hasLinks && (
+                                    <div className="parallax-info-box parallax-info-box--cta">
+                                        <p>Ver Projeto</p>
+                                        <div className="parallax-cta-links">
+                                            {project.prototypeLinks?.length > 0 ? (
+                                                project.prototypeLinks.map((link, i) => (
+                                                    <Link key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="parallax-cta-link">
+                                                        {link.label} <RiExternalLinkLine size={13} />
+                                                    </Link>
+                                                ))
+                                            ) : project.prototypeLink ? (
+                                                <Link href={project.prototypeLink} target="_blank" rel="noopener noreferrer" className="parallax-cta-link">
+                                                    Ver Protótipo <RiExternalLinkLine size={13} />
+                                                </Link>
+                                            ) : null}
+                                            {project.liveDemoLink && (
+                                                <Link href={project.liveDemoLink} target="_blank" rel="noopener noreferrer" className="parallax-cta-link">
+                                                    Ver ao Vivo <RiExternalLinkLine size={13} />
+                                                </Link>
+                                            )}
+                                        </div>
                                     </div>
                                 )}
                             </div>
@@ -91,50 +116,20 @@ const SingleProjectPage = ({ params }) => {
 
             {/* Conteúdo principal */}
             <div className="container pt-30">
-                <div className="row">
-                    {/* Links — coluna esquerda */}
-                    <div className="col-lg-4">
-                        <div className="single-project-page-left wow fadeInUp delay-0-2s">
-                            <div className="project-links mt-8">
-                                {project.prototypeLinks?.length > 0 ? (
-                                    <div className="flex flex-col gap-2">
-                                        {project.prototypeLinks.map((link, i) => (
-                                            <Link key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="project-link-btn">
-                                                {link.label} <RiExternalLinkLine className="icon" />
-                                            </Link>
-                                        ))}
-                                    </div>
-                                ) : project.prototypeLink ? (
-                                    <Link href={project.prototypeLink} target="_blank" rel="noopener noreferrer" className="project-link-btn">
-                                        Ver Protótipo <RiExternalLinkLine className="icon" />
-                                    </Link>
-                                ) : null}
-                                {project.liveDemoLink && (
-                                    <Link href={project.liveDemoLink} target="_blank" rel="noopener noreferrer" className="project-link-btn">
-                                        Ver ao Vivo <RiExternalLinkLine className="icon" />
-                                    </Link>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Conteúdo — coluna direita */}
+                <div className="row justify-content-center">
                     <div className="col-lg-8">
-                        <div className="single-project-page-right wow fadeInUp delay-0-4s">
+                        <div className="single-project-page-right wow fadeInUp delay-0-2s">
 
-                            {/* Visão geral */}
                             {project.description && (
                                 <div className="project-description-text">
                                     <p>{project.description}</p>
                                 </div>
                             )}
 
-                            {/* Seções ricas do case study */}
                             {project.sections?.map((section, i) => (
                                 <div key={i} className="project-section mt-8">
                                     <h3>{section.title}</h3>
 
-                                    {/* Chips de métodos (seção de pesquisa) */}
                                     {section.type === 'research' && section.methods?.length > 0 && (
                                         <div className="cs-methods">
                                             {section.methods.map((m, j) => (
@@ -143,10 +138,8 @@ const SingleProjectPage = ({ params }) => {
                                         </div>
                                     )}
 
-                                    {/* Texto da seção */}
                                     {section.content && <p>{section.content}</p>}
 
-                                    {/* Bullets de insights */}
                                     {section.highlights?.length > 0 && (
                                         <ul className="cs-highlights">
                                             {section.highlights.map((h, j) => (
@@ -155,7 +148,6 @@ const SingleProjectPage = ({ params }) => {
                                         </ul>
                                     )}
 
-                                    {/* Métricas */}
                                     {section.type === 'outcomes' && section.metrics?.length > 0 && (
                                         <div className="cs-metrics">
                                             {section.metrics.map((m, j) => (
@@ -169,7 +161,6 @@ const SingleProjectPage = ({ params }) => {
                                 </div>
                             ))}
 
-                            {/* Fallback para projetos sem sections */}
                             {!project.sections && (
                                 <>
                                     {project.challenge && (
@@ -184,68 +175,64 @@ const SingleProjectPage = ({ params }) => {
                                             <p>{project.solution}</p>
                                         </div>
                                     )}
-                                    {project.results && (
-                                        <div className="project-section mt-8">
-                                            <h3>Resultados Alcançados</h3>
-                                            <p>{project.results}</p>
-                                        </div>
-                                    )}
                                 </>
                             )}
                         </div>
                     </div>
                 </div>
 
-                {/* Imagens das seções — full width abaixo do 2-col */}
+                {/* Galeria de imagens */}
                 {[...(project.sections || [])].sort((a, b) => (b.imageLayout === 'screens') - (a.imageLayout === 'screens')).map((section, i) =>
                     section.images?.length > 0 ? (
-                        <div key={i} className="row pt-20 project-gallery-section">
-                            {section.imageLayout === 'screens' ? (
-                                <div className="col-12">
-                                    <div className="cs-screens-row">
-                                        {section.images.map((img, j) => (
-                                            <figure key={j} className="cs-screen-figure">
-                                                <div className="cs-phone-frame">
-                                                    <div className="cs-phone-notch" />
-                                                    <div className="cs-phone-screen">
-                                                        <Image
-                                                            src={img.src}
-                                                            alt={img.caption || section.title}
-                                                            width={img.width || 390}
-                                                            height={img.height || 700}
-                                                            sizes="(max-width: 768px) 50vw, 14vw"
-                                                            style={{ width: '100%', height: 'auto', display: 'block' }}
-                                                        />
+                        <div key={i} className="project-gallery-section pt-20">
+                            <h4 className="cs-gallery-title">{section.title}</h4>
+                            <div className="row">
+                                {section.imageLayout === 'screens' ? (
+                                    <div className="col-12">
+                                        <div className="cs-screens-row">
+                                            {section.images.map((img, j) => (
+                                                <figure key={j} className="cs-screen-figure">
+                                                    <div className="cs-phone-frame">
+                                                        <div className="cs-phone-notch" />
+                                                        <div className="cs-phone-screen">
+                                                            <Image
+                                                                src={img.src}
+                                                                alt={img.caption || section.title}
+                                                                width={img.width || 390}
+                                                                height={img.height || 700}
+                                                                sizes="(max-width: 768px) 50vw, 14vw"
+                                                                style={{ width: '100%', height: 'auto', display: 'block' }}
+                                                            />
+                                                        </div>
+                                                        <div className="cs-phone-bar" />
                                                     </div>
-                                                    <div className="cs-phone-bar" />
-                                                </div>
-                                                {img.caption && <figcaption>{img.caption}</figcaption>}
+                                                    {img.caption && <figcaption>{img.caption}</figcaption>}
+                                                </figure>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    section.images.map((img, j) => (
+                                        <div key={j} className={img.fullWidth ? 'col-12' : 'col-lg-6'}>
+                                            <figure className="single-image wow fadeInUp mb-4">
+                                                <Image
+                                                    src={img.src}
+                                                    alt={img.caption || section.title}
+                                                    width={img.width || 800}
+                                                    height={img.height || 600}
+                                                    sizes="100%"
+                                                    style={{ width: '100%', height: 'auto' }}
+                                                />
+                                                {img.caption && <figcaption className="cs-figcaption">{img.caption}</figcaption>}
                                             </figure>
-                                        ))}
-                                    </div>
-                                </div>
-                            ) : (
-                                section.images.map((img, j) => (
-                                    <div key={j} className={img.fullWidth ? 'col-12' : 'col-lg-6'}>
-                                        <figure className="single-image wow fadeInUp mb-4">
-                                            <Image
-                                                src={img.src}
-                                                alt={img.caption || section.title}
-                                                width={img.width || 800}
-                                                height={img.height || 600}
-                                                sizes="100%"
-                                                style={{ width: '100%', height: 'auto' }}
-                                            />
-                                            {img.caption && <figcaption className="cs-figcaption">{img.caption}</figcaption>}
-                                        </figure>
-                                    </div>
-                                ))
-                            )}
+                                        </div>
+                                    ))
+                                )}
+                            </div>
                         </div>
                     ) : null
                 )}
 
-                {/* Galeria legada (fullImages) */}
                 {project.fullImages?.length > 0 && (
                     <div className="row pt-30 project-gallery-section">
                         {project.fullImages.map((imgSrc, index) => (
@@ -267,8 +254,8 @@ const SingleProjectPage = ({ params }) => {
 
                 {/* Botão Voltar */}
                 <div className="mt-12 text-center pb-12">
-                    <Link href="/works" className="back-button px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">
-                        Voltar para Projetos
+                    <Link href="/works" className="theme-btn theme-btn--outline">
+                        <i><RiArrowLeftLine size={16} /></i> Voltar para Projetos
                     </Link>
                 </div>
             </div>
