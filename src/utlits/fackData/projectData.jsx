@@ -100,6 +100,12 @@ export const projectsData = [
                         caption: "Perfil — informações da conta e plano atual",
                         width: 494,
                         height: 839
+                    },
+                    {
+                        src: "/images/projects/listaai/assinatura.png",
+                        caption: "Assinatura — upgrade para PRO direto pelo app",
+                        width: 495,
+                        height: 849
                     }
                 ],
                 imageLayout: "screens"
@@ -115,12 +121,6 @@ export const projectsData = [
                         fullWidth: true,
                         width: 1340,
                         height: 559
-                    },
-                    {
-                        src: "/images/projects/listaai/assinatura.png",
-                        caption: "Tela de assinatura no app — upgrade para PRO direto pelo dashboard",
-                        width: 495,
-                        height: 849
                     }
                 ]
             },

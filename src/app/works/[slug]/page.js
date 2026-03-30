@@ -197,7 +197,7 @@ const SingleProjectPage = ({ params }) => {
                 </div>
 
                 {/* Imagens das seções — full width abaixo do 2-col */}
-                {project.sections?.map((section, i) =>
+                {[...(project.sections || [])].sort((a, b) => (b.imageLayout === 'screens') - (a.imageLayout === 'screens')).map((section, i) =>
                     section.images?.length > 0 ? (
                         <div key={i} className="row pt-20 project-gallery-section">
                             {section.imageLayout === 'screens' ? (
