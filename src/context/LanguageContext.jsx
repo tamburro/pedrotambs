@@ -37,7 +37,7 @@ export const translations = {
     },
     portfolio: {
       title: 'Works & Projects',
-      sub: 'A selection of apps, interfaces and digital products — fully functional, built end-to-end with UX research, UI design and front-end development.',
+      sub: 'From user research to production code. Complete projects, not just screens.',
       showMore: 'View more projects',
       showLess: 'Show less',
     },
@@ -131,7 +131,7 @@ export const translations = {
     },
     portfolio: {
       title: 'Trabalhos & Projetos',
-      sub: 'Uma seleção de apps, interfaces e produtos digitais — completamente funcionais, construídos do início ao fim com pesquisa UX, design de UI e desenvolvimento front-end.',
+      sub: 'Da pesquisa com usuários ao código em produção. Projetos completos, não só telas.',
       showMore: 'Ver mais projetos',
       showLess: 'Ver menos',
     },
