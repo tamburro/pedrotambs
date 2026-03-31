@@ -24,12 +24,12 @@ const Resume = () => {
                                         <Card icon={<RiBriefcaseLine />} year="Feb 2011 – Jan 2012" title="Design Intern" institution="Conspiração Filmes" description={t.resume.exp4} />
                                     )}
                                 </div>
-                                <div className="portfolio-show-more" style={{ marginTop: '16px' }}>
+                                <div style={{ marginTop: '16px' }}>
                                     <button
-                                        className="theme-btn theme-btn--outline"
+                                        className="resume-show-more-btn"
                                         onClick={() => setExpanded(v => !v)}
                                     >
-                                        {expanded ? t.portfolio.showLess : t.portfolio.showMore}
+                                        {expanded ? t.resume.showLessExp : t.resume.showMoreExp}
                                     </button>
                                 </div>
                             </div>

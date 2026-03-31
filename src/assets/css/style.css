@@ -3743,3 +3743,20 @@ ul.blog_pagination li a:hover {
     text-align: center;
     margin-top: 16px;
 }
+
+.resume-show-more-btn {
+    background: transparent;
+    border: none;
+    color: rgba(240,240,250,0.35);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 4px 0;
+    transition: color .2s;
+}
+
+.resume-show-more-btn:hover {
+    color: rgba(240,240,250,0.7);
+}
