@@ -3738,3 +3738,8 @@ ul.blog_pagination li a:hover {
     padding-bottom: 60px;
     text-align: center;
 }
+
+.portfolio-show-more {
+    text-align: center;
+    margin-top: 40px;
+}

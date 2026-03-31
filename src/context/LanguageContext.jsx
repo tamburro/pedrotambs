@@ -14,7 +14,7 @@ export const translations = {
       cta2: 'Hire Me',
     },
     profile: {
-      subtitle: 'based in Rio de Janeiro',
+      subtitle: 'Based in Rio de Janeiro',
       heading: 'Product Designer\n& Design Engineer',
       bio: "Product Designer & Design Engineer bridging the gap between great design and working product. I don't just design screens — I ship them.",
       available: 'Open to Freelance & Full-time',
@@ -36,6 +36,8 @@ export const translations = {
     portfolio: {
       title: 'Works & Projects',
       sub: 'A selection of apps, interfaces and digital products — fully functional, built end-to-end with UX research, UI design and front-end development.',
+      showMore: 'View more projects',
+      showLess: 'Show less',
     },
     cta: {
       title: "Got a product idea? Let's design and build it together.",
@@ -104,7 +106,7 @@ export const translations = {
       cta2: 'Me Contrate',
     },
     profile: {
-      subtitle: 'Designer de Produto · Design Engineer · baseado no Rio de Janeiro',
+      subtitle: 'Atuando a partir do Rio de Janeiro',
       heading: 'Designer de Produto\n& Design Engineer',
       bio: 'Designer de Produto & Design Engineer que une design de qualidade com código funcional. Não apenas projeto telas — eu as entrego funcionando.',
       available: 'Aberto a Freelance & CLT',
@@ -126,6 +128,8 @@ export const translations = {
     portfolio: {
       title: 'Trabalhos & Projetos',
       sub: 'Uma seleção de apps, interfaces e produtos digitais — completamente funcionais, construídos do início ao fim com pesquisa UX, design de UI e desenvolvimento front-end.',
+      showMore: 'Ver mais projetos',
+      showLess: 'Ver menos',
     },
     cta: {
       title: 'Tem uma ideia de produto? Vamos projetar e construir juntos.',

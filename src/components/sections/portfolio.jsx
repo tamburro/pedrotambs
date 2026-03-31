@@ -1,24 +1,26 @@
 // src/components/sections/portfolio.jsx
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link';
-import { RiArrowRightUpLine } from '@remixicon/react'
+import { RiArrowRightUpLine, RiExternalLinkLine } from '@remixicon/react'
 import SlideUp from '@/utlits/animations/slideUp';
 import { projectsData } from '@/utlits/fackData/projectData';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 
-const animations = ['slideIn', 'fadeIn', 'scaleUp'];
-
-const getRandomAnimation = () => {
-    const randomIndex = Math.floor(Math.random() * animations.length);
-    return animations[randomIndex];
-};
-
-const PROJECTS = projectsData.filter(p => p.id <= 5);
+const DISPLAY_ORDER = [1, 2, 6, 7, 3, 4, 5];
+const VISIBLE_COUNT = 6;
 
 const Portfolio = ({ className }) => {
     const { t, lang } = useLanguage();
+    const [expanded, setExpanded] = useState(false);
+
+    const ordered = DISPLAY_ORDER
+        .map(id => projectsData.find(p => p.id === id))
+        .filter(Boolean);
+
+    const visible = expanded ? ordered : ordered.slice(0, VISIBLE_COUNT);
+    const hasMore = ordered.length > VISIBLE_COUNT;
 
     return (
         <section id="portfolio" className={`projects-area ${className}`}>
@@ -35,7 +37,7 @@ const Portfolio = ({ className }) => {
                         </div>
                     </div>
                     <div className="row project-masonry-active">
-                        {PROJECTS.map(({ category, id, src, title, slug, tagline, tagline_en }) => (
+                        {visible.map(({ id, category, src, title, slug, tagline, tagline_en, externalLink }) => (
                             <Card
                                 key={id}
                                 id={id}
@@ -43,10 +45,21 @@ const Portfolio = ({ className }) => {
                                 src={src}
                                 title={title}
                                 slug={slug}
+                                externalLink={externalLink}
                                 tagline={lang === 'en' && tagline_en ? tagline_en : tagline}
                             />
                         ))}
                     </div>
+                    {hasMore && (
+                        <div className="portfolio-show-more">
+                            <button
+                                className="theme-btn theme-btn--outline"
+                                onClick={() => setExpanded(v => !v)}
+                            >
+                                {expanded ? t.portfolio.showLess : t.portfolio.showMore}
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
@@ -56,19 +69,28 @@ const Portfolio = ({ className }) => {
 export default Portfolio
 
 
-// Componente Card ajustado para receber e usar o 'slug'
-const Card = ({ category, title, src, id, slug, tagline }) => {
+const Card = ({ category, title, src, id, slug, tagline, externalLink }) => {
+    const href = externalLink || `/works/${slug}`;
+    const isExternal = !!externalLink;
+
     return (
         <div className="col-lg-4 col-md-6 item branding game">
             <SlideUp delay={id}>
                 <div className="project-item style-two" style={{ position: 'relative' }}>
-                    {/* Overlay link covers entire card */}
-                    <Link href={`/works/${slug}`} className="project-card-link" aria-label={title} />
+                    <Link
+                        href={href}
+                        className="project-card-link"
+                        aria-label={title}
+                        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    />
 
                     <div className="project-image">
                         <Image width={383} height={249} sizes='100vw' style={{width:"100%", height:"auto"}} src={src} alt="Project" />
                         <span className="details-btn" aria-hidden="true">
-                            <RiArrowRightUpLine size={20} />
+                            {isExternal
+                                ? <RiExternalLinkLine size={20} />
+                                : <RiArrowRightUpLine size={20} />
+                            }
                         </span>
                     </div>
                     <div className="project-content">
