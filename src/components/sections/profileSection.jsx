@@ -20,9 +20,9 @@ const ProfileSection = () => {
                                 <p>{t.profile.subtitle}</p>
                                 <div className="about-social">
                                     <ul>
-                                        <li><Link href="https://www.behance.net/pedrotamburro" target="_blank" rel="noopener noreferrer"><RiBehanceFill size={20} /></Link></li>
                                         <li><Link href="https://www.linkedin.com/in/pedrotamburro/" target="_blank" rel="noopener noreferrer"><RiLinkedinFill size={20} /></Link></li>
                                         <li><Link href="https://github.com/tamburro" target="_blank" rel="noopener noreferrer"><RiGithubLine size={20} /></Link></li>
+                                        <li><Link href="https://www.behance.net/pedrotamburro" target="_blank" rel="noopener noreferrer"><RiBehanceFill size={20} /></Link></li>
                                     </ul>
                                 </div>
                             </div>
