@@ -1,0 +1,14 @@
+node_modules/
+.next/
+.git/
+public/files/
+favicon/
+*.ico
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.woff
+*.woff2
+*.ttf
+*.eot
