@@ -2120,8 +2120,7 @@ ul.extra-skills li i {
 
 .project-item.style-two .project-content {
     margin-bottom: 0;
-    padding-left: 20px;
-    padding-bottom: 20px;
+    padding: 0 24px 24px 24px;
 }
 
 .project-item.style-two .project-content h3 {

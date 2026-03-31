@@ -22,7 +22,7 @@ const Resume = () => {
                                     <Card logo="/images/companies/estacio.jpeg" year="Jul 2019 – Jun 2020" title="Designer Visual PJ" institution="Estácio" description={t.resume.exp3} />
                                     {expanded && (
                                         <>
-                                            <Card logo="/images/companies/conspiracao.jpeg" year="Feb 2011 – Jan 2012" title={t.resume.title4} institution="Conspiração Filmes" description={t.resume.exp4} />
+                                            <Card logo="/images/companies/conspiracao.jpeg" year="Feb 11 – Jan 12" title={t.resume.title4} institution="Conspiração Filmes" description={t.resume.exp4} />
                                             <Card logo="/images/companies/brq.jpeg" year="Jun 2010 – Dez 2010" title={t.resume.title5} institution="BRQ Digital Solutions" description={t.resume.exp5} />
                                         </>
                                     )}
