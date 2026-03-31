@@ -4,6 +4,8 @@ import React, { useEffect, useRef, Suspense, lazy } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 
+import ErrorBoundary from '@/components/ui/ErrorBoundary';
+
 const Spline = lazy(() => import('@splinetool/react-spline'));
 
 const Hero = () => {
@@ -32,14 +34,16 @@ const Hero = () => {
 
             {/* Spline 3D background */}
             <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'auto' }}>
-                <Suspense fallback={
-                    <div style={{ width: '100%', height: '100vh', background: '#0D0D18' }} />
-                }>
-                    <Spline
-                        style={{ width: '100%', height: '100vh', pointerEvents: 'auto' }}
-                        scene="https://prod.spline.design/us3ALejTXl6usHZ7/scene.splinecode"
-                    />
-                </Suspense>
+                <ErrorBoundary fallback={<div style={{ width: '100%', height: '100vh', background: '#0D0D18' }} />}>
+                    <Suspense fallback={
+                        <div style={{ width: '100%', height: '100vh', background: '#0D0D18' }} />
+                    }>
+                        <Spline
+                            style={{ width: '100%', height: '100vh', pointerEvents: 'auto' }}
+                            scene="https://prod.spline.design/us3ALejTXl6usHZ7/scene.splinecode"
+                        />
+                    </Suspense>
+                </ErrorBoundary>
 
                 {/* Gradient overlay */}
                 <div style={{
