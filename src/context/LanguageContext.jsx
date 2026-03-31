@@ -21,7 +21,7 @@ export const translations = {
       downloadCV: 'Download CV',
       viewProjects: 'View Projects',
     },
-    partners: 'Brands I've Been Part Of',
+    partners: "Brands I've Been Part Of",
     resume: {
       experience: 'Experience',
       education: 'Education',
