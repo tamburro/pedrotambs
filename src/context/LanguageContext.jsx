@@ -128,7 +128,7 @@ export const translations = {
       exp4: 'Responsável pela edição e finalização de materiais fotográficos e em vídeo para diversas produções independentes.',
       title4: 'Estagiário de Design',
       exp5: 'Apoio no desenvolvimento de projetos web e peças digitais em colaboração com o time de design.',
-      title5: 'Estagiário de web design',
+      title5: 'Estagiário de Web Design',
       showMoreExp: 'Ver mais experiências',
       showLessExp: 'Ver menos',
       edu1: 'Pós-graduação em Inovação com foco em Inteligência Artificial e Experiência do Usuário.',
