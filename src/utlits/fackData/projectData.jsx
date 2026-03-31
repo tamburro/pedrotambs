@@ -111,7 +111,7 @@ export const projectsData = [
                         height: 745
                     },
                     {
-                        src: "/images/projects/listaai/nova-desc.png",
+                        src: "/images/projects/listaai/nova-descricao.png",
                         caption: "Nova descrição com nome, specs, plataforma e tom de voz",
                         width: 1100,
                         height: 760
