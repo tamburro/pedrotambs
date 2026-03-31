@@ -9,14 +9,14 @@ export const translations = {
     hero: {
       tagline: 'Product Designer · Design Engineer',
       headline: ['Design that speaks', 'before words.'],
-      sub: 'I design and build complete digital products — from user research and interface design to fully functional applications.',
+      sub: 'I design and build complete digital products, from user research and interface design to fully functional applications.',
       cta1: 'View Projects',
       cta2: 'Hire Me',
     },
     profile: {
       subtitle: 'Based in Rio de Janeiro',
       heading: 'Product Designer\n& Design Engineer',
-      bio: "Product Designer & Design Engineer bridging the gap between great design and working product. I don't just design screens — I ship them.",
+      bio: "Product Designer & Design Engineer bridging the gap between great design and working product. I don't just design screens; I ship them.",
       available: 'Open to Freelance',
       downloadCV: 'Download CV',
       viewProjects: 'View Projects',
@@ -46,7 +46,7 @@ export const translations = {
     },
     cta: {
       title: "Got a product idea? Let's design and build it together.",
-      sub: "I work with companies and founders to turn ideas into real, functional products. From wireframe to deployed app — I handle the full journey.",
+      sub: "I work with companies and founders to turn ideas into real, functional products. From wireframe to deployed app, I handle the full journey.",
       btn: "Let's Talk",
     },
     contact: {
@@ -66,8 +66,8 @@ export const translations = {
       error: 'Error sending. Please try again.',
     },
     about: {
-      title: "I'm Pedro Tamburro — Product Designer & Design Engineer.",
-      p1: "I design and build complete digital products. My work spans the full stack of product design: user research, information architecture, UI design, prototyping, usability testing — and then I take it further by implementing in code.",
+      title: "I'm Pedro Tamburro, Product Designer & Design Engineer.",
+      p1: "I design and build complete digital products. My work spans the full stack of product design: user research, information architecture, UI design, prototyping and usability testing. I take it further by implementing in code.",
       p2: "Currently a Visual Designer at Editora Globo. I hold a degree in Graphic Design from Senac RJ, an MBA in UX Design from Instituto Infnet, and I'm currently pursuing an MBA in AI-Driven Innovation & UX.",
       p3: "I believe the best designer today is one who can also build. That's the standard I hold myself to.",
       btn: 'Get In Touch',
@@ -77,7 +77,7 @@ export const translations = {
       title: 'Design. Build. Ship.',
       items: [
         { title: 'Product Design', description: 'End-to-end product design: research, information architecture, UI, prototype and validation. From the first insight to a tested interface.' },
-        { title: 'Brand Identity', description: 'From logo to full design system — visual identity that scales across every digital and physical touchpoint.' },
+        { title: 'Brand Identity', description: 'From logo to full design system, creating a visual identity that scales across every digital and physical touchpoint.' },
         { title: 'Design Engineering', description: 'I turn Figma into production-ready code. React, Next.js and modern front-end that actually ships.' },
       ],
     },
@@ -106,14 +106,14 @@ export const translations = {
     hero: {
       tagline: 'Designer de Produto · Design Engineer',
       headline: ['Design que fala', 'antes das palavras.'],
-      sub: 'Projeto e construo produtos digitais completos — da pesquisa com usuários e design de interface até aplicações totalmente funcionais.',
+      sub: 'Projeto e construo produtos digitais completos da pesquisa com usuários e design de interface até aplicações totalmente funcionais.',
       cta1: 'Ver Projetos',
       cta2: 'Me Contrate',
     },
     profile: {
       subtitle: 'Atuando a partir do Rio de Janeiro',
       heading: 'Designer de Produto\n& Design Engineer',
-      bio: 'Designer de Produto & Design Engineer que une design de qualidade com código funcional. Não apenas projeto telas — eu as entrego funcionando.',
+      bio: 'Designer de Produto & Design Engineer que une design de qualidade com código funcional. Mais do que projetar telas, eu as entrego funcionando.',
       available: 'Aberto a Freelance',
       downloadCV: 'Baixar CV',
       viewProjects: 'Ver Projetos',
@@ -143,7 +143,7 @@ export const translations = {
     },
     cta: {
       title: 'Tem uma ideia de produto? Vamos projetar e construir juntos.',
-      sub: 'Trabalho com empresas e founders para transformar ideias em produtos reais e funcionais. Do wireframe ao app em produção — cuido de todo o processo.',
+      sub: 'Trabalho com empresas e founders para transformar ideias em produtos reais e funcionais. Do wireframe ao app em produção, cuidando de todo o processo.',
       btn: 'Vamos Conversar',
     },
     contact: {
@@ -163,8 +163,8 @@ export const translations = {
       error: 'Erro ao enviar. Tente novamente.',
     },
     about: {
-      title: 'Sou Pedro Tamburro — Product Designer & Design Engineer.',
-      p1: 'Projeto e construo produtos digitais completos. Meu trabalho abrange todo o ciclo de design de produto: pesquisa com usuários, arquitetura da informação, design de UI, prototipagem, testes de usabilidade — e vai além, com implementação em código.',
+      title: 'Sou Pedro Tamburro, Product Designer & Design Engineer.',
+      p1: 'Projeto e construo produtos digitais completos. Meu trabalho abrange todo o ciclo de design de produto: pesquisa com usuários, arquitetura da informação, design de UI, prototipagem e testes de usabilidade. O trabalho vai além, chegando até a implementação em código.',
       p2: 'Atualmente Designer Visual na Editora Globo. Sou graduado em Design Gráfico pelo Senac RJ, tenho MBA em UX Design pelo Instituto Infnet e estou cursando MBA em Inovação Orientada à IA e UX.',
       p3: 'Acredito que o melhor designer hoje é aquele que também sabe construir. É esse o padrão que busco.',
       btn: 'Entre em Contato',
@@ -174,7 +174,7 @@ export const translations = {
       title: 'Design. Código. Entrega.',
       items: [
         { title: 'Product Design', description: 'Design de produto do início ao fim: pesquisa, arquitetura da informação, UI, protótipo e validação. Do primeiro insight à interface testada.' },
-        { title: 'Identidade Visual', description: 'Do logo ao design system — identidade visual que escala em todos os pontos de contato digitais e físicos.' },
+        { title: 'Identidade Visual', description: 'Do logo ao design system, com uma identidade visual que escala em todos os pontos de contato digitais e físicos.' },
         { title: 'Design Engineering', description: 'Transformo Figma em código. React, Next.js e front-end moderno que vai para produção de verdade.' },
       ],
     },
@@ -208,7 +208,7 @@ const LanguageContext = createContext({
 
 // ─── Provider ─────────────────────────────────────────────────────────────────
 export function LanguageProvider({ children }) {
-  // Start with null to avoid hydration mismatch — resolved after mount
+  // Start with null to avoid hydration mismatch, resolved after mount
   const [lang, setLang] = useState(null)
 
   useEffect(() => {

@@ -34,12 +34,12 @@ Version      : 1.0
 * ----------------------------------------------------------------------------------------
 */
 :root {
-    /* Palette — based on Galaxy Hero component */
+    /* Palette: based on Galaxy Hero component */
     --cosmos:       #080810;   /* deepest bg */
     --void:         #0D0D18;   /* main background */
     --nebula:       #1A1A2E;   /* elevated surfaces / cards */
     --stardust:     #2D2540;   /* borders, dividers */
-    --plasma:       #8200DB;   /* electric purple — hover & CTA only */
+    --plasma:       #8200DB;   /* electric purple, hover & CTA only */
     --aurora:       #C070FF;   /* lighter purple accent */
     --moonlight:    #F0F0FA;   /* primary text */
     --mist:         rgba(240, 240, 250, 0.55); /* secondary text */
@@ -3435,7 +3435,7 @@ ul.blog_pagination li a:hover {
 }
 
 /* ======================================
-   Case Study — novos elementos
+   Case Study: novos elementos
    ====================================== */
 
 .cs-methods {

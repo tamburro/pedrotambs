@@ -56,7 +56,7 @@ const SingleProjectPage = ({ params }) => {
                     <div className="row">
                         <div className="col-12">
                             <div className="parallax-title-box mb-4">
-                                <p className="project-sub-title">{project.category} — {project.client || 'Projeto Pessoal'}</p>
+                                <p className="project-sub-title">{project.category} | {project.client || 'Projeto Pessoal'}</p>
                                 <h1 className="project-main-title">{project.title}</h1>
                             </div>
                             <div className="project-parallax-info-row">

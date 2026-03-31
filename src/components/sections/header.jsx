@@ -79,7 +79,7 @@ const Header = () => {
               </nav>
             </div>
             <div className="menu-btns">
-              {/* Language toggle — desktop only */}
+              {/* Language toggle, desktop only */}
               <LangToggle lang={lang} toggle={toggle} mobile={false} />
               <Link href="/contact" className="theme-btn">{t.hireMe} <RiShakeHandsLine size={15} /></Link>
             </div>
