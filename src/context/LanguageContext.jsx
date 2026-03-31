@@ -21,7 +21,7 @@ export const translations = {
       downloadCV: 'Download CV',
       viewProjects: 'View Projects',
     },
-    partners: 'Companies I Worked With',
+    partners: 'Brands I've Been Part Of',
     resume: {
       experience: 'Experience',
       education: 'Education',
@@ -115,7 +115,7 @@ export const translations = {
       downloadCV: 'Baixar CV',
       viewProjects: 'Ver Projetos',
     },
-    partners: 'Empresas que Trabalhei',
+    partners: 'Marcas em que atuei',
     resume: {
       experience: 'Experiência',
       education: 'Formação',
