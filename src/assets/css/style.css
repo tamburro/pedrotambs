@@ -1426,7 +1426,7 @@ html {
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
-    background: rgba(13, 13, 24, 0.85); border-color: rgba(130, 0, 219, 0.4);
+    background: rgba(20, 20, 32, 1); border-color: rgba(255,255,255,0.06);
 }
 
 .about-content-part {}
@@ -1445,10 +1445,9 @@ html {
 .about-image-part {
     text-align: left;
     padding: 40px;
-    border: 1px solid rgba(130, 0, 219, 0.4);
+    border: 1px solid rgba(255,255,255,0.06);
     border-radius: 20px;
-    background: rgba(13, 13, 24, 0.85);
-    backdrop-filter: blur(12px);
+    background: rgba(20, 20, 32, 1);
 }
 
 .about-image-part--stretch {
@@ -1461,10 +1460,9 @@ html {
 .about-content-part,
 .about-content-part-bottom {
     padding: 40px;
-    border: 1px solid rgba(130, 0, 219, 0.4);
+    border: 1px solid rgba(255,255,255,0.06);
     border-radius: 20px;
-    background: rgba(13, 13, 24, 0.85);
-    backdrop-filter: blur(12px);
+    background: rgba(20, 20, 32, 1);
 }
 
 .about-content-part-bottom {
@@ -1790,7 +1788,7 @@ ul.extra-skills li i {
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
-    background: rgba(13, 13, 24, 0.85); border-color: rgba(130, 0, 219, 0.4);
+    background: rgba(20, 20, 32, 1); border-color: rgba(255,255,255,0.06);
 }
 
 .experience-list {
@@ -2126,7 +2124,7 @@ ul.extra-skills li i {
 }
 
 .project-item.style-two {
-    border: 1px solid rgba(130, 0, 219, 0.4);
+    border: 1px solid rgba(255,255,255,0.06);
     border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
