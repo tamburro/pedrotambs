@@ -1,11 +1,13 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { RiBriefcaseLine, RiGraduationCapLine } from '@remixicon/react'
 import SlideUp from '@/utlits/animations/slideUp'
 import { useLanguage } from '@/context/LanguageContext'
 
 const Resume = () => {
     const { t } = useLanguage();
+    const [expanded, setExpanded] = useState(false);
+
     return (
         <section id="resume" className="resume-area">
             <div className="container">
@@ -18,7 +20,17 @@ const Resume = () => {
                                     <Card icon={<RiBriefcaseLine />} year="Nov 2022 – Present" title="Designer Visual Pleno" institution="Editora Globo" description={t.resume.exp1} />
                                     <Card icon={<RiBriefcaseLine />} year="Jun 2020 – Nov 2021" title="Designer Visual Junior" institution="YDUQS" description={t.resume.exp2} />
                                     <Card icon={<RiBriefcaseLine />} year="Jul 2019 – Jun 2020" title="Designer Visual PJ" institution="Estácio" description={t.resume.exp3} />
-                                    <Card icon={<RiBriefcaseLine />} year="Feb 2011 – Jan 2012" title="Design Intern" institution="Conspiração Filmes" description={t.resume.exp4} />
+                                    {expanded && (
+                                        <Card icon={<RiBriefcaseLine />} year="Feb 2011 – Jan 2012" title="Design Intern" institution="Conspiração Filmes" description={t.resume.exp4} />
+                                    )}
+                                </div>
+                                <div className="portfolio-show-more" style={{ marginTop: '16px' }}>
+                                    <button
+                                        className="theme-btn theme-btn--outline"
+                                        onClick={() => setExpanded(v => !v)}
+                                    >
+                                        {expanded ? t.portfolio.showLess : t.portfolio.showMore}
+                                    </button>
                                 </div>
                             </div>
                         </div>
