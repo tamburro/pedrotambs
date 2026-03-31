@@ -324,7 +324,7 @@ Version      : 1.0
         font-size: 14px;
     }
 
-    .single-resume + .single-resume {
+    .resume-area .col-xl-6 + .col-xl-6 {
         margin-top: 24px;
     }
 
