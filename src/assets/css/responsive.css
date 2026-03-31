@@ -328,6 +328,18 @@ Version      : 1.0
         margin-top: 24px;
     }
 
+    .about-image-part {
+        text-align: left;
+    }
+
+    .section-title {
+        text-align: left;
+    }
+
+    .section-title p {
+        padding: 0;
+    }
+
 }
 
 
