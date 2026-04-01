@@ -7,13 +7,84 @@ import { menuList } from '@/utlits/fackData/menuList'
 import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 
-const LangToggle = ({ lang, toggle, mobile }) => (
-  <div className={mobile ? 'lang-toggle-mobile d-lg-none' : 'lang-toggle d-none d-lg-flex'}>
-    <button onClick={() => toggle('en')} className={lang === 'en' ? 'active' : ''}>EN</button>
-    <span>/</span>
-    <button onClick={() => toggle('pt')} className={lang === 'pt' ? 'active' : ''}>PT</button>
-  </div>
-)
+const LangToggle = ({ lang, toggle, mobile }) => {
+  const isEn = lang === 'en'
+
+  const handleClick = () => {
+    toggle(isEn ? 'pt' : 'en')
+  }
+
+  return (
+    <div
+      className={mobile ? 'lang-switch-wrap d-lg-none' : 'lang-switch-wrap d-none d-lg-flex'}
+      style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+    >
+      <span
+        style={{
+          fontFamily: "'Space Mono', monospace",
+          fontSize: '11px',
+          letterSpacing: '0.12em',
+          color: isEn ? 'var(--aurora)' : 'rgba(240, 240, 250, 0.3)',
+          transition: 'color 0.3s',
+          fontWeight: isEn ? 600 : 400,
+        }}
+      >
+        EN
+      </span>
+
+      <button
+        onClick={handleClick}
+        aria-label={`Switch language to ${isEn ? 'Portuguese' : 'English'}`}
+        style={{
+          position: 'relative',
+          width: '48px',
+          height: '26px',
+          borderRadius: '13px',
+          border: '1px solid var(--stardust)',
+          background: 'var(--nebula)',
+          cursor: 'pointer',
+          padding: 0,
+          transition: 'border-color 0.3s, background 0.3s',
+          flexShrink: 0,
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.borderColor = 'var(--aurora)'
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.borderColor = 'var(--stardust)'
+        }}
+      >
+        {/* Sliding knob */}
+        <span
+          style={{
+            position: 'absolute',
+            top: '3px',
+            left: isEn ? '3px' : '23px',
+            width: '18px',
+            height: '18px',
+            borderRadius: '50%',
+            background: 'var(--aurora)',
+            boxShadow: '0 0 8px rgba(192, 112, 255, 0.4)',
+            transition: 'left 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+        />
+      </button>
+
+      <span
+        style={{
+          fontFamily: "'Space Mono', monospace",
+          fontSize: '11px',
+          letterSpacing: '0.12em',
+          color: !isEn ? 'var(--aurora)' : 'rgba(240, 240, 250, 0.3)',
+          transition: 'color 0.3s',
+          fontWeight: !isEn ? 600 : 400,
+        }}
+      >
+        PT
+      </span>
+    </div>
+  )
+}
 
 const Header = () => {
   const pathName = usePathname()
@@ -57,11 +128,7 @@ const Header = () => {
                     </Link>
                   </div>
                   <div className="mobile-header-actions">
-                    <div className="lang-toggle-header">
-                      <button onClick={() => toggle('en')} className={lang === 'en' ? 'active' : ''}>EN</button>
-                      <span>/</span>
-                      <button onClick={() => toggle('pt')} className={lang === 'pt' ? 'active' : ''}>PT</button>
-                    </div>
+                    <LangToggle lang={lang} toggle={toggle} mobile={true} />
                     <button type="button" className="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
                       <span className="icon-bar"></span>
                       <span className="icon-bar"></span>
