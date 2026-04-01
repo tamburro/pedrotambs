@@ -17,7 +17,7 @@ const LangToggle = ({ lang, toggle, mobile }) => {
   return (
     <div
       className={mobile ? 'lang-switch-wrap d-lg-none' : 'lang-switch-wrap d-none d-lg-flex'}
-      style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+      style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginRight: mobile ? '0' : '16px' }}
     >
       <span
         style={{
