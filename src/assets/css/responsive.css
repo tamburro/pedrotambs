@@ -275,6 +275,8 @@ Version      : 1.0
 
     .about-image-part {
         padding-bottom: 30px;
+        text-align: center;
+        align-items: center;
     }
 
     .fixed-header .main-menu .navbar-collapse li a {
@@ -329,7 +331,7 @@ Version      : 1.0
     }
 
     .about-social ul {
-        justify-content: flex-start;
+        justify-content: center;
     }
 
 
@@ -530,7 +532,7 @@ Version      : 1.0
 
 @media only screen and (max-width: 375px) {
     .about-image-part {
-        padding-left: 50px;
+        padding: 30px;
     }
 }
 
