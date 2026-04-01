@@ -17,7 +17,7 @@ const LangToggle = ({ lang, toggle, mobile }) => {
   return (
     <div
       className={mobile ? 'lang-switch-wrap d-lg-none' : 'lang-switch-wrap d-none d-lg-flex'}
-      style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginRight: mobile ? '0' : '16px' }}
+      style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginLeft: mobile ? '0' : '16px' }}
     >
       <span
         style={{
@@ -146,9 +146,9 @@ const Header = () => {
               </nav>
             </div>
             <div className="menu-btns">
+              <Link href="/contact" className="theme-btn">{t.hireMe} <RiShakeHandsLine size={15} /></Link>
               {/* Language toggle, desktop only */}
               <LangToggle lang={lang} toggle={toggle} mobile={false} />
-              <Link href="/contact" className="theme-btn">{t.hireMe} <RiShakeHandsLine size={15} /></Link>
             </div>
           </div>
         </div>
