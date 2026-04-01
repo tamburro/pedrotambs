@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import { RiBriefcaseLine, RiGraduationCapLine } from '@remixicon/react'
+import { RiBriefcaseLine, RiGraduationCapLine, RiArrowRightSLine } from '@remixicon/react'
 import SlideUp from '@/utlits/animations/slideUp'
 import { useLanguage } from '@/context/LanguageContext'
 
@@ -31,8 +31,10 @@ const Resume = () => {
                                     <button
                                         className="resume-show-more-btn"
                                         onClick={() => setExpanded(v => !v)}
+                                        style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                                     >
                                         {expanded ? t.resume.showLessExp : t.resume.showMoreExp}
+                                        <RiArrowRightSLine size={16} style={{ transition: 'transform 0.3s', transform: expanded ? 'rotate(-90deg)' : 'rotate(90deg)' }} />
                                     </button>
                                 </div>
                             </div>
