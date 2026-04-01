@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState, Suspense, lazy } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { RiShakeHandsLine } from '@remixicon/react';
 
 import ErrorBoundary from '@/components/ui/ErrorBoundary';
 
@@ -177,7 +178,7 @@ const Hero = () => {
                                     e.currentTarget.style.borderColor = 'rgba(240, 240, 250, 0.15)';
                                     e.currentTarget.style.color = 'rgba(240, 240, 250, 0.75)';
                                 }}>
-                                {t.hero.cta2}
+                                {t.hero.cta2} <RiShakeHandsLine size={14} style={{ marginLeft: '6px' }} />
                             </Link>
                         </div>
                     </div>

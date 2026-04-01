@@ -146,7 +146,6 @@ const Header = () => {
               </nav>
             </div>
             <div className="menu-btns">
-              <Link href="/contact" className="theme-btn">{t.hireMe} <RiShakeHandsLine size={15} /></Link>
               {/* Language toggle, desktop only */}
               <LangToggle lang={lang} toggle={toggle} mobile={false} />
             </div>
