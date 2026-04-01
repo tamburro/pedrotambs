@@ -157,6 +157,9 @@ const Hero = () => {
                             </Link>
 
                             <Link href="/contact" style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '6px',
                                 background: 'rgba(0, 0, 0, 0.4)',
                                 border: '1px solid rgba(240, 240, 250, 0.15)',
                                 color: 'rgba(240, 240, 250, 0.75)',
@@ -178,7 +181,7 @@ const Hero = () => {
                                     e.currentTarget.style.borderColor = 'rgba(240, 240, 250, 0.15)';
                                     e.currentTarget.style.color = 'rgba(240, 240, 250, 0.75)';
                                 }}>
-                                {t.hero.cta2} <RiShakeHandsLine size={14} style={{ marginLeft: '6px' }} />
+                                {t.hero.cta2} <RiShakeHandsLine size={14} />
                             </Link>
                         </div>
                     </div>
