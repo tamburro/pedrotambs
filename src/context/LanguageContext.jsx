@@ -4,7 +4,7 @@ import { createContext, useContext, useState, useEffect, useCallback } from 'rea
 // ─── Translations ──────────────────────────────────────────────────────────────
 export const translations = {
   en: {
-    nav: { home: 'Home', about: 'About', services: 'Services', works: 'Works', contact: 'Contact' },
+    nav: { home: 'Home', about: 'About', services: 'Services', works: 'Projects', contact: 'Contact' },
     hireMe: 'Hire Me',
     hero: {
       tagline: 'Product Designer · Design Engineer',
@@ -101,7 +101,7 @@ export const translations = {
     footerCrafted: 'Crafted with ❤️ in Rio de Janeiro',
   },
   pt: {
-    nav: { home: 'Início', about: 'Sobre', services: 'Serviços', works: 'Trabalhos', contact: 'Contato' },
+    nav: { home: 'Início', about: 'Sobre', services: 'Serviços', works: 'Projetos', contact: 'Contato' },
     hireMe: 'Me Contrate',
     hero: {
       tagline: 'Designer de Produto · Design Engineer',
