@@ -35,18 +35,21 @@ const Hero = () => {
     }, []);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (!heroContentRef.current || !isVisible) return;
-            requestAnimationFrame(() => {
-                const scrollPosition = window.pageYOffset;
-                const maxScroll = 400;
-                const opacity = 1 - Math.min(scrollPosition / maxScroll, 1);
-                if (heroContentRef.current) {
-                    heroContentRef.current.style.opacity = opacity.toString();
-                    heroContentRef.current.style.transform = `translateY(${scrollPosition * 0.15}px)`;
-                }
-            });
+        const applyScroll = () => {
+            if (!heroContentRef.current) return;
+            const scrollPosition = window.pageYOffset;
+            const maxScroll = 400;
+            const opacity = 1 - Math.min(scrollPosition / maxScroll, 1);
+            heroContentRef.current.style.opacity = opacity.toString();
+            heroContentRef.current.style.transform = `translateY(${scrollPosition * 0.15}px)`;
         };
+
+        const handleScroll = () => {
+            if (!isVisible) return;
+            requestAnimationFrame(applyScroll);
+        };
+
+        applyScroll();
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isVisible]);
