@@ -14,13 +14,25 @@ const VISIBLE_COUNT = 6;
 const Portfolio = ({ className }) => {
     const { t, lang } = useLanguage();
     const [expanded, setExpanded] = useState(false);
+    const [activeFilter, setActiveFilter] = useState('all');
 
     const ordered = DISPLAY_ORDER
         .map(id => projectsData.find(p => p.id === id))
         .filter(Boolean);
 
-    const visible = expanded ? ordered : ordered.slice(0, VISIBLE_COUNT);
-    const hasMore = ordered.length > VISIBLE_COUNT;
+    const categories = [...new Set(ordered.map(p => p.category))];
+
+    const filtered = activeFilter === 'all'
+        ? ordered
+        : ordered.filter(p => p.category === activeFilter);
+
+    const visible = expanded ? filtered : filtered.slice(0, VISIBLE_COUNT);
+    const hasMore = filtered.length > VISIBLE_COUNT;
+
+    const handleFilter = (filter) => {
+        setActiveFilter(filter);
+        setExpanded(false);
+    };
 
     return (
         <section id="portfolio" className={`projects-area ${className}`}>
@@ -36,6 +48,25 @@ const Portfolio = ({ className }) => {
                             </SlideUp>
                         </div>
                     </div>
+
+                    <div className="portfolio-filters">
+                        <button
+                            className={`portfolio-filter-btn${activeFilter === 'all' ? ' active' : ''}`}
+                            onClick={() => handleFilter('all')}
+                        >
+                            {t.portfolio.filterAll}
+                        </button>
+                        {categories.map(cat => (
+                            <button
+                                key={cat}
+                                className={`portfolio-filter-btn${activeFilter === cat ? ' active' : ''}`}
+                                onClick={() => handleFilter(cat)}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
+
                     <div className="row project-masonry-active">
                         {visible.map(({ id, category, src, title, slug, tagline, tagline_en, externalLink }) => (
                             <Card

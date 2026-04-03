@@ -43,6 +43,7 @@ export const translations = {
       sub: 'From user research to production code. Complete projects, not just screens.',
       showMore: 'View more projects',
       showLess: 'Show less',
+      filterAll: 'All',
     },
     cta: {
       title: "Got a product idea? Let's design and build it together.",
@@ -140,6 +141,7 @@ export const translations = {
       sub: 'Da pesquisa com usuários ao código em produção. Projetos completos, não só telas.',
       showMore: 'Ver mais projetos',
       showLess: 'Ver menos',
+      filterAll: 'Todos',
     },
     cta: {
       title: 'Tem uma ideia de produto? Vamos projetar e construir juntos.',
