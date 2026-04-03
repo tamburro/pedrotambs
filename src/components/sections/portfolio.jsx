@@ -6,7 +6,8 @@ import { RiArrowRightUpLine, RiExternalLinkLine } from '@remixicon/react'
 import SlideUp from '@/utlits/animations/slideUp';
 import { projectsData } from '@/utlits/fackData/projectData';
 import Image from 'next/image';
-import { useLanguage } from '@/context/LanguageContext';
+import { useLanguage } from '@/context/LanguageContext'
+import { MagicCard } from '@/components/ui/MagicCard';
 
 const DISPLAY_ORDER = [1, 2, 6, 7, 3, 4, 5];
 const VISIBLE_COUNT = 6;
@@ -107,7 +108,7 @@ const Card = ({ category, title, src, id, slug, tagline, externalLink }) => {
     return (
         <div className="col-lg-4 col-md-6 item branding game">
             <SlideUp delay={id}>
-                <div className="project-item style-two" style={{ position: 'relative' }}>
+                <MagicCard className="project-item style-two">
                     <Link
                         href={href}
                         className="project-card-link"
@@ -129,7 +130,7 @@ const Card = ({ category, title, src, id, slug, tagline, externalLink }) => {
                         <h3>{title}</h3>
                         {tagline && <p className="project-tagline">{tagline}</p>}
                     </div>
-                </div>
+                </MagicCard>
             </SlideUp>
         </div>
     )
