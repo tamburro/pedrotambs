@@ -59,6 +59,8 @@ const Hero = () => {
 
             {/* Spline 3D background */}
             <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'auto' }}>
+                {/* Hide Spline watermark */}
+                <div style={{ position: 'absolute', bottom: 0, right: 0, width: '220px', height: '60px', zIndex: 10, background: '#080810', pointerEvents: 'none' }} />
                 <ErrorBoundary fallback={<div style={{ width: '100%', height: '100vh', background: '#0D0D18' }} />}>
                     <Suspense fallback={
                         <div style={{ width: '100%', height: '100vh', background: '#0D0D18' }} />
