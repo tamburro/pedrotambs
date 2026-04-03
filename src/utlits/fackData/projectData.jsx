@@ -732,7 +732,7 @@ export const projectsData = [
     {
         id: 6,
         externalLink: "https://bentos-next-1cvne4g5k-tamburros-projects.vercel.app/pix-tudo-ux.html",
-        src: "/images/projects/pixtudo_full.jpg",
+        src: "/images/projects/pixtudo_full.png",
         category: "UX Research",
         title: "PixTudo",
         tagline: "Pesquisa de mercado, personas, jornadas e arquitetura de UX para o Alipay do Brasil.",
