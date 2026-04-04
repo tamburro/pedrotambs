@@ -133,7 +133,7 @@ export const projectsData = [
     {
         id: 2,
         slug: "listaai-gerador-de-descricoes",
-        src: "/images/projects/listaai/listaai_full.jpg",
+        src: "/images/projects/listaai/listaai_cover.png",
         category: "Product & AI Engineering",
         title: "ListaAI (SaaS MVP)",
         tagline: "Títulos e descrições para marketplace gerados por IA em segundos.",
@@ -732,7 +732,7 @@ export const projectsData = [
     {
         id: 6,
         externalLink: "https://bentos-next-1cvne4g5k-tamburros-projects.vercel.app/pix-tudo-ux.html",
-        src: "/images/projects/pixtudo_full.png",
+        src: "/images/projects/pixtudo_placeholder.svg",
         category: "UX Research",
         title: "PixTudo",
         tagline: "Pesquisa de mercado, personas, jornadas e arquitetura de UX para o Alipay do Brasil.",
