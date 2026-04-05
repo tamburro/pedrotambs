@@ -75,7 +75,7 @@ const SingleProjectPage = ({ params }) => {
                                 {project.timeline && (
                                     <div className="parallax-info-box">
                                         <p>{t.project.duration}</p>
-                                        <h3>{project.timeline}</h3>
+                                        <h3>{pick(project.timeline, project.timeline_en)}</h3>
                                     </div>
                                 )}
                                 {project.team && (
