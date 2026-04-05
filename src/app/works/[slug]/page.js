@@ -36,13 +36,13 @@ const SingleProjectPage = ({ params }) => {
 
             {/* Hero com Parallax */}
             <div className="project-parallax-hero" ref={parallaxRef}>
-                {project.src && (
+                {(project.pageSrc || project.src) && (
                     <div
                         className="project-parallax-bg"
                         style={{ transform: `translateY(${offsetY * 0.35}px)` }}
                     >
                         <Image
-                            src={project.src}
+                            src={project.pageSrc || project.src}
                             alt={`Imagem principal do projeto ${project.title}`}
                             fill
                             sizes="100vw"
