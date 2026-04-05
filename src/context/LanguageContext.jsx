@@ -45,6 +45,10 @@ export const translations = {
       showLess: 'Show less',
       filterAll: 'All',
     },
+    skills: {
+      headline: 'Tools I work with',
+      sub: 'From design to deployment. I work across the full stack — from Figma wireframes to production-ready apps built with AI-assisted engineering.',
+    },
     cta: {
       title: "Got a product idea? Let's design and build it together.",
       sub: "I work with companies and founders to turn ideas into real, functional products. From wireframe to deployed app, I handle the full journey.",
@@ -142,6 +146,10 @@ export const translations = {
       showMore: 'Ver mais projetos',
       showLess: 'Ver menos',
       filterAll: 'Todos',
+    },
+    skills: {
+      headline: 'Ferramentas que uso',
+      sub: 'Do design ao deploy. Trabalho em todo o stack — de wireframes no Figma a apps em produção construídos com engenharia assistida por IA.',
     },
     cta: {
       title: 'Tem uma ideia de produto? Vamos projetar e construir juntos.',
