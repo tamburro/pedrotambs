@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Link from 'next/link';
-import { RiBehanceFill, RiLinkedinFill, RiGithubLine, RiCircleFill, RiDownloadLine, RiArrowDownLine } from '@remixicon/react'
+import { RiBehanceFill, RiLinkedinFill, RiGithubLine, RiInstagramLine, RiCircleFill, RiDownloadLine, RiArrowDownLine } from '@remixicon/react'
 import PartnersMarquee from './partnersMarquee';
 import SlideUp from '@/utlits/animations/slideUp';
 import { useLanguage } from '@/context/LanguageContext';
@@ -23,6 +23,7 @@ const ProfileSection = () => {
                                         <li><Link href="https://www.linkedin.com/in/pedrotamburro/" target="_blank" rel="noopener noreferrer"><RiLinkedinFill size={20} /></Link></li>
                                         <li><Link href="https://github.com/tamburro" target="_blank" rel="noopener noreferrer"><RiGithubLine size={20} /></Link></li>
                                         <li><Link href="https://www.behance.net/pedrotamburro" target="_blank" rel="noopener noreferrer"><RiBehanceFill size={20} /></Link></li>
+                                        <li><Link href="https://www.instagram.com/universobservavel/" target="_blank" rel="noopener noreferrer"><RiInstagramLine size={20} /></Link></li>
                                     </ul>
                                 </div>
                             </div>
