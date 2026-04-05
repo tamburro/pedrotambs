@@ -10,10 +10,10 @@ const Summery = () => {
     return (
         <section id="about" className="about-single-area innerpage-single-area">
             <div className="container">
-                <div className="row">
+                <div className="row about-row-stretch">
                     <div className="col-lg-4">
-                        <SlideUp>
-                            <div className="about-image-part">
+                        <SlideUp style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <div className="about-image-part about-image-part--stretch" style={{ flex: 1 }}>
                                 <img src={"/images/about/profile3.png"} alt="About Me" />
                                 <div className="about-social">
                                     <ul>
