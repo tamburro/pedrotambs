@@ -273,6 +273,20 @@ Version      : 1.0
         font-size: 30px;
     }
 
+    .hero-btns {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .hero-btns .theme-btn {
+        flex: 1;
+        justify-content: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 13px;
+        min-width: 0;
+    }
+
     .about-image-part {
         padding-bottom: 30px;
         text-align: center;
