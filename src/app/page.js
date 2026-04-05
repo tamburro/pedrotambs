@@ -12,9 +12,9 @@ const Home = () => {
             <ScrollSnap />
             <Hero />
             <ProfileSection />
+            <SkillsSection />
             <Resume />
             <Portfolio />
-            <SkillsSection />
         </>
     )
 }
