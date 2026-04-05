@@ -753,7 +753,8 @@ export const projectsData = [
     },
     {
         id: 8,
-        externalLink: "https://palavraselvagem.vercel.app/",
+        slug: "palavra-selvagem",
+        liveDemoLink: "https://palavraselvagem.vercel.app/",
         src: "/images/projects/palavra_selvagem_placeholder.svg",
         category: "Game Design & AI Engineering",
         title: "Palavra Selvagem",
@@ -767,10 +768,65 @@ export const projectsData = [
         team: "Solo",
         client: "Produto próprio",
         tools: ["Next.js", "Claude API", "Vercel"],
+        sections: [
+            {
+                title: "O Problema",
+                title_en: "The Problem",
+                type: "text",
+                content: "O Brasil tem um dos maiores déficits de alfabetização da América Latina: segundo o IBGE, cerca de 6% das crianças entre 6 e 14 anos não sabem ler nem escrever, e estudos do INEP mostram que apenas 53% dos alunos do 3º ano do ensino fundamental atingem o nível adequado de leitura. O problema não é só acesso à escola, mas engajamento. Apps educativos existentes são frequentemente repetitivos e perdem a atenção infantil rapidamente. A hipótese: combinar animais, curiosidades e mecânica de jogo cria um loop de aprendizado com recompensa intrínseca, onde a criança quer continuar não para ganhar pontos, mas porque a próxima curiosidade é interessante.",
+                content_en: "Brazil has one of the largest literacy deficits in Latin America: according to IBGE, around 6% of children aged 6 to 14 cannot read or write, and INEP studies show only 53% of 3rd-grade students reach adequate reading levels. The issue isn't just school access — it's engagement. Existing educational apps are often repetitive and quickly lose children's attention. The hypothesis: combining animals, fun facts, and game mechanics creates a learning loop with intrinsic rewards, where the child wants to continue not for points, but because the next fact is genuinely interesting."
+            },
+            {
+                title: "Solução & Mecânica",
+                title_en: "Solution & Mechanics",
+                type: "text",
+                content: "A criança vê a ilustração de um animal e monta o nome arrastando letras para os espaços corretos. O acerto imediato desbloqueia uma curiosidade sobre aquele animal — um micro-momento de descoberta que recompensa o esforço com conhecimento real. A dificuldade escala em três níveis: fácil (palavras curtas, sem tempo), médio (palavras maiores, letras-distração) e difícil (tempo limitado, palavras complexas). A progressão é bloqueada por nível, incentivando o domínio antes de avançar. O sistema de estrelas por rodada cria um objetivo de replay natural: terminar com desempenho perfeito.",
+                content_en: "The child sees an animal illustration and builds its name by dragging letters into the correct slots. A correct answer immediately unlocks a fun fact about that animal — a micro-moment of discovery that rewards effort with real knowledge. Difficulty scales across three levels: easy (short words, no timer), medium (longer words, distractor letters), and hard (time pressure, complex words). Progression is gated by level, encouraging mastery before moving on. The star rating system per round creates a natural replay objective: finishing with a perfect score."
+            },
+            {
+                title: "Construção com AI Coding",
+                title_en: "Built with AI Coding",
+                type: "research",
+                methods: ["Claude API como pair programmer", "Next.js App Router", "Deploy contínuo via Vercel"],
+                methods_en: ["Claude API as pair programmer", "Next.js App Router", "Continuous deploy via Vercel"],
+                content: "O jogo foi construído em 1 dia usando Claude como pair programmer em todas as etapas: estrutura do jogo, lógica de drag-and-drop, sistema de progressão por nível e banco de dados de animais com curiosidades reais. A base de animais foi gerada e curada com a API do Claude, garantindo que as curiosidades fossem precisas, adequadas à faixa etária e variadas o suficiente para manter o interesse ao longo das rodadas.",
+                content_en: "The game was built in 1 day using Claude as pair programmer at every stage: game structure, drag-and-drop logic, level progression system, and animal database with real fun facts. The animal database was generated and curated using the Claude API, ensuring facts were accurate, age-appropriate, and varied enough to maintain interest across rounds.",
+                highlights: [
+                    "Sistema de drag-and-drop com feedback imediato de acerto ou erro",
+                    "Base de animais com curiosidades científicas reais curadas por IA",
+                    "Progressão em 3 níveis com desbloqueio por desempenho",
+                    "Sistema de estrelas por rodada para incentivar replay"
+                ],
+                highlights_en: [
+                    "Drag-and-drop system with immediate right/wrong feedback",
+                    "Animal database with real, AI-curated scientific fun facts",
+                    "3-level progression with performance-gated unlocks",
+                    "Star rating per round to encourage replay"
+                ]
+            },
+            {
+                title: "Resultados & Aprendizados",
+                title_en: "Results & Learnings",
+                type: "outcomes",
+                metrics: [
+                    { value: "1 dia", label: "do zero ao deploy" },
+                    { value: "3", label: "níveis de dificuldade" },
+                    { value: "8", label: "animais por rodada" }
+                ],
+                metrics_en: [
+                    { value: "1 day", label: "from zero to deploy" },
+                    { value: "3", label: "difficulty levels" },
+                    { value: "8", label: "animals per round" }
+                ],
+                content: "O principal aprendizado foi sobre o poder do contexto na educação infantil. Letras isoladas são abstratas para crianças; letras que formam 'elefante' e revelam que ele pesa 6 toneladas são concretas, memoráveis e conectadas a uma experiência emocional. A mecânica de drag-and-drop com feedback imediato, combinada à curiosidade como recompensa, criou um loop que manteve o engajamento sem necessidade de pontos ou rankings. O jogo funciona porque a recompensa é informação, não gamificação artificial.",
+                content_en: "The key learning was about the power of context in children's education. Isolated letters are abstract for children; letters that form 'elephant' and reveal it weighs 6 tons are concrete, memorable, and tied to an emotional experience. The drag-and-drop mechanic with immediate feedback, combined with the fun fact as reward, created a loop that maintained engagement without needing points or leaderboards. The game works because the reward is information, not artificial gamification."
+            }
+        ]
     },
     {
         id: 9,
-        externalLink: "https://orbinum.vercel.app/",
+        slug: "orbinum",
+        liveDemoLink: "https://orbinum.vercel.app/",
         src: "/images/projects/orbinum_placeholder.svg",
         category: "Game Design & AI Engineering",
         title: "OrbiNum",
@@ -784,6 +840,60 @@ export const projectsData = [
         team: "Solo",
         client: "Produto próprio",
         tools: ["Next.js", "Claude API", "Vercel"],
+        sections: [
+            {
+                title: "O Problema",
+                title_en: "The Problem",
+                type: "text",
+                content: "O Brasil ocupa a 65ª posição no ranking de matemática do PISA entre 81 países, com apenas 2% dos alunos atingindo níveis avançados. A raiz do problema não está em capacidade cognitiva — está em como a matemática é apresentada. Exercícios repetitivos sem contexto criam aversão antes mesmo da criança entender o que está aprendendo. Pesquisas da área de aprendizado gamificado (Gee, 2003; Mayer, 2019) mostram que crianças retêm mais quando o desafio está embebido em narrativa e consequência real dentro do jogo. A hipótese do OrbiNum: se cada operação matemática tem uma consequência visual imediata (o foguete avança ou não), a aritmética deixa de ser abstrata e passa a ser instrumental.",
+                content_en: "Brazil ranks 65th in the PISA mathematics ranking among 81 countries, with only 2% of students reaching advanced levels. The root isn't cognitive capacity — it's how math is presented. Repetitive, context-free exercises create aversion before the child even understands what they're learning. Research in gamified learning (Gee, 2003; Mayer, 2019) shows children retain more when challenges are embedded in narrative and have real in-game consequences. OrbiNum's hypothesis: if each math operation has an immediate visual consequence (the rocket advances or not), arithmetic stops being abstract and becomes instrumental."
+            },
+            {
+                title: "Solução & Mecânica",
+                title_en: "Solution & Mechanics",
+                type: "text",
+                content: "Um foguete viaja entre os planetas do sistema solar, e cada planeta representa um nível de dificuldade crescente: Mercúrio (somas simples) até Saturno (multiplicação e divisão). Para avançar entre planetas, a criança resolve operações que 'abastecem' a nave — a metáfora torna a consequência do acerto tangível. Três acertos consecutivos ativam o modo Turbo, um feedback visual que recompensa consistência sem criar dependência de recompensas externas. O sistema de vidas (3 corações) adiciona tensão saudável sem punição excessiva. Ao final de cada missão, o desempenho é pontuado em estrelas.",
+                content_en: "A rocket travels between solar system planets, each representing a progressively harder difficulty level: Mercury (simple addition) to Saturn (multiplication and division). To move between planets, the child solves operations that 'fuel' the ship — the metaphor makes the consequence of a correct answer tangible. Three consecutive correct answers activate Turbo mode, a visual feedback that rewards consistency without creating external reward dependency. A life system (3 hearts) adds healthy tension without excessive punishment. At the end of each mission, performance is scored with stars."
+            },
+            {
+                title: "Construção com AI Coding",
+                title_en: "Built with AI Coding",
+                type: "research",
+                methods: ["Claude API como pair programmer", "Next.js App Router", "Geração procedural de operações", "Deploy contínuo via Vercel"],
+                methods_en: ["Claude API as pair programmer", "Next.js App Router", "Procedural operation generation", "Continuous deploy via Vercel"],
+                content: "O OrbiNum foi construído em 1 dia com Claude como pair programmer. A geração de operações matemáticas é procedural e adaptada ao nível do planeta atual, garantindo que a dificuldade suba gradualmente sem saltos bruscos. O sistema de Turbo foi o artefato mais iterado: versões iniciais usavam multiplicadores de pontos, mas testes informais mostraram que o feedback visual (animação da nave) era mais motivador que números. A metáfora espacial foi escolhida por dois motivos: é culturalmente neutra (funciona para meninos e meninas) e introduz o sistema solar como conteúdo paralelo sem ser didático.",
+                content_en: "OrbiNum was built in 1 day with Claude as pair programmer. Math operation generation is procedural and adapted to the current planet level, ensuring difficulty rises gradually without sudden jumps. The Turbo system was the most iterated artifact: early versions used score multipliers, but informal tests showed that the visual feedback (rocket animation) was more motivating than numbers. The space metaphor was chosen for two reasons: it is culturally neutral (works for all children) and introduces the solar system as parallel content without being didactic.",
+                highlights: [
+                    "Geração procedural de operações calibrada por planeta/dificuldade",
+                    "Turbo mode com feedback visual após 3 acertos consecutivos",
+                    "Sistema de vidas que cria tensão sem frustração excessiva",
+                    "Metáfora espacial apresenta o sistema solar como conteúdo paralelo"
+                ],
+                highlights_en: [
+                    "Procedural operation generation calibrated by planet/difficulty",
+                    "Turbo mode with visual feedback after 3 consecutive correct answers",
+                    "Life system creating healthy tension without excessive frustration",
+                    "Space metaphor introduces the solar system as parallel content"
+                ]
+            },
+            {
+                title: "Resultados & Aprendizados",
+                title_en: "Results & Learnings",
+                type: "outcomes",
+                metrics: [
+                    { value: "1 dia", label: "do zero ao deploy" },
+                    { value: "8", label: "planetas / níveis de dificuldade" },
+                    { value: "Turbo", label: "modo ativado por 3 acertos seguidos" }
+                ],
+                metrics_en: [
+                    { value: "1 day", label: "from zero to deploy" },
+                    { value: "8", label: "planets / difficulty levels" },
+                    { value: "Turbo", label: "mode activated by 3 consecutive correct answers" }
+                ],
+                content: "O principal aprendizado foi sobre o papel da metáfora no aprendizado infantil. A operação matemática por si só é neutra; o foguete que precisa de combustível torna a resposta certa urgente e real. A maior descoberta durante o desenvolvimento: o Turbo mode não precisava de recompensa material, apenas de feedback audiovisual intenso. Crianças respondem à intensidade do feedback, não ao valor da recompensa. Isso sugere que muitos sistemas de gamificação erram ao focar em pontos e moedas quando o que motiva é a sensação de poder e velocidade.",
+                content_en: "The key learning was about the role of metaphor in children's learning. A math operation on its own is neutral; a rocket that needs fuel makes the correct answer urgent and real. The biggest discovery during development: the Turbo mode didn't need material rewards — just intense audiovisual feedback. Children respond to the intensity of feedback, not the value of the reward. This suggests many gamification systems err by focusing on points and coins when what motivates is the sensation of power and speed."
+            }
+        ]
     },
 ];
 
