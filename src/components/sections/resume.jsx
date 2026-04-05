@@ -13,8 +13,8 @@ const Resume = () => {
             <div className="container">
                 <div className="resume-items">
                     <div className="row">
-                        <div className="col-xl-6 col-md-6 d-flex">
-                            <div className="single-resume" style={{ width: '100%' }}>
+                        <div className="col-xl-6 col-md-6">
+                            <div className="single-resume">
                                 <h2>{t.resume.experience}</h2>
                                 <div className="experience-list">
                                     <Card logo="/images/companies/globo.jpeg" year="Nov 2022 – Present" title="Designer Visual Pleno" institution="Editora Globo" description={t.resume.exp1} />
@@ -40,8 +40,8 @@ const Resume = () => {
                             </div>
                         </div>
 
-                        <div className="col-xl-6 col-md-6 d-flex">
-                            <div className="single-resume" style={{ width: '100%' }}>
+                        <div className="col-xl-6 col-md-6">
+                            <div className="single-resume">
                                 <h2>{t.resume.education}</h2>
                                 <div className="experience-list">
                                     <Card logo="/images/education/uxunicornio.jpeg" year="Jul 2025 – Set 2026" title="MBA em Inovação Orientada à IA e UX" institution="UX Unicórnio" description={t.resume.edu1} />
