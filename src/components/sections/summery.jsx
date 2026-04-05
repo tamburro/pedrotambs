@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { RiMailSendLine, RiLinkedinFill, RiGithubLine, RiBehanceFill } from '@remixicon/react'
+import { RiMailSendLine, RiLinkedinFill, RiGithubLine, RiBehanceFill, RiInstagramLine } from '@remixicon/react'
 import Link from 'next/link'
 import SlideUp from '@/utlits/animations/slideUp'
 import { useLanguage } from '@/context/LanguageContext'
@@ -20,6 +20,7 @@ const Summery = () => {
                                         <li><Link href="https://www.linkedin.com/in/pedrotamburro/" target="_blank" rel="noopener noreferrer"><RiLinkedinFill size={20} /></Link></li>
                                         <li><Link href="https://github.com/tamburro" target="_blank" rel="noopener noreferrer"><RiGithubLine size={20} /></Link></li>
                                         <li><Link href="https://www.behance.net/pedrotamburro" target="_blank" rel="noopener noreferrer"><RiBehanceFill size={20} /></Link></li>
+                                        <li><Link href="https://www.instagram.com/universobservavel/" target="_blank" rel="noopener noreferrer"><RiInstagramLine size={20} /></Link></li>
                                     </ul>
                                 </div>
                             </div>
