@@ -742,7 +742,7 @@ export const projectsData = [
     {
         id: 6,
         externalLink: "https://bentos-next-1cvne4g5k-tamburros-projects.vercel.app/pix-tudo-ux.html",
-        src: "/images/projects/pixtudo_placeholder.svg",
+        src: "/images/projects/pixtudo_full.jpg",
         category: "UX Research",
         tags: ["UX Research"],
         title: "PixTudo",
