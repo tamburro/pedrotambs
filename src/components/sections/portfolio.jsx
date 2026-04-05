@@ -11,6 +11,7 @@ import { MagicCard } from '@/components/ui/MagicCard';
 
 const DISPLAY_ORDER = [1, 2, 8, 9, 3, 4, 5, 6, 7];
 const VISIBLE_COUNT = 6;
+const FILTER_ORDER = ["Product Design", "Game Design", "AI Engineering", "UX/UI Design", "UX Research"];
 
 const Portfolio = ({ className }) => {
     const { t, lang } = useLanguage();
@@ -21,11 +22,11 @@ const Portfolio = ({ className }) => {
         .map(id => projectsData.find(p => p.id === id))
         .filter(Boolean);
 
-    const categories = [...new Set(ordered.map(p => p.category))];
+    const categories = FILTER_ORDER.filter(tag => ordered.some(p => p.tags?.includes(tag)));
 
     const filtered = activeFilter === 'all'
         ? ordered
-        : ordered.filter(p => p.category === activeFilter);
+        : ordered.filter(p => p.tags?.includes(activeFilter));
 
     const visible = expanded ? filtered : filtered.slice(0, VISIBLE_COUNT);
     const hasMore = filtered.length > VISIBLE_COUNT;
