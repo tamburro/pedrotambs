@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext'
 import { MagicCard } from '@/components/ui/MagicCard';
 
-const DISPLAY_ORDER = [1, 2, 6, 7, 8, 9, 3, 4, 5];
+const DISPLAY_ORDER = [1, 2, 8, 9, 3, 4, 5, 6, 7];
 const VISIBLE_COUNT = 6;
 
 const Portfolio = ({ className }) => {
