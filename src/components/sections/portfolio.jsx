@@ -7,7 +7,7 @@ import SlideUp from '@/utlits/animations/slideUp';
 import { projectsData } from '@/utlits/fackData/projectData';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext'
-import { MagicCard } from '@/components/ui/MagicCard';
+import { MagicCard, useSpotlight } from '@/components/ui/MagicCard';
 
 const DISPLAY_ORDER = [1, 2, 7, 6, 10, 8, 9, 3, 4, 5];
 const VISIBLE_COUNT = 6;
@@ -52,23 +52,9 @@ const Portfolio = ({ className }) => {
                     </div>
 
                     <div className="portfolio-filters">
-                        <MagicCard gradientSize={100} gradientColor="rgba(130, 0, 219, 0.25)" style={{ borderRadius: '999px' }}>
-                            <button
-                                className={`portfolio-filter-btn${activeFilter === 'all' ? ' active' : ''}`}
-                                onClick={() => handleFilter('all')}
-                            >
-                                {t.portfolio.filterAll}
-                            </button>
-                        </MagicCard>
+                        <FilterBtn active={activeFilter === 'all'} onClick={() => handleFilter('all')}>{t.portfolio.filterAll}</FilterBtn>
                         {categories.map(cat => (
-                            <MagicCard key={cat} gradientSize={100} gradientColor="rgba(130, 0, 219, 0.25)" style={{ borderRadius: '999px' }}>
-                                <button
-                                    className={`portfolio-filter-btn${activeFilter === cat ? ' active' : ''}`}
-                                    onClick={() => handleFilter(cat)}
-                                >
-                                    {cat}
-                                </button>
-                            </MagicCard>
+                            <FilterBtn key={cat} active={activeFilter === cat} onClick={() => handleFilter(cat)}>{cat}</FilterBtn>
                         ))}
                     </div>
 
@@ -103,6 +89,22 @@ const Portfolio = ({ className }) => {
 }
 
 export default Portfolio
+
+const FilterBtn = ({ children, active, onClick }) => {
+    const { onPointerMove, onPointerLeave, overlay } = useSpotlight(100, 'rgba(130, 0, 219, 0.25)')
+    return (
+        <button
+            className={`portfolio-filter-btn${active ? ' active' : ''}`}
+            onClick={onClick}
+            onPointerMove={onPointerMove}
+            onPointerLeave={onPointerLeave}
+            style={{ position: 'relative', overflow: 'hidden' }}
+        >
+            {overlay}
+            <span style={{ position: 'relative', zIndex: 1 }}>{children}</span>
+        </button>
+    )
+}
 
 
 const Card = ({ category, title, src, id, slug, tagline, externalLink }) => {

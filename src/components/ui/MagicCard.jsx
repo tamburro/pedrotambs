@@ -2,6 +2,41 @@
 import { useCallback, useEffect } from 'react'
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
 
+export function useSpotlight(gradientSize = 100, gradientColor = 'rgba(130, 0, 219, 0.25)') {
+    const mouseX = useMotionValue(-gradientSize)
+    const mouseY = useMotionValue(-gradientSize)
+
+    const reset = useCallback(() => {
+        mouseX.set(-gradientSize)
+        mouseY.set(-gradientSize)
+    }, [mouseX, mouseY, gradientSize])
+
+    useEffect(() => { reset() }, [reset])
+
+    const onPointerMove = useCallback((e) => {
+        const rect = e.currentTarget.getBoundingClientRect()
+        mouseX.set(e.clientX - rect.left)
+        mouseY.set(e.clientY - rect.top)
+    }, [mouseX, mouseY])
+
+    const spotlightBg = useMotionTemplate`radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)`
+
+    const overlay = (
+        <motion.span
+            style={{
+                position: 'absolute',
+                inset: 0,
+                borderRadius: 'inherit',
+                background: spotlightBg,
+                pointerEvents: 'none',
+                zIndex: 0,
+            }}
+        />
+    )
+
+    return { onPointerMove, onPointerLeave: reset, overlay }
+}
+
 export function MagicCard({
     children,
     className = '',

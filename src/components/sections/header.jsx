@@ -6,7 +6,7 @@ import { RiShakeHandsLine } from '@remixicon/react'
 import { menuList } from '@/utlits/fackData/menuList'
 import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
-import { MagicCard } from '@/components/ui/MagicCard'
+import { useSpotlight } from '@/components/ui/MagicCard'
 
 const LangToggle = ({ lang, toggle, mobile }) => {
   const isEn = lang === 'en'
@@ -140,11 +140,7 @@ const Header = () => {
                 <div className="navbar-collapse collapse">
                   <ul className="navigation onepage clearfix">
                     {menuList.map(({ id, path }, i) => (
-                      <li key={id}>
-                        <MagicCard gradientSize={80} gradientColor="rgba(130, 0, 219, 0.25)" style={{ borderRadius: '8px' }}>
-                          <Link href={path} className="nav-link-click">{navLabels[i]}</Link>
-                        </MagicCard>
-                      </li>
+                      <NavItem key={id} path={path} label={navLabels[i]} />
                     ))}
                   </ul>
                 </div>
@@ -162,3 +158,15 @@ const Header = () => {
 }
 
 export default Header
+
+const NavItem = ({ path, label }) => {
+  const { onPointerMove, onPointerLeave, overlay } = useSpotlight(80, 'rgba(130, 0, 219, 0.25)')
+  return (
+    <li style={{ position: 'relative', borderRadius: '6px', overflow: 'hidden' }}
+        onPointerMove={onPointerMove}
+        onPointerLeave={onPointerLeave}>
+      {overlay}
+      <Link href={path} className="nav-link-click" style={{ position: 'relative', zIndex: 1 }}>{label}</Link>
+    </li>
+  )
+}
