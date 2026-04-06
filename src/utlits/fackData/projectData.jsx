@@ -917,6 +917,7 @@ export const projectsData = [
         slug: "veradice",
         liveDemoLink: "https://veradice.vercel.app/",
         src: "/images/projects/veradice_full.jpg",
+        pageSrc: "/images/projects/veradice_full2.jpg",
         category: "Game Design & AI Engineering",
         tags: ["Game Design", "AI Engineering"],
         title: "Veradice",
