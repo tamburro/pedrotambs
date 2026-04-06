@@ -52,20 +52,23 @@ const Portfolio = ({ className }) => {
                     </div>
 
                     <div className="portfolio-filters">
-                        <button
-                            className={`portfolio-filter-btn${activeFilter === 'all' ? ' active' : ''}`}
-                            onClick={() => handleFilter('all')}
-                        >
-                            {t.portfolio.filterAll}
-                        </button>
-                        {categories.map(cat => (
+                        <MagicCard gradientSize={100} gradientColor="rgba(130, 0, 219, 0.25)" style={{ borderRadius: '999px' }}>
                             <button
-                                key={cat}
-                                className={`portfolio-filter-btn${activeFilter === cat ? ' active' : ''}`}
-                                onClick={() => handleFilter(cat)}
+                                className={`portfolio-filter-btn${activeFilter === 'all' ? ' active' : ''}`}
+                                onClick={() => handleFilter('all')}
                             >
-                                {cat}
+                                {t.portfolio.filterAll}
                             </button>
+                        </MagicCard>
+                        {categories.map(cat => (
+                            <MagicCard key={cat} gradientSize={100} gradientColor="rgba(130, 0, 219, 0.25)" style={{ borderRadius: '999px' }}>
+                                <button
+                                    className={`portfolio-filter-btn${activeFilter === cat ? ' active' : ''}`}
+                                    onClick={() => handleFilter(cat)}
+                                >
+                                    {cat}
+                                </button>
+                            </MagicCard>
                         ))}
                     </div>
 
