@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext'
 import { MagicCard } from '@/components/ui/MagicCard';
 
-const DISPLAY_ORDER = [1, 2, 7, 6, 8, 9, 3, 4, 5];
+const DISPLAY_ORDER = [1, 2, 7, 6, 8, 9, 10, 3, 4, 5];
 const VISIBLE_COUNT = 6;
 const FILTER_ORDER = ["Product Design", "Game Design", "AI Engineering", "UX/UI Design", "UX Research"];
 

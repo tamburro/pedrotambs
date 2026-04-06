@@ -912,6 +912,135 @@ export const projectsData = [
             }
         ]
     },
+    {
+        id: 10,
+        slug: "veradice",
+        liveDemoLink: "https://veradice.vercel.app/",
+        src: "/images/projects/veradice_full.jpg",
+        category: "Game Design & AI Engineering",
+        tags: ["Game Design", "AI Engineering"],
+        title: "Veradice",
+        tagline: "RPG de fantasia no navegador com narrativa híbrida, combate tático e múltiplos finais.",
+        tagline_en: "Browser fantasy RPG with hybrid narrative, tactical combat and multiple endings.",
+        description: "RPG completo no navegador com sistema híbrido de narração: árvore de decisão combinada com templates dinâmicos e eventos aleatórios. O jogador cria personagem, escolhe raça e classe, explora 5 atos com múltiplos caminhos e desbloqueia finais diferentes baseados nas suas escolhas.",
+        description_en: "Full-featured browser RPG with a hybrid narrative system: decision tree combined with dynamic templates and random events. The player creates a character, chooses race and class, explores 5 acts with multiple paths, and unlocks different endings based on their choices.",
+        year: "2026",
+        role: "Game Designer & AI Engineer",
+        timeline: "2 dias",
+        timeline_en: "2 days",
+        team: "Solo",
+        client: "Produto próprio",
+        tools: ["Next.js", "Claude API", "Vercel"],
+        sections: [
+            {
+                title: "O Problema",
+                title_en: "The Problem",
+                type: "text",
+                content: "RPGs de texto no navegador costumam cair em dois extremos: ou são escolhas binárias simples sem profundidade (visual novels lineares) ou sistemas de regras tão complexos que o onboarding afasta quem não é jogador hardcore. O desafio era criar um jogo com profundidade mecânica real — classes, atributos, combate tático, progressão — mas que qualquer pessoa conseguisse jogar sem ler um manual. A hipótese central: um sistema narrativo híbrido que combina estrutura previsível (árvore de decisão) com variação imprevisível (templates dinâmicos + eventos aleatórios) consegue entregar tanto coerência quanto rejogabilidade.",
+                content_en: "Text-based browser RPGs tend to fall into two extremes: either they're simple binary choices without depth (linear visual novels) or rule systems so complex that the onboarding repels anyone who isn't a hardcore gamer. The challenge was to create a game with real mechanical depth — classes, attributes, tactical combat, progression — that anyone could play without reading a manual. The core hypothesis: a hybrid narrative system combining predictable structure (decision tree) with unpredictable variation (dynamic templates + random events) can deliver both coherence and replayability."
+            },
+            {
+                title: "Sistema Híbrido de Narrativa",
+                title_en: "Hybrid Narrative System",
+                type: "research",
+                methods: ["Árvore de decisão com 5 atos", "Templates dinâmicos com placeholders", "Eventos aleatórios entre cenas", "Flags de estado entre sessões"],
+                methods_en: ["Decision tree with 5 acts", "Dynamic templates with placeholders", "Random events between scenes", "State flags across sessions"],
+                content: "A inovação central do Veradice é a camada tripla de narração. A primeira camada é a árvore de decisão — 40+ nós com escolhas que têm consequências reais no estado do jogo. A segunda é os templates dinâmicos: textos com placeholders ({name}, {race}, {time}, {weather}) que mudam a cada cena, criando variação sem custo de escrita. A terceira são eventos aleatórios com 40% de chance a cada 3-4 nós: mercadores, armadilhas, tesouros, enigmas e emboscadas que mantêm o jogador em alerta mesmo em caminhos já explorados. As flags de estado (sabe_do_ritual, conhece_lyria, sabe_fraqueza_verath) persistem e afetam diálogos, combates e os 4 finais possíveis.",
+                content_en: "Veradice's core innovation is the triple-layer narration system. The first layer is the decision tree — 40+ nodes with choices that have real consequences in the game state. The second is dynamic templates: texts with placeholders ({name}, {race}, {time}, {weather}) that change every scene, creating variation without extra writing cost. The third is random events with 40% chance every 3-4 nodes: merchants, traps, treasures, riddles, and ambushes that keep the player alert even on already-explored paths. State flags (knows_ritual, knows_lyria, knows_verath_weakness) persist and affect dialogues, combats, and all 4 possible endings.",
+                highlights: [
+                    "40+ nós na árvore de decisão com caminhos ramificados por ato",
+                    "Templates dinâmicos com tom adaptável: épico, humor, sombrio, mistério",
+                    "10 tipos de eventos aleatórios com checks de atributo e consequências",
+                    "4 finais distintos baseados em flags acumuladas ao longo da aventura"
+                ],
+                highlights_en: [
+                    "40+ decision tree nodes with branching paths per act",
+                    "Dynamic templates with adaptive tone: epic, humor, dark, mystery",
+                    "10 types of random events with attribute checks and consequences",
+                    "4 distinct endings based on flags accumulated throughout the adventure"
+                ],
+                images: [
+                    {
+                        src: "/images/projects/veradice/veradice1.jpg",
+                        caption: "Tela inicial e criação de personagem",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 800
+                    }
+                ]
+            },
+            {
+                title: "Design de Mecânicas",
+                title_en: "Mechanics Design",
+                type: "text",
+                content: "O sistema de combate por turnos usa d20 + modificador de atributo contra a defesa do inimigo — familiar para jogadores de D&D, mas simplificado o suficiente para novatos. Cada uma das 6 classes tem 3 habilidades únicas que refletem seu archetype: o Guerreiro bate mais forte, o Mago causa mais dano a distância, o Ladino aplica veneno, o Clérigo cura. A progressão de nível é visível e recompensadora: a cada nível, o HP cresce e um novo atributo melhora. O sistema de inventário com itens comprados, achados e craftados dá ao jogador sensação de crescimento além do combate. A dificuldade afeta a campanha inteira: modo Lendário reduz o ouro ganho e aumenta o HP dos inimigos em 30%.",
+                content_en: "The turn-based combat system uses d20 + attribute modifier against enemy defense — familiar for D&D players, simplified enough for newcomers. Each of the 6 classes has 3 unique abilities reflecting its archetype: the Warrior hits harder, the Mage deals ranged damage, the Rogue applies poison, the Cleric heals. Level progression is visible and rewarding: each level, HP grows and a new attribute improves. The inventory system with purchased, found, and crafted items gives the player a sense of growth beyond combat. Difficulty affects the entire campaign: Legendary mode reduces gold gained and increases enemy HP by 30%.",
+                images: [
+                    {
+                        src: "/images/projects/veradice/veradice2.jpg",
+                        caption: "Sistema de combate tático com dados animados",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 800
+                    },
+                    {
+                        src: "/images/projects/veradice/veradice3.jpg",
+                        caption: "HUD de jogo: barra de HP, XP, inventário e ficha de personagem",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 800
+                    }
+                ]
+            },
+            {
+                title: "Construção com AI Coding",
+                title_en: "Built with AI Coding",
+                type: "research",
+                methods: ["Claude API como pair programmer", "Next.js App Router", "Deploy contínuo via Vercel"],
+                methods_en: ["Claude API as pair programmer", "Next.js App Router", "Continuous deploy via Vercel"],
+                content: "O Veradice foi construído em 2 dias usando Claude como pair programmer em todas as etapas. A especificação do jogo foi escrita primeiro como documento de design completo — sistemas, inimigos, árvore de nós, eventos, mecânicas de progressão — e então usada como contexto para gerar o código de forma estruturada. A abordagem foi modular: estado global do jogo em um único objeto, funções puras para checks de atributo, sistema de renderização de nós separado da lógica de combate. O maior desafio foi manter coerência de estado em um jogo com tantas flags e caminhos — resolvido com um reducer centralizado.",
+                content_en: "Veradice was built in 2 days using Claude as pair programmer at every stage. The game specification was written first as a complete design document — systems, enemies, node tree, events, progression mechanics — and then used as context to generate code in a structured way. The approach was modular: global game state in a single object, pure functions for attribute checks, node rendering system separate from combat logic. The biggest challenge was maintaining state coherence in a game with so many flags and paths — solved with a centralized reducer.",
+                highlights: [
+                    "Spec-first development: documento de design completo antes de uma linha de código",
+                    "Estado do jogo em reducer centralizado para rastrear 20+ flags de estado",
+                    "Sistema de combate desacoplado do sistema de narração",
+                    "Animação de dado com Web Audio API: 12 frames, 80ms cada"
+                ],
+                highlights_en: [
+                    "Spec-first development: complete design document before a single line of code",
+                    "Game state in centralized reducer tracking 20+ state flags",
+                    "Combat system decoupled from the narrative system",
+                    "Dice animation with Web Audio API: 12 frames, 80ms each"
+                ],
+                images: [
+                    {
+                        src: "/images/projects/veradice/veradice4.jpg",
+                        caption: "Seleção de cenário e dificuldade na configuração do mundo",
+                        fullWidth: true,
+                        width: 1400,
+                        height: 800
+                    }
+                ]
+            },
+            {
+                title: "Resultados & Aprendizados",
+                title_en: "Results & Learnings",
+                type: "outcomes",
+                metrics: [
+                    { value: "2 dias", label: "do zero ao deploy" },
+                    { value: "40+", label: "nós na árvore de decisão" },
+                    { value: "4", label: "finais distintos" }
+                ],
+                metrics_en: [
+                    { value: "2 days", label: "from zero to deploy" },
+                    { value: "40+", label: "nodes in the decision tree" },
+                    { value: "4", label: "distinct endings" }
+                ],
+                content: "O principal aprendizado foi sobre o valor de escrever a especificação antes do código. Em um projeto com tanta interdependência — flags que afetam diálogos que afetam finais — escrever o design doc completo primeiro permitiu que o Claude gerasse código coerente em toda a base, sem contradições de estado. A segunda descoberta: o sistema narrativo híbrido cumpriu a promessa. Jogadores que jogaram duas vezes reportaram experiências diferentes, não por sorte, mas por escolhas genuínas. A árvore de decisão garante a coerência; os eventos aleatórios e os templates dinâmicos garantem a surpresa.",
+                content_en: "The key learning was about the value of writing the specification before the code. In a project with so much interdependence — flags that affect dialogues that affect endings — writing the full design doc first allowed Claude to generate coherent code across the entire codebase, without state contradictions. The second discovery: the hybrid narrative system delivered on its promise. Players who played twice reported different experiences, not by chance, but through genuine choices. The decision tree ensures coherence; random events and dynamic templates ensure surprise."
+            }
+        ]
+    },
 ];
 
 export const getProjectBySlug = (slug) => {
