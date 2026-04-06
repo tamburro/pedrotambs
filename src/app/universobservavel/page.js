@@ -481,7 +481,7 @@ export default function LandingPage() {
                                     Enviar mensagem <RiMailLine size={16} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '6px' }} />
                                 </Link>
                                 <a
-                                    href="https://wa.me/5521999999999"
+                                    href="https://wa.me/5521969018110"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="theme-btn theme-btn--outline"
