@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { RiShakeHandsLine } from '@remixicon/react'
+import { RiShakeHandsLine, RiSunLine, RiMoonLine } from '@remixicon/react'
 import { menuList } from '@/utlits/fackData/menuList'
 import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
+import { useTheme } from '@/context/ThemeContext'
 
 const LangToggle = ({ lang, toggle, mobile }) => {
   const isEn = lang === 'en'
@@ -90,6 +91,7 @@ const Header = () => {
   const pathName = usePathname()
   const [isSticky, setisSticky] = useState(false)
   const { lang, toggle, t } = useLanguage()
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const navbar_collapse = document.querySelector(".navbar-collapse")
@@ -145,9 +147,26 @@ const Header = () => {
                 </div>
               </nav>
             </div>
-            <div className="menu-btns">
-              {/* Language toggle, desktop only */}
+            <div className="menu-btns" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <LangToggle lang={lang} toggle={toggle} mobile={false} />
+              <button
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+                style={{
+                  width: '36px', height: '36px', borderRadius: '10px',
+                  border: '1px solid var(--stardust)',
+                  background: 'var(--nebula)',
+                  color: 'var(--aurora)',
+                  cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  transition: 'all 0.2s',
+                  flexShrink: 0,
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--aurora)' }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--stardust)' }}
+              >
+                {theme === 'dark' ? <RiSunLine size={16} /> : <RiMoonLine size={16} />}
+              </button>
             </div>
           </div>
         </div>

@@ -1,8 +1,14 @@
 'use client'
 import { useCallback, useEffect } from 'react'
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
+import { useTheme } from '@/context/ThemeContext'
 
-export function useSpotlight(gradientSize = 100, gradientColor = 'rgba(130, 0, 219, 0.25)') {
+export function useSpotlight(gradientSize = 100, gradientColor) {
+    const { theme } = useTheme()
+    const resolvedColor = gradientColor ?? (
+        theme === 'light' ? 'rgba(107, 0, 181, 0.10)' : 'rgba(130, 0, 219, 0.25)'
+    )
+
     const mouseX = useMotionValue(-gradientSize)
     const mouseY = useMotionValue(-gradientSize)
 
@@ -19,7 +25,7 @@ export function useSpotlight(gradientSize = 100, gradientColor = 'rgba(130, 0, 2
         mouseY.set(e.clientY - rect.top)
     }, [mouseX, mouseY])
 
-    const spotlightBg = useMotionTemplate`radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)`
+    const spotlightBg = useMotionTemplate`radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${resolvedColor}, transparent 100%)`
 
     const overlay = (
         <motion.span
@@ -41,9 +47,14 @@ export function MagicCard({
     children,
     className = '',
     style = {},
-    gradientColor = 'rgba(130, 0, 219, 0.18)',
+    gradientColor,
     gradientSize = 220,
 }) {
+    const { theme } = useTheme()
+    const resolvedColor = gradientColor ?? (
+        theme === 'light' ? 'rgba(107, 0, 181, 0.10)' : 'rgba(130, 0, 219, 0.18)'
+    )
+
     const mouseX = useMotionValue(-gradientSize)
     const mouseY = useMotionValue(-gradientSize)
 
@@ -60,7 +71,7 @@ export function MagicCard({
         mouseY.set(e.clientY - rect.top)
     }, [mouseX, mouseY])
 
-    const spotlightBg = useMotionTemplate`radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)`
+    const spotlightBg = useMotionTemplate`radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${resolvedColor}, transparent 100%)`
 
     return (
         <div

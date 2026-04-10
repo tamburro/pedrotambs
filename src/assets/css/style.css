@@ -70,6 +70,106 @@ Version      : 1.0
     --font-serif:   "Playfair Display", serif;
 }
 
+/* ─── Light mode ─── */
+[data-theme="light"] {
+    --cosmos:       #ECEEF6;
+    --void:         #F4F4FB;
+    --nebula:       #FFFFFF;
+    --stardust:     #C8C8DC;
+    --plasma:       #6B00B5;
+    --aurora:       #6B00B5;
+    --moonlight:    #0D0D1A;
+    --mist:         rgba(13, 13, 26, 0.55);
+
+    --main-color:       var(--moonlight);
+    --heading-color:    var(--moonlight);
+    --primary-color:    var(--moonlight);
+    --lighter-color:    var(--mist);
+    --subtitle-color:   var(--mist);
+    --black-color:      #F4F4FB;
+    --border-color:     rgba(107, 0, 181, 0.15);
+    --button-border:    rgba(180, 170, 200, 0.8);
+    --body-background:  var(--void);
+    --grey-bg:          var(--nebula);
+}
+
+/* Light mode surface overrides (hardcoded rgba cards → white) */
+[data-theme="light"] .container-inner,
+[data-theme="light"] .single-resume,
+[data-theme="light"] .about-image-part,
+[data-theme="light"] .about-content-part,
+[data-theme="light"] .about-content-part-bottom,
+[data-theme="light"] .service-item,
+[data-theme="light"] .single-project-page-left,
+[data-theme="light"] .single-project-page-right {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.07);
+}
+
+[data-theme="light"] .main-header,
+[data-theme="light"] .fixed-header {
+    background: rgba(244, 244, 251, 0.92);
+    border-bottom-color: rgba(0, 0, 0, 0.07);
+}
+
+[data-theme="light"] .main-footer {
+    background: #ECEEF6;
+    border-top-color: rgba(0, 0, 0, 0.07);
+}
+
+/* Nav links */
+[data-theme="light"] .navigation li a,
+[data-theme="light"] .nav-link-click {
+    color: var(--moonlight);
+}
+
+/* Project cards */
+[data-theme="light"] .project-item {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.07);
+}
+
+[data-theme="light"] .project-content .sub-title {
+    color: var(--aurora);
+}
+
+/* Filter buttons */
+[data-theme="light"] .portfolio-filter-btn {
+    border-color: rgba(0, 0, 0, 0.12);
+    color: rgba(13, 13, 26, 0.6);
+}
+[data-theme="light"] .portfolio-filter-btn:hover {
+    border-color: rgba(0, 0, 0, 0.3);
+    color: var(--moonlight);
+}
+[data-theme="light"] .portfolio-filter-btn.active {
+    background: rgba(107, 0, 181, 0.12);
+    border-color: var(--plasma);
+    color: var(--plasma);
+}
+
+/* Spotlight effect — mais suave no light */
+[data-theme="light"] .project-item .magic-overlay,
+[data-theme="light"] [data-spotlight] {
+    opacity: 0.6;
+}
+
+/* Theme toggle icon color in light mode */
+[data-theme="light"] .theme-btn {
+    background: var(--plasma);
+    border-color: var(--plasma);
+    color: #fff;
+}
+[data-theme="light"] .theme-btn--outline {
+    background: transparent;
+    border-color: rgba(13, 13, 26, 0.2);
+    color: var(--moonlight);
+}
+[data-theme="light"] .theme-btn--outline:hover {
+    border-color: var(--plasma);
+    color: var(--plasma);
+}
+
 * {
     margin: 0;
     padding: 0;
