@@ -17,13 +17,13 @@ const Resume = () => {
                             <div className="single-resume">
                                 <h2>{t.resume.experience}</h2>
                                 <div className="experience-list">
-                                    <Card logo="/images/companies/globo.jpeg" year="Nov 2022 – Present" title="Designer Visual Pleno" institution="Editora Globo" description={t.resume.exp1} />
-                                    <Card logo="/images/companies/yduqs.jpeg" year="Jun 2020 – Nov 2021" title="Designer Visual Junior" institution="YDUQS" description={t.resume.exp2} />
-                                    <Card logo="/images/companies/estacio.jpeg" year="Jul 2019 – Jun 2020" title="Designer Visual PJ" institution="Estácio" description={t.resume.exp3} />
+                                    <Card logo="/images/companies/globo.jpeg" year={t.resume.year1} title={t.resume.title1} institution="Editora Globo" description={t.resume.exp1} />
+                                    <Card logo="/images/companies/yduqs.jpeg" year={t.resume.year2} title={t.resume.title2} institution="YDUQS" description={t.resume.exp2} />
+                                    <Card logo="/images/companies/estacio.jpeg" year={t.resume.year3} title={t.resume.title3} institution="Estácio" description={t.resume.exp3} />
                                     {expanded && (
                                         <>
-                                            <Card logo="/images/companies/conspiracao.jpeg" year="Fev 2011 – Jan de 2012" title={t.resume.title4} institution="Conspiração Filmes" description={t.resume.exp4} />
-                                            <Card logo="/images/companies/brq.jpeg" year="Jun 2010 – Dez 2010" title={t.resume.title5} institution="BRQ Digital Solutions" description={t.resume.exp5} />
+                                            <Card logo="/images/companies/conspiracao.jpeg" year={t.resume.year4} title={t.resume.title4} institution="Conspiração Filmes" description={t.resume.exp4} />
+                                            <Card logo="/images/companies/brq.jpeg" year={t.resume.year5} title={t.resume.title5} institution="BRQ Digital Solutions" description={t.resume.exp5} />
                                         </>
                                     )}
                                 </div>
@@ -44,9 +44,9 @@ const Resume = () => {
                             <div className="single-resume">
                                 <h2>{t.resume.education}</h2>
                                 <div className="experience-list">
-                                    <Card logo="/images/education/uxunicornio.jpeg" year="Jul 2025 – Set 2026" title="MBA em Inovação Orientada à IA e UX" institution="UX Unicórnio" description={t.resume.edu1} />
-                                    <Card logo="/images/education/infnet.jpeg" year="Abr 2023 – Abr 2024" title="MBA em UX Design & Arquitetura da Informação" institution="Instituto Infnet – ECDD" description={t.resume.edu2} />
-                                    <Card logo="/images/education/senac.jpeg" year="2013 – 2018" title="Graduação em Design Gráfico" institution="Senac RJ" description={t.resume.edu3} />
+                                    <Card logo="/images/education/uxunicornio.jpeg" year={t.resume.eduYear1} title={t.resume.eduTitle1} institution="UX Unicórnio" description={t.resume.edu1} />
+                                    <Card logo="/images/education/infnet.jpeg" year={t.resume.eduYear2} title={t.resume.eduTitle2} institution="Instituto Infnet – ECDD" description={t.resume.edu2} />
+                                    <Card logo="/images/education/senac.jpeg" year={t.resume.eduYear3} title={t.resume.eduTitle3} institution="Senac RJ" description={t.resume.edu3} />
                                 </div>
                             </div>
                         </div>
