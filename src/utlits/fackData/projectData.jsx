@@ -741,27 +741,319 @@ export const projectsData = [
     },
     {
         id: 6,
-        externalLink: "https://bentos-next-1cvne4g5k-tamburros-projects.vercel.app/pix-tudo-ux.html",
+        slug: "pixtudo-super-app-ux-research",
         src: "/images/projects/pixtudo_full.jpg",
         category: "UX Research",
         tags: ["UX Research"],
         title: "PixTudo",
         tagline: "Pesquisa de mercado, personas, jornadas e arquitetura de UX para o Alipay do Brasil.",
         tagline_en: "Market research, personas, journeys and UX architecture for Brazil's Alipay.",
+        description: "Documento completo de UX Research & Design para o PixTudo — um super-app financeiro brasileiro. O projeto abrange pesquisa de mercado, análise competitiva, 3 personas, jornada do usuário, arquitetura de informação, wireframes lo-fi, princípios de design e roadmap de produto.",
+        description_en: "Complete UX Research & Design document for PixTudo — a Brazilian financial super-app. The project covers market research, competitive analysis, 3 personas, user journey, information architecture, lo-fi wireframes, design principles, and product roadmap.",
         year: "2025",
         role: "UX Researcher",
+        timeline: "2025–2026",
+        timeline_en: "2025–2026",
+        team: "Solo",
+        client: "Projeto Pessoal",
+        tools: ["Figma", "Miro"],
+        sections: [
+            {
+                title: "O Problema",
+                title_en: "The Problem",
+                type: "text",
+                content: "O Brasil tem características únicas no mundo que criam o momento ideal para um super-app financeiro: o Pix atingiu 153 milhões de usuários únicos em 2024 com volume de R$4,7 trilhões transacionados, superando cartões em número de operações. Ao mesmo tempo, 84% dos brasileiros adultos têm conta bancária, mas 35 milhões ainda são sub-bancarizados. O problema central: o brasileiro usa em média 4,2 apps para pagamento, banco, investimento e benefícios. Apps bancários dos grandes bancos têm satisfação média de 2,8/5. Autônomos e MEIs, que representam 40% da força de trabalho, têm dificuldade em acessar crédito, seguros e benefícios. Juros do rotativo chegam a 440% ao ano. A fragmentação é total e nenhum player entregou a experiência unificada que o Alipay representa na China.",
+                content_en: "Brazil has unique global characteristics that create the ideal moment for a financial super-app: Pix reached 153 million unique users in 2024 with R$4.7 trillion transacted, surpassing cards in transaction volume. At the same time, 84% of Brazilian adults have bank accounts, but 35 million remain underbanked. The core problem: Brazilians use an average of 4.2 apps for payment, banking, investment, and benefits. Major bank apps average 2.8/5 satisfaction. Freelancers and micro-entrepreneurs (40% of the workforce) struggle to access credit, insurance, and benefits. Credit card revolving interest reaches 440% per year. Fragmentation is total and no player has delivered the unified experience that Alipay represents in China."
+            },
+            {
+                title: "Pesquisa de Mercado",
+                title_en: "Market Research",
+                type: "research",
+                methods: ["Análise de dados BACEN e Febraban", "Benchmarking de super-apps globais (Alipay, WeChat, Grab)", "Mapeamento de dores em comunidades de usuários", "Análise competitiva de 5 players brasileiros"],
+                methods_en: ["BACEN and Febraban data analysis", "Global super-app benchmarking (Alipay, WeChat, Grab)", "Pain point mapping in user communities", "Competitive analysis of 5 Brazilian players"],
+                content: "O mercado de fintechs brasileiro é estimado em R$312 bilhões para 2026, crescendo 23% ao ano. O Pix criou uma infraestrutura de pagamentos instantâneos sem precedentes no mundo, mas nenhum player aproveitou esse trilho para construir um ecossistema completo. A análise competitiva revelou que Nubank lidera em UX (4.2/5) mas tem ecossistema fechado, sem mini-apps, sem camada social. Mercado Pago tem o crédito mas está vinculado ao Mercado Livre. PicPay tem o feed social mas sem ancoragem financeira forte. Bancos tradicionais têm produto completo mas UX péssima (2.7/5). Nenhum fecha o ciclo completo: pagamento + investimento + crédito + mini-apps + social.",
+                content_en: "The Brazilian fintech market is estimated at R$312 billion by 2026, growing 23% per year. Pix created an unprecedented instant payment infrastructure globally, but no player has leveraged this rail to build a complete ecosystem. The competitive analysis revealed: Nubank leads in UX (4.2/5) but has a closed ecosystem — no mini-apps, no social layer. Mercado Pago has credit but is tied to Mercado Livre. PicPay has the social feed but lacks strong financial anchoring. Traditional banks have complete products but terrible UX (2.7/5). None close the full loop: payment + investment + credit + mini-apps + social.",
+                highlights: [
+                    "153 milhões de usuários de Pix em 2024 — maior adoção de pagamento instantâneo do mundo",
+                    "O brasileiro usa em média 4,2 apps para tarefas que poderiam ser unificadas",
+                    "68% dos brasileiros desconfiam de bancos tradicionais (Febraban 2024) — fintechs têm NPS 2× maior",
+                    "Nenhum player brasileiro criou um ecossistema de mini-apps — oportunidade de ser plataforma",
+                    "Autônomos e MEIs (40% da força de trabalho) não têm acesso a crédito pelo score tradicional"
+                ],
+                highlights_en: [
+                    "153 million Pix users in 2024 — the world's largest instant payment adoption",
+                    "Brazilians use an average of 4.2 apps for tasks that could be unified",
+                    "68% of Brazilians distrust traditional banks (Febraban 2024) — fintechs have 2× higher NPS",
+                    "No Brazilian player has created a mini-app ecosystem — opportunity to become a platform",
+                    "Freelancers and MEIs (40% of the workforce) can't access credit via traditional scoring"
+                ]
+            },
+            {
+                title: "Personas",
+                title_en: "Personas",
+                type: "research",
+                methods: ["Pesquisa quantitativa com 240 usuários", "Análise de dados de mercado (IBGE, Febraban, App Annie)", "Entrevistas em profundidade"],
+                methods_en: ["Quantitative research with 240 users", "Market data analysis (IBGE, Febraban, App Annie)", "In-depth interviews"],
+                content: "Definimos 3 personas primárias que cobrem os principais casos de uso e segmentos do mercado brasileiro.",
+                content_en: "We defined 3 primary personas covering the main use cases and segments of the Brazilian market.",
+                highlights: [
+                    "Camila, 28, Analista de Marketing (SP, CLT, R$4.500/mês) — \"Odeio ter que abrir 4 apps diferentes pra resolver uma coisa só.\" Necessidades: pagamentos rápidos, investimentos automáticos, controle de gastos com amigos. Dores: apps bancários lentos, rateio manual, medo de golpe.",
+                    "Jonas, 42, Eletricista autônomo MEI (Recife, renda variável) — \"Preciso de crédito pra comprar material, mas banco não me empresta.\" Necessidades: cobrar clientes sem maquininha cara, crédito rápido para capital de giro, gestão MEI simples. Dores: negado em todo crédito bancário, taxa alta da maquininha, separar conta pessoal/empresa.",
+                    "Beatriz, 19, Estudante universitária (Porto Alegre, R$1.200/mês) — \"Nunca fui em agência bancária. Faço tudo pelo celular. Mas ainda não entendo de investimentos.\" Necessidades: educação financeira simples, vaquinhas com amigos, primeiros investimentos. Dores: linguagem financeira inacessível, cobrar amigos sem parecer chata, gastos por impulso."
+                ],
+                highlights_en: [
+                    "Camila, 28, Marketing Analyst (SP, CLT, R$4,500/month) — \"I hate having to open 4 different apps just to solve one thing.\" Needs: fast payments, automatic investments, expense sharing with friends. Pain points: slow banking apps, manual bill splitting, fear of digital scams.",
+                    "Jonas, 42, Freelance Electrician MEI (Recife, variable income) — \"I need credit to buy materials, but the bank won't lend to me.\" Needs: charge clients without expensive card machines, quick working capital credit, simple MEI management. Pain points: denied all bank credit, high card machine fees, mixing personal and business accounts.",
+                    "Beatriz, 19, University student (Porto Alegre, R$1,200/month) — \"I've never been to a bank branch. I do everything on my phone. But I still don't understand investments.\" Needs: simple financial education, group payment pools, first investments. Pain points: inaccessible financial language, charging friends without seeming pushy, impulse spending."
+                ]
+            },
+            {
+                title: "Jornada do Usuário",
+                title_en: "User Journey",
+                type: "text",
+                content: "Mapeamos a jornada completa de Camila, desde o primeiro contato com o PixTudo até se tornar usuária ativa do ecossistema. 01 Consciência: Camila vê post de uma amiga no Instagram sobre cashback. Emoção: neutra/curiosa. 02 Consideração: baixa o app, cadastro com CPF + selfie. Em 90 segundos tem conta, Pix e cartão virtual ativos. Emoção: surpresa positiva. 03 Primeiro uso: manda R$32 pelo Pix para a amiga do almoço e recebe notificação de cashback de R$1,60 em 3 segundos. Emoção: satisfeita/encantada. 04 Exploração: descobre a aba de serviços, paga Netflix pelo app com desconto, configura investimento automático de R$50/mês. Emoção: muito satisfeita. 05 Fidelização: 30 dias depois usa o PixTudo diariamente, convida 3 amigas com cashback, score sobe. 06 Advocacia: posta stories mostrando o app, entra em grupo de usuários, torna-se promotora ativa. Touchpoints principais: app (95% das interações), notificações push contextuais, WhatsApp Business para suporte.",
+                content_en: "We mapped Camila's complete journey from first contact with PixTudo to becoming an active ecosystem user. 01 Awareness: Camila sees a friend's Instagram post about cashback. Emotion: neutral/curious. 02 Consideration: downloads the app, registers with CPF + selfie. In 90 seconds has account, Pix, and virtual card active. Emotion: positive surprise. 03 First use: sends R$32 via Pix to her lunch friend and receives a R$1.60 cashback notification in 3 seconds. Emotion: satisfied/delighted. 04 Exploration: discovers the services tab, pays for Netflix with a discount, sets up automatic R$50/month investment. Emotion: very satisfied. 05 Retention: 30 days later uses PixTudo daily, invites 3 friends with cashback, score rises. 06 Advocacy: posts stories showing the app, joins user groups, becomes an active promoter. Main touchpoints: app (95% of interactions), contextual push notifications, WhatsApp Business for support."
+            },
+            {
+                title: "Como Poderíamos…",
+                title_en: "How Might We…",
+                type: "research",
+                methods: ["HMW · Inclusão Financeira", "HMW · Fragmentação", "HMW · Social & Cultura", "HMW · Educação Financeira", "HMW · Segurança", "HMW · Ecossistema"],
+                methods_en: ["HMW · Financial Inclusion", "HMW · Fragmentation", "HMW · Social & Culture", "HMW · Financial Education", "HMW · Security", "HMW · Ecosystem"],
+                content: "Transformamos os insights da pesquisa em questões de design que abrem espaço para soluções criativas.",
+                content_en: "We transformed research insights into design questions that open space for creative solutions.",
+                highlights: [
+                    "Como poderíamos tornar o crédito acessível para autônomos e MEIs que não têm histórico bancário, usando dados de comportamento como alternativa ao score tradicional?",
+                    "Como poderíamos fazer o brasileiro substituir 4 apps financeiros por um único, sem sentir que está perdendo funcionalidade ou segurança?",
+                    "Como poderíamos transformar o momento de pagar e cobrar amigos — que é socialmente constrangedor — em algo leve e até divertido?",
+                    "Como poderíamos ensinar conceitos financeiros para a geração Z de forma contextual, sem interromper o fluxo da tarefa principal?",
+                    "Como poderíamos proteger usuários de golpes do Pix em tempo real sem criar fricção excessiva nas transações legítimas?",
+                    "Como poderíamos criar um ecossistema de mini-apps que faça sentido para o contexto brasileiro, sem virar uma bagunça difícil de navegar?"
+                ],
+                highlights_en: [
+                    "How might we make credit accessible to freelancers and MEIs without banking history, using behavioral data as an alternative to traditional scoring?",
+                    "How might we get Brazilians to replace 4 financial apps with one, without feeling like they're losing functionality or security?",
+                    "How might we transform the moment of paying and charging friends — which is socially awkward — into something light and even fun?",
+                    "How might we teach financial concepts to Gen Z contextually, without interrupting the main task flow?",
+                    "How might we protect users from Pix scams in real time without creating excessive friction in legitimate transactions?",
+                    "How might we create a mini-app ecosystem that makes sense for the Brazilian context without becoming a hard-to-navigate mess?"
+                ]
+            },
+            {
+                title: "Arquitetura de Informação",
+                title_en: "Information Architecture",
+                type: "text",
+                content: "5 seções principais no nível raiz, navegação por tab bar, profundidade máxima de 3 níveis para qualquer tarefa crítica. Início: saldo e extrato, ações rápidas, cashback ativo, feed de serviços, notificações. Pagar: Pix (QR/chave), boleto, débito automático, cartão virtual, contas do mês. Serviços: mini-apps, recarga celular, seguros, cashback e ofertas, vale-transporte. Finanças: investimentos, crédito e empréstimo, cartão de crédito, metas de economia, score e perfil. Perfil: dados pessoais, segurança e privacidade, dispositivos ativos, Convide & Ganhe, suporte. Princípios de navegação: qualquer tarefa crítica em ≤3 toques, busca universal sempre visível, ações rápidas personalizadas por comportamento.",
+                content_en: "5 main sections at root level, tab bar navigation, maximum depth of 3 levels for any critical task. Home: balance and statement, quick actions, active cashback, service feed, notifications. Pay: Pix (QR/key), boleto, automatic debit, virtual card, monthly bills. Services: mini-apps, phone top-up, insurance, cashback and offers, transit pass. Finance: investments, credit and loans, credit card, savings goals, score and profile. Profile: personal data, security and privacy, active devices, Refer & Earn, support. Navigation principles: any critical task in ≤3 taps, universal search always visible, quick actions personalized by behavior."
+            },
+            {
+                title: "Princípios de Design",
+                title_en: "Design Principles",
+                type: "research",
+                methods: ["01 · Brasileiro-Primeiro", "02 · Zero Burocracia", "03 · Confiança Progressiva", "04 · Social by Design", "05 · Segurança Visível", "06 · Inclusão por Padrão"],
+                methods_en: ["01 · Brazilian-First", "02 · Zero Bureaucracy", "03 · Progressive Trust", "04 · Social by Design", "05 · Visible Security", "06 · Inclusive by Default"],
+                content: "6 princípios derivados da pesquisa com usuários e do contexto cultural brasileiro. Cada feature é avaliada contra esses princípios.",
+                content_en: "6 principles derived from user research and the Brazilian cultural context. Every feature is evaluated against these principles.",
+                highlights: [
+                    "Brasileiro-Primeiro: cada decisão considera a realidade local — língua coloquial, cashback em vez de pontos, Pix como ação primária, WhatsApp como canal de suporte.",
+                    "Zero Burocracia: qualquer tarefa crítica em ≤3 toques, onboarding em ≤2 minutos, formulários com o menor número possível de campos.",
+                    "Confiança Progressiva: conquistar a confiança do usuário gradualmente — começar simples, expandir conforme o relacionamento cresce.",
+                    "Social by Design: funcionalidades financeiras com camada social nativa — dividir contas, vaquinhas, missões em grupo. O dinheiro no Brasil é coletivo.",
+                    "Segurança Visível: a segurança precisa ser sentida, não só existir — feedback imediato em transações, biometria clara, alertas antifraude em linguagem humana.",
+                    "Inclusão por Padrão: UI que funciona parcialmente offline, carrega rápido em 3G, usa linguagem acessível e considera baixa literacia financeira como ponto de partida."
+                ],
+                highlights_en: [
+                    "Brazilian-First: every decision considers local reality — colloquial language, cashback instead of points, Pix as primary action, WhatsApp as support channel.",
+                    "Zero Bureaucracy: any critical task in ≤3 taps, onboarding in ≤2 minutes, forms with the fewest possible fields.",
+                    "Progressive Trust: earn user trust gradually — start simple, expand as the relationship grows.",
+                    "Social by Design: financial features with a native social layer — bill splitting, group pools, team missions. Money in Brazil is collective.",
+                    "Visible Security: security must be felt, not just exist — immediate transaction feedback, clear biometrics, anti-fraud alerts in human language.",
+                    "Inclusive by Default: UI that partially works offline, loads fast on 3G, uses accessible language, and treats low financial literacy as the starting point."
+                ]
+            },
+            {
+                title: "Resultados & Entregáveis",
+                title_en: "Results & Deliverables",
+                type: "outcomes",
+                metrics: [
+                    { value: "3", label: "personas baseadas em pesquisa com 240 usuários" },
+                    { value: "6", label: "princípios de design derivados de campo" },
+                    { value: "10", label: "seções de entregáveis (pesquisa ao roadmap)" }
+                ],
+                metrics_en: [
+                    { value: "3", label: "personas based on research with 240 users" },
+                    { value: "6", label: "design principles derived from field research" },
+                    { value: "10", label: "deliverable sections (research to roadmap)" }
+                ],
+                content: "O projeto resultou em um documento completo de Discovery → Design com 10 seções entregáveis: pesquisa de mercado, análise competitiva, personas, jornada do usuário, HMW, arquitetura de informação, wireframes lo-fi, princípios de design, KPIs e roadmap. O principal aprendizado foi sobre a interdependência entre cultura e UX: no Brasil, as decisões de design financeiro são inseparáveis de comportamentos sociais como o pagamento coletivo, a desconfiança histórica em bancos e a centralidade do WhatsApp como infraestrutura de comunicação. Um super-app brasileiro bem-sucedido precisa ser desenhado desde o princípio para essa realidade, não adaptado de modelos estrangeiros.",
+                content_en: "The project resulted in a complete Discovery → Design document with 10 deliverable sections: market research, competitive analysis, personas, user journey, HMW, information architecture, lo-fi wireframes, design principles, KPIs, and roadmap. The key learning was about the interdependence between culture and UX: in Brazil, financial design decisions are inseparable from social behaviors like collective payment, historical distrust of banks, and WhatsApp's centrality as communication infrastructure. A successful Brazilian super-app must be designed from the ground up for this reality, not adapted from foreign models."
+            }
+        ]
     },
     {
         id: 7,
-        externalLink: "https://bentos-next-1cvne4g5k-tamburros-projects.vercel.app/zap-ux-research.html",
+        slug: "zapvida-super-app-ux-research",
         src: "/images/projects/zapvida_full.jpg",
         category: "UX Research",
         tags: ["UX Research"],
         title: "ZapVida",
         tagline: "Pesquisa e design de um super-app nacional com Pix nativo, gov digital e mini-apps.",
         tagline_en: "Research and design of a national super-app with native Pix, digital gov and mini-apps.",
+        description: "Documento de UX Research & Design para o ZapVida — o WeChat do Brasil. O projeto une mensagens, pagamentos, serviços governamentais, delivery e entretenimento numa única plataforma pensada para a realidade brasileira. Abrange pesquisa primária (40 entrevistas, 1.200 respondentes), 3 personas, jornada, arquitetura de informação, wireframes e sistema de design.",
+        description_en: "UX Research & Design document for ZapVida — the Brazilian WeChat. The project unifies messaging, payments, government services, delivery, and entertainment in a single platform built for Brazilian reality. Covers primary research (40 interviews, 1,200 survey respondents), 3 personas, journey mapping, information architecture, wireframes, and design system.",
         year: "2025",
         role: "UX Researcher",
+        timeline: "2025",
+        timeline_en: "2025",
+        team: "Solo",
+        client: "Projeto Pessoal",
+        tools: ["Figma", "Miro"],
+        sections: [
+            {
+                title: "O Problema",
+                title_en: "The Problem",
+                type: "text",
+                content: "O Brasil tem o maior mercado de fintechs da América Latina, 170 milhões de smartphones ativos e os usuários mais engajados em apps do mundo — média de 5,4 horas diárias em apps, o maior do planeta. Mas nenhum super-app domina. O brasileiro usa WhatsApp para falar, Nubank para pagar, iFood para pedir comida, Instagram para se entreter e o app do INSS (quando consegue) para serviços públicos. 78% dos entrevistados usam 4 ou mais apps para tarefas que poderiam ser unificadas. 64% da classe C/D nunca usou um app de governo e não sabe como acessar serviços públicos digitais. O problema não é falta de infraestrutura ou de usuários — é a ausência de um produto que entenda a cultura e a realidade socioeconômica brasileira.",
+                content_en: "Brazil has Latin America's largest fintech market, 170 million active smartphones, and the world's most app-engaged users — averaging 5.4 daily hours in apps, the global #1. But no super-app dominates. Brazilians use WhatsApp to chat, Nubank to pay, iFood to order food, Instagram to entertain themselves, and the INSS app (when it works) for government services. 78% of interviewees use 4+ apps for tasks that could be unified. 64% of the C/D income bracket has never used a government app and doesn't know how to access public digital services. The problem isn't a lack of infrastructure or users — it's the absence of a product that understands Brazilian culture and socioeconomic reality."
+            },
+            {
+                title: "Pesquisa de Mercado",
+                title_en: "Market Research",
+                type: "research",
+                methods: ["Pesquisa primária: 40 entrevistas + survey com 1.200 respondentes", "Análise TAM/SAM/SOM", "Benchmarking competitivo (WhatsApp, Nubank, iFood, Instagram)", "Dados IBGE, App Annie e BCB"],
+                methods_en: ["Primary research: 40 interviews + survey with 1,200 respondents", "TAM/SAM/SOM analysis", "Competitive benchmarking (WhatsApp, Nubank, iFood, Instagram)", "IBGE, App Annie and BCB data"],
+                content: "O mercado endereçável é imenso: TAM de R$890 bilhões (economia digital brasileira), SAM de R$490 bilhões (fintechs + mensagens + serviços) e SOM capturável de R$38 bilhões em 5 anos. Volume Pix: R$2 trilhões transacionados por ano, crescendo 40% ao ano. Análise competitiva revelou o gap completo: nenhum player entrega simultaneamente mensagens + pagamentos + delivery + gov digital + mini-apps + stories/feed. WhatsApp domina mensagens (120M DAU) mas não tem pagamentos nativos completos. Nubank domina UX financeira (35M DAU) mas não tem mensagens nem serviços. O ZapVida é o único concorrente com todos os seis pilares.",
+                content_en: "The addressable market is enormous: R$890 billion TAM (Brazilian digital economy), R$490 billion SAM (fintechs + messaging + services), and R$38 billion capturable SOM in 5 years. Pix volume: R$2 trillion transacted per year, growing 40% annually. Competitive analysis revealed the complete gap: no player simultaneously delivers messaging + payments + delivery + digital gov + mini-apps + stories/feed. WhatsApp dominates messaging (120M DAU) but lacks full native payments. Nubank dominates financial UX (35M DAU) but has no messaging or services. ZapVida is the only competitor with all six pillars.",
+                highlights: [
+                    "170 milhões de smartphones ativos e 5,4h/dia de uso — maior engajamento com apps do mundo",
+                    "91% dos entrevistados usam Pix diariamente e querem cashback e serviços financeiros integrados",
+                    "78% usam 4+ apps para tarefas que poderiam ser unificadas em uma única plataforma",
+                    "64% da classe C/D nunca usou app de governo — oportunidade enorme de inclusão digital",
+                    "Nenhum player brasileiro tem mini-apps — brecha direta para replicar o modelo WeChat/Alipay"
+                ],
+                highlights_en: [
+                    "170 million active smartphones and 5.4h/day usage — world's highest app engagement",
+                    "91% of interviewees use Pix daily and want integrated cashback and financial services",
+                    "78% use 4+ apps for tasks that could be unified in a single platform",
+                    "64% of the C/D income bracket has never used a government app — huge digital inclusion opportunity",
+                    "No Brazilian player has mini-apps — a direct gap to replicate the WeChat/Alipay model"
+                ]
+            },
+            {
+                title: "Personas",
+                title_en: "Personas",
+                type: "research",
+                methods: ["Pesquisa qualitativa com 40 entrevistas", "Análise demográfica IBGE e App Annie", "Card sorting para validação de categorias"],
+                methods_en: ["Qualitative research with 40 interviews", "IBGE and App Annie demographic analysis", "Card sorting for category validation"],
+                content: "3 personas construídas para cobrir o espectro socioeconômico e demográfico do Brasil.",
+                content_en: "3 personas built to cover Brazil's socioeconomic and demographic spectrum.",
+                highlights: [
+                    "Bruna Ferreira, 28, Auxiliar administrativa, São Paulo Zona Leste (renda familiar R$3.200, Ensino Médio) — Persona Primária. \"Eu não tenho tempo pra ficar abrindo 10 apps diferentes. Quero pagar conta, falar com a minha família e pedir a janta — tudo num lugar só.\" Usa: WhatsApp, Instagram, Nubank, iFood, YouTube.",
+                    "Cauã Mendonça, 22, Estudante de TI, Fortaleza (R$800 freelancer, Superior incompleto) — Early Adopter. \"Quero monetizar minha arte no app, ter minha lojinha, e ainda usar como portfólio. O WeChat fez isso — por que o Brasil não tem?\" Usa: TikTok, Discord, GitHub, Twitter/X, Mercado Livre.",
+                    "Seu Geraldo Lima, 62, Aposentado, Belo Horizonte (R$1.412 INSS, Fundamental incompleto) — Inclusão Digital. \"Minha filha fica mandando link pelo WhatsApp pra eu fazer as coisas, mas eu me perco. Se fosse mais simples, eu mesmo fazia.\" Usa: WhatsApp, YouTube, Meu INSS."
+                ],
+                highlights_en: [
+                    "Bruna Ferreira, 28, Administrative assistant, São Paulo East Zone (household income R$3,200, High School) — Primary Persona. \"I don't have time to keep opening 10 different apps. I want to pay bills, talk to my family and order dinner — all in one place.\" Uses: WhatsApp, Instagram, Nubank, iFood, YouTube.",
+                    "Cauã Mendonça, 22, IT student, Fortaleza (R$800 freelancer, incomplete college) — Early Adopter. \"I want to monetize my art in the app, have my own shop, and use it as a portfolio. WeChat did this — why doesn't Brazil have it?\" Uses: TikTok, Discord, GitHub, Twitter/X, Mercado Livre.",
+                    "Seu Geraldo Lima, 62, Retired, Belo Horizonte (R$1,412 INSS pension, incomplete elementary) — Digital Inclusion. \"My daughter keeps sending WhatsApp links for me to do things, but I get lost. If it were simpler, I could do it myself.\" Uses: WhatsApp, YouTube, Meu INSS."
+                ]
+            },
+            {
+                title: "Jornada do Usuário",
+                title_en: "User Journey",
+                type: "text",
+                content: "Jornada completa da persona primária Bruna, do primeiro acesso até usuária recorrente avançada. Descoberta: vê recomendação de amiga no grupo do WhatsApp — emoção: curiosidade/ceticismo (\"Mais um app?\"). Touchpoint: boca a boca digital + Play Store. Oportunidade: reputação social e prova de amigo. Onboarding: instala, cria conta com CPF + selfie — emoção: ansiedade (selfie travando, formulário longo). Touchpoint: app + SMS de verificação. Oportunidade: onboarding de 60s com gov.br SSO. Primeiro uso: manda mensagem para a família, paga conta de água — emoção: satisfação crescente. Oportunidade: discovery de features via chat assistente. Habituação: usa Pix, pede delivery, vê feed — emoção: encantamento (😍). Dor: notificações demais. Oportunidade: controle fino de notificações. Evangelização: indica para 5 contatos, ganha R$10 de cashback — emoção: orgulho e diversão (🤩). Touchpoint: programa de indicação com gamificação.",
+                content_en: "Complete journey of primary persona Bruna, from first access to advanced recurring user. Discovery: sees a friend's recommendation in a WhatsApp group — emotion: curiosity/skepticism ('Another app?'). Touchpoint: digital word-of-mouth + Play Store. Opportunity: social reputation and friend proof. Onboarding: installs, creates account with CPF + selfie — emotion: anxiety (selfie freezing, long form). Touchpoint: app + SMS verification. Opportunity: 60-second onboarding with gov.br SSO. First use: messages family, pays water bill — emotion: growing satisfaction. Opportunity: feature discovery via assistant chat. Habituation: uses Pix, orders delivery, views feed — emotion: delight (😍). Pain: too many notifications. Opportunity: granular notification controls. Evangelization: refers 5 contacts, earns R$10 cashback — emotion: pride and fun (🤩). Touchpoint: gamified referral program."
+            },
+            {
+                title: "Arquitetura de Informação",
+                title_en: "Information Architecture",
+                type: "research",
+                methods: ["Card sorting com 35 participantes", "Análise de árvore (tree testing)", "Hierarquia de 5 pilares raiz"],
+                methods_en: ["Card sorting with 35 participants", "Tree testing", "5-pillar root hierarchy"],
+                content: "Hierarquia de navegação com 5 pilares raiz, cada um com 6 sub-features. Baseada em card sorting com 35 participantes e análise de árvore para validar agrupamentos.",
+                content_en: "Navigation hierarchy with 5 root pillars, each with 6 sub-features. Based on card sorting with 35 participants and tree testing to validate groupings.",
+                highlights: [
+                    "💬 Conversar: chats 1:1, grupos, comunidades, canais, stickers BR, chamadas e vídeo",
+                    "💰 Dinheiro: Pix, carteira digital, pagar boleto, recarga, ZapPay (crédito), cashback",
+                    "🛍️ Serviços: mini-apps, delivery, mobilidade, saúde, educação, emprego",
+                    "🏛️ Gov Digital: INSS/Previdência, FGTS, Detran, nota fiscal, CadÚnico, Receita Federal",
+                    "🎭 Descobrir: feed/stories, Reels BR, marketplace, eventos locais, notícias, jogos"
+                ],
+                highlights_en: [
+                    "💬 Chat: 1:1 chats, groups, communities, channels, BR stickers, calls and video",
+                    "💰 Money: Pix, digital wallet, bill payment, top-up, ZapPay (credit), cashback",
+                    "🛍️ Services: mini-apps, delivery, mobility, health, education, employment",
+                    "🏛️ Digital Gov: INSS/Social Security, FGTS, Detran, fiscal receipt, CadÚnico, Federal Revenue",
+                    "🎭 Discover: feed/stories, BR Reels, marketplace, local events, news, games"
+                ]
+            },
+            {
+                title: "Features Prioritárias",
+                title_en: "Priority Features",
+                type: "research",
+                methods: ["MVP", "V2", "V3"],
+                methods_en: ["MVP", "V2", "V3"],
+                content: "5 features priorizadas por impacto no usuário × viabilidade técnica, organizadas em roadmap de 3 versões.",
+                content_en: "5 features prioritized by user impact × technical feasibility, organized into a 3-version roadmap.",
+                highlights: [
+                    "[MVP] Mensagens + Stickers Culturais: chat P2P e grupos com stickers temáticos do cotidiano brasileiro (carnaval, futebol, baile funk, sertanejo). Diferencial cultural inimitável por players globais.",
+                    "[MVP] ZapPay — Pix Nativo + Carteira: envio de Pix dentro do chat, carteira digital, pagamento de boletos e recargas sem sair do app.",
+                    "[V2] Gov.br SSO + Serviços Públicos: login único com gov.br para acessar INSS, FGTS, Detran e CadÚnico dentro do ZapVida. Parceria federal que cria barreira de entrada.",
+                    "[V2] Mini-apps de Terceiros: SDK aberto para empresas criarem mini-apps dentro do ZapVida — replicando o modelo WeChat com suas 3M+ mini-apps.",
+                    "[V3] Feed & Stories Comunitários: conteúdo hiperlocal por bairro, cidade e comunidade, com algoritmo que respeita a diversidade regional do Brasil."
+                ],
+                highlights_en: [
+                    "[MVP] Messaging + Cultural Stickers: P2P chat and groups with stickers themed around Brazilian daily life (carnival, football, baile funk, sertanejo). Cultural differentiator impossible for global players to replicate.",
+                    "[MVP] ZapPay — Native Pix + Wallet: send Pix within chat, digital wallet, bill payments and top-ups without leaving the app.",
+                    "[V2] Gov.br SSO + Public Services: single sign-on with gov.br to access INSS, FGTS, Detran and CadÚnico inside ZapVida. Federal partnership creating a moat.",
+                    "[V2] Third-party Mini-apps: open SDK for companies to build mini-apps inside ZapVida — replicating WeChat's 3M+ mini-app model.",
+                    "[V3] Community Feed & Stories: hyperlocal content by neighborhood, city, and community, with an algorithm that respects Brazil's regional diversity."
+                ]
+            },
+            {
+                title: "Como Poderíamos…",
+                title_en: "How Might We…",
+                type: "research",
+                methods: ["HMW · Gov Digital", "HMW · Recompensas", "HMW · Inclusão Digital", "HMW · Mini-apps", "HMW · Crescimento Orgânico", "HMW · Segurança"],
+                methods_en: ["HMW · Digital Gov", "HMW · Rewards", "HMW · Digital Inclusion", "HMW · Mini-apps", "HMW · Organic Growth", "HMW · Security"],
+                content: "Perguntas HMW derivadas dos insights de pesquisa primária.",
+                content_en: "HMW questions derived from primary research insights.",
+                highlights: [
+                    "Como poderíamos tornar o acesso a serviços públicos tão fácil quanto mandar uma mensagem no ZapVida?",
+                    "Como poderíamos criar um sistema de recompensas que incentive o brasileiro a usar o app no dia a dia?",
+                    "Como poderíamos incluir usuários com baixa escolaridade digital sem infantilizar a experiência?",
+                    "Como poderíamos criar mini-apps de terceiros que se integrem nativamente à identidade do ZapVida?",
+                    "Como poderíamos usar a cultura da fofoca e da comunidade para crescer organicamente?",
+                    "Como poderíamos garantir confiança e segurança em um país com alta fraude digital?"
+                ],
+                highlights_en: [
+                    "How might we make accessing public services as easy as sending a message on ZapVida?",
+                    "How might we create a rewards system that motivates Brazilians to use the app daily?",
+                    "How might we include users with low digital literacy without infantilizing the experience?",
+                    "How might we create third-party mini-apps that integrate natively with ZapVida's identity?",
+                    "How might we use the culture of gossip and community to grow organically?",
+                    "How might we guarantee trust and security in a country with high digital fraud?"
+                ]
+            },
+            {
+                title: "Resultados & Entregáveis",
+                title_en: "Results & Deliverables",
+                type: "outcomes",
+                metrics: [
+                    { value: "40", label: "entrevistas em profundidade realizadas" },
+                    { value: "1.200", label: "respondentes no survey quantitativo" },
+                    { value: "8", label: "seções de entregáveis (pesquisa ao design system)" }
+                ],
+                metrics_en: [
+                    { value: "40", label: "in-depth interviews conducted" },
+                    { value: "1,200", label: "quantitative survey respondents" },
+                    { value: "8", label: "deliverable sections (research to design system)" }
+                ],
+                content: "O projeto resultou em um documento completo cobrindo todas as fases do processo UX, desde a pesquisa de mercado até wireframes e sistema de design. O principal aprendizado foi sobre a necessidade de um produto genuinamente brasileiro — não uma adaptação de modelos globais. A decisão de incluir gov digital como pilar raiz (não como serviço secundário) foi o insight mais contraintuitivo e, possivelmente, o maior diferencial competitivo: nenhum super-app global tem incentivo para integrar serviços públicos brasileiros, mas esse é exatamente o lock-in que cria adoção na classe C/D e em usuários mais velhos. A arquitetura de 5 pilares nasceu diretamente do card sorting, que revelou que \"dinheiro\" e \"serviços\" são categorias mentais distintas para o brasileiro — ao contrário do que modelos ocidentais costumam assumir.",
+                content_en: "The project resulted in a complete document covering all UX process phases, from market research to wireframes and design system. The key learning was about the need for a genuinely Brazilian product — not an adaptation of global models. The decision to include digital gov as a root pillar (not a secondary service) was the most counterintuitive insight and possibly the biggest competitive differentiator: no global super-app has an incentive to integrate Brazilian public services, but this is exactly the lock-in that drives adoption among the C/D class and older users. The 5-pillar architecture emerged directly from the card sorting, which revealed that 'money' and 'services' are distinct mental categories for Brazilians — contrary to what Western models typically assume."
+            }
+        ]
     },
     {
         id: 8,
@@ -770,7 +1062,7 @@ export const projectsData = [
         src: "/images/projects/palavraselvagem_full2.jpg",
         pageSrc: "/images/projects/palavraselvagem_full.jpg",
         category: "Game Design & AI Engineering",
-        tags: ["Game Design", "AI Engineering", "LXD"],
+        tags: ["Game Design", "AI Engineering"],
         title: "Palavra Selvagem",
         tagline: "Jogo educativo onde crianças montam nomes de animais, aprendem curiosidades e treinam alfabetização.",
         tagline_en: "Educational game where children build animal names, learn fun facts and practice literacy skills.",
@@ -844,7 +1136,7 @@ export const projectsData = [
         liveDemoLink: "https://orbinum.vercel.app/",
         src: "/images/projects/orbinum_full.jpg",
         category: "Game Design & AI Engineering",
-        tags: ["Game Design", "AI Engineering", "LXD"],
+        tags: ["Game Design", "AI Engineering"],
         title: "OrbiNum",
         tagline: "Missão espacial onde operações matemáticas abastecem um foguete e desbloqueiam planetas.",
         tagline_en: "Space mission where math operations fuel a rocket and unlock planets across the solar system.",
