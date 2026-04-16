@@ -5,19 +5,19 @@ import { createContext, useContext, useState, useEffect, useCallback } from 'rea
 export const translations = {
   en: {
     nav: { home: 'Home', about: 'About', services: 'Services', works: 'Projects', contact: 'Contact' },
-    hireMe: 'Hire Me',
+    hireMe: 'Get In Touch',
     hero: {
       tagline: 'Product Designer',
       headline: ['Design that speaks', 'before words.'],
       sub: 'I design and build complete digital products, from user research and interface design to fully functional applications.',
       cta1: 'View Projects',
-      cta2: 'Hire Me',
+      cta2: 'Get In Touch',
     },
     profile: {
       subtitle: 'Based in Rio de Janeiro',
       heading: 'Product Designer',
       bio: "Product Designer & Design Engineer bridging the gap between great design and working product. I don't just design screens; I ship them.",
-      available: 'Open to Freelance',
+      available: 'Open to Work',
       downloadCV: 'Download CV',
       viewProjects: 'View Projects',
     },
@@ -64,8 +64,8 @@ export const translations = {
       sub: 'From design to deployment. I work across the full stack — from Figma wireframes to production-ready apps built with AI-assisted engineering.',
     },
     cta: {
-      title: "Got a product idea? Let's design and build it together.",
-      sub: "I work with companies and founders to turn ideas into real, functional products. From wireframe to deployed app, I handle the full journey.",
+      title: "Looking to hire a Product Designer? Let's talk.",
+      sub: "Open to full-time and contract roles. I cover the full product design cycle — from user research to shipped code.",
       btn: "Let's Talk",
     },
     contact: {
@@ -73,7 +73,7 @@ export const translations = {
       title: "Let's build something great.",
       locationLabel: 'Location:',
       locationValue: 'Rio de Janeiro, Brazil',
-      locationNote: 'Available for remote work and freelance',
+      locationNote: 'Available for remote work and on-site in Rio',
       phoneLabel: 'Phone:',
       emailLabel: 'Email:',
       nameLabel: 'Full Name',
@@ -121,19 +121,19 @@ export const translations = {
   },
   pt: {
     nav: { home: 'Início', about: 'Sobre', services: 'Serviços', works: 'Projetos', contact: 'Contato' },
-    hireMe: 'Me Contrate',
+    hireMe: 'Entrar em Contato',
     hero: {
       tagline: 'Designer de Produto',
       headline: ['Design que fala', 'antes das palavras.'],
       sub: 'Projeto e construo produtos digitais completos da pesquisa com usuários e design de interface até aplicações totalmente funcionais.',
       cta1: 'Ver Projetos',
-      cta2: 'Me Contrate',
+      cta2: 'Entrar em Contato',
     },
     profile: {
       subtitle: 'Atuando a partir do Rio de Janeiro',
       heading: 'Designer de Produto',
       bio: 'Designer de Produto & Design Engineer que une design de qualidade com código funcional. Mais do que projetar telas, eu as entrego funcionando.',
-      available: 'Aberto a Freelance',
+      available: 'Aberto a Oportunidades',
       downloadCV: 'Baixar CV',
       viewProjects: 'Ver Projetos',
     },
@@ -180,8 +180,8 @@ export const translations = {
       sub: 'Do design ao deploy. Trabalho em todo o stack — de wireframes no Figma a apps em produção construídos com engenharia assistida por IA.',
     },
     cta: {
-      title: 'Tem uma ideia de produto? Vamos projetar e construir juntos.',
-      sub: 'Trabalho com empresas e founders para transformar ideias em produtos reais e funcionais. Do wireframe ao app em produção, cuidando de todo o processo.',
+      title: 'Procurando um Product Designer? Vamos conversar.',
+      sub: 'Disponível para vagas CLT e PJ. Cubro o ciclo completo de design de produto — da pesquisa com usuários ao código em produção.',
       btn: 'Vamos Conversar',
     },
     contact: {
@@ -189,7 +189,7 @@ export const translations = {
       title: 'Vamos construir algo incrível.',
       locationLabel: 'Localização:',
       locationValue: 'Rio de Janeiro, Brasil',
-      locationNote: 'Disponível para trabalho remoto e freelance',
+      locationNote: 'Disponível para remoto e presencial no Rio',
       phoneLabel: 'Telefone:',
       emailLabel: 'E-mail:',
       nameLabel: 'Nome Completo',
