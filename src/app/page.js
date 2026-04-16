@@ -5,6 +5,7 @@ import Portfolio from '../components/sections/portfolio'
 import Resume from '../components/sections/resume'
 import ScrollSnap from '../components/ui/ScrollSnap'
 import SkillsSection from '../components/sections/skillsSection'
+import CallToAction from '../components/sections/callToAction'
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <SkillsSection />
             <Resume />
             <Portfolio />
+            <CallToAction />
         </>
     )
 }

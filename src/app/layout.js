@@ -2,7 +2,6 @@ import Preloader from "@/components/ui/preloader";
 import "./global.css"
 import BootstrapForBrowser from "@/components/ui/bootstrapForBrowser";
 import Header from "@/components/sections/header";
-import CallToAction from "@/components/sections/callToAction";
 import Footer from "@/components/sections/footer";
 import Providers from "@/components/ui/Providers";
 
@@ -24,7 +23,6 @@ export default function RootLayout({ children }) {
           <Preloader />
           <Header />
           {children}
-          <CallToAction />
           <Footer />
         </Providers>
       </body>
