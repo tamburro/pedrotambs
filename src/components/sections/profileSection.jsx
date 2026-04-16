@@ -50,7 +50,7 @@ const ProfileSection = () => {
                                     <a href="/pedro-tamburro-cv.pdf" download="Pedro_Tamburro_CV.pdf" className="theme-btn">
                                         {t.profile.downloadCV} <i><RiDownloadLine size={16} /></i>
                                     </a>
-                                    <Link href="#portfolio" className="theme-btn theme-btn--outline">
+                                    <Link href="/works" className="theme-btn theme-btn--outline">
                                         {t.profile.viewProjects}
                                     </Link>
                                 </div>
