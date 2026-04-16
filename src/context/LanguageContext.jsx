@@ -61,11 +61,11 @@ export const translations = {
     },
     skills: {
       headline: 'Tools I work with',
-      sub: 'From design to deployment. I work across the full stack — from Figma wireframes to production-ready apps built with AI-assisted engineering.',
+      sub: 'From design to deployment. I work across the full stack, from Figma wireframes to production-ready apps built with AI-assisted engineering.',
     },
     cta: {
       title: "Looking to hire a Product Designer? Let's talk.",
-      sub: "Open to full-time and contract roles. I cover the full product design cycle — from user research to shipped code.",
+      sub: "Open to full-time and contract roles. I cover the full product design cycle, from user research to shipped code.",
       btn: "Let's Talk",
     },
     contact: {
@@ -177,11 +177,11 @@ export const translations = {
     },
     skills: {
       headline: 'Ferramentas que uso',
-      sub: 'Do design ao deploy. Trabalho em todo o stack — de wireframes no Figma a apps em produção construídos com engenharia assistida por IA.',
+      sub: 'Do design ao deploy. Trabalho em todo o stack, de wireframes no Figma a apps em produção construídos com engenharia assistida por IA.',
     },
     cta: {
       title: 'Procurando um Product Designer? Vamos conversar.',
-      sub: 'Disponível para vagas CLT e PJ. Cubro o ciclo completo de design de produto — da pesquisa com usuários ao código em produção.',
+      sub: 'Disponível para vagas CLT e PJ. Cubro o ciclo completo de design de produto, da pesquisa com usuários ao código em produção.',
       btn: 'Vamos Conversar',
     },
     contact: {
@@ -245,15 +245,23 @@ const LanguageContext = createContext({
 })
 
 // ─── Provider ─────────────────────────────────────────────────────────────────
+const STORAGE_KEY = 'portfolio-lang'
+
+function detectLang() {
+  const saved = localStorage.getItem(STORAGE_KEY)
+  if (saved === 'pt' || saved === 'en') return saved
+  return navigator.language?.startsWith('pt') ? 'pt' : 'en'
+}
+
 export function LanguageProvider({ children }) {
-  // Start with null to avoid hydration mismatch, resolved after mount
   const [lang, setLang] = useState(null)
 
   useEffect(() => {
-    setLang('en')
+    setLang(detectLang())
   }, [])
 
   const toggle = useCallback((newLang) => {
+    localStorage.setItem(STORAGE_KEY, newLang)
     setLang(newLang)
   }, [])
 
