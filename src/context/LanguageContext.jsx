@@ -7,7 +7,7 @@ export const translations = {
     nav: { home: 'Home', about: 'About', services: 'Services', works: 'Projects', contact: 'Contact' },
     hireMe: 'Hire Me',
     hero: {
-      tagline: 'Product Designer · Design Engineer',
+      tagline: 'Product Designer',
       headline: ['Design that speaks', 'before words.'],
       sub: 'I design and build complete digital products, from user research and interface design to fully functional applications.',
       cta1: 'View Projects',
@@ -15,7 +15,7 @@ export const translations = {
     },
     profile: {
       subtitle: 'Based in Rio de Janeiro',
-      heading: 'Product Designer\n& Design Engineer',
+      heading: 'Product Designer',
       bio: "Product Designer & Design Engineer bridging the gap between great design and working product. I don't just design screens; I ship them.",
       available: 'Open to Freelance',
       downloadCV: 'Download CV',
@@ -123,7 +123,7 @@ export const translations = {
     nav: { home: 'Início', about: 'Sobre', services: 'Serviços', works: 'Projetos', contact: 'Contato' },
     hireMe: 'Me Contrate',
     hero: {
-      tagline: 'Designer de Produto · Design Engineer',
+      tagline: 'Designer de Produto',
       headline: ['Design que fala', 'antes das palavras.'],
       sub: 'Projeto e construo produtos digitais completos da pesquisa com usuários e design de interface até aplicações totalmente funcionais.',
       cta1: 'Ver Projetos',
@@ -131,7 +131,7 @@ export const translations = {
     },
     profile: {
       subtitle: 'Atuando a partir do Rio de Janeiro',
-      heading: 'Designer de Produto\n& Design Engineer',
+      heading: 'Designer de Produto',
       bio: 'Designer de Produto & Design Engineer que une design de qualidade com código funcional. Mais do que projetar telas, eu as entrego funcionando.',
       available: 'Aberto a Freelance',
       downloadCV: 'Baixar CV',

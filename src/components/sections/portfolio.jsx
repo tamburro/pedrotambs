@@ -9,9 +9,9 @@ import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext'
 import { MagicCard, useSpotlight } from '@/components/ui/MagicCard';
 
-const DISPLAY_ORDER = [1, 2, 3, 4, 7, 6, 10, 8, 9];
+const DISPLAY_ORDER = [5, 3, 4, 6, 7, 1, 2, 10, 8, 9];
 const VISIBLE_COUNT = 6;
-const FILTER_ORDER = ["Product Design", "AI Engineering", "UX/UI Design", "UX Research", "Game Design", "LXD"];
+const FILTER_ORDER = ["UX/UI Design", "UX Research", "Product Design", "AI Engineering", "Game Design"];
 
 const Portfolio = ({ className }) => {
     const { t, lang } = useLanguage();
