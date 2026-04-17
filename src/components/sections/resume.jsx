@@ -12,9 +12,9 @@ const Resume = () => {
         <section id="resume" className="resume-area">
             <div className="container">
                 <div className="resume-items">
-                    <div className="row">
-                        <div className="col-xl-6 col-md-6">
-                            <div className="single-resume">
+                    <div className="row" style={{ alignItems: 'stretch' }}>
+                        <div className="col-xl-6 col-md-6" style={{ display: 'flex' }}>
+                            <div className="single-resume" style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
                                 <h2>{t.resume.experience}</h2>
                                 <div className="experience-list">
                                     <Card logo="/images/companies/globo.jpeg" year={t.resume.year1} title={t.resume.title1} institution="Editora Globo" description={t.resume.exp1} />
@@ -27,7 +27,7 @@ const Resume = () => {
                                         </>
                                     )}
                                 </div>
-                                <div style={{ marginTop: '16px' }}>
+                                <div style={{ marginTop: 'auto', paddingTop: '16px' }}>
                                     <button
                                         className="resume-show-more-btn"
                                         onClick={() => setExpanded(v => !v)}
@@ -40,8 +40,8 @@ const Resume = () => {
                             </div>
                         </div>
 
-                        <div className="col-xl-6 col-md-6">
-                            <div className="single-resume">
+                        <div className="col-xl-6 col-md-6" style={{ display: 'flex' }}>
+                            <div className="single-resume" style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
                                 <h2>{t.resume.education}</h2>
                                 <div className="experience-list">
                                     <Card logo="/images/education/uxunicornio.jpeg" year={t.resume.eduYear1} title={t.resume.eduTitle1} institution="UX Unicórnio" description={t.resume.edu1} />
