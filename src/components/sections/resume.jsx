@@ -19,9 +19,9 @@ const Resume = () => {
                                 <div className="experience-list">
                                     <Card logo="/images/companies/globo.jpeg" year={t.resume.year1} title={t.resume.title1} institution="Editora Globo" description={t.resume.exp1} />
                                     <Card logo="/images/companies/yduqs.jpeg" year={t.resume.year2} title={t.resume.title2} institution="YDUQS" description={t.resume.exp2} />
-                                    <Card logo="/images/companies/estacio.jpeg" year={t.resume.year3} title={t.resume.title3} institution="Estácio" description={t.resume.exp3} />
                                     {expanded && (
                                         <>
+                                            <Card logo="/images/companies/estacio.jpeg" year={t.resume.year3} title={t.resume.title3} institution="Estácio" description={t.resume.exp3} />
                                             <Card logo="/images/companies/conspiracao.jpeg" year={t.resume.year4} title={t.resume.title4} institution="Conspiração Filmes" description={t.resume.exp4} />
                                             <Card logo="/images/companies/brq.jpeg" year={t.resume.year5} title={t.resume.title5} institution="BRQ Digital Solutions" description={t.resume.exp5} />
                                         </>
