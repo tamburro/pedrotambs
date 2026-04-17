@@ -744,20 +744,20 @@ export const projectsData = [
         slug: "pixtudo-super-app-ux-research",
         liveDemoLink: "https://app-src-two.vercel.app/",
         src: "/images/projects/pixtudo_full.jpg",
-        category: "UX Research",
-        tags: ["UX Research"],
+        category: "UX Research & Engineering",
+        tags: ["UX Research", "AI Engineering"],
         title: "PixTudo",
-        tagline: "Pesquisa de mercado, personas, jornadas e arquitetura de UX para o Alipay do Brasil.",
-        tagline_en: "Market research, personas, journeys and UX architecture for Brazil's Alipay.",
-        description: "Documento completo de UX Research & Design para o PixTudo — um super-app financeiro brasileiro. O projeto abrange pesquisa de mercado, análise competitiva, 3 personas, jornada do usuário, arquitetura de informação, wireframes lo-fi, princípios de design e roadmap de produto.",
-        description_en: "Complete UX Research & Design document for PixTudo — a Brazilian financial super-app. The project covers market research, competitive analysis, 3 personas, user journey, information architecture, lo-fi wireframes, design principles, and product roadmap.",
+        tagline: "Do documento de pesquisa ao MVP funcional: super-app financeiro com Pix, cashback e score inteligente.",
+        tagline_en: "From research to working MVP: financial super-app with Pix, cashback and smart score.",
+        description: "Pesquisa completa de UX e MVP funcional do PixTudo, um super-app financeiro brasileiro. A pesquisa cobre mercado, análise competitiva, 3 personas, jornada, arquitetura de informação e princípios de design. O MVP entrega Pix simulado com cashback, extrato inteligente, Score PixTudo com gamificação, hub de serviços e rateio social.",
+        description_en: "Full UX research and working MVP of PixTudo, a Brazilian financial super-app. Research covers market analysis, competitive benchmarking, 3 personas, user journey, information architecture and design principles. The MVP delivers simulated Pix with cashback, smart statement, gamified PixTudo Score, services hub and social bill-splitting.",
         year: "2026",
-        role: "UX Researcher",
-        timeline: "3 dias",
-        timeline_en: "3 days",
+        role: "UX Researcher & Design Engineer",
+        timeline: "3 dias (pesquisa) + MVP",
+        timeline_en: "3 days (research) + MVP",
         team: "Solo",
         client: "Projeto Pessoal",
-        tools: ["Figma", "Miro"],
+        tools: ["Figma", "Miro", "Next.js", "Claude API", "Prisma", "Vercel"],
         prototypeLinks: [{ label: "Ver documento de pesquisa", url: "/pix-tudo-ux.html" }],
         sections: [
             {
@@ -874,21 +874,28 @@ export const projectsData = [
                 ]
             },
             {
+                title: "MVP",
+                title_en: "MVP",
+                type: "text",
+                content: "A pesquisa não ficou no papel. Construí um MVP funcional com as features priorizadas na fase de discovery: Pix simulado com cashback automático de 1,5%, extrato com categorização inteligente de gastos, Score PixTudo com gamificação e metas financeiras, hub de serviços (recarga de celular, vale-transporte, pagamento de contas) e rateio social com amigos. O produto tem plano PRO por R$19,90/mês com trial gratuito de 14 dias.",
+                content_en: "The research didn't stay on paper. I built a working MVP with the features prioritized during discovery: simulated Pix with automatic 1.5% cashback, statement with intelligent spending categorization, PixTudo Score with gamification and financial goals, services hub (mobile top-up, transit pass, bill payments) and social bill-splitting. The product has a PRO plan at R$19.90/month with a 14-day free trial."
+            },
+            {
                 title: "Resultados & Entregáveis",
                 title_en: "Results & Deliverables",
                 type: "outcomes",
                 metrics: [
-                    { value: "3", label: "personas baseadas em pesquisa com 240 usuários" },
-                    { value: "6", label: "princípios de design derivados de campo" },
-                    { value: "10", label: "seções de entregáveis (pesquisa ao roadmap)" }
+                    { value: "1", label: "MVP lançado e funcional" },
+                    { value: "5", label: "features core implementadas" },
+                    { value: "3", label: "personas baseadas em pesquisa com 240 usuários" }
                 ],
                 metrics_en: [
-                    { value: "3", label: "personas based on research with 240 users" },
-                    { value: "6", label: "design principles derived from field research" },
-                    { value: "10", label: "deliverable sections (research to roadmap)" }
+                    { value: "1", label: "working MVP shipped" },
+                    { value: "5", label: "core features implemented" },
+                    { value: "3", label: "personas based on research with 240 users" }
                 ],
-                content: "O projeto resultou em um documento completo de Discovery → Design com 10 seções entregáveis: pesquisa de mercado, análise competitiva, personas, jornada do usuário, HMW, arquitetura de informação, wireframes lo-fi, princípios de design, KPIs e roadmap. O principal aprendizado foi sobre a interdependência entre cultura e UX: no Brasil, as decisões de design financeiro são inseparáveis de comportamentos sociais como o pagamento coletivo, a desconfiança histórica em bancos e a centralidade do WhatsApp como infraestrutura de comunicação. Um super-app brasileiro bem-sucedido precisa ser desenhado desde o princípio para essa realidade, não adaptado de modelos estrangeiros.",
-                content_en: "The project resulted in a complete Discovery → Design document with 10 deliverable sections: market research, competitive analysis, personas, user journey, HMW, information architecture, lo-fi wireframes, design principles, KPIs, and roadmap. The key learning was about the interdependence between culture and UX: in Brazil, financial design decisions are inseparable from social behaviors like collective payment, historical distrust of banks, and WhatsApp's centrality as communication infrastructure. A successful Brazilian super-app must be designed from the ground up for this reality, not adapted from foreign models."
+                content: "O projeto percorreu o ciclo completo: pesquisa de mercado, análise competitiva, personas, jornada do usuário, HMW, arquitetura de informação, princípios de design e roadmap — seguidos da construção do MVP. O principal aprendizado foi sobre a interdependência entre cultura e UX: no Brasil, as decisões de design financeiro são inseparáveis de comportamentos sociais como o pagamento coletivo, a desconfiança histórica em bancos e a centralidade do WhatsApp. Um super-app brasileiro bem-sucedido precisa ser desenhado para essa realidade desde o princípio, não adaptado de modelos estrangeiros.",
+                content_en: "The project covered the full cycle: market research, competitive analysis, personas, user journey, HMW, information architecture, design principles and roadmap — followed by building the MVP. The key learning was about the interdependence between culture and UX: in Brazil, financial design decisions are inseparable from social behaviors like collective payment, historical distrust of banks, and WhatsApp's centrality. A successful Brazilian super-app must be designed from the ground up for this reality, not adapted from foreign models."
             }
         ]
     },
