@@ -7,7 +7,7 @@ import SlideUp from '@/utlits/animations/slideUp';
 import { useLanguage } from '@/context/LanguageContext';
 
 const ProfileSection = () => {
-    const { t } = useLanguage();
+    const { t, lang } = useLanguage();
     return (
         <section id="about" className="about-area">
             <div className="container">
@@ -47,7 +47,7 @@ const ProfileSection = () => {
                                     </ul>
                                 </div>
                                 <div className="hero-btns">
-                                    <a href="/pedro-tamburro-cv.pdf" download="Pedro_Tamburro_CV.pdf" className="theme-btn">
+                                    <a href={`/pedro-tamburro-cv-${lang}.pdf`} download={`Pedro_Tamburro_CV_${lang.toUpperCase()}.pdf`} className="theme-btn">
                                         {t.profile.downloadCV} <i><RiDownloadLine size={16} /></i>
                                     </a>
                                     <Link href="#portfolio" className="theme-btn theme-btn--outline">
