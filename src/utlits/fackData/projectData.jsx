@@ -742,6 +742,7 @@ export const projectsData = [
     {
         id: 6,
         slug: "pixtudo-super-app-ux-research",
+        liveDemoLink: "https://app-src-two.vercel.app/",
         src: "/images/projects/pixtudo_full.jpg",
         category: "UX Research",
         tags: ["UX Research"],
